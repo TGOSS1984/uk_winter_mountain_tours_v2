@@ -28,7 +28,8 @@
 </section>
 
 <div class="container my-5">
-{% include 'includes/messages.html' %}
+  {% include 'includes/messages.html' %}
+
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h1>My Bookings</h1>
     <a href="{% url 'booking_create' %}" class="btn cta-btn">New Booking</a>
@@ -39,7 +40,12 @@
       <table class="table align-middle">
         <thead>
           <tr>
-            <th>Route</th><th>Guide</th><th>Date</th><th>Time</th><th>Status</th>
+            <th>Route</th>
+            <th>Guide</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th class="text-end">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -50,6 +56,20 @@
               <td>{{ b.date }}</td>
               <td>{{ b.get_time_slot_display }}</td>
               <td>{{ b.get_status_display }}</td>
+              <td class="text-end">
+                {# Show cancel only for today/future bookings that aren't already cancelled #}
+                {% if b.date >= today and b.status != 'cancelled' %}
+                  <form method="post" action="{% url 'booking_cancel' b.pk %}" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger btn-sm"
+                            onclick="return confirm('Cancel this booking?');">
+                      Cancel
+                    </button>
+                  </form>
+                {% else %}
+                  <span class="text-muted">—</span>
+                {% endif %}
+              </td>
             </tr>
           {% endfor %}
         </tbody>
@@ -61,5 +81,6 @@
 </div>
 
 {% endblock %}
+
 
 
