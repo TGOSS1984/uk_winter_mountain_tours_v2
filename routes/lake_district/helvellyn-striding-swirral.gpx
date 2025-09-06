@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<gpx version="1.1"
+  creator="The Hug - http://maps.the-hug.net/"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1
+  http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <rte>
+   <name>New Route</name>
+    <rtept lat="54.54513" lon="-2.95259">
+      <ele>159</ele>
+      <name>1:</name>
+    </rtept>
+    <rtept lat="54.54383" lon="-2.94963">
+      <ele>153</ele>
+      <name>2:</name>
+    </rtept>
+    <rtept lat="54.53632" lon="-2.94383">
+      <ele>152</ele>
+      <name>3:</name>
+    </rtept>
+    <rtept lat="54.53246" lon="-2.95478">
+      <ele>198</ele>
+      <name>4:</name>
+    </rtept>
+    <rtept lat="54.53383" lon="-2.95600">
+      <ele>200</ele>
+      <name>5:</name>
+    </rtept>
+    <rtept lat="54.53514" lon="-2.95776">
+      <ele>254</ele>
+      <name>6:</name>
+    </rtept>
+    <rtept lat="54.53255" lon="-2.97869">
+      <ele>495</ele>
+      <name>7:</name>
+    </rtept>
+    <rtept lat="54.53075" lon="-2.99141">
+      <ele>704</ele>
+      <name>8:</name>
+    </rtept>
+    <rtept lat="54.52754" lon="-2.99770">
+      <ele>775</ele>
+      <name>9:</name>
+    </rtept>
+    <rtept lat="54.52523" lon="-3.00576">
+      <ele>835</ele>
+      <name>10:</name>
+    </rtept>
+    <rtept lat="54.52581" lon="-3.01410">
+      <ele>903</ele>
+      <name>11:</name>
+    </rtept>
+    <rtept lat="54.52664" lon="-3.01710">
+      <ele>941</ele>
+      <name>12:</name>
+    </rtept>
+    <rtept lat="54.52739" lon="-3.01903">
+      <ele>944</ele>
+      <name>13:</name>
+    </rtept>
+    <rtept lat="54.52868" lon="-3.01895">
+      <ele>918</ele>
+      <name>14:</name>
+    </rtept>
+    <rtept lat="54.53077" lon="-3.01316">
+      <ele>820</ele>
+      <name>15:</name>
+    </rtept>
+    <rtept lat="54.53040" lon="-3.00418">
+      <ele>712</ele>
+      <name>16:</name>
+    </rtept>
+    <rtept lat="54.53284" lon="-2.99738">
+      <ele>639</ele>
+      <name>17:</name>
+    </rtept>
+    <rtept lat="54.53682" lon="-2.99558">
+      <ele>521</ele>
+      <name>18:</name>
+    </rtept>
+    <rtept lat="54.54080" lon="-2.99654">
+      <ele>441</ele>
+      <name>19:</name>
+    </rtept>
+    <rtept lat="54.54690" lon="-2.98625">
+      <ele>343</ele>
+      <name>20:</name>
+    </rtept>
+    <rtept lat="54.54787" lon="-2.98317">
+      <ele>303</ele>
+      <name>21:</name>
+    </rtept>
+    <rtept lat="54.54660" lon="-2.96966">
+      <ele>238</ele>
+      <name>22:</name>
+    </rtept>
+    <rtept lat="54.54493" lon="-2.95799">
+      <ele>195</ele>
+      <name>23:</name>
+    </rtept>
+    <rtept lat="54.54444" lon="-2.95203">
+      <ele>159</ele>
+      <name>24:</name>
+    </rtept>
+  </rte>
+</gpx>
