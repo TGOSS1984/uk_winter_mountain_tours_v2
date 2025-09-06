@@ -1,0 +1,29 @@
+{# templates/includes/hero.html #}
+{# Expected context:
+   hero_title, hero_subtitle,
+   hero_img (fallback), hero_img_xl (optional),
+   cta_url (optional), cta_label (optional)
+#}
+<section class="hero-section d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">{{ hero_title }}</h1>
+        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">{{ hero_subtitle }}</p>
+        {% if cta_url and cta_label %}
+          <a href="{{ cta_url }}" class="btn cta-btn mt-3">{{ cta_label }}</a>
+        {% endif %}
+      </div>
+
+      <div class="col-lg-6 p-0">
+        <picture>
+          {% if hero_img_xl %}
+            <source media="(min-width: 1600px)" srcset="{{ hero_img_xl }}">
+          {% endif %}
+          <img src="{{ hero_img }}" alt="Hero"
+               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>

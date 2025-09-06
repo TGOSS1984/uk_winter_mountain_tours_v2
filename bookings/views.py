@@ -7,24 +7,48 @@ from django.utils.decorators import method_decorator
 from .models import Booking
 from .forms import BookingForm
 
+
 @method_decorator(login_required, name='dispatch')
 class BookingListView(ListView):
-    template_name='bookings/booking_list.html'
-    context_object_name='bookings'
+    template_name = 'bookings/booking_list.html'
+    context_object_name = 'bookings'
+
     def get_queryset(self):
-        return Booking.objects.filter(user=self.request.user).order_by('-date','-created_at')
+        return Booking.objects.filter(user=self.request.user).order_by('-date', '-created_at')
+
 
 @method_decorator(login_required, name='dispatch')
 class BookingCreateView(CreateView):
-    template_name='bookings/booking_form.html'
-    form_class=BookingForm
-    success_url=reverse_lazy('booking_list')
+    template_name = 'bookings/booking_form.html'
+    form_class = BookingForm
+    success_url = reverse_lazy('booking_list')
+
     def get_form_kwargs(self):
-        kwargs=super().get_form_kwargs(); kwargs['user']=self.request.user; return kwargs
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx.update({
+            'booking_url': reverse_lazy('booking_create'),
+            'hero_title': 'Explore the Mountains',
+            'hero_subtitle': "Experience unforgettable tours across the UK's stunning snowy peaks",
+            # paths are relative to STATIC and used by {% static hero_img %} inside the include
+            'hero_img': 'images/hero/maincribgoch2048x1737px.webp',
+            'hero_img_xl': 'images/hero/maincribgoch2048x1737px.webp',
+        })
+        return ctx
+
     def form_valid(self, form):
-        booking=form.save(commit=False); booking.user=self.request.user
+        booking = form.save(commit=False)
+        booking.user = self.request.user
         try:
-            booking.full_clean(); booking.save(); messages.success(self.request,'Booking created successfully.')
+            booking.full_clean()
+            booking.save()
+            messages.success(self.request, 'Booking created successfully.')
             return redirect(self.success_url)
         except Exception as e:
-            form.add_error(None, e); return self.form_invalid(form)
+            form.add_error(None, e)
+            return self.form_invalid(form)
+

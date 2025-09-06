@@ -1,1 +1,46 @@
-{% extends 'base.html' %}{% block content %}<h1>New Booking</h1><form method="post">{% csrf_token %}{{ form.as_p }}<button class="btn" type="submit">Book</button></form>{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{# --- HERO (inline, exactly your markup) --- #}
+<section class="hero-section d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Explore the Mountains</h1>
+        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">
+          Experience unforgettable tours across the UK's stunning snowy peaks
+        </p>
+        {# On this page, point the CTA to the form #}
+        <a href="#booking-form" class="btn cta-btn mt-3">Book Now</a>
+      </div>
+
+      <div class="col-lg-6 p-0">
+        <picture>
+          <!-- ultrawide source -->
+          <source media="(min-width: 1600px)" srcset="{% static 'images/hero/maincribgoch2048x1737px.webp' %}">
+          <!-- fallback -->
+          <img src="{% static 'images/hero/maincribgoch2048x1737px.webp' %}"
+               alt="Hero"
+               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# --- BOOKING FORM --- #}
+<div class="container py-5" id="booking-form">
+  <h1>New Booking</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn cta-btn" type="submit">Book</button>
+  </form>
+</div>
+
+{% endblock %}
+
+
+

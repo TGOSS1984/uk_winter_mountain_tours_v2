@@ -1,1 +1,35 @@
-{% extends 'base.html' %}{% block content %}<h1>My Bookings</h1><ul class="booking-list">{% for b in bookings %}<li>{{ b.date }} ({{ b.get_time_slot_display }}) – {{ b.route }} with {{ b.guide }} — {{ b.get_status_display }}</li>{% empty %}<li>No bookings yet.</li>{% endfor %}</ul>{% endblock %}
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>My Bookings</h1>
+    <a href="{% url 'booking_create' %}" class="btn cta-btn">New Booking</a>
+  </div>
+
+  {% if bookings %}
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>Route</th><th>Guide</th><th>Date</th><th>Time</th><th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for b in bookings %}
+            <tr>
+              <td>{{ b.route.name }}</td>
+              <td>{{ b.guide.name }}</td>
+              <td>{{ b.date }}</td>
+              <td>{{ b.get_time_slot_display }}</td>
+              <td>{{ b.get_status_display }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="text-muted">No bookings yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
+
