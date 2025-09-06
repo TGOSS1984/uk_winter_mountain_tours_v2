@@ -1,0 +1,1 @@
+web: gunicorn mountain_tours_v2.wsgi
