@@ -1,0 +1,320 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+<link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'favicon/favicon-32x32.png' %}"
+    >
+<link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'favicon/favicon-16x16.png' %}"
+    >
+<link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="{% static 'favicon/favicon.ico' %}"
+    >
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}
+{% block content %}
+<!--Nav Bar-->
+
+    <!-- Load shared header -->
+
+  <div id="header"></div>
+
+  <!-- Hero Section -->
+  <section class="hero-section d-flex align-items-center">
+    <div class="container-fluid">
+      <div class="row flex-column-reverse flex-lg-row">
+        <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+          <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Tour Gallery</h1>
+          <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">A collection of photgraphs from previous winter hikes</p>
+          <a href="#" class="btn cta-btn mt-3">Book Now</a>
+        </div>
+        <div class="col-lg-6 p-0">
+        <picture>
+          <!-- Show this image for ultrawide screens (1600px and up) -->
+          <source media="(min-width: 1600px)" srcset="assets/images/maincribgoch1600px.webp">
+    
+          <!-- Default/fallback image -->
+          <img src="{% static 'images/maincribgoch1440x1440.webp' %}" 
+          alt="Hero" 
+          class="img-fluid w-100 h-100 object-fit-cover hero-img">
+        </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!--Header-->
+    <header class="text-center py-5">
+        <div class="container text-center">
+            <h2>Tour Gallery</h2>
+            <figure class="text-center">
+                <blockquote class="blockquote sub-heading-color">
+                  <p><em>"Placeholder - Quote?"</em></p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                  <cite title="Source Title"> </cite>
+                </figcaption>
+              </figure>
+        </div>
+      </header>
+    <!--Main to hold all sections-->
+    <main class="container">
+        <div class="gallery-container">
+          
+            <div class="masonry-gallery">
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 1">
+                <img src="{% static 'images/x' %}" alt="Image 1">
+              </a>
+          
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 2">
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 1">
+                <img src="" alt="Image 2">
+              </a>
+          
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 3">
+                <img src="{% static 'images/x' %}" alt="Image 3">
+              </a>
+          
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 4">
+                <img src="{% static 'images/x' %}" alt="Image 4">
+              </a>
+          
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 5">
+                <img src="{% static 'images/x' %}" alt="Image 5">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 6">
+                <img src="{% static 'images/x' %}" alt="Image 6">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 7">
+                <img src="{% static 'images/x' %}" alt="Image 7">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 8">
+                <img src="{% static 'images/x' %}" alt="Image 8">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 9">
+                <img src="{% static 'images/x' %}" alt="Image 9">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 10">
+                <img src="{% static 'images/x' %}" alt="Image 10">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 11">
+                <img src="{% static 'images/x' %}" alt="Image 11">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 12">
+                <img src="{% static 'images/x' %}" alt="Image 12">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 13">
+                <img src="{% static 'images/x' %}" alt="Image 13">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 14">
+                <img src="{% static 'images/x' %}" alt="Image 14">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 15">
+                <img src="{% static 'images/x' %}" alt="Image 15">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 16">
+                <img src="{% static 'images/x' %}" alt="Image 16">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 17">
+                <img src="{% static 'images/x' %}" alt="Image 17">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 18">
+                <img src="{% static 'images/x' %}" alt="Image 18">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 19">
+                <img src="{% static 'images/x' %}" alt="Image 19">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 20">
+                <img src="{% static 'images/x' %}" alt="Image 20">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 21">
+                <img src="{% static 'images/x' %}" alt="Image 21">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 22">
+                <img src="{% static 'images/x' %}" alt="Image 22">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 23">
+                <img src="{% static 'images/x' %}" alt="Image 23">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 24">
+                <img src="{% static 'images/x' %}" alt="Image 24">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 25">
+                <img src="{% static 'images/x' %}" alt="Image 25">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 26">
+                <img src="{% static 'images/x' %}" alt="Image 26">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 27">
+                <img src="{% static 'images/x' %}" alt="Image 27">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 28">
+                <img src="{% static 'images/x' %}" alt="Image 28">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 29">
+                <img src="{% static 'images/x' %}" alt="Image 29">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 30">
+                <img src="{% static 'images/x' %}" alt="Image 30">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 31">
+                <img src="{% static 'images/x' %}" alt="Image 31">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 32">
+                <img src="{% static 'images/x' %}" alt="Image 32">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 33">
+                <img src="{% static 'images/x' %}" alt="Image 33">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 34">
+                <img src="{% static 'images/x' %}" alt="Image 34">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 35">
+                <img src="{% static 'images/x' %}" alt="Image 35">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 36">
+                <img src="{% static 'images/x' %}" alt="Image 36">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 37">
+                <img src="{% static 'images/x' %}" alt="Image 37">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 38">
+                <img src="{% static 'images/x' %}" alt="Image 38">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 39">
+                <img src="{% static 'images/x' %}" alt="Image 39">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 40">
+                <img src="{% static 'images/x' %}" alt="Image 40">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 41">
+                <img src="{% static 'images/x' %}" alt="Image 41">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 42">
+                <img src="{% static 'images/x' %}" alt="Image 42">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 43">
+                <img src="{% static 'images/x' %}" alt="Image 43">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 44">
+                <img src="{% static 'images/x' %}" alt="Image 44">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 45">
+                <img src="{% static 'images/x' %}" alt="Image 45">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 46">
+                <img src="{% static 'images/x' %}" alt="Image 46">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 47">
+                <img src="{% static 'images/x' %}" alt="Image 47">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 48">
+                <img src="{% static 'images/x' %}" alt="Image 48">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 49">
+                <img src="{% static 'images/x' %}" alt="Image 49">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 50">
+                <img src="{% static 'images/x' %}" alt="Image 50">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 51">
+                <img src="{% static 'images/x' %}" alt="Image 51">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 52">
+                <img src="{% static 'images/x' %}" alt="Image 52">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 53">
+                <img src="{% static 'images/x' %}" alt="Image 53">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 54">
+                <img src="{% static 'images/x' %}" alt="Image 54">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 55">
+                <img src="{% static 'images/x' %}" alt="Image 55">
+              </a>
+
+              <a href="{% static 'images/x' %}" class="masonry-item" data-lightbox="gallery" data-title="Image 56">
+                <img src="{% static 'images/x' %}" alt="Image 56">
+              </a>
+          
+              <!-- Add more images here -->
+            </div>
+          </div>
+          
+
+    </main>
+     <!-- Load shared footer -->
+
+  <div id="footer"></div>
+
+ <!--JS-->
+ 
+  <script type="module" src="{% static 'js/script.js' %}"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+{% block extra_scripts %}
+<script type="module" src="{% static 'js/script.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
