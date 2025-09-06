@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{# Page-specific <head> items only (favicons + Leaflet CSS) #}
 {% block extra_head %}
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
 <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
@@ -10,7 +9,6 @@
 {% endblock %}
 
 {% block content %}
-{# --- HERO --- #}
 <section class="hero-section d-flex align-items-center">
   <div class="container-fluid">
     <div class="row flex-column-reverse flex-lg-row">
@@ -21,9 +19,7 @@
       </div>
       <div class="col-lg-6 p-0">
         <picture>
-          <!-- ultrawide -->
           <source media="(min-width: 1600px)" srcset="{% static 'images/hero/hero_striding.jpg' %}">
-          <!-- fallback -->
           <img src="{% static 'images/hero/hero_striding.jpg' %}"
                alt="Striding Edge in winter"
                class="img-fluid w-100 h-100 object-fit-cover hero-img">
@@ -33,7 +29,6 @@
   </div>
 </section>
 
-{# --- ROUTE CARDS --- #}
 <div class="container py-5">
   <h1 class="mb-4 text-center">Lake District Walking Routes</h1>
   <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -139,12 +134,12 @@
   </div>
 </div>
 
-{# --- FULL ROUTE SECTIONS (each map div carries a data-gpx) --- #}
+{# --- FULL ROUTE SECTIONS (data-gpx paths match filenames) --- #}
 <section class="route-section bg-light" id="route-helvellyn">
   <div class="container">
     <h2>Helvellyn via Striding/Swirral Edge</h2>
     <div id="map-helvellyn" class="route-map"
-         data-gpx="{% static 'routes/lake_district/helvellyn_striding_swirral.gpx' %}"></div>
+         data-gpx="{% static 'routes/lake_district/helvellyn-striding-swirral.gpx' %}"></div>
     <br>
     <p>Embark on one of the Lake District’s most iconic and exhilarating hikes—Helvellyn via Striding and Swirral Edge...</p>
     <p class="mt-2 fw-bold">From £95 per person</p>
@@ -156,7 +151,7 @@
   <div class="container">
     <h2>Blencathra via Hall's Fell Ridge</h2>
     <div id="map-blencathra-halls" class="route-map"
-         data-gpx="{% static 'routes/lake_district/blencathra_halls.gpx' %}"></div>
+         data-gpx="{% static 'routes/lake_district/blencathra-halls-fell.gpx' %}"></div>
   </div>
 </section>
 
@@ -164,7 +159,7 @@
   <div class="container">
     <h2>Blencathra via Sharp Edge</h2>
     <div id="map-blencathra-sharp" class="route-map"
-         data-gpx="{% static 'routes/lake_district/blencathra_sharp.gpx' %}"></div>
+         data-gpx="{% static 'routes/lake_district/blencathra-sharp-edge.gpx' %}"></div>
   </div>
 </section>
 
@@ -172,7 +167,7 @@
   <div class="container">
     <h2>Pavey Ark via Jack's Rake</h2>
     <div id="map-pavey" class="route-map"
-         data-gpx="{% static 'routes/lake_district/pavey_jacks_rake.gpx' %}"></div>
+         data-gpx="{% static 'routes/lake_district/pavey-ark-jacks-rake.gpx' %}"></div>
   </div>
 </section>
 
@@ -180,7 +175,7 @@
   <div class="container">
     <h2>Scafell Pike via Lord's Rake</h2>
     <div id="map-scafell" class="route-map"
-         data-gpx="{% static 'routes/lake_district/scafell_lords_rake.gpx' %}"></div>
+         data-gpx="{% static 'routes/lake_district/scafell-pike-lords-rake.gpx' %}"></div>
   </div>
 </section>
 
@@ -188,7 +183,7 @@
   <div class="container">
     <h2>Bowfell via Climbers’ Traverse</h2>
     <div id="map-bowfell" class="route-map"
-         data-gpx="{% static 'routes/lake_district/bowfell_climbers_traverse.gpx' %}"></div>
+         data-gpx="{% static 'routes/lake_district/bowfell-climbers-traverse.gpx' %}"></div>
   </div>
 </section>
 
@@ -196,7 +191,7 @@
   <div class="container">
     <h2>Great Gable</h2>
     <div id="map-gable" class="route-map"
-         data-gpx="{% static 'routes/lake_district/great_gable.gpx' %}"></div>
+         data-gpx="{% static 'routes/lake_district/great-gable.gpx' %}"></div>
   </div>
 </section>
 
@@ -212,7 +207,7 @@
   <div class="container">
     <h2>Fairfield Horseshoe</h2>
     <div id="map-fairfield" class="route-map"
-         data-gpx="{% static 'routes/lake_district/fairfield_horseshoe.gpx' %}"></div>
+         data-gpx="{% static 'routes/lake_district/fairfield-horseshoe.gpx' %}"></div>
   </div>
 </section>
 
@@ -220,16 +215,16 @@
   <div class="container">
     <h2>Crinkle Crags</h2>
     <div id="map-crinkle" class="route-map"
-         data-gpx="{% static 'routes/lake_district/crinkle_crags.gpx' %}"></div>
+         data-gpx="{% static 'routes/lake_district/crinkle-crags.gpx' %}"></div>
   </div>
 </section>
 {% endblock %}
 
-{# Page-specific JS: Leaflet + GPX plugin + your maps.js #}
 {% block extra_scripts %}
 <script>window.STATIC_PREFIX = "{% static '' %}";</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-gpx"></script>
+<script src="{% static 'vendor/leaflet-gpx/gpx.min.js' %}"></script>
 <script src="{% static 'js/maps.js' %}"></script>
 {% endblock %}
+
 
