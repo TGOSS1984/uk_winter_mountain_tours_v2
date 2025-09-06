@@ -1,0 +1,18 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mountain Tours v2</title>
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  {% include 'includes/header.html' %}
+  <main class="container">{% block content %}{% endblock %}</main>
+  {% include 'includes/footer.html' %}
+  <script src="{% static 'js/site.js' %}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
