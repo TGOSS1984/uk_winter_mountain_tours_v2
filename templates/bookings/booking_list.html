@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<h1>My Bookings</h1><ul class="booking-list">{% for b in bookings %}<li>{{ b.date }} ({{ b.get_time_slot_display }}) – {{ b.route }} with {{ b.guide }} — {{ b.get_status_display }}</li>{% empty %}<li>No bookings yet.</li>{% endfor %}</ul>{% endblock %}
