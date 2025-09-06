@@ -1,201 +1,185 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{# Page-specific <head> items only (favicons). Bootstrap/FA/CSS live in base.html #}
 {% block extra_head %}
-<link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="{% static 'favicon/favicon-32x32.png' %}"
-    >
-<link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="{% static 'favicon/favicon-16x16.png' %}"
-    >
-<link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="{% static 'favicon/favicon.ico' %}"
-    >
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+<link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
 {% endblock %}
+
 {% block content %}
-<!--Nav Bar-->
 
-    <!-- Load shared header -->
+{# --- HERO --- #}
+<section class="hero-section d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Explore the Mountains</h1>
+        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">
+          Experience unforgettable tours across the UK's stunning snowy peaks
+        </p>
+        <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Book Now</a>
+      </div>
 
-  <div id="header"></div>
-
-  <!-- Hero Section -->
-  <section class="hero-section d-flex align-items-center">
-    <div class="container-fluid">
-      <div class="row flex-column-reverse flex-lg-row">
-        <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
-          <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Explore the Mountains</h1>
-          <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">Experience unforgettable tours across the UK's stunning snowy peaks</p>
-          <a href="booking.html" class="btn cta-btn mt-3">Book Now</a>
-        </div>
-        <div class="col-lg-6 p-0">
+      <div class="col-lg-6 p-0">
         <picture>
-          <!-- Show this image for ultrawide screens (1600px and up) -->
-          <source media="(min-width: 1600px)" srcset="assets/images/hero/maincribgoch2048x1737px.webp">
-    
-          <!-- Default/fallback image -->
-          <img src="{% static 'images/hero/maincribgoch2048x1737px.webp' %}" 
-          alt="Hero" 
-          class="img-fluid w-100 h-100 object-fit-cover hero-img">
+          <!-- ultrawide source -->
+          <source media="(min-width: 1600px)" srcset="{% static 'images/hero/maincribgoch2048x1737px.webp' %}">
+          <!-- fallback -->
+          <img src="{% static 'images/hero/maincribgoch2048x1737px.webp' %}"
+               alt="Hero"
+               class="img-fluid w-100 h-100 object-fit-cover hero-img">
         </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# --- WHY TAKE A TOUR --- #}
+<section id="reasons" class="section-margin">
+  <h2>Why take a guided tour with us?</h2>
+  <p><strong><em>Explore what makes our mountain tours unique, safe, and unforgettable.</em></strong></p>
+
+  <div id="why-take-tour">
+    <div id="why-experience">
+      <div>
+        <h3>Safety First<i class="fas fa-shield-alt"></i></h3>
+        <hr>
+        <ul class="checkmark-list">
+          <li>Certified guides trained in mountain safety</li>
+          <li>Equipped for rescue and emergencies</li>
+          <li>Route planning with weather awareness</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Local Expertise<i class="fas fa-map-signs"></i></h3>
+        <hr>
+        <ul class="checkmark-list">
+          <li>Guides with deep local knowledge</li>
+          <li>Tailored routes based on conditions</li>
+          <li>Stories and insight along the journey</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="why-active">
+      <div>
+        <h3>Be Outdoors<i class="fas fa-hiking"></i></h3>
+        <hr>
+        <ul class="checkmark-list">
+          <li>Experience untouched winter landscapes</li>
+          <li>Let us handle gear and logistics</li>
+          <li>Relax and reconnect with nature</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Excercise<i class="fas fa-dumbbell"></i></h3>
+        <hr>
+        <ul class="checkmark-list">
+          <li>Suitable for all fitness levels</li>
+          <li>Paced tours with plenty of rest</li>
+          <li>Guidance to support every step</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'images/carousel/buachille-etive-mor.jpg' %}"
+               class="d-block w-100" alt="Buachille Etive Mor">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/carousel/caern_mor_dearg_arete_winter.webp' %}"
+               class="d-block w-100" alt="CMD Arete">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/carousel/tryfan_aerial_winter.jpg' %}"
+               class="d-block w-100" alt="Aerial shot of Tryfan">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/carousel/cairngorms_winter.jpg' %}"
+               class="d-block w-100" alt="Cairngorms in winter">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/carousel/desktop-wallpaper-of-mountains-scotland-winter-scottish-winter.jpg' %}"
+               class="d-block w-100" alt="Scottish Mountains in Winter">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'images/carousel/nintchdbpict0003728932801.webp' %}"
+               class="d-block w-100" alt="Scotland snowy Mountain">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+{# --- REGIONS --- #}
+<div class="container text-center section-margin">
+  <div class="row">
+    <div class="col-12">
+      <h2>Regions to Explore</h2>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-3 d-flex">
+      <div class="card region-card mx-auto" style="width: 18rem;">
+        <img src="{% static 'images/region_cards/tryfan600pwx.webp' %}" class="card-img-top" alt="A picture of Tryfan">
+        <div class="card-body">
+          <h5 class="card-title fixed-title-height">Mountains of Wales</h5>
+          <p class="card-text">The Brecon Beacons & Snowdonia National park contain some of the UK's classic routes, including tryfan & for those with a head for heights, Crib Goch, the most exciting route up to Snowdon!</p>
+          <a href="{% url 'wales' %}" class="btn cta-btn">Explore</a>
         </div>
       </div>
     </div>
-  </section>
 
-      <section id="reasons" class="section-margin">
-        <h2>Why take a guided tour with us?</h2>
-        <p><strong><em>Explore what makes our mountain tours unique, safe, and unforgettable.</em></strong></p>
-        <div id="why-take-tour">
-          <div id="why-experience">
-            <div>
-             <h3>Safety First<i class="fas fa-shield-alt"></i></h3>
-             <hr>
-             <ul class="checkmark-list">
-              <li>Certified guides trained in mountain safety</li>
-              <li>Equipped for rescue and emergencies</li>
-              <li>Route planning with weather awareness</li>
-            </ul>
-            </div>
-            <div>
-             <h3>Local Expertise<i class="fas fa-map-signs"></i></h3>
-             <hr>
-             <ul class="checkmark-list">
-              <li>Guides with deep local knowledge</li>
-              <li>Tailored routes based on conditions</li>
-              <li>Stories and insight along the journey</li>
-            </ul>
-            </div>
-          </div>
-          
-          <div id="why-active">
-            <div>
-             <h3>Be Outdoors<i class="fas fa-hiking"></i></h3>
-             <hr>
-             <ul class="checkmark-list">
-              <li>Experience untouched winter landscapes</li>
-              <li>Let us handle gear and logistics</li>
-              <li>Relax and reconnect with nature</li>
-            </ul>
-            </div>
-            <div>
-             <h3>Excercise<i class="fas fa-dumbbell"></i></h3>
-             <hr>
-             <ul class="checkmark-list">
-              <li>Suitable for all fitness levels</li>
-              <li>Paced tours with plenty of rest</li>
-              <li>Guidance to support every step</li>
-            </ul>
-            </div>
-          </div>            
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{% static 'images/carousel/buachille-etive-mor.jpg' %}" class="d-block w-100" alt="Buachille Etive Mor">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'images/carousel/caern_mor_dearg_arete_winter.webp' %}" class="d-block w-100" alt="CMD Arete">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'images/carousel/tryfan_aerial_winter.jpg' %}" class="d-block w-100" alt="Aerial shot of Tryfan">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'images/carousel/cairngorms_winter.jpg' %}" class="d-block w-100" alt="Cairngorms in winter">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'images/carousel/desktop-wallpaper-of-mountains-scotland-winter-scottish-winter.jpg' %}" class="d-block w-100" alt="Scottish Mountains in Winter">
-              </div>
-              <div class="carousel-item">
-                <img src="{% static 'images/carousel/nintchdbpict0003728932801.webp' %}" class="d-block w-100" alt="Scotland snowy Mountain">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-
+    <div class="col-12 col-md-6 col-xl-3 d-flex">
+      <div class="card region-card mx-auto" style="width: 18rem;">
+        <img src="{% static 'images/region_cards/bennevis600pxw.webp' %}" class="card-img-top" alt="A picture of Ben Nevis">
+        <div class="card-body">
+          <h5 class="card-title fixed-title-height">Mountains of Scotland</h5>
+          <p class="card-text">The Scottish Mountains can be some of the most wild in the UK. From the Caingorms to Glencoe & the Isle of Skye, there is something for everybody</p>
+          <a href="{% url 'scotland' %}" class="btn cta-btn">Explore</a>
         </div>
-    </section>
-
-    <hr>
-
-    <!--Regions Section-->
-    <div class="container text-center section-margin">
-      <div class="row">
-        <div class="col-12">
-          <h2>Regions to Explore</h2>
-        </div>
-        <div class="col-12 col-md-6 col-xl-3 d-flex">
-          <div class="card region-card mx-auto" style="width: 18rem;">
-            <img src="{% static 'images/region_cards/tryfan600pwx.webp' %}" class="card-img-top" alt="A picture of Tryfan">
-            <div class="card-body">
-              <h5 class="card-title fixed-title-height">Mountains of Wales</h5>
-              <p class="card-text">The Brecon Beacons & Snowdonia National park contain some of the UK's classic routes, including tryfan & for those with a head for heights, Crib Goch, the most exciting route up to Snowdon!</p>
-              <a href="#" class="btn cta-btn">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-xl-3 d-flex">
-          <div class="card region-card mx-auto" style="width: 18rem;">
-            <img src="{% static 'images/region_cards/bennevis600pxw.webp' %}" class="card-img-top" alt="A picture of Ben Nevis">
-            <div class="card-body">
-              <h5 class="card-title fixed-title-height">Mountains of Scotland</h5>
-              <p class="card-text">The Scottish Mountains can be some of the most wild in the UK. From the Caingorms to Glencoe & the Isle of Skye, there is something for everybody</p>
-              <a href="#" class="btn cta-btn">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-xl-3 d-flex">
-          <div class="card region-card mx-auto" style="width: 18rem;">
-            <img src="{% static 'images/region_cards/helvellyn600pxw.webp' %}" class="card-img-top" alt="A picture of Hellvellyn">
-            <div class="card-body">
-              <h5 class="card-title fixed-title-height">Mountains of the Lake District</h5>
-              <p class="card-text">Explore the Wainwirght's, with classic routes & various grades of scrambling. From the classic ridges of Helvellyn to the Scafell range including Englands highest peak</p>
-              <a href="lake-district.html" class="btn cta-btn">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-xl-3 d-flex">
-          <div class="card region-card mx-auto" style="width: 18rem;">
-            <img src="{% static 'images/region_cards/kinderscout600pxw.webp' %}" class="card-img-top" alt="A picture of Kinder Scout">
-            <div class="card-body">
-              <h5 class="card-title fixed-title-height">Mountains of the Peak District</h5>
-              <p class="card-text">Explore Kinder Scout, a vast platauex with many classic routes to the summit or the famous ridgeline of Mam Tor!</p>
-              <a href="#" class="btn cta-btn">Explore</a>
-            </div>
-          </div>
-        </div>
-       </div>
+      </div>
     </div>
- </main>
 
- <!-- Load shared footer -->
+    <div class="col-12 col-md-6 col-xl-3 d-flex">
+      <div class="card region-card mx-auto" style="width: 18rem;">
+        <img src="{% static 'images/region_cards/helvellyn600pxw.webp' %}" class="card-img-top" alt="A picture of Hellvellyn">
+        <div class="card-body">
+          <h5 class="card-title fixed-title-height">Mountains of the Lake District</h5>
+          <p class="card-text">Explore the Wainwirght's, with classic routes & various grades of scrambling. From the classic ridges of Helvellyn to the Scafell range including Englands highest peak</p>
+          <a href="{% url 'lake_district' %}" class="btn cta-btn">Explore</a>
+        </div>
+      </div>
+    </div>
 
-  <div id="footer"></div>
+    <div class="col-12 col-md-6 col-xl-3 d-flex">
+      <div class="card region-card mx-auto" style="width: 18rem;">
+        <img src="{% static 'images/region_cards/kinderscout600pxw.webp' %}" class="card-img-top" alt="A picture of Kinder Scout">
+        <div class="card-body">
+          <h5 class="card-title fixed-title-height">Mountains of the Peak District</h5>
+          <p class="card-text">Explore Kinder Scout, a vast platauex with many classic routes to the summit or the famous ridgeline of Mam Tor!</p>
+          <a href="{% url 'peak_district' %}" class="btn cta-btn">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
- <!--JS-->
- 
-  <script type="module" src="{% static 'js/script.js' %}"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 {% endblock %}
-{% block extra_scripts %}
-<script type="module" src="{% static 'js/script.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-{% endblock %}
+
+{# No extra scripts needed here; Bootstrap & global scripts are in base.html #}
+{% block extra_scripts %}{% endblock %}
+

@@ -1,5 +1,5 @@
+{% load static %}
 <!--Footer-->
- 
 <footer class="bg-dark text-white">
   <div class="container-fluid px-0">
     <div class="row g-0">
@@ -9,15 +9,23 @@
         <div class="p-4">
           <!-- Logo -->
           <div class="mb-3">
-            <img src="assets/images/logo-white-text.png" alt="Logo" width="150">
+            <img src="{% static 'images/logo-white-text.png' %}" alt="Logo" width="150">
           </div>
 
           <!-- Social Icons -->
           <div class="mb-3">
-            <a href="https://facebook.com" target="_blank" class="me-3 social-link"><i class="fab fa-facebook fa-2x"></i></a>
-            <a href="https://twitter.com" target="_blank" class="me-3 social-link"><i class="fab fa-twitter fa-2x"></i></a>
-            <a href="https://instagram.com" target="_blank" class="me-3 social-link"><i class="fab fa-instagram fa-2x"></i></a>
-            <a href="https://linkedin.com" target="_blank" class="social-link"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="me-3 social-link">
+              <i class="fab fa-facebook fa-2x"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="me-3 social-link">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="me-3 social-link">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
           </div>
 
           <!-- Contact Info -->
