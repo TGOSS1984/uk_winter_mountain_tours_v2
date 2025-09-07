@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils.timezone import now
 
-from .models import Booking
+from .models import Booking, Route  # <-- add Route here
 from .forms import BookingForm
 
 
@@ -35,6 +35,32 @@ class BookingCreateView(CreateView):
         kwargs = super().get_form_kwargs()
         kwargs['user'] = self.request.user
         return kwargs
+
+    # NEW: preselect route from ?route_id=123 (best) or ?route=helvellyn-striding-edge (fallback)
+    def get_initial(self):
+        initial = super().get_initial()
+
+        # Prefer an explicit numeric ID
+        route_id = self.request.GET.get('route_id')
+        if route_id and route_id.isdigit():
+            try:
+                initial['route'] = Route.objects.get(pk=route_id)
+                return initial
+            except Route.DoesNotExist:
+                pass
+
+        # Fallback: a slug-ish name like "helvellyn-striding-edge"
+        route_slug = self.request.GET.get('route')
+        if route_slug:
+            name_guess = route_slug.replace('-', ' ').replace('_', ' ').strip()
+            r = Route.objects.filter(name__iexact=name_guess).first()
+            if not r:
+                # last resort: partial match
+                r = Route.objects.filter(name__icontains=name_guess).first()
+            if r:
+                initial['route'] = r
+
+        return initial
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
@@ -82,3 +108,4 @@ def cancel_booking(request, pk):
     booking.save(update_fields=['status'])
     messages.success(request, 'Booking cancelled.')
     return redirect('booking_list')
+

@@ -143,7 +143,9 @@
     <br>
     <p>Embark on one of the Lake District’s most iconic and exhilarating hikes—Helvellyn via Striding and Swirral Edge...</p>
     <p class="mt-2 fw-bold">From £95 per person</p>
-    <a href="{% url 'booking_create' %}?route=helvellyn-striding-edge" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.helvellyn_via_striding_swirral_edge }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 
@@ -155,7 +157,9 @@
     <br>
     <p>Climb Blencathra by its sharp, direct ridge from Threlkeld. Hall’s Fell gives hands-on, steady scrambling near the summit with grand views across the Northern Fells.</p>
     <p class="mt-2 fw-bold">From £85 per person</p>
-    <a href="{% url 'booking_create' %}?route=blencathra-halls-fell" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.blencathra_via_halls_fell_ridge }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 
@@ -167,7 +171,9 @@
     <br>
     <p>Tackle the Lake District’s most famous arête above Scales Tarn. Sharp Edge offers exposed, exhilarating scrambling with a spectacular mountain setting.</p>
     <p class="mt-2 fw-bold">From £90 per person</p>
-    <a href="{% url 'booking_create' %}?route=blencathra-sharp-edge" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.blencathra_via_sharp_edge }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 
@@ -179,7 +185,9 @@
     <br>
     <p>Ascend the diagonal groove of Jack’s Rake above Stickle Tarn—an unforgettable Grade 1 scramble on sound rock with sweeping views over Langdale.</p>
     <p class="mt-2 fw-bold">From £90 per person</p>
-    <a href="{% url 'booking_create' %}?route=pavey-ark-jacks-rake" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.pavey_ark_via_jacks_rake }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 
@@ -191,7 +199,9 @@
     <br>
     <p>Reach England’s highest summit by a rugged, atmospheric line. Lord’s Rake threads through towering crags for a quieter, more adventurous ascent.</p>
     <p class="mt-2 fw-bold">From £100 per person</p>
-    <a href="{% url 'booking_create' %}?route=scafell-pike-lords-rake" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.scafell_pike_via_lords_rake }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 
@@ -203,7 +213,9 @@
     <br>
     <p>Follow the discreet shelf beneath Bowfell Buttress with dramatic views of the Great Slab and Langdale. A superb, scenic line to a classic summit.</p>
     <p class="mt-2 fw-bold">From £90 per person</p>
-    <a href="{% url 'booking_create' %}?route=bowfell-climbers-traverse" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.bowfell_via_climbers_traverse }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 
@@ -215,7 +227,9 @@
     <br>
     <p>Stand on one of Lakeland’s most storied summits. Rocky paths, short scrambles and immense vistas over Wasdale and Borrowdale make this a favourite.</p>
     <p class="mt-2 fw-bold">From £85 per person</p>
-    <a href="{% url 'booking_create' %}?route=great-gable" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.great_gable }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 
@@ -227,7 +241,9 @@
     <br>
     <p>Head deep into the Western Fells on a big mountain day. The High Level Route gives airy views towards Pillar Rock and a true sense of remoteness.</p>
     <p class="mt-2 fw-bold">From £95 per person</p>
-    <a href="{% url 'booking_create' %}?route=pillar" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.pillar }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 
@@ -241,7 +257,9 @@
        reach Fairfield’s broad summit, then return via Great Rigg, Heron Pike and Nab Scar with near-continuous
        views over Windermere and Rydal.</p>
     <p class="mt-2 fw-bold">From £85 per person</p>
-    <a href="{% url 'booking_create' %}?route=fairfield-horseshoe" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.fairfield_horseshoe }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 
@@ -255,7 +273,9 @@
        terrain with hands-on sections and the optional “Bad Step” (easy bypass available), plus big views
        toward Bowfell and the Scafells.</p>
     <p class="mt-2 fw-bold">From £90 per person</p>
-    <a href="{% url 'booking_create' %}?route=crinkle-crags" class="btn cta-btn mt-2">Book This Tour</a>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.crinkle_crags }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
   </div>
 </section>
 {% endblock %}
