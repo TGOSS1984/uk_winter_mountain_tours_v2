@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="Walkhighlands">
+<metadata>
+	<desc>GPX file from Walkhighlands; file is copyright Walkhighlands and must not be publicly shared on other websites. Do not remove this notice.</desc>
+	<copyright author="Walkhighlands"><year>2019</year></copyright>
+</metadata>
+<rte>
+<name>Ben Macdui and Cairn Gorm</name>
+<rtept lat="57.1334521657628" lon="-3.67078759952952">
+<ele>641.766851474619</ele>
+<name>Md-C001</name>
+</rtept>
+<rtept lat="57.1331742416448" lon="-3.67065938760893">
+<ele>631.780957818127</ele>
+<name>Md-C002</name>
+</rtept>
+<rtept lat="57.1331299969804" lon="-3.6720916129229">
+<ele>627.900137802091</ele>
+<name>Md-C003</name>
+</rtept>
+<rtept lat="57.1331734993503" lon="-3.67260249151243">
+<ele>628.557499294899</ele>
+<name>Md-C003 - Md-C004</name>
+</rtept>
+<rtept lat="57.1326850020698" lon="-3.67339008814867">
+<ele>637.30763626846</ele>
+<name>Md-C004</name>
+</rtept>
+<rtept lat="57.132462962509" lon="-3.67400463668055">
+<ele>639.004634664789</ele>
+<name>Md-C004 - Md-C005</name>
+</rtept>
+<rtept lat="57.131770648555" lon="-3.67496477139973">
+<ele>679.212151478815</ele>
+<name>Md-C005</name>
+</rtept>
+<rtept lat="57.1309040432431" lon="-3.67547086601266">
+<ele>648.817022214818</ele>
+<name>Md-C006</name>
+</rtept>
+<rtept lat="57.1297011217918" lon="-3.6759980869673">
+<ele>691.738785191345</ele>
+<name>Md-C007</name>
+</rtept>
+<rtept lat="57.1282747444716" lon="-3.67660603981097">
+<ele>711.186961685085</ele>
+<name>Md-C008</name>
+</rtept>
+<rtept lat="57.1278095394758" lon="-3.67665770257762">
+<ele>682.060916714191</ele>
+<name>Md-C009</name>
+</rtept>
+<rtept lat="57.1268316048304" lon="-3.67735856918135">
+<ele>702.09765608964</ele>
+<name>Md-C010</name>
+</rtept>
+<rtept lat="57.1263560362969" lon="-3.67744609674932">
+<ele>691.959623122537</ele>
+<name>Md-C011</name>
+</rtept>
+<rtept lat="57.1245912087061" lon="-3.67971040219096">
+<ele>705.583722372914</ele>
+<name>Md-C012</name>
+</rtept>
+<rtept lat="57.1239198376313" lon="-3.68113368989966">
+<ele>728.529168857241</ele>
+<name>Md-C013</name>
+</rtept>
+<rtept lat="57.1223792490284" lon="-3.68251750305933">
+<ele>752.153648299742</ele>
+<name>Md-C014</name>
+</rtept>
+<rtept lat="57.12079907433" lon="-3.68353601440984">
+<ele>768.630029553461</ele>
+<name>Md-C015</name>
+</rtept>
+<rtept lat="57.1204427604895" lon="-3.68357435373882">
+<ele>778.344631974018</ele>
+<name>Md-C016</name>
+</rtept>
+<rtept lat="57.1200796187103" lon="-3.68412112111438">
+<ele>783.737685336328</ele>
+<name>Md-C017</name>
+</rtept>
+<rtept lat="57.1186902126722" lon="-3.68454860522447">
+<ele>803.457480576348</ele>
+<name>Md-C018</name>
+</rtept>
+<rtept lat="57.1173695159084" lon="-3.68537887261994">
+<ele>824.950268405485</ele>
+<name>Md-C019</name>
+</rtept>
+<rtept lat="57.1168269973726" lon="-3.68529972755862">
+<ele>835.169268405485</ele>
+<name>Md-C020</name>
+</rtept>
+<rtept lat="57.1165862814444" lon="-3.6855613074053">
+<ele>839.987268405485</ele>
+<name>Md-C021</name>
+</rtept>
+<rtept lat="57.1158396262441" lon="-3.685963402583">
+<ele>853.33989599433</ele>
+<name>Md-C022</name>
+</rtept>
+<rtept lat="57.115335017231" lon="-3.68673982023323">
+<ele>867.791453895187</ele>
+<name>Md-C023</name>
+</rtept>
+<rtept lat="57.1147703023367" lon="-3.68684131773284">
+<ele>872.341249054074</ele>
+<name>Md-C024</name>
+</rtept>
+<rtept lat="57.114472133291" lon="-3.68769975593023">
+<ele>889.234511787164</ele>
+<name>Md-C025</name>
+</rtept>
+<rtept lat="57.1127596916326" lon="-3.68972909587677">
+<ele>929.892160095763</ele>
+<name>Md-C026</name>
+</rtept>
+<rtept lat="57.1090485009434" lon="-3.69119488649947">
+<ele>1030.88902797723</ele>
+<name>Md-C027</name>
+</rtept>
+<rtept lat="57.1075355230864" lon="-3.69088983081848">
+<ele>1039.4629699141</ele>
+<name>Md-C028</name>
+</rtept>
+<rtept lat="57.1060052800676" lon="-3.69076563861084">
+<ele>1062.44257565829</ele>
+<name>Md-C029</name>
+</rtept>
+<rtept lat="57.1044335437984" lon="-3.68987930514442">
+<ele>1063.50059841518</ele>
+<name>Md-C030</name>
+</rtept>
+<rtept lat="57.1007198879751" lon="-3.69102768498218">
+<ele>1079.31119907959</ele>
+<name>Md-C031</name>
+</rtept>
+<rtept lat="57.0986506202918" lon="-3.6901401894103">
+<ele>1118.34845729995</ele>
+<name>Md-C032</name>
+</rtept>
+<rtept lat="57.0952081941807" lon="-3.68853094743245">
+<ele>1132.57655360565</ele>
+<name>Md-C033</name>
+</rtept>
+<rtept lat="57.0937477174812" lon="-3.687629351732">
+<ele>1157.33148525941</ele>
+<name>Md-C034</name>
+</rtept>
+<rtept lat="57.0911139754009" lon="-3.68320692911152">
+<ele>1131.47910687799</ele>
+<name>Md-C035</name>
+</rtept>
+<rtept lat="57.0887267256883" lon="-3.68102920859867">
+<ele>1132.01645396743</ele>
+<name>Md-C036</name>
+</rtept>
+<rtept lat="57.0862799579228" lon="-3.67882355094621">
+<ele>1145.00362394852</ele>
+<name>Md-C037</name>
+</rtept>
+<rtept lat="57.0859419963718" lon="-3.67827108122399">
+<ele>1158.53156077313</ele>
+<name>Md-C038</name>
+</rtept>
+<rtept lat="57.0833676408069" lon="-3.67677529617257">
+<ele>1173.59659939486</ele>
+<name>Md-C039</name>
+</rtept>
+<rtept lat="57.0823999717328" lon="-3.67596929270817">
+<ele>1165.6752922143</ele>
+<name>Md-C040</name>
+</rtept>
+<rtept lat="57.080400440454" lon="-3.67546165812689">
+<ele>1181.46565275715</ele>
+<name>Md-C041</name>
+</rtept>
+<rtept lat="57.0793712251924" lon="-3.67445333908486">
+<ele>1205.59757256913</ele>
+<name>Md-C042</name>
+</rtept>
+<rtept lat="57.0780446658324" lon="-3.67239721448021">
+<ele>1253.23172108573</ele>
+<name>Md-C043</name>
+</rtept>
+<rtept lat="57.0737516551044" lon="-3.66859287845209">
+<ele>1275.086663266</ele>
+<name>Md-C044</name>
+</rtept>
+<rtept lat="57.0727620020379" lon="-3.66794963066321">
+<ele>1288.26147022085</ele>
+<name>Md-C045</name>
+</rtept>
+<rtept lat="57.0703471593566" lon="-3.66931100489377">
+<ele>1298.3825431603</ele>
+<name>Md-C046</name>
+</rtept>
+<rtept lat="57.0727568218924" lon="-3.6679675442305">
+<ele>1288.31097022085</ele>
+<name>Md-C047</name>
+</rtept>
+<rtept lat="57.072869929637" lon="-3.66800891225397">
+<ele>1284.78472985599</ele>
+<name>Md-C048</name>
+</rtept>
+<rtept lat="57.0737225058176" lon="-3.66855527679937">
+<ele>1275.00966326599</ele>
+<name>Md-C049</name>
+</rtept>
+<rtept lat="57.078098991604" lon="-3.6723996593876">
+<ele>1253.83672108574</ele>
+<name>Md-C050</name>
+</rtept>
+<rtept lat="57.0793712251924" lon="-3.67445333908486">
+<ele>1205.59757256913</ele>
+<name>Md-C051</name>
+</rtept>
+<rtept lat="57.0803957442856" lon="-3.67544329658263">
+<ele>1181.38865275716</ele>
+<name>Md-C052</name>
+</rtept>
+<rtept lat="57.0823997291227" lon="-3.67598743253466">
+<ele>1165.7082922143</ele>
+<name>Md-C053</name>
+</rtept>
+<rtept lat="57.0833483714923" lon="-3.67673812404517">
+<ele>1173.55259939486</ele>
+<name>Md-C054</name>
+</rtept>
+<rtept lat="57.0859419963718" lon="-3.67827108122399">
+<ele>1158.53156077313</ele>
+<name>Md-C055</name>
+</rtept>
+<rtept lat="57.0862961905623" lon="-3.67821534449207">
+<ele>1148.01397075914</ele>
+<name>Md-C056</name>
+</rtept>
+<rtept lat="57.0873861152482" lon="-3.67855416287812">
+<ele>1147.12764384229</ele>
+<name>Md-C057</name>
+</rtept>
+<rtept lat="57.089288468075" lon="-3.67967491528783">
+<ele>1130.75663945715</ele>
+<name>Md-C058</name>
+</rtept>
+<rtept lat="57.0926587679934" lon="-3.67708581190072">
+<ele>1128.14470037487</ele>
+<name>Md-C059</name>
+</rtept>
+<rtept lat="57.0942550567096" lon="-3.67448888271391">
+<ele>1114.96366159973</ele>
+<name>Md-C060</name>
+</rtept>
+<rtept lat="57.0957328097247" lon="-3.67299399004328">
+<ele>1109.10555184945</ele>
+<name>Md-C061</name>
+</rtept>
+<rtept lat="57.09681389876" lon="-3.6712269158142">
+<ele>1119.64054905826</ele>
+<name>Md-C062</name>
+</rtept>
+<rtept lat="57.0982882288454" lon="-3.66998585851257">
+<ele>1124.21839757943</ele>
+<name>Md-C063</name>
+</rtept>
+<rtept lat="57.0991801563714" lon="-3.66831903251013">
+<ele>1132.01232653198</ele>
+<name>Md-C064</name>
+</rtept>
+<rtept lat="57.099224979374" lon="-3.66792154920189">
+<ele>1134.38832653198</ele>
+<name>Md-C065</name>
+</rtept>
+<rtept lat="57.1013561059" lon="-3.66745432682732">
+<ele>1143.45659349686</ele>
+<name>Md-C066</name>
+</rtept>
+<rtept lat="57.1030363772092" lon="-3.66633118000822">
+<ele>1112.04003999002</ele>
+<name>Md-C067</name>
+</rtept>
+<rtept lat="57.1045878532429" lon="-3.66634633550357">
+<ele>1100.75504285345</ele>
+<name>Md-C068</name>
+</rtept>
+<rtept lat="57.1050757165783" lon="-3.6656219222626">
+<ele>1110.76253135171</ele>
+<name>Md-C069</name>
+</rtept>
+<rtept lat="57.105438146239" lon="-3.6647168756806">
+<ele>1122.56843269461</ele>
+<name>Md-C070</name>
+</rtept>
+<rtept lat="57.1057076379435" lon="-3.66314558096156">
+<ele>1121.43129538453</ele>
+<name>Md-C071</name>
+</rtept>
+<rtept lat="57.1064533316855" lon="-3.65970993106544">
+<ele>1164.82102392559</ele>
+<name>Md-C072</name>
+</rtept>
+<rtept lat="57.1070094907822" lon="-3.65760480427892">
+<ele>1161.84013658894</ele>
+<name>Md-C073</name>
+</rtept>
+<rtept lat="57.1073366581357" lon="-3.65691601499164">
+<ele>1143.6900376349</ele>
+<name>Md-C074</name>
+</rtept>
+<rtept lat="57.1076199083384" lon="-3.65643828365269">
+<ele>1139.12047769514</ele>
+<name>Md-C075</name>
+</rtept>
+<rtept lat="57.1085121501206" lon="-3.65567062615777">
+<ele>1124.69274587697</ele>
+<name>Md-C075 - Md-C076</name>
+</rtept>
+<rtept lat="57.1094633365018" lon="-3.65467275865509">
+<ele>1109.05098905289</ele>
+<name>Md-C076</name>
+</rtept>
+<rtept lat="57.1117086358979" lon="-3.65404133527626">
+<ele>1090.04550732973</ele>
+<name>Md-C077</name>
+</rtept>
+<rtept lat="57.1130512505625" lon="-3.65415567229656">
+<ele>1095.47832486572</ele>
+<name>Md-C078</name>
+</rtept>
+<rtept lat="57.1141368427678" lon="-3.65315042212495">
+<ele>1112.43382796369</ele>
+<name>Md-C079</name>
+</rtept>
+<rtept lat="57.1147175656399" lon="-3.65183197237373">
+<ele>1112.89269743026</ele>
+<name>Md-C080</name>
+</rtept>
+<rtept lat="57.1152825007182" lon="-3.6494591077594">
+<ele>1152.34996788101</ele>
+<name>Md-C081</name>
+</rtept>
+<rtept lat="57.1156239507839" lon="-3.64770636153193">
+<ele>1176.37635778506</ele>
+<name>Md-C082</name>
+</rtept>
+<rtept lat="57.115900568608" lon="-3.6457995436604">
+<ele>1217.3429031452</ele>
+<name>Md-C083</name>
+</rtept>
+<rtept lat="57.1162947830628" lon="-3.64387226108141">
+<ele>1221.22675963514</ele>
+<name>Md-C084</name>
+</rtept>
+<rtept lat="57.1168064467209" lon="-3.64442178584734">
+<ele>1226.66625963513</ele>
+<name>Md-C085</name>
+</rtept>
+<rtept lat="57.1198007546909" lon="-3.64444548421996">
+<ele>1205.37146576347</ele>
+<name>Md-C086</name>
+</rtept>
+<rtept lat="57.1227227587783" lon="-3.64508377881193">
+<ele>1134.55951012983</ele>
+<name>Md-C087</name>
+</rtept>
+<rtept lat="57.1237941615809" lon="-3.64553105185534">
+<ele>1102.74334701722</ele>
+<name>Md-C088</name>
+</rtept>
+<rtept lat="57.12399933582" lon="-3.64495868094591">
+<ele>1107.9062877569</ele>
+<name>Md-C089</name>
+</rtept>
+<rtept lat="57.1246501219997" lon="-3.64469679869662">
+<ele>1094.44958745432</ele>
+<name>Md-C090</name>
+</rtept>
+<rtept lat="57.1252622623772" lon="-3.64625035702852">
+<ele>1077.90299554259</ele>
+<name>Md-C091</name>
+</rtept>
+<rtept lat="57.1283328413364" lon="-3.64836751780713">
+<ele>1019.09823152228</ele>
+<name>Md-C092</name>
+</rtept>
+<rtept lat="57.1314860809112" lon="-3.65396008226031">
+<ele>948.110963270188</ele>
+<name>Md-C093</name>
+</rtept>
+<rtept lat="57.1318166932714" lon="-3.65511984464959">
+<ele>939.794963270187</ele>
+<name>Md-C094</name>
+</rtept>
+<rtept lat="57.1320388831758" lon="-3.6562566105948">
+<ele>905.277976407862</ele>
+<name>Md-C095</name>
+</rtept>
+<rtept lat="57.1327002289999" lon="-3.65706768707111">
+<ele>880.56421217978</ele>
+<name>Md-C096</name>
+</rtept>
+<rtept lat="57.1328815194304" lon="-3.66054729197998">
+<ele>810.763430393148</ele>
+<name>Md-C097</name>
+</rtept>
+<rtept lat="57.1333604880878" lon="-3.66195757329854">
+<ele>810.858787500995</ele>
+<name>Md-C098</name>
+</rtept>
+<rtept lat="57.1342702189182" lon="-3.66259981112397">
+<ele>785.999180013745</ele>
+<name>Md-C099</name>
+</rtept>
+<rtept lat="57.1349787931764" lon="-3.66513001950624">
+<ele>732.391863834821</ele>
+<name>Md-C100</name>
+</rtept>
+<rtept lat="57.133976639457" lon="-3.66813936054247">
+<ele>677.406269091225</ele>
+<name>Md-C101</name>
+</rtept>
+<rtept lat="57.1332649562916" lon="-3.66888889769768">
+<ele>653.908809980631</ele>
+<name>Md-C102</name>
+</rtept>
+<rtept lat="57.1332256533315" lon="-3.66961415369646">
+<ele>659.455982314813</ele>
+<name>Md-C103</name>
+</rtept>
+<rtept lat="57.1336190133893" lon="-3.67050430409421">
+<ele>637.960851474619</ele>
+<name>Md-C104</name>
+</rtept>
+<rtept lat="57.1334279564165" lon="-3.67075015728156">
+<ele>642.294851474619</ele>
+<name>Md-C105</name>
+</rtept>
+</rte>
+</gpx>

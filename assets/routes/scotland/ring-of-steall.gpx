@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no' ?> 
+ <gpx creator='ukclimbing.com' version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.topografix.com/GPX/1/1
+ http://www.topografix.com/GPX/1/1/gpx.xsd"> 
+ <metadata> 
+ <link href='https://ukclimbing.com'> 
+ </link> 
+ </metadata><wpt lat='56.7695' lon='-5.0368'> 
+ <name>1</name> 
+ <desc>Just before the road bridge over the Water of Nevis go right though a gate to follow a path uphill beside the Allt Coire a' Mhusgain. Soon turn left off the main corrie path onto a rough eroded trail that climbs the long northwest sour of Sgurr a' Mhaim. This is a brutal ascent, but on the plus side you gain height steadily, and views of The Ben and the complex crags of Stob Ban improve as you go. Beyond an obvious shoulder, rockier slopes lead on up to the mountain's curving summit ridge.[]</desc> 
+ </wpt><wpt lat='56.7559' lon='-5.0036'> 
+ <name>2</name> 
+ <desc>From the summit cairn head roughly south to descend a stony zigzagging path towards the Devil's Ridge. With luck it will be clearly visible ahead - it's very photogenic. Stay on the crest as it narrows dramatically, descending into a small col. Gain the continuation of the ridge via some modest scrambling on a band of slabby rock. Soon reach a shattered pinnacle: this can be climbed direct, but it's easier avoided on the right (west) flank on an obvious well-worn path. Continue up the airy arete to the shark's-fin-sharp peak of Stob Coire a' Mhail, high point of the Devil's Ridge. A last bit of rocky crest now leads down to a broad bealach where the Devil's Ridge joins the main axis of the Mamores range. Bear left for a short climb onto the wide top of Sgurr an Iubhair.</desc> 
+ </wpt><wpt lat='56.7449' lon='-5.002'> 
+ <name>3</name> 
+ <desc>Go east-southeast down the ridge to an obvious flat col. Note: If you need to escape the route for any reason here is a good place to do it: a. right towards Kinlochleven, or b. left into Coire a' Mhail (Nb. there's no safe descent out of the mouth of the corrie so here rejoin stage 6 of the route for the final leg into Glen Nevis). If you're not bailing out then climb the stony ridge onto Am Bodach.</desc> 
+ </wpt><wpt lat='56.7418' lon='-4.9838'> 
+ <name>4</name> 
+ <desc>The steep, rocky descent northeast from here needs care - particularly in winter conditions. If the direct line looks daunting try at first bearing slightly left (facing downhill). The initial incline soon eases, leading into another col. Follow the ridge line over an un-named minor top (nice snow crests in winter), then on a curving ascent onto the domed summit of Stob Coire a' Chairn.  </desc> 
+ </wpt><wpt lat='56.7508' lon='-4.9695'> 
+ <name>5</name> 
+ <desc>Here part company with the main spine of the Mamores, and descend quite steeply north-northeast into the Bealach a' Chadha Riabhaich (not named on 1:50K map) - another possible escape point. Looming above is the vaguely menacing rock tooth of An Garbhanach. The ascent path is clear, and the ground starts to get a little hands-on as you gain height. Teeter airily along the rocky summit ridge until the crest is blocked by a small triangular slabby pinnacle. Done direct this is very exposed, and if necessary there's a bypass just on the left via a few easy moves up an obvious groove. The ground now eases into a pleasant ridge top stroll onto the summit of An Gearanach, the parent Munro. From this stunning viewpoint the colossal scale of Ben Nevis is eye popping. </desc> 
+ </wpt><wpt lat='56.7592' lon='-4.9662'> 
+ <name>6</name> 
+ <desc>With The Ben dead ahead carry on down the broad north ridge. At the point overlooking the drop into the mountain's shallow northern corrie, Coire Chadha Chaoruinn, OS maps show a trail looping far right. A more direct descent north-northwest down steep rocky ground cuts this corner, leading quickly to a grassy shoulder flanking the corrie. Here cut hard right on a path into the corrie, and then descend a long series of zigzags. Cross and then re-cross the burn to reach the floor of Glen Nevis. The bottom of the glen is a giant sponge; the best line heads left along the very foot of wooded crags to pass close beneath the thundering Steall waterfall, one of the biggest in Britain. Beyond a private club hut in the trees is the infamous wire bridge over the Water of Nevis. With one strand to walk on and one for each hand it always feels more wobbly than you remember, and higher too.[]</desc> 
+ </wpt><wpt lat='56.7728' lon='-4.9832'> 
+ <name>7</name> 
+ <desc>On the far side of the river join a popular tourist path through the deep wooded gorge, where families mingle with mountaineers and the rush of water echoes around the crags. With its gnarled bonsai trees and a backdrop of big peaks this could well be the most scenic finish to any British hill walk. Except, you're not quite done yet. Unless you've pre-arranged transport there's a final leg down the road to the Lower Falls car park. But somewhere as special as Glen Nevis, even this is no big deal.[]</desc> 
+ </wpt><rte>
+<rtept lat='56.76949' lon='-5.03672'></rtept> 
+<rtept lat='56.76973' lon='-5.0367'></rtept> 
+<rtept lat='56.76981' lon='-5.03662'></rtept> 
+<rtept lat='56.76995' lon='-5.03657'></rtept> 
+<rtept lat='56.76989' lon='-5.0356'></rtept> 
+<rtept lat='56.76954' lon='-5.03513'></rtept> 
+<rtept lat='56.76891' lon='-5.0347'></rtept> 
+<rtept lat='56.76862' lon='-5.03461'></rtept> 
+<rtept lat='56.76825' lon='-5.03448'></rtept> 
+<rtept lat='56.76771' lon='-5.03418'></rtept> 
+<rtept lat='56.767' lon='-5.0344'></rtept> 
+<rtept lat='56.76648' lon='-5.0344'></rtept> 
+<rtept lat='56.76599' lon='-5.03358'></rtept> 
+<rtept lat='56.76564' lon='-5.03333'></rtept> 
+<rtept lat='56.76531' lon='-5.0332'></rtept> 
+<rtept lat='56.76484' lon='-5.03298'></rtept> 
+<rtept lat='56.7642' lon='-5.03247'></rtept> 
+<rtept lat='56.76397' lon='-5.03212'></rtept> 
+<rtept lat='56.76336' lon='-5.03157'></rtept> 
+<rtept lat='56.76322' lon='-5.03118'></rtept> 
+<rtept lat='56.7631' lon='-5.03032'></rtept> 
+<rtept lat='56.76284' lon='-5.02835'></rtept> 
+<rtept lat='56.76303' lon='-5.02693'></rtept> 
+<rtept lat='56.76307' lon='-5.02564'></rtept> 
+<rtept lat='56.76289' lon='-5.02457'></rtept> 
+<rtept lat='56.7627' lon='-5.02376'></rtept> 
+<rtept lat='56.76253' lon='-5.02281'></rtept> 
+<rtept lat='56.76213' lon='-5.02165'></rtept> 
+<rtept lat='56.76187' lon='-5.02054'></rtept> 
+<rtept lat='56.76178' lon='-5.01959'></rtept> 
+<rtept lat='56.76152' lon='-5.01775'></rtept> 
+<rtept lat='56.76105' lon='-5.01573'></rtept> 
+<rtept lat='56.76075' lon='-5.01474'></rtept> 
+<rtept lat='56.76035' lon='-5.01397'></rtept> 
+<rtept lat='56.76011' lon='-5.01359'></rtept> 
+<rtept lat='56.76002' lon='-5.01298'></rtept> 
+<rtept lat='56.75992' lon='-5.01191'></rtept> 
+<rtept lat='56.75955' lon='-5.01028'></rtept> 
+<rtept lat='56.75919' lon='-5.00959'></rtept> 
+<rtept lat='56.75886' lon='-5.00861'></rtept> 
+<rtept lat='56.75863' lon='-5.00783'></rtept> 
+<rtept lat='56.75823' lon='-5.00788'></rtept> 
+<rtept lat='56.75755' lon='-5.00779'></rtept> 
+<rtept lat='56.7571' lon='-5.00749'></rtept> 
+<rtept lat='56.75675' lon='-5.00702'></rtept> 
+<rtept lat='56.75635' lon='-5.00625'></rtept> 
+<rtept lat='56.75618' lon='-5.00556'></rtept> 
+<rtept lat='56.75611' lon='-5.0047'></rtept> 
+<rtept lat='56.7559' lon='-5.00363'>
+<ele>1099</ele>
+</rtept> 
+<rtept lat='56.75543' lon='-5.00354'></rtept> 
+<rtept lat='56.75498' lon='-5.00311'></rtept> 
+<rtept lat='56.75456' lon='-5.0029'></rtept> 
+<rtept lat='56.75432' lon='-5.00316'></rtept> 
+<rtept lat='56.75376' lon='-5.0038'></rtept> 
+<rtept lat='56.75329' lon='-5.00427'></rtept> 
+<rtept lat='56.75298' lon='-5.00462'></rtept> 
+<rtept lat='56.75251' lon='-5.00487'></rtept> 
+<rtept lat='56.75216' lon='-5.00509'></rtept> 
+<rtept lat='56.75178' lon='-5.00509'></rtept> 
+<rtept lat='56.75141' lon='-5.00483'></rtept> 
+<rtept lat='56.7507' lon='-5.00496'></rtept> 
+<rtept lat='56.75006' lon='-5.005'></rtept> 
+<rtept lat='56.74976' lon='-5.00513'></rtept> 
+<rtept lat='56.74915' lon='-5.00533'>
+<ele>990</ele>
+</rtept> 
+<rtept lat='56.74846' lon='-5.00535'></rtept> 
+<rtept lat='56.74804' lon='-5.00543'></rtept> 
+<rtept lat='56.74778' lon='-5.00539'></rtept> 
+<rtept lat='56.74745' lon='-5.00565'></rtept> 
+<rtept lat='56.74705' lon='-5.00573'></rtept> 
+<rtept lat='56.74665' lon='-5.00586'></rtept> 
+<rtept lat='56.74642' lon='-5.00504'></rtept> 
+<rtept lat='56.74623' lon='-5.00453'></rtept> 
+<rtept lat='56.74569' lon='-5.00401'></rtept> 
+<rtept lat='56.74543' lon='-5.00341'></rtept> 
+<rtept lat='56.74493' lon='-5.002'>
+<ele>1001</ele>
+</rtept> 
+<rtept lat='56.74409' lon='-5.0014'></rtept> 
+<rtept lat='56.74383' lon='-5.00071'></rtept> 
+<rtept lat='56.74357' lon='-4.99951'></rtept> 
+<rtept lat='56.74345' lon='-4.99844'></rtept> 
+<rtept lat='56.74319' lon='-4.99779'></rtept> 
+<rtept lat='56.74296' lon='-4.99715'></rtept> 
+<rtept lat='56.74253' lon='-4.99595'></rtept> 
+<rtept lat='56.74225' lon='-4.99496'></rtept> 
+<rtept lat='56.74206' lon='-4.99376'></rtept> 
+<rtept lat='56.74187' lon='-4.99286'></rtept> 
+<rtept lat='56.74176' lon='-4.99226'></rtept> 
+<rtept lat='56.74157' lon='-4.99157'></rtept> 
+<rtept lat='56.7414' lon='-4.99071'></rtept> 
+<rtept lat='56.74143' lon='-4.99011'></rtept> 
+<rtept lat='56.74147' lon='-4.98912'></rtept> 
+<rtept lat='56.74157' lon='-4.98822'></rtept> 
+<rtept lat='56.74169' lon='-4.98741'></rtept> 
+<rtept lat='56.74164' lon='-4.98672'></rtept> 
+<rtept lat='56.7415' lon='-4.98599'></rtept> 
+<rtept lat='56.7414' lon='-4.98539'></rtept> 
+<rtept lat='56.74145' lon='-4.98466'></rtept> 
+<rtept lat='56.7418' lon='-4.9838'>
+<ele>1032</ele>
+</rtept> 
+<rtept lat='56.74239' lon='-4.98329'></rtept> 
+<rtept lat='56.74263' lon='-4.98294'></rtept> 
+<rtept lat='56.74293' lon='-4.98239'></rtept> 
+<rtept lat='56.74329' lon='-4.9817'></rtept> 
+<rtept lat='56.74362' lon='-4.98148'></rtept> 
+<rtept lat='56.74399' lon='-4.98123'></rtept> 
+<rtept lat='56.74432' lon='-4.9811'></rtept> 
+<rtept lat='56.74484' lon='-4.98118'></rtept> 
+<rtept lat='56.74522' lon='-4.98097'></rtept> 
+<rtept lat='56.74538' lon='-4.98024'></rtept> 
+<rtept lat='56.74566' lon='-4.97934'></rtept> 
+<rtept lat='56.74578' lon='-4.97882'></rtept> 
+<rtept lat='56.74599' lon='-4.97844'></rtept> 
+<rtept lat='56.74623' lon='-4.97792'></rtept> 
+<rtept lat='56.74644' lon='-4.97736'></rtept> 
+<rtept lat='56.74663' lon='-4.97711'></rtept> 
+<rtept lat='56.74684' lon='-4.97663'></rtept> 
+<rtept lat='56.74701' lon='-4.97599'></rtept> 
+<rtept lat='56.74715' lon='-4.97548'></rtept> 
+<rtept lat='56.74738' lon='-4.97522'></rtept> 
+<rtept lat='56.74771' lon='-4.97496'></rtept> 
+<rtept lat='56.74806' lon='-4.97445'></rtept> 
+<rtept lat='56.74835' lon='-4.97406'></rtept> 
+<rtept lat='56.74863' lon='-4.97363'></rtept> 
+<rtept lat='56.74893' lon='-4.97312'></rtept> 
+<rtept lat='56.74964' lon='-4.97256'></rtept> 
+<rtept lat='56.75016' lon='-4.972'></rtept> 
+<rtept lat='56.75035' lon='-4.97157'></rtept> 
+<rtept lat='56.75049' lon='-4.97088'></rtept> 
+<rtept lat='56.75058' lon='-4.97041'></rtept> 
+<rtept lat='56.75077' lon='-4.96951'>
+<ele>981</ele>
+</rtept> 
+<rtept lat='56.75157' lon='-4.96934'></rtept> 
+<rtept lat='56.75192' lon='-4.96908'></rtept> 
+<rtept lat='56.75225' lon='-4.96882'></rtept> 
+<rtept lat='56.75258' lon='-4.96831'></rtept> 
+<rtept lat='56.75284' lon='-4.96762'></rtept> 
+<rtept lat='56.75315' lon='-4.96706'></rtept> 
+<rtept lat='56.75336' lon='-4.96664'></rtept> 
+<rtept lat='56.75355' lon='-4.96634'></rtept> 
+<rtept lat='56.75388' lon='-4.96634'></rtept> 
+<rtept lat='56.75404' lon='-4.96625'></rtept> 
+<rtept lat='56.75418' lon='-4.96591'></rtept> 
+<rtept lat='56.75435' lon='-4.96548'></rtept> 
+<rtept lat='56.75456' lon='-4.96561'></rtept> 
+<rtept lat='56.75465' lon='-4.96552'></rtept> 
+<rtept lat='56.75476' lon='-4.96548'></rtept> 
+<rtept lat='56.75482' lon='-4.96541'></rtept> 
+<rtept lat='56.75488' lon='-4.96539'></rtept> 
+<rtept lat='56.7551' lon='-4.96526'>
+<ele>975</ele>
+</rtept> 
+<rtept lat='56.75553' lon='-4.96533'></rtept> 
+<rtept lat='56.7559' lon='-4.96535'></rtept> 
+<rtept lat='56.75618' lon='-4.96543'></rtept> 
+<rtept lat='56.75639' lon='-4.96548'></rtept> 
+<rtept lat='56.75677' lon='-4.96561'></rtept> 
+<rtept lat='56.757' lon='-4.96569'></rtept> 
+<rtept lat='56.75743' lon='-4.96582'></rtept> 
+<rtept lat='56.75792' lon='-4.96586'></rtept> 
+<rtept lat='56.75844' lon='-4.96608'></rtept> 
+<rtept lat='56.75879' lon='-4.96603'></rtept> 
+<rtept lat='56.75917' lon='-4.96625'>
+<ele>982</ele>
+</rtept> 
+<rtept lat='56.76016' lon='-4.96749'></rtept> 
+<rtept lat='56.76027' lon='-4.96775'></rtept> 
+<rtept lat='56.7607' lon='-4.96805'></rtept> 
+<rtept lat='56.76112' lon='-4.96797'></rtept> 
+<rtept lat='56.76171' lon='-4.96805'></rtept> 
+<rtept lat='56.76213' lon='-4.96801'></rtept> 
+<rtept lat='56.76249' lon='-4.96792'></rtept> 
+<rtept lat='56.76279' lon='-4.96779'></rtept> 
+<rtept lat='56.76317' lon='-4.96771'></rtept> 
+<rtept lat='56.76336' lon='-4.96775'></rtept> 
+<rtept lat='56.76366' lon='-4.96818'></rtept> 
+<rtept lat='56.76397' lon='-4.96857'></rtept> 
+<rtept lat='56.76411' lon='-4.96887'></rtept> 
+<rtept lat='56.76444' lon='-4.96981'></rtept> 
+<rtept lat='56.76451' lon='-4.9705'></rtept> 
+<rtept lat='56.76484' lon='-4.97106'></rtept> 
+<rtept lat='56.76533' lon='-4.97183'></rtept> 
+<rtept lat='56.76564' lon='-4.97187'></rtept> 
+<rtept lat='56.76559' lon='-4.97071'></rtept> 
+<rtept lat='56.76566' lon='-4.96985'></rtept> 
+<rtept lat='56.76611' lon='-4.96857'></rtept> 
+<rtept lat='56.76611' lon='-4.9696'></rtept> 
+<rtept lat='56.76611' lon='-4.96981'></rtept> 
+<rtept lat='56.76637' lon='-4.96964'></rtept> 
+<rtept lat='56.7663' lon='-4.97003'></rtept> 
+<rtept lat='56.76646' lon='-4.96985'></rtept> 
+<rtept lat='56.76646' lon='-4.97058'></rtept> 
+<rtept lat='56.76665' lon='-4.97041'></rtept> 
+<rtept lat='56.76667' lon='-4.9708'></rtept> 
+<rtept lat='56.76686' lon='-4.97067'></rtept> 
+<rtept lat='56.76703' lon='-4.9708'></rtept> 
+<rtept lat='56.76707' lon='-4.97118'></rtept> 
+<rtept lat='56.76721' lon='-4.9711'></rtept> 
+<rtept lat='56.76731' lon='-4.97166'></rtept> 
+<rtept lat='56.76747' lon='-4.97136'></rtept> 
+<rtept lat='56.7675' lon='-4.97131'></rtept> 
+<rtept lat='56.76766' lon='-4.97221'></rtept> 
+<rtept lat='56.7678' lon='-4.97174'></rtept> 
+<rtept lat='56.76794' lon='-4.97187'></rtept> 
+<rtept lat='56.76808' lon='-4.97179'></rtept> 
+<rtept lat='56.7682' lon='-4.97183'></rtept> 
+<rtept lat='56.76832' lon='-4.97187'></rtept> 
+<rtept lat='56.76841' lon='-4.97221'></rtept> 
+<rtept lat='56.76846' lon='-4.97243'></rtept> 
+<rtept lat='56.76848' lon='-4.9726'></rtept> 
+<rtept lat='56.76858' lon='-4.97217'></rtept> 
+<rtept lat='56.76874' lon='-4.972'></rtept> 
+<rtept lat='56.76888' lon='-4.97183'></rtept> 
+<rtept lat='56.76928' lon='-4.97209'></rtept> 
+<rtept lat='56.76961' lon='-4.97247'></rtept> 
+<rtept lat='56.76989' lon='-4.97273'></rtept> 
+<rtept lat='56.77004' lon='-4.97247'></rtept> 
+<rtept lat='56.77027' lon='-4.97277'></rtept> 
+<rtept lat='56.7702' lon='-4.97316'></rtept> 
+<rtept lat='56.77032' lon='-4.97355'></rtept> 
+<rtept lat='56.77051' lon='-4.97376'></rtept> 
+<rtept lat='56.7706' lon='-4.97389'></rtept> 
+<rtept lat='56.77067' lon='-4.97427'></rtept> 
+<rtept lat='56.77072' lon='-4.97449'></rtept> 
+<rtept lat='56.77084' lon='-4.97458'></rtept> 
+<rtept lat='56.77095' lon='-4.97462'></rtept> 
+<rtept lat='56.771' lon='-4.97488'></rtept> 
+<rtept lat='56.77105' lon='-4.975'></rtept> 
+<rtept lat='56.77095' lon='-4.97548'></rtept> 
+<rtept lat='56.77109' lon='-4.97595'></rtept> 
+<rtept lat='56.77124' lon='-4.97651'></rtept> 
+<rtept lat='56.77128' lon='-4.97732'></rtept> 
+<rtept lat='56.77114' lon='-4.97827'></rtept> 
+<rtept lat='56.77095' lon='-4.97904'></rtept> 
+<rtept lat='56.77069' lon='-4.97942'></rtept> 
+<rtept lat='56.77044' lon='-4.97968'></rtept> 
+<rtept lat='56.7706' lon='-4.98037'></rtept> 
+<rtept lat='56.77062' lon='-4.98144'></rtept> 
+<rtept lat='56.77081' lon='-4.98187'></rtept> 
+<rtept lat='56.77114' lon='-4.98234'></rtept> 
+<rtept lat='56.77112' lon='-4.98264'></rtept> 
+<rtept lat='56.77109' lon='-4.9829'></rtept> 
+<rtept lat='56.77152' lon='-4.98359'></rtept> 
+<rtept lat='56.77168' lon='-4.98363'></rtept> 
+<rtept lat='56.77194' lon='-4.9835'></rtept> 
+<rtept lat='56.77229' lon='-4.98324'></rtept> 
+<rtept lat='56.77274' lon='-4.98312'></rtept> 
+<rtept lat='56.77312' lon='-4.9835'></rtept> 
+<rtept lat='56.7733' lon='-4.98389'></rtept> 
+<rtept lat='56.7733' lon='-4.98427'></rtept> 
+<rtept lat='56.77347' lon='-4.98449'></rtept> 
+<rtept lat='56.77359' lon='-4.98487'></rtept> 
+<rtept lat='56.77373' lon='-4.98535'></rtept> 
+<rtept lat='56.77396' lon='-4.98565'></rtept> 
+<rtept lat='56.77415' lon='-4.98608'></rtept> 
+<rtept lat='56.77436' lon='-4.98646'></rtept> 
+<rtept lat='56.77457' lon='-4.98698'></rtept> 
+<rtept lat='56.77486' lon='-4.98711'></rtept> 
+<rtept lat='56.77509' lon='-4.98732'></rtept> 
+<rtept lat='56.77528' lon='-4.98758'></rtept> 
+<rtept lat='56.77542' lon='-4.98827'></rtept> 
+<rtept lat='56.77559' lon='-4.98848'></rtept> 
+<rtept lat='56.77584' lon='-4.98861'></rtept> 
+<rtept lat='56.77594' lon='-4.98874'></rtept> 
+<rtept lat='56.77622' lon='-4.98887'></rtept> 
+<rtept lat='56.77641' lon='-4.98917'></rtept> 
+<rtept lat='56.77669' lon='-4.9896'></rtept> 
+<rtept lat='56.77695' lon='-4.98985'></rtept> 
+<rtept lat='56.77714' lon='-4.99002'></rtept> 
+<rtept lat='56.7773' lon='-4.99024'></rtept> 
+<rtept lat='56.77763' lon='-4.9902'></rtept> 
+<rtept lat='56.77784' lon='-4.99028'></rtept> 
+<rtept lat='56.77789' lon='-4.99058'></rtept> 
+<rtept lat='56.77824' lon='-4.99054'></rtept> 
+<rtept lat='56.77852' lon='-4.99105'></rtept> 
+<rtept lat='56.77881' lon='-4.99114'></rtept> 
+<rtept lat='56.77907' lon='-4.99123'></rtept> 
+<rtept lat='56.7793' lon='-4.99161'></rtept> 
+<rtept lat='56.77939' lon='-4.99204'></rtept> 
+<rtept lat='56.77935' lon='-4.99273'></rtept> 
+<rtept lat='56.77928' lon='-4.99316'></rtept> 
+<rtept lat='56.77897' lon='-4.99372'></rtept> 
+<rtept lat='56.77867' lon='-4.99466'></rtept> 
+<rtept lat='56.7786' lon='-4.99513'></rtept> 
+<rtept lat='56.77827' lon='-4.99582'></rtept> 
+<rtept lat='56.77813' lon='-4.99612'></rtept> 
+<rtept lat='56.77794' lon='-4.99659'></rtept> 
+<rtept lat='56.77789' lon='-4.99702'></rtept> 
+<rtept lat='56.77794' lon='-4.99771'></rtept> 
+<rtept lat='56.77765' lon='-4.99856'></rtept> 
+<rtept lat='56.77758' lon='-4.99912'></rtept> 
+<rtept lat='56.77761' lon='-4.99964'></rtept> 
+<rtept lat='56.77756' lon='-5.00041'></rtept> 
+<rtept lat='56.7773' lon='-5.00105'></rtept> 
+<rtept lat='56.7773' lon='-5.00217'></rtept> 
+<rtept lat='56.77718' lon='-5.00273'></rtept> 
+<rtept lat='56.77733' lon='-5.00354'></rtept> 
+<rtept lat='56.77714' lon='-5.00393'></rtept> 
+<rtept lat='56.77693' lon='-5.00517'></rtept> 
+<rtept lat='56.77674' lon='-5.00573'></rtept> 
+<rtept lat='56.77646' lon='-5.00625'></rtept> 
+<rtept lat='56.77617' lon='-5.00693'></rtept> 
+<rtept lat='56.77577' lon='-5.00736'></rtept> 
+<rtept lat='56.77559' lon='-5.00771'></rtept> 
+<rtept lat='56.77535' lon='-5.00839'></rtept> 
+<rtept lat='56.7741' lon='-5.00998'></rtept> 
+<rtept lat='56.77392' lon='-5.01019'></rtept> 
+<rtept lat='56.77361' lon='-5.01105'></rtept> 
+<rtept lat='56.77288' lon='-5.01183'></rtept> 
+<rtept lat='56.77272' lon='-5.01217'></rtept> 
+<rtept lat='56.77248' lon='-5.01247'></rtept> 
+<rtept lat='56.77215' lon='-5.01281'></rtept> 
+<rtept lat='56.77199' lon='-5.01337'></rtept> 
+<rtept lat='56.77154' lon='-5.0141'></rtept> 
+<rtept lat='56.77128' lon='-5.01466'></rtept> 
+<rtept lat='56.77107' lon='-5.01526'></rtept> 
+<rtept lat='56.77091' lon='-5.01582'></rtept> 
+<rtept lat='56.771' lon='-5.0174'></rtept> 
+<rtept lat='56.77088' lon='-5.01809'></rtept> 
+<rtept lat='56.77081' lon='-5.01861'></rtept> 
+<rtept lat='56.7706' lon='-5.01964'></rtept> 
+<rtept lat='56.77058' lon='-5.02088'></rtept> 
+<rtept lat='56.77093' lon='-5.02105'></rtept> 
+<rtept lat='56.77119' lon='-5.0214'></rtept> 
+<rtept lat='56.77142' lon='-5.02152'></rtept> 
+<rtept lat='56.77152' lon='-5.02217'></rtept> 
+<rtept lat='56.77154' lon='-5.02255'></rtept> 
+<rtept lat='56.77164' lon='-5.02285'></rtept> 
+<rtept lat='56.77164' lon='-5.0229'></rtept> 
+<rtept lat='56.77159' lon='-5.02309'></rtept> 
+<rtept lat='56.77148' lon='-5.02339'></rtept> 
+<rtept lat='56.77138' lon='-5.02414'></rtept> 
+<rtept lat='56.77145' lon='-5.0247'></rtept> 
+<rtept lat='56.77119' lon='-5.0256'></rtept> 
+<rtept lat='56.771' lon='-5.02706'></rtept> 
+<rtept lat='56.77079' lon='-5.02818'></rtept> 
+<rtept lat='56.77076' lon='-5.02938'></rtept> 
+<rtept lat='56.77079' lon='-5.03092'></rtept> 
+<rtept lat='56.77072' lon='-5.03333'></rtept> 
+<rtept lat='56.77079' lon='-5.03461'></rtept> 
+<rtept lat='56.77072' lon='-5.03564'></rtept> 
+<rtept lat='56.77067' lon='-5.03672'></rtept> 
+<rtept lat='56.77046' lon='-5.03685'></rtept> 
+<rtept lat='56.77031' lon='-5.03674'></rtept> 
+<rtept lat='56.77007' lon='-5.03661'></rtept> 
+<rtept lat='56.76992' lon='-5.03657'></rtept> 
+<rtept lat='56.76995' lon='-5.03657'></rtept> 
+<rtept lat='56.76981' lon='-5.03662'></rtept> 
+<rtept lat='56.76973' lon='-5.0367'></rtept> 
+<rtept lat='56.76949' lon='-5.03672'></rtept> 
+</rte> 
+</gpx>
