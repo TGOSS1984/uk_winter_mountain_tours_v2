@@ -1,1 +1,286 @@
-{% extends 'base.html' %}{% block content %}<h1>Scotland</h1><p>Routes and info about Scotland.</p>{% endblock %}
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block extra_head %}
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+<link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+{% endblock %}
+
+{% block content %}
+<section class="hero-section d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Scotland Routes</h1>
+        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">Explore the Highlands, Glencoe & Torridon</p>
+        <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Book Now</a>
+      </div>
+      <div class="col-lg-6 p-0">
+        <picture>
+          <source media="(min-width: 1600px)" srcset="{% static 'images/hero/ben-nevis-aonach-eagach-hero.webp' %}">
+          <img src="{% static 'images/hero/ben-nevis-aonach-eagach-hero.webp' %}"
+               alt="Scottish mountain ridge in winter"
+               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-center">Scotland Walking Routes</h1>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">An Teallach</h5>
+          <p class="card-text">A sandstone giant with serrated pinnacles and Atlantic vistas.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-an-teallach">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Aonach Eagach</h5>
+          <p class="card-text">Glencoe’s famous knife-edge with continuous, exposed scrambling.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-aonach-eagach">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Beinn Alligin</h5>
+          <p class="card-text">A Torridon classic over the Horns with sweeping sea views.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-beinn-alligin">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Ben Macdui</h5>
+          <p class="card-text">Vast Cairngorm plateaux and corrie rims to Britain’s second highest peak.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-ben-macdui">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Ben Nevis via CMD Arête</h5>
+          <p class="card-text">A superb airy horseshoe crossing Carn Mòr Dearg to the summit of Ben Nevis.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-ben-nevis-cmd-arete">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Buachaille Etive Mòr</h5>
+          <p class="card-text">The iconic Glencoe pyramid with a fine ridge to Stob na Bròige.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-buachaille-etive-mor">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Grey Corries</h5>
+          <p class="card-text">A long, graceful chain of quartzite ridges linking multiple Munros.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-grey-corries">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Liathach</h5>
+          <p class="card-text">A Torridon titan with the dramatic Am Fasarinen pinnacles.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-liathach">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Ring of Steall</h5>
+          <p class="card-text">A classic Mamores horseshoe including the airy Devil’s Ridge.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-ring-of-steall">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Suilven</h5>
+          <p class="card-text">Assynt’s iconic fin of rock with a narrow summit crest and ocean views.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-suilven">View Route</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{# --- FULL ROUTE SECTIONS (data-gpx paths match Scotland filenames) --- #}
+<section class="route-section bg-light" id="route-an-teallach">
+  <div class="container">
+    <h2>An Teallach</h2>
+    <div id="map-an-teallach" class="route-map"
+         data-gpx="{% static 'routes/scotland/anteallach.gpx' %}"></div>
+    <br>
+    <p>A mighty Torridonian sandstone ridge whose serrated crest gives thrilling but manageable scrambling. On a clear day the Fisherfield wilderness and Hebridean seascapes feel close enough to touch.</p>
+    <p class="mt-2 fw-bold">From £110 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.an_teallach }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-aonach-eagach">
+  <div class="container">
+    <h2>Aonach Eagach</h2>
+    <div id="map-aonach-eagach" class="route-map"
+         data-gpx="{% static 'routes/scotland/aonacheagach.gpx' %}"></div>
+    <br>
+    <p>Perhaps the narrowest mainland ridge in Scotland. A committing traverse above Glencoe, weaving over pinnacles with constant exposure, big atmosphere, and views down to the valley floor.</p>
+    <p class="mt-2 fw-bold">From £105 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.aonach_eagach }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-beinn-alligin">
+  <div class="container">
+    <h2>Beinn Alligin</h2>
+    <div id="map-beinn-alligin" class="route-map"
+         data-gpx="{% static 'routes/scotland/Beinnalligin.gpx' %}"></div>
+    <br>
+    <p>A magnificent circuit over the Horns of Alligin (Na Rathanan). Rocky steps, airy edges and constant views over Loch Torridon and across to Liathach make this a perfect Torridon day.</p>
+    <p class="mt-2 fw-bold">From £95 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.beinn_alligin }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-ben-macdui">
+  <div class="container">
+    <h2>Ben Macdui</h2>
+    <div id="map-ben-macdui" class="route-map"
+         data-gpx="{% static 'routes/scotland/ben-macdui.gpx' %}"></div>
+    <br>
+    <p>Journey across the high Cairngorm plateau, skirting dramatic corrie rims and boulderfields to reach the vast summit of Ben Macdui. A day of big skies and arctic-scale scenery.</p>
+    <p class="mt-2 fw-bold">From £90 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.ben_macdui }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-ben-nevis-cmd-arete">
+  <div class="container">
+    <h2>Ben Nevis via CMD Arête</h2>
+    <div id="map-ben-nevis-cmd-arete" class="route-map"
+         data-gpx="{% static 'routes/scotland/ben-nevis-cmd-arete.gpx' %}"></div>
+    <br>
+    <p>An elegant horseshoe linking Carn Mòr Dearg with Ben Nevis by the celebrated arête. Airy but steady scrambling with unforgettable views of the North Face’s great cliffs.</p>
+    <p class="mt-2 fw-bold">From £100 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.ben_nevis_cmd_arete }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-buachaille-etive-mor">
+  <div class="container">
+    <h2>Buachaille Etive Mòr</h2>
+    <div id="map-buachaille-etive-mor" class="route-map"
+         data-gpx="{% static 'routes/scotland/buachailleetivemor.gpx' %}"></div>
+    <br>
+    <p>Climb the classic pyramid of Stob Dearg then follow a fine ridge to Stob na Bròige. Optional easy scrambling and constant views over Rannoch Moor and Glen Etive.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.buachaille_etive_mor }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-grey-corries">
+  <div class="container">
+    <h2>Grey Corries</h2>
+    <div id="map-grey-corries" class="route-map"
+         data-gpx="{% static 'routes/scotland/greycorries.gpx' %}"></div>
+    <br>
+    <p>A long, elegant traverse of gleaming quartzite tops, with narrow aretes and sweeping views to the Ben and the Mamores. A satisfying big day on the ridges.</p>
+    <p class="mt-2 fw-bold">From £95 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.grey_corries }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-liathach">
+  <div class="container">
+    <h2>Liathach</h2>
+    <div id="map-liathach" class="route-map"
+         data-gpx="{% static 'routes/scotland/Liathach.gpx' %}"></div>
+    <br>
+    <p>One of Scotland’s finest ridges. A committing traverse with the famed Am Fasarinen pinnacles (with bypass options), delivering huge Torridon panoramas and serious mountain feel.</p>
+    <p class="mt-2 fw-bold">From £105 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.liathach }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-ring-of-steall">
+  <div class="container">
+    <h2>Ring of Steall</h2>
+    <div id="map-ring-of-steall" class="route-map"
+         data-gpx="{% static 'routes/scotland/ring-of-steall.gpx' %}"></div>
+    <br>
+    <p>A superb Mamores horseshoe above Steall Falls, including the airy Devil’s Ridge. Constant excitement and expansive views across Lochaber’s highest peaks.</p>
+    <p class="mt-2 fw-bold">From £90 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.ring_of_steall }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-suilven">
+  <div class="container">
+    <h2>Suilven</h2>
+    <div id="map-suilven" class="route-map"
+         data-gpx="{% static 'routes/scotland/suilven.gpx' %}"></div>
+    <br>
+    <p>An unforgettable outing in Assynt: a long approach to a narrow fin of rock with a sensational summit crest. Wild country, big skies and views to the sea.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.suilven }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>window.STATIC_PREFIX = "{% static '' %}";</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{% static 'vendor/leaflet-gpx/gpx.min.js' %}"></script>
+<script src="{% static 'js/maps.js' %}"></script>
+{% endblock %}
