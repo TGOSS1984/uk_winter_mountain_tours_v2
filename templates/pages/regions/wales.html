@@ -1,1 +1,284 @@
-{% extends 'base.html' %}{% block content %}<h1>Wales</h1><p>Routes and info about Wales.</p>{% endblock %}
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block extra_head %}
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+<link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+{% endblock %}
+
+{% block content %}
+<section class="hero-section d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Wales Routes</h1>
+        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">Explore Snowdonia, the Carneddau & Brecon Beacons</p>
+        <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Book Now</a>
+      </div>
+      <div class="col-lg-6 p-0">
+        <picture>
+          <source media="(min-width: 1600px)" srcset="{% static 'images/hero/maincribgoch2048x1737px.webp' %}">
+          <img src="{% static 'images/hero/maincribgoch2048x1737px.webp' %}"
+               alt="Welsh mountain ridge in winter"
+               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-center">Wales Walking Routes</h1>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Snowdon via Crib Goch</h5>
+          <p class="card-text">The iconic knife-edge arête to the summit of Yr Wyddfa.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-snowdon-crib-goch">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Tryfan North Face & Bristly Ridge</h5>
+          <p class="card-text">Hands-on scrambling to Tryfan, then airy pinnacles to the Glyderau.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-tryfan-bristly">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Y Gribin (Glyderau)</h5>
+          <p class="card-text">A friendly ridge above Llyn Bochlwyd to a lunar summit plateau.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-ygribin">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Pen yr Ole Wen</h5>
+          <p class="card-text">A steep, rewarding climb with huge Ogwen valley views.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-pen-yr-ole-wen">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Carnedd Dafydd via Crib Lem Spur</h5>
+          <p class="card-text">Quieter scrambling into the vast spaces of the Carneddau.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-carnedd-dafydd-crib-lem">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Cnicht</h5>
+          <p class="card-text">The “Welsh Matterhorn” above Croesor and the estuary.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-cnicht">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Moel Siabod</h5>
+          <p class="card-text">A solitary giant with panoramic views of Snowdonia.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-moel-siabod">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Nantlle Ridge</h5>
+          <p class="card-text">A graceful chain of rocky tops with sea and mountain vistas.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-nantlle-ridge">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Cadair Idris</h5>
+          <p class="card-text">Southern Snowdonia’s classic circuit above Llyn Cau.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-cadair-idris">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Pen y Fan</h5>
+          <p class="card-text">The Brecon Beacons high point via sweeping escarpments.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-pen-y-fan">View Route</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# --- FULL ROUTE SECTIONS (data-gpx paths match Wales filenames) --- #}
+<section class="route-section bg-light" id="route-snowdon-crib-goch">
+  <div class="container">
+    <h2>Snowdon via Crib Goch</h2>
+    <div id="map-snowdon-crib-goch" class="route-map"
+         data-gpx="{% static 'routes/wales/snowdon-via-crib-goch.gpx' %}"></div>
+    <br>
+    <p>Tackle the famous knife-edge arête of Crib Goch en route to the summit of Yr Wyddfa. Exposed but spectacular, this Grade 1 ridge links the Pyg Track with a thrilling crest and unforgettable views into the cwms below.</p>
+    <p class="mt-2 fw-bold">From £100 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.snowdon_via_crib_goch }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-tryfan-bristly">
+  <div class="container">
+    <h2>Tryfan North Face & Bristly Ridge</h2>
+    <div id="map-tryfan-bristly" class="route-map"
+         data-gpx="{% static 'routes/wales/tryfan-north-face-bristly-ridge.gpx' %}"></div>
+    <br>
+    <p>Scramble the sculpted North Face of Tryfan to its summit monoliths, then cross Bwlch Tryfan to the pinnacled Bristly Ridge. A classic Snowdonia double that delivers hands-on movement and big mountain atmosphere.</p>
+    <p class="mt-2 fw-bold">From £95 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.tryfan_north_face_bristly_ridge }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-ygribin">
+  <div class="container">
+    <h2>Y Gribin (Glyderau)</h2>
+    <div id="map-ygribin" class="route-map"
+         data-gpx="{% static 'routes/wales/ygribin.gpx' %}"></div>
+    <br>
+    <p>A well-defined ridge rising above Llyn Bochlwyd to the moonscape of the Glyderau. Solid rock steps and a broad crest make this an ideal first Welsh scramble with rewarding summit vistas.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.y_gribin }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-pen-yr-ole-wen">
+  <div class="container">
+    <h2>Pen yr Ole Wen</h2>
+    <div id="map-pen-yr-ole-wen" class="route-map"
+         data-gpx="{% static 'routes/wales/pen-yr-ole-wen.gpx' %}"></div>
+    <br>
+    <p>A steep pull from the valley leading to expansive views across Ogwen and the Carneddau. A punchy ascent that feels alpine in character from first step to summit ridge.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.pen_yr_ole_wen }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-carnedd-dafydd-crib-lem">
+  <div class="container">
+    <h2>Carnedd Dafydd via Crib Lem Spur</h2>
+    <div id="map-carnedd-dafydd-crib-lem" class="route-map"
+         data-gpx="{% static 'routes/wales/carnedd-dafydd-crib-lem.gpx' %}"></div>
+    <br>
+    <p>Leave the crowds behind on the airy but amenable Crib Lem Spur. This elegant rib climbs to the broad shoulder of Carnedd Dafydd with sweeping views over Cwm Llafar and the high Carneddau.</p>
+    <p class="mt-2 fw-bold">From £90 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.carnedd_dafydd_via_crib_lem }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-cnicht">
+  <div class="container">
+    <h2>Cnicht</h2>
+    <div id="map-cnicht" class="route-map"
+         data-gpx="{% static 'routes/wales/cnicht.gpx' %}"></div>
+    <br>
+    <p>The shapely “Welsh Matterhorn” rising above the slate country of Croesor. Rocky steps, a fine summit, and big estuary views make this a memorable Moelwynion day.</p>
+    <p class="mt-2 fw-bold">From £80 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.cnicht }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-moel-siabod">
+  <div class="container">
+    <h2>Moel Siabod</h2>
+    <div id="map-moel-siabod" class="route-map"
+         data-gpx="{% static 'routes/wales/moel-siabod.gpx' %}"></div>
+    <br>
+    <p>A solitary sentinel with panoramic views of the Snowdon horseshoe and the Glyderau. Option to include the Daear Ddu Ridge for satisfying hands-on movement to the summit.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.moel_siabod }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-nantlle-ridge">
+  <div class="container">
+    <h2>Nantlle Ridge</h2>
+    <div id="map-nantlle-ridge" class="route-map"
+         data-gpx="{% static 'routes/wales/nantlle-ridge.gpx' %}"></div>
+    <br>
+    <p>A graceful ridge walk linking a chain of rocky tops. Enjoy sea views to the Llŷn Peninsula and wild skylines back to Eryri’s central peaks on this quieter classic.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.nantlle_ridge }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-cadair-idris">
+  <div class="container">
+    <h2>Cadair Idris</h2>
+    <div id="map-cadair-idris" class="route-map"
+         data-gpx="{% static 'routes/wales/cadair_idris.gpx' %}"></div>
+    <br>
+    <p>A southern Snowdonia icon above the dark waters of Llyn Cau. The classic circuit via the Minffordd Path gives rocky steps, balcony paths, and a superb summit panorama over Cardigan Bay.</p>
+    <p class="mt-2 fw-bold">From £90 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.cadair_idris }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-pen-y-fan">
+  <div class="container">
+    <h2>Pen y Fan</h2>
+    <div id="map-pen-y-fan" class="route-map"
+         data-gpx="{% static 'routes/wales/pen-y-fan.gpx' %}"></div>
+    <br>
+    <p>The high point of the Brecon Beacons: sweeping escarpments, grassy ridges and far-reaching views. A classic circuit via Corn Du completes the skyline.</p>
+    <p class="mt-2 fw-bold">From £80 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.pen_y_fan }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>window.STATIC_PREFIX = "{% static '' %}";</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{% static 'vendor/leaflet-gpx/gpx.min.js' %}"></script>
+<script src="{% static 'js/maps.js' %}"></script>
+{% endblock %}
