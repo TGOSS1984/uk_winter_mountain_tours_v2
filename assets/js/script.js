@@ -20,7 +20,7 @@
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
 
-    const getTrigger = () => Math.round(window.innerHeight * 0.15);
+    const getTrigger = () => Math.round(window.innerHeight * 0.10);
     let trigger = getTrigger();
 
     const setSolid = (on) => {

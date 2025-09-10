@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="www.plotaroute.com" version="1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata>
+<desc>Route created on plotaroute.com</desc>
+</metadata>
+<wpt lat="53.1228777" lon="-3.9991951">
+<time>2025-09-09T01:44:11Z</time>
+<name>FINISH</name>
+<cmt>FINISH</cmt>
+<desc>FINISH</desc>
+<sym>Flag, Blue</sym>
+<type>Waypoint</type>
+</wpt>
+<trk>
+<name>Tryfan North Ridge Onto Bristly Ridge</name>
+<trkseg>
+<trkpt lat="53.1229678" lon="-3.9987445">
+<ele>303</ele>
+<time>2025-09-09T00:00:00Z</time></trkpt>
+<trkpt lat="53.1212037" lon="-3.9987874">
+<ele>383</ele>
+<time>2025-09-09T00:02:21Z</time></trkpt>
+<trkpt lat="53.1199674" lon="-3.9940667">
+<ele>575</ele>
+<time>2025-09-09T00:06:29Z</time></trkpt>
+<trkpt lat="53.115254" lon="-3.997972">
+<ele>884</ele>
+<time>2025-09-09T00:13:31Z</time></trkpt>
+<trkpt lat="53.1126652" lon="-3.9994526">
+<ele>797</ele>
+<time>2025-09-09T00:17:10Z</time></trkpt>
+<trkpt lat="53.1093678" lon="-4.0011477">
+<ele>724</ele>
+<time>2025-09-09T00:21:47Z</time></trkpt>
+<trkpt lat="53.1087624" lon="-4.0026498">
+<ele>804</ele>
+<time>2025-09-09T00:23:14Z</time></trkpt>
+<trkpt lat="53.1064953" lon="-4.0041733">
+<ele>948</ele>
+<time>2025-09-09T00:26:30Z</time></trkpt>
+<trkpt lat="53.1058255" lon="-4.0049028">
+<ele>964</ele>
+<time>2025-09-09T00:27:34Z</time></trkpt>
+<trkpt lat="53.1049366" lon="-4.0081429">
+<ele>985</ele>
+<time>2025-09-09T00:30:26Z</time></trkpt>
+<trkpt lat="53.103906" lon="-4.0112972">
+<ele>958</ele>
+<time>2025-09-09T00:33:18Z</time></trkpt>
+<trkpt lat="53.1034551" lon="-4.0153313">
+<ele>917</ele>
+<time>2025-09-09T00:36:36Z</time></trkpt>
+<trkpt lat="53.1010847" lon="-4.0293217">
+<ele>989</ele>
+<time>2025-09-09T00:48:15Z</time></trkpt>
+<trkpt lat="53.1061346" lon="-4.0366173">
+<ele>713</ele>
+<time>2025-09-09T00:57:11Z</time></trkpt>
+<trkpt lat="53.1097414" lon="-4.0338707">
+<ele>563</ele>
+<time>2025-09-09T01:02:29Z</time></trkpt>
+<trkpt lat="53.1105657" lon="-4.0265751">
+<ele>404</ele>
+<time>2025-09-09T01:08:26Z</time></trkpt>
+<trkpt lat="53.1179842" lon="-4.0233994">
+<ele>375</ele>
+<time>2025-09-09T01:18:40Z</time></trkpt>
+<trkpt lat="53.1211779" lon="-4.0172195">
+<ele>337</ele>
+<time>2025-09-09T01:25:12Z</time></trkpt>
+<trkpt lat="53.1232897" lon="-4.0189362">
+<ele>302</ele>
+<time>2025-09-09T01:28:21Z</time></trkpt>
+<trkpt lat="53.1228777" lon="-3.9991951">
+<ele>303</ele>
+<time>2025-09-09T01:44:11Z</time></trkpt>
+</trkseg>
+</trk>
+</gpx>

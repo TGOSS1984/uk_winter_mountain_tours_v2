@@ -72,11 +72,11 @@ hr {
 
 .navbar .nav-link,
 .navbar .navbar-brand {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  filter: drop-shadow(3px 3px 9px rgba(0,0,0,.70));
 }
 
 .navbar-toggler-icon {
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.90));
 }
 
 /* Default: transparent navbar */
@@ -118,10 +118,116 @@ hr {
   width: 100%;
 }
 
+/* All dropdowns site-wide */
+.dropdown-menu{
+  --bs-dropdown-bg: var(--primary-accent-color);              /* menu background */
+  --bs-dropdown-link-color: #e9eef5;      /* item text */
+  --bs-dropdown-link-hover-bg: rgba(255,255,255,.08);
+  --bs-dropdown-link-hover-color: #ffffff;
+  --bs-dropdown-border-color: transparent; /* optional */
+}
+
 /* Active page underline stays visible */
 .nav-link.active::after {
   width: 100%;
   background-color: var(--button-color-bg);
+}
+
+/* Mobile only (adjust breakpoint to match your navbar-expand-*) */
+@media (max-width: 991.98px){
+  /* the whole slide-down panel */
+  .navbar .navbar-collapse{
+    background: var(--primary-accent-color);
+    border-radius: 0 0 .75rem .75rem; /* optional */
+  }
+
+  /* dropdown inside the collapsed panel */
+  .navbar .dropdown-menu{
+    --bs-dropdown-bg: transparent;         /* let panel color show through */
+    --bs-dropdown-link-color: #e9eef5;
+    --bs-dropdown-link-hover-bg: rgba(255,255,255,.12);
+    --bs-dropdown-border-color: transparent;
+    box-shadow: none;                       /* optional: flatter look on mobile */
+  }
+
+  .navbar .nav-link{ color:#e9eef5; }
+  .navbar .nav-link:hover{ color:#fff; }
+}
+
+/* Full-viewport panel on mobile */
+/* (Phones <576px stay full-width, slide from left) */
+@media (max-width: 575.98px){
+  #mobileNav.offcanvas-start{
+    --bs-offcanvas-width: 100vw;
+    left: 0 !important;
+    right: auto !important;
+    transform: translateX(-100%) !important; /* hidden off left */
+  }
+  #mobileNav.offcanvas-start.show{
+    transform: none !important;             /* visible in place */
+  }
+}
+
+/* styles for off-canvas navbar */
+#mobileNav{
+  --bs-offcanvas-bg: var(--primary-accent-color);        
+  --bs-offcanvas-border-color: transparent;
+  background: var(--primary-accent-color);
+  box-shadow: none;
+}
+
+/* Dropdowns inside offcanvas should stack, not float */
+/* Make dropdowns stack and push content down inside the offcanvas */
+/* Offcanvas dropdowns should stack and not be shifted by Popper */
+#mobileNav .dropdown-menu{
+  position: static !important;     /* take part in normal flow */
+  transform: none !important;      /* cancel Popper translate(...) */
+  inset: auto !important;          /* ignore top/left/right from Popper */
+  display: none;                   /* Bootstrap will toggle .show */
+  width: 100%;
+  margin: .25rem 0 0;
+  border: 0;
+  box-shadow: none;
+  padding-left: .5rem;             /* keep your indent */
+  background-color: var(--primary-accent-color, #344353); /* fallback */
+  background-color: color-mix(in srgb, var(--primary-accent-color) 85%, black 15%); /* darker dropdown */
+}
+
+#mobileNav .dropdown-menu.show{
+  display: block;                 /* when opened, occupy space */
+}
+
+#mobileNav .dropdown-item{ color: rgba(255,255,255,.9); }
+#mobileNav .dropdown-item:hover{
+  background: rgba(255,255,255,.08);
+  color:#fff;
+}
+#mobileNav .nav-link{ color:#fff; font-weight:700; }
+#mobileNav .offcanvas-header{ border-bottom: 1px solid rgba(255,255,255,.08); }
+
+/* If you use dropdown-menu-end inside offcanvas, neutralise end alignment */
+#mobileNav .dropdown-menu-end{
+  inset: auto !important; /* ignore right/left offsets from absolute positioning */
+}
+
+/* darker dropdown on desktop smaller screens*/
+@media (min-width: 992px){
+  #navbar .dropdown-menu{
+    --bs-dropdown-bg: color-mix(in srgb, var(--primary-accent-color) 85%, black 15%);
+  }
+}
+
+/* On small/tablet screens: dock offcanvas on the RIGHT (≥576px and <992px) */
+@media (min-width: 576px) and (max-width: 991.98px){
+  #mobileNav.offcanvas-start{
+    left: auto !important; 
+    right: 0 !important; 
+    --bs-offcanvas-width: clamp(320px, 40vw, 420px);
+    transform: translateX(100%) !important; /* hidden off right */
+  }
+  #mobileNav.offcanvas-start.show{
+    transform: none !important;            /* visible in place */
+  }
 }
 
 /*Hero*/
@@ -278,7 +384,7 @@ hr {
 }
 
 .masonry-item img:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 /*Routes Styles*/

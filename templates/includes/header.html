@@ -6,8 +6,10 @@
       <img src="{% static 'images/logo-white-text.png' %}" alt="Logo" width="120">
     </a>
 
-    <button class="navbar-toggler me-5" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- CHANGED: toggler opens offcanvas on mobile -->
+    <button class="navbar-toggler me-5 d-lg-none" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+            aria-controls="mobileNav" aria-label="Open menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -91,3 +93,75 @@
     </div>
   </div>
 </nav>
+
+<!-- MOBILE OFFCANVAS MENU -->
+<div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header px-4">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static 'images/logo-white-text.png' %}" alt="Logo" width="120">
+    </a>
+    <!-- The white “X” -->
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <div class="offcanvas-body px-4">
+    <!-- SAME LINKS AS DESKTOP -->
+    <ul class="navbar-nav header-font">
+      <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">Gallery</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'equipment' %}">Equipment</a></li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button"
+           data-bs-toggle="dropdown" data-bs-display="static" data-bs-auto-close="outside" aria-expanded="false">
+          Regions
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item nav-link" href="{% url 'wales' %}">Wales</a></li>
+          <li><a class="dropdown-item nav-link" href="{% url 'scotland' %}">Scotland</a></li>
+          <li><a class="dropdown-item nav-link" href="{% url 'lake_district' %}">Lake District</a></li>
+          <li><a class="dropdown-item nav-link" href="{% url 'peak_district' %}">Peak District</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item"><a class="nav-link" href="{% url 'booking_create' %}">Book a Tour</a></li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+           data-bs-toggle="dropdown" data-bs-display="static" data-bs-auto-close="outside" aria-expanded="false">
+          <i class="fa-solid fa-user-circle me-2"></i>
+          {% if user.is_authenticated %}
+            <span>{{ user.username }}</span>
+          {% else %}
+            <span>Account</span>
+          {% endif %}
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          {% if user.is_authenticated %}
+            <li><a class="dropdown-item" href="{% url 'booking_list' %}">
+              <i class="fa-regular fa-calendar-check me-2"></i> My bookings
+            </a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <form method="post" action="{% url 'logout' %}" class="px-2">
+                {% csrf_token %}
+                <button type="submit" class="dropdown-item">
+                  <i class="fa-solid fa-right-from-bracket me-2"></i> Log out
+                </button>
+              </form>
+            </li>
+          {% else %}
+            <li><a class="dropdown-item" href="{% url 'login' %}">
+              <i class="fa-solid fa-right-to-bracket me-2"></i> Sign in
+            </a></li>
+            <li><a class="dropdown-item" href="{% url 'signup' %}">
+              <i class="fa-solid fa-user-plus me-2"></i> Create account
+            </a></li>
+          {% endif %}
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+

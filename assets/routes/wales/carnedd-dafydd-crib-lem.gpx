@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no' ?> 
+ <gpx creator='ukclimbing.com' version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.topografix.com/GPX/1/1
+ http://www.topografix.com/GPX/1/1/gpx.xsd"> 
+ <metadata> 
+ <link href='https://ukclimbing.com'> 
+ </link> 
+ </metadata><wpt lat='53.17663' lon='-4.04707'> 
+ <name>1</name> 
+ <desc>From just past the old Post Office in Gerlan walk southwest out of village on the road past a football pitch on a rather steep hillside. Follow the road as it drops down to the river and heads up the other side. Ignore the first turning on the left and at a sharp right turn take the signposted footpath on the left that leads up a field by the side of a farmhouse, and follow the left fence line past the water works building. Space markers now lead you through a confusion of walls back towards a vague spur that overlooks Afon Llafar. Continue through three drystone walls to where the hillside opens up and the prominent Cwm Pen-Llafar is in front of you. The Afon Llafar is now just below the obvious path.</desc> 
+ </wpt><wpt lat='53.16845' lon='-4.02377'> 
+ <name>2</name> 
+ <desc>Continue along the footpath that rises gently for a few hundred metres until it flattens off as you enter the Cwm Pen-Llafar Valley. After a kilometre or so the path rises gently and turns slightly left and then right to below the impressive cliff of Llech Ddu, marked Crib Lem on the map. From the path junction with the first stream heading down out Cwmglas Bach, cross this and head up to the base of a waterfall at the second stream below and left of the large cliff. A small footpath soon appears to the left of the stream and you zig-zag your way up right below the cliff to a scree-filled cwm. Keep to the left of the stream until level with a small shoulder and follow a path that weaves its way out to the shoulder below a broad ridge.[]</desc> 
+ </wpt><wpt lat='53.15252' lon='-3.99744'> 
+ <name>3</name> 
+ <desc>Ascend the ridge direct if it is dry, if it is damp and greasy less difficult options can be found on the left. The initial rib leads to a sloping table/slab, a famous and photogenic feature. Above this the ridge narrows and continues in a sustained fashion until the ridge loses its prominence and the hillside opens out. Either take a bearing to the summit or follow the vague path straight up to the main ridge and turn right to the summit of Carnedd Dafydd.</desc> 
+ </wpt><wpt lat='53.14773' lon='-4.00055'> 
+ <name>4</name> 
+ <desc>Head in an easterly direction off the summit along the crest of a broad rocky ridge. After a few hundred metres the ground to the left gets very steep. Carry on in the same direction to where the cliff edge veers away from the path at a small col. The path become intermittent as it traverses heather and rocks on the right side of the ridge until it regains the ridge just before the end of this spur.</desc> 
+ </wpt><wpt lat='53.14989' lon='-3.97783'> 
+ <name>5</name> 
+ <desc>Follow the ridge as it continues leftwards towards Carnedd Llewelyn and down to Bwlch Cyfryw-Drum. From the saddle head up to the summit of Carnedd Llewelyn.[] </desc> 
+ </wpt><wpt lat='53.1603' lon='-3.97027'> 
+ <name>6</name> 
+ <desc>Descend the west-northwest ridge down from the summit of Carnedd Llewelyn towards a col, and then take the prominent narrow ridge as it ascends and curves round to the right to reach the summit of Yr Elen.</desc> 
+ </wpt><wpt lat='53.16633' lon='-3.98557'> 
+ <name>7</name> 
+ <desc>Take the northwest ridge down towards Foel Ganol, where a more prominent path heads down the ridgeline. Continue along to the end of the broad ridge by a 512m spot height/spur near Braich Y Brysgyll. </desc> 
+ </wpt><wpt lat='53.17234' lon='-4.01151'> 
+ <name>8</name> 
+ <desc>The final descent to the edge of the access land can be boggy. A careful tread and an eye for bog loving flora will help keep your feet dry. You are aiming for a gate on the drystone wall (GR 648656). From the drystone wall follow the more prominent tracks back through the farmland. Eventually the right of way is marked, so follow those markers through the back of a farmyard where machinery comes to die. Turn right onto a single lane farm track and back to the road you started up. Turn right and walk back to the car.</desc> 
+ </wpt><rte>
+<rtept lat='53.176657911785' lon='-4.0471512292322'>
+<ele>214.43092346191</ele>
+</rtept> 
+<rtept lat='53.175965786655' lon='-4.0462275312273'>
+<ele>214.66007995605</ele>
+</rtept> 
+<rtept lat='53.175492842275' lon='-4.0453666887757'>
+<ele>216.2880859375</ele>
+</rtept> 
+<rtept lat='53.17491794077' lon='-4.0431125563381'>
+<ele>223.87480163574</ele>
+</rtept> 
+<rtept lat='53.174506957603' lon='-4.0423071081094'>
+<ele>220.14308166504</ele>
+</rtept> 
+<rtept lat='53.174471467498' lon='-4.0416242980538'>
+<ele>225.2604675293</ele>
+</rtept> 
+<rtept lat='53.174008825426' lon='-4.0410783878476'>
+<ele>234.6404876709</ele>
+</rtept> 
+<rtept lat='53.173728077908' lon='-4.0400171923183'>
+<ele>245.40103149414</ele>
+</rtept> 
+<rtept lat='53.173348978808' lon='-4.039186173796'>
+<ele>247.56170654297</ele>
+</rtept> 
+<rtept lat='53.172999538961' lon='-4.0393791658413'>
+<ele>247.98097229004</ele>
+</rtept> 
+<rtept lat='53.172449317702' lon='-4.0393530616893'>
+<ele>254.13877868652</ele>
+</rtept> 
+<rtept lat='53.171924230324' lon='-4.0387780452344'>
+<ele>262.63943481445</ele>
+</rtept> 
+<rtept lat='53.171352426185' lon='-4.0381746329052'>
+<ele>274.97732543945</ele>
+</rtept> 
+<rtept lat='53.171121948384' lon='-4.0369325401018'>
+<ele>278.7575378418</ele>
+</rtept> 
+<rtept lat='53.170786839405' lon='-4.0362879864707'>
+<ele>285.70385742188</ele>
+</rtept> 
+<rtept lat='53.170483106331' lon='-4.0347281175759'>
+<ele>295.94741821289</ele>
+</rtept> 
+<rtept lat='53.170536905258' lon='-4.033420932295'>
+<ele>304.03842163086</ele>
+</rtept> 
+<rtept lat='53.16955169554' lon='-4.0312264224308'>
+<ele>327.83700561523</ele>
+</rtept> 
+<rtept lat='53.169157140274' lon='-4.0294527977646'>
+<ele>342.59353637695</ele>
+</rtept> 
+<rtept lat='53.169016762607' lon='-4.0275341318313'>
+<ele>357.31793212891</ele>
+</rtept> 
+<rtept lat='53.168782921634' lon='-4.0255585889715'>
+<ele>371.48001098633</ele>
+</rtept> 
+<rtept lat='53.168497881607' lon='-4.0238163985535'>
+<ele>379.48568725586</ele>
+</rtept> 
+<rtept lat='53.168027277752' lon='-4.021882152962'>
+<ele>389.79574584961</ele>
+</rtept> 
+<rtept lat='53.167222508548' lon='-4.0201679838266'>
+<ele>409.04495239258</ele>
+</rtept> 
+<rtept lat='53.166455557527' lon='-4.0190056887769'>
+<ele>419.18521118164</ele>
+</rtept> 
+<rtept lat='53.166088268364' lon='-4.0174693144174'>
+<ele>418.63607788086</ele>
+</rtept> 
+<rtept lat='53.165566409279' lon='-4.0157685706259'>
+<ele>420.36093139648</ele>
+</rtept> 
+<rtept lat='53.164903480319' lon='-4.014035069874'>
+<ele>423.81970214844</ele>
+</rtept> 
+<rtept lat='53.162385407023' lon='-4.0103553513832'>
+<ele>431.78601074219</ele>
+</rtept> 
+<rtept lat='53.160938557514' lon='-4.0084545070434'>
+<ele>440.04458618164</ele>
+</rtept> 
+<rtept lat='53.159965951117' lon='-4.006418791051'>
+<ele>442.28475952148</ele>
+</rtept> 
+<rtept lat='53.158652733529' lon='-4.0040530472722'>
+<ele>454.41271972656</ele>
+</rtept> 
+<rtept lat='53.158148159289' lon='-4.0022488237649'>
+<ele>456.35345458984</ele>
+</rtept> 
+<rtept lat='53.157712487791' lon='-4.0010239547855'>
+<ele>467.52575683594</ele>
+</rtept> 
+<rtept lat='53.156942366834' lon='-3.9991027196727'>
+<ele>476.56732177734</ele>
+</rtept> 
+<rtept lat='53.155186093712' lon='-3.9978165788003'>
+<ele>508.92947387695</ele>
+</rtept> 
+<rtept lat='53.154189958509' lon='-3.9981107123025'>
+<ele>529.00891113281</ele>
+</rtept> 
+<rtept lat='53.153412160401' lon='-3.998519712164'>
+<ele>560.44812011719</ele>
+</rtept> 
+<rtept lat='53.152868858688' lon='-3.9990181453149'>
+<ele>610.17022705078</ele>
+</rtept> 
+<rtept lat='53.152611609891' lon='-3.9993465772596'>
+<ele>631.40209960938</ele>
+</rtept> 
+<rtept lat='53.15157226293' lon='-3.9994030044683'>
+<ele>702.31988525391</ele>
+</rtept> 
+<rtept lat='53.152130938872' lon='-3.997988891056'>
+<ele>727.099609375</ele>
+</rtept> 
+<rtept lat='53.152533624795' lon='-3.9974315569455'>
+<ele>693.20025634766</ele>
+</rtept> 
+<rtept lat='53.151923575932' lon='-3.9972199494341'>
+<ele>770.93371582031</ele>
+</rtept> 
+<rtept lat='53.151433149989' lon='-3.9973804607572'>
+<ele>799.55975341797</ele>
+</rtept> 
+<rtept lat='53.150909964619' lon='-3.9976179950092'>
+<ele>821.92938232422</ele>
+</rtept> 
+<rtept lat='53.150061465811' lon='-3.9975524146906'>
+<ele>874.86950683594</ele>
+</rtept> 
+<rtept lat='53.14942867163' lon='-3.9977586683526'>
+<ele>948.54681396484</ele>
+</rtept> 
+<rtept lat='53.14821' lon='-4.0006'>
+<ele>1044</ele>
+</rtept> 
+<rtept lat='53.148011150473' lon='-3.9978493479022'>
+<ele>1026.7308349609</ele>
+</rtept> 
+<rtept lat='53.148081462882' lon='-3.9955334981387'>
+<ele>1008.3072509766</ele>
+</rtept> 
+<rtept lat='53.147573485857' lon='-3.9920454937701'>
+<ele>978.26495361328</ele>
+</rtept> 
+<rtept lat='53.147582732991' lon='-3.9896111394718'>
+<ele>969.52154541016</ele>
+</rtept> 
+<rtept lat='53.147850017929' lon='-3.9877384955638'>
+<ele>954.73571777344</ele>
+</rtept> 
+<rtept lat='53.147940412422' lon='-3.9860932903638'>
+<ele>962.90832519531</ele>
+</rtept> 
+<rtept lat='53.148446076777' lon='-3.9840745181399'>
+<ele>959.63677978516</ele>
+</rtept> 
+<rtept lat='53.148980929418' lon='-3.9812454247022'>
+<ele>951.28198242188</ele>
+</rtept> 
+<rtept lat='53.149535039864' lon='-3.9800927699725'>
+<ele>956.28167724609</ele>
+</rtept> 
+<rtept lat='53.149839704989' lon='-3.9778551592015'>
+<ele>944.80712890625</ele>
+</rtept> 
+<rtept lat='53.151149272948' lon='-3.9766847852229'>
+<ele>937.32110595703</ele>
+</rtept> 
+<rtept lat='53.151830500364' lon='-3.9764018909061'>
+<ele>937.87719726562</ele>
+</rtept> 
+<rtept lat='53.152518241231' lon='-3.9757265362085'>
+<ele>935.11639404297</ele>
+</rtept> 
+<rtept lat='53.153781390973' lon='-3.9735588984348'>
+<ele>937.74981689453</ele>
+</rtept> 
+<rtept lat='53.154813569828' lon='-3.9720351688581'>
+<ele>930.77624511719</ele>
+</rtept> 
+<rtept lat='53.157201806183' lon='-3.9703290044947'>
+<ele>982.43560791016</ele>
+</rtept> 
+<rtept lat='53.15793680983' lon='-3.970598355724'>
+<ele>999.40454101562</ele>
+</rtept> 
+<rtept lat='53.15982553218' lon='-3.9705539578728'>
+<ele>1054.6708984375</ele>
+</rtept> 
+<rtept lat='53.16018' lon='-3.97039'>
+<ele>1064</ele>
+</rtept> 
+<rtept lat='53.161228426627' lon='-3.9722949235585'>
+<ele>1058.0290527344</ele>
+</rtept> 
+<rtept lat='53.161368490718' lon='-3.9752344900768'>
+<ele>1030.5184326172</ele>
+</rtept> 
+<rtept lat='53.161959979921' lon='-3.9775139249121'>
+<ele>1000.3814697266</ele>
+</rtept> 
+<rtept lat='53.162532222005' lon='-3.9800020535363'>
+<ele>953.03826904297</ele>
+</rtept> 
+<rtept lat='53.163207847326' lon='-3.9810021898493'>
+<ele>900.62268066406</ele>
+</rtept> 
+<rtept lat='53.163442835038' lon='-3.9820082381974'>
+<ele>893.32861328125</ele>
+</rtept> 
+<rtept lat='53.163859028076' lon='-3.9825250379343'>
+<ele>883.05895996094</ele>
+</rtept> 
+<rtept lat='53.164153399074' lon='-3.983743373602'>
+<ele>892.41162109375</ele>
+</rtept> 
+<rtept lat='53.164640344462' lon='-3.9847345120438'>
+<ele>915.52044677734</ele>
+</rtept> 
+<rtept lat='53.164835556308' lon='-3.9852935322897'>
+<ele>930.79473876953</ele>
+</rtept> 
+<rtept lat='53.165150852105' lon='-3.9852557076662'>
+<ele>929.51995849609</ele>
+</rtept> 
+<rtept lat='53.165523795381' lon='-3.9855348404506'>
+<ele>938.83905029297</ele>
+</rtept> 
+<rtept lat='53.16629' lon='-3.98554'>
+<ele>962</ele>
+</rtept> 
+<rtept lat='53.16672340325' lon='-3.9853021245911'>
+<ele>952.96984863281</ele>
+</rtept> 
+<rtept lat='53.166925609589' lon='-3.9863848450556'>
+<ele>953.82293701172</ele>
+</rtept> 
+<rtept lat='53.167022118448' lon='-3.9872012643705'>
+<ele>929.97357177734</ele>
+</rtept> 
+<rtept lat='53.167605102259' lon='-3.9880925667914'>
+<ele>865.81463623047</ele>
+</rtept> 
+<rtept lat='53.168278907702' lon='-3.9891976398101'>
+<ele>823.39581298828</ele>
+</rtept> 
+<rtept lat='53.169360103801' lon='-3.9913431632249'>
+<ele>780.86071777344</ele>
+</rtept> 
+<rtept lat='53.169490162478' lon='-3.9929732034379'>
+<ele>768.95745849609</ele>
+</rtept> 
+<rtept lat='53.169823112431' lon='-3.9965772191181'>
+<ele>692.38732910156</ele>
+</rtept> 
+<rtept lat='53.169906279214' lon='-3.9991219077831'>
+<ele>672.78930664062</ele>
+</rtept> 
+<rtept lat='53.171357887158' lon='-4.0072916867382'>
+<ele>531.37329101562</ele>
+</rtept> 
+<rtept lat='53.172321250275' lon='-4.01173753368'>
+<ele>509.2688293457</ele>
+</rtept> 
+<rtept lat='53.170593772774' lon='-4.0245444341875'>
+<ele>378.54760742188</ele>
+</rtept> 
+<rtept lat='53.171666866974' lon='-4.0280527502424'>
+<ele>353.72927856445</ele>
+</rtept> 
+<rtept lat='53.172456690707' lon='-4.0297141516185'>
+<ele>334.90600585938</ele>
+</rtept> 
+<rtept lat='53.172344690667' lon='-4.0325903926187'>
+<ele>305.99649047852</ele>
+</rtept> 
+<rtept lat='53.172963824694' lon='-4.0350297109139'>
+<ele>285.10754394531</ele>
+</rtept> 
+<rtept lat='53.173522712904' lon='-4.0373090663053'>
+<ele>267.84020996094</ele>
+</rtept> 
+<rtept lat='53.173821893985' lon='-4.0382139327521'>
+<ele>261.03759765625</ele>
+</rtept> 
+<rtept lat='53.174055710885' lon='-4.038341496284'>
+<ele>258.71166992188</ele>
+</rtept> 
+<rtept lat='53.174164443389' lon='-4.0393421334713'>
+<ele>251.59111022949</ele>
+</rtept> 
+<rtept lat='53.173809175707' lon='-4.0398753082671'>
+<ele>248.22608947754</ele>
+</rtept> 
+<rtept lat='53.17378134499' lon='-4.0405812967659'>
+<ele>239.8671875</ele>
+</rtept> 
+<rtept lat='53.174486991954' lon='-4.041636482602'>
+<ele>224.95994567871</ele>
+</rtept> 
+<rtept lat='53.174659027922' lon='-4.0426139499307'>
+<ele>221.32958984375</ele>
+</rtept> 
+<rtept lat='53.175300867005' lon='-4.0446354681391'>
+<ele>219.25727844238</ele>
+</rtept> 
+<rtept lat='53.175626935255' lon='-4.0458036820435'>
+<ele>214.63531494141</ele>
+</rtept> 
+<rtept lat='53.176317713923' lon='-4.0468058962462'>
+<ele>214.92701721191</ele>
+</rtept> 
+</rte> 
+</gpx>
