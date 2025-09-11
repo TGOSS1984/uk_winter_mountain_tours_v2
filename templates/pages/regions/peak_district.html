@@ -1,1 +1,286 @@
-{% extends 'base.html' %}{% block content %}<h1>Peak District</h1><p>Routes and info about Peak District.</p>{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+<link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+{% endblock %}
+
+{% block content %}
+<section class="hero-section d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Peak District & Yorkshire Dales Routes</h1>
+        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">Gritstone edges, limestone fins & Dales classics</p>
+        <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Book Now</a>
+      </div>
+      <div class="col-lg-6 p-0">
+        <picture>
+          <source media="(min-width: 1600px)" srcset="{% static 'images/hero/dales-hero.webp' %}">
+          <img src="{% static 'images/hero/dales-hero.webp' %}"
+               alt="Peak District and Dales hillscape in winter"
+               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-center">Peak District & Yorkshire Dales Walking Routes</h1>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Kinder Scout via Red Brook</h5>
+          <p class="card-text">A classic Kinder day with a hands-on ascent and wild plateau views.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-kinder-scout-red-brook">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Bleaklow</h5>
+          <p class="card-text">Peat groughs, moorland skies and a true Pennine wilderness feel.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-bleaklow">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Chrome Hill & Parkhouse Hill</h5>
+          <p class="card-text">The “Dragon’s Back” fins of limestone with superb valley panoramas.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-chrome-hill-parkhouse">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Mam Tor (Great Ridge)</h5>
+          <p class="card-text">An elegant ridge linking Mam Tor to Lose Hill above Hope Valley.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-mam-tor">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">High Seat</h5>
+          <p class="card-text">Open moorland walking with big skies and classic gritstone scenery.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-high-seat">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Ingleborough</h5>
+          <p class="card-text">Limestone pavements and a shapely summit—one of the Dales Three Peaks.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-ingleborough">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Pen-y-Ghent</h5>
+          <p class="card-text">Short rock steps to a fine crest and far-reaching views.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-pen-y-ghent">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Whernside</h5>
+          <p class="card-text">A broad ridge overlooking the iconic Ribblehead Viaduct.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-whernside">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Great Shunner Fell</h5>
+          <p class="card-text">Wide horizons above Swaledale on the Pennine Way’s high ground.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-great-shunner-fell">View Route</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Wild Boar Fell</h5>
+          <p class="card-text">A superb edge walk with dramatic escarpments and quiet valleys.</p>
+          <a class="btn map-btn scroll-link" data-target="#route-wild-boar-fell">View Route</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{# --- FULL ROUTE SECTIONS (data-gpx paths match Peak District / Dales filenames) --- #}
+<section class="route-section bg-light" id="route-kinder-scout-red-brook">
+  <div class="container">
+    <h2>Kinder Scout via Red Brook</h2>
+    <div id="map-kinder-scout-red-brook" class="route-map"
+         data-gpx="{% static 'routes/peak_district/kinder-scout-red-brook.gpx' %}"></div>
+    <br>
+    <p>Follow a classic scrambly line onto Kinder’s wild plateau. Red Brook gives enjoyable, hands-on movement before the open moor leads to sweeping views over the Dark Peak.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.kinder_scout_red_brook }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-bleaklow">
+  <div class="container">
+    <h2>Bleaklow</h2>
+    <div id="map-bleaklow" class="route-map"
+         data-gpx="{% static 'routes/peak_district/bleaklow.gpx' %}"></div>
+    <br>
+    <p>Cross the high, open peatlands of Bleaklow for a true Pennine experience. Gritstone edges, sculpted groughs and big skies define this atmospheric day out.</p>
+    <p class="mt-2 fw-bold">From £80 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.bleaklow }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-chrome-hill-parkhouse">
+  <div class="container">
+    <h2>Chrome Hill & Parkhouse Hill</h2>
+    <div id="map-chrome-hill-parkhouse" class="route-map"
+         data-gpx="{% static 'routes/peak_district/chrome-hill-parkhouse.gpx' %}"></div>
+    <br>
+    <p>Walk the striking limestone fins of the “Dragon’s Back”. A short but unforgettable route with rolling White Peak scenery and photogenic ridgelines.</p>
+    <p class="mt-2 fw-bold">From £80 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.chrome_hill_parkhouse }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-mam-tor">
+  <div class="container">
+    <h2>Mam Tor (Great Ridge)</h2>
+    <div id="map-mam-tor" class="route-map"
+         data-gpx="{% static 'routes/peak_district/mam-tor.gpx' %}"></div>
+    <br>
+    <p>Enjoy an elegant ridge walk from Mam Tor over Barker Bank to Lose Hill, with constant views over Hope Valley, Edale and the Kinder plateau.</p>
+    <p class="mt-2 fw-bold">From £80 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.mam_tor }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-high-seat">
+  <div class="container">
+    <h2>High Seat</h2>
+    <div id="map-high-seat" class="route-map"
+         data-gpx="{% static 'routes/peak_district/high-seat.gpx' %}"></div>
+    <br>
+    <p>Classic Dark Peak moorland with broad views and quiet corners. A great introduction to the area’s gritstone and heather landscapes.</p>
+    <p class="mt-2 fw-bold">From £80 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.high_seat }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-ingleborough">
+  <div class="container">
+    <h2>Ingleborough</h2>
+    <div id="map-ingleborough" class="route-map"
+         data-gpx="{% static 'routes/peak_district/ingleborough.gpx' %}"></div>
+    <br>
+    <p>Ascend one of the Yorkshire Three Peaks. Limestone pavements, stepped escarpments and a proud summit give a superb Dales day.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.ingleborough }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-pen-y-ghent">
+  <div class="container">
+    <h2>Pen-y-Ghent</h2>
+    <div id="map-pen-y-ghent" class="route-map"
+         data-gpx="{% static 'routes/peak_district/pen-y-ghent.gpx' %}"></div>
+    <br>
+    <p>Rocky steps lead to a compact summit with big views across Ribblesdale and to Ingleborough and Whernside—perfect for a crisp winter outing.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.pen_y_ghent }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-whernside">
+  <div class="container">
+    <h2>Whernside</h2>
+    <div id="map-whernside" class="route-map"
+         data-gpx="{% static 'routes/peak_district/whernside.gpx' %}"></div>
+    <br>
+    <p>The highest of the Dales. A broad ridge walk with classic views of the Ribblehead Viaduct and the neighbouring peaks.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.whernside }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section bg-light" id="route-great-shunner-fell">
+  <div class="container">
+    <h2>Great Shunner Fell</h2>
+    <div id="map-great-shunner-fell" class="route-map"
+         data-gpx="{% static 'routes/peak_district/great-shunner-fell.gpx' %}"></div>
+    <br>
+    <p>Follow the Pennine Way to one of the Northern Dales’ finest viewpoints, with wide horizons over Swaledale and Wensleydale.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.great_shunner_fell }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+
+<section class="route-section" id="route-wild-boar-fell">
+  <div class="container">
+    <h2>Wild Boar Fell</h2>
+    <div id="map-wild-boar-fell" class="route-map"
+         data-gpx="{% static 'routes/peak_district/wild-boar-fell.gpx' %}"></div>
+    <br>
+    <p>A quieter northern outpost with striking escarpments, cairns and spacious views across the Eden Valley and Mallerstang.</p>
+    <p class="mt-2 fw-bold">From £85 per person</p>
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.wild_boar_fell }}" class="btn cta-btn mt-2">
+      Book This Tour
+    </a>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>window.STATIC_PREFIX = "{% static '' %}";</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{% static 'vendor/leaflet-gpx/gpx.min.js' %}"></script>
+<script src="{% static 'js/maps.js' %}"></script>
+{% endblock %}
