@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:q="http://www.anquet.com" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="OMN - www.anquet.com" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Wild Boar Fell (western approach)</name>
+    <copyright>Copyright Walking Britain</copyright>
+	<link> href="https://www.walkingbritain.co.uk/walk-2756-description" </link>
+  </metadata>
+
+  <rte>
+    <name>Wild Boar Fell (western approach)</name>
+    <rtept lat="54.401483348091226" lon="-2.4106551151037947">
+      <name>Wp 1</name>
+    </rtept>
+    <rtept lat="54.402640331947524" lon="-2.4099347482044768">
+      <name>Wp 2</name>
+    </rtept>
+    <rtept lat="54.403338032573167" lon="-2.4093995293088248">
+      <name>Wp 3</name>
+    </rtept>
+    <rtept lat="54.405319681955383" lon="-2.4080095404378685">
+      <name>Wp 4</name>
+    </rtept>
+    <rtept lat="54.408205598507713" lon="-2.4057878901939809">
+      <name>Wp 5</name>
+    </rtept>
+    <rtept lat="54.4090455243638" lon="-2.4052810451125439">
+      <name>Wp 6</name>
+    </rtept>
+    <rtept lat="54.408938274059892" lon="-2.404249702913186">
+      <name>Wp 7</name>
+    </rtept>
+    <rtept lat="54.408388828500961" lon="-2.4030242384967364">
+      <name>Wp 8</name>
+    </rtept>
+    <rtept lat="54.408488146867249" lon="-2.4016967037200554">
+      <name>Wp 9</name>
+    </rtept>
+    <rtept lat="54.407368524918596" lon="-2.4007097331303022">
+      <name>Wp 10</name>
+    </rtept>
+    <rtept lat="54.407737390579747" lon="-2.3991679512553112">
+      <name>Wp 12</name>
+    </rtept>
+    <rtept lat="54.408202644112471" lon="-2.39716616682937">
+      <name>Wp 13</name>
+    </rtept>
+    <rtept lat="54.408076748238813" lon="-2.3969751643531874">
+      <name>Wp 14</name>
+    </rtept>
+    <rtept lat="54.406653217743163" lon="-2.3970156289716522">
+      <name>Wp 15</name>
+    </rtept>
+    <rtept lat="54.40627401374482" lon="-2.3969035199524589">
+      <name>Wp 16</name>
+    </rtept>
+    <rtept lat="54.405977889037224" lon="-2.39557223077495">
+      <name>Wp 17</name>
+    </rtept>
+    <rtept lat="54.405855537867772" lon="-2.3942968500606416">
+      <name>Wp 18</name>
+    </rtept>
+    <rtept lat="54.405858368695732" lon="-2.3934293351077209">
+      <name>Wp 19</name>
+    </rtept>
+    <rtept lat="54.405150574202231" lon="-2.3922297062080697">
+      <name>Wp 20</name>
+    </rtept>
+    <rtept lat="54.403875356723972" lon="-2.3904283111266116">
+      <name>Wp 21</name>
+    </rtept>
+    <rtept lat="54.403562296140656" lon="-2.3894222963544864">
+      <name>Wp 22</name>
+    </rtept>
+    <rtept lat="54.403677977071538" lon="-2.3878781658371722">
+      <name>Wp 23</name>
+    </rtept>
+    <rtept lat="54.403457959446989" lon="-2.3874423427884368">
+      <name>Wp 24</name>
+    </rtept>
+    <rtept lat="54.403365155844156" lon="-2.3867908505566673">
+      <name>Wp 25</name>
+    </rtept>
+    <rtept lat="54.40301939455393" lon="-2.3861098747699816">
+      <name>Wp 26</name>
+    </rtept>
+    <rtept lat="54.40305578507563" lon="-2.3846192309144145">
+      <name>Wp 27</name>
+    </rtept>
+    <rtept lat="54.402597666551316" lon="-2.3844522905952923">
+      <name>Wp 28</name>
+    </rtept>
+    <rtept lat="54.402631798197625" lon="-2.383666461966071">
+      <name>Wp 29</name>
+    </rtept>
+    <rtept lat="54.401169669091722" lon="-2.3809149409889758">
+      <name>Wp 30</name>
+    </rtept>
+    <rtept lat="54.40043344041576" lon="-2.3786582256790343">
+      <name>Wp 31</name>
+    </rtept>
+    <rtept lat="54.399973206077476" lon="-2.3766441768751561">
+      <name>Wp 32</name>
+    </rtept>
+    <rtept lat="54.399890599196418" lon="-2.375304815242707">
+      <name>Wp 33</name>
+    </rtept>
+    <rtept lat="54.399350553944792" lon="-2.3745562227547881">
+      <name>Wp 34</name>
+    </rtept>
+    <rtept lat="54.398381216799592" lon="-2.3723164608790808">
+      <name>Wp 35</name>
+    </rtept>
+    <rtept lat="54.397676492944363" lon="-2.3686662934806444">
+      <name>Wp 36</name>
+    </rtept>
+    <rtept lat="54.397464536912572" lon="-2.3670284167270292">
+      <name>Wp 37</name>
+    </rtept>
+    <rtept lat="54.396903084136454" lon="-2.3661682444390491">
+      <name>Wp 38</name>
+    </rtept>
+    <rtept lat="54.396362981715441" lon="-2.3654198262699637">
+      <name>Wp 39</name>
+    </rtept>
+    <rtept lat="54.395199343997469" lon="-2.3628069343136326">
+      <name>Wp 40</name>
+    </rtept>
+    <rtept lat="54.394700934604494" lon="-2.3626166399923449">
+      <name>Wp 41</name>
+    </rtept>
+    <rtept lat="54.393571043832196" lon="-2.3632015129951123">
+      <name>Wp 42</name>
+    </rtept>
+    <rtept lat="54.392114165892167" lon="-2.3643039291198442">
+      <name>Wp 43</name>
+    </rtept>
+    <rtept lat="54.391113420102641" lon="-2.3652244455051532">
+      <name>Wp 44</name>
+    </rtept>
+    <rtept lat="54.390026792074195" lon="-2.3658467559442693">
+      <name>Wp 45</name>
+    </rtept>
+    <rtept lat="54.388441869402556" lon="-2.3662415521659761">
+      <name>Wp 46</name>
+    </rtept>
+    <rtept lat="54.387271280296382" lon="-2.3659337454757816">
+      <name>Wp 47</name>
+    </rtept>
+    <rtept lat="54.386314362014829" lon="-2.3667058209118434">
+      <name>Wp 48</name>
+    </rtept>
+    <rtept lat="54.385835731356316" lon="-2.3671475997771214">
+      <name>Wp 49</name>
+    </rtept>
+    <rtept lat="54.384834849791325" lon="-2.3681050758942832">
+      <name>Wp 50</name>
+    </rtept>
+    <rtept lat="54.383790003406929" lon="-2.3692479553074715">
+      <name>Wp 51</name>
+    </rtept>
+    <rtept lat="54.382878046727257" lon="-2.369499940539268">
+      <name>Wp 52</name>
+    </rtept>
+    <rtept lat="54.38198903581489" lon="-2.3693432811757855">
+      <name>Wp 53</name>
+    </rtept>
+    <rtept lat="54.381664985713762" lon="-2.3688943662994246">
+      <name>Wp 57</name>
+    </rtept>
+    <rtept lat="54.382354192421239" lon="-2.3705359247733639">
+      <name>Wp 58</name>
+    </rtept>
+    <rtept lat="54.384295437553043" lon="-2.3741960188584468">
+      <name>Wp 59</name>
+    </rtept>
+    <rtept lat="54.385028885899139" lon="-2.3755408160062981">
+      <name>Wp 60</name>
+    </rtept>
+    <rtept lat="54.3858060558575" lon="-2.3767745499421515">
+      <name>Wp 61</name>
+    </rtept>
+    <rtept lat="54.385778311069416" lon="-2.3787071719285131">
+      <name>Wp 62</name>
+    </rtept>
+    <rtept lat="54.385146491513204" lon="-2.3795562641070216">
+      <name>Wp 63</name>
+    </rtept>
+    <rtept lat="54.384777338299514" lon="-2.3796643650161187">
+      <name>Wp 64</name>
+    </rtept>
+    <rtept lat="54.384558171650696" lon="-2.3803685632132723">
+      <name>Wp 65</name>
+    </rtept>
+    <rtept lat="54.384642837888663" lon="-2.3810384007904228">
+      <name>Wp 66</name>
+    </rtept>
+    <rtept lat="54.384858488693091" lon="-2.38144926830177">
+      <name>Wp 67</name>
+    </rtept>
+    <rtept lat="54.3859816447466" lon="-2.3830208680123008">
+      <name>Wp 68</name>
+    </rtept>
+    <rtept lat="54.386454189671667" lon="-2.3845121238640177">
+      <name>Wp 69</name>
+    </rtept>
+    <rtept lat="54.386774142817259" lon="-2.3862250108111729">
+      <name>Wp 70</name>
+    </rtept>
+    <rtept lat="54.387070822946484" lon="-2.3884209393305893">
+      <name>Wp 71</name>
+    </rtept>
+    <rtept lat="54.387471474425638" lon="-2.3919932609064891">
+      <name>Wp 72</name>
+    </rtept>
+    <rtept lat="54.387617403643695" lon="-2.3938160992472084">
+      <name>Wp 73</name>
+    </rtept>
+    <rtept lat="54.388212653410292" lon="-2.3975390946842485">
+      <name>Wp 74</name>
+    </rtept>
+    <rtept lat="54.389112371741319" lon="-2.4010049546130094">
+      <name>Wp 75</name>
+    </rtept>
+    <rtept lat="54.389818983362275" lon="-2.4037999274670376">
+      <name>Wp 76</name>
+    </rtept>
+    <rtept lat="54.391622973081489" lon="-2.4071149181570211">
+      <name>Wp 77</name>
+    </rtept>
+    <rtept lat="54.392414424738909" lon="-2.4061675624845797">
+      <name>Wp 78</name>
+    </rtept>
+    <rtept lat="54.393223350466606" lon="-2.4043166839234384">
+      <name>Wp 79</name>
+    </rtept>
+    <rtept lat="54.393611488892617" lon="-2.4028591680155587">
+      <name>Wp 80</name>
+    </rtept>
+    <rtept lat="54.394333587271589" lon="-2.4010073235785345">
+      <name>Wp 81</name>
+    </rtept>
+    <rtept lat="54.395171456746112" lon="-2.3991307598092249">
+      <name>Wp 82</name>
+    </rtept>
+    <rtept lat="54.396340645420125" lon="-2.39764350480869">
+      <name>Wp 83</name>
+    </rtept>
+    <rtept lat="54.39652030159457" lon="-2.3979912678591568">
+      <name>Wp 84</name>
+    </rtept>
+    <rtept lat="54.396756851499561" lon="-2.3986256300680537">
+      <name>Wp 85</name>
+    </rtept>
+    <rtept lat="54.396426024682675" lon="-2.4002583562774475">
+      <name>Wp 86</name>
+    </rtept>
+    <rtept lat="54.39672678037369" lon="-2.4011536209288282">
+      <name>Wp 87</name>
+    </rtept>
+    <rtept lat="54.396572199730215" lon="-2.4019700825875576">
+      <name>Wp 88</name>
+    </rtept>
+    <rtept lat="54.396831538625918" lon="-2.4022700653500184">
+      <name>Wp 89</name>
+    </rtept>
+    <rtept lat="54.397219800956989" lon="-2.4029431257579805">
+      <name>Wp 96</name>
+    </rtept>
+    <rtept lat="54.397544344068315" lon="-2.4032065779379">
+      <name>Wp 97</name>
+    </rtept>
+    <rtept lat="54.398152649564828" lon="-2.4029522737834812">
+      <name>Wp 98</name>
+    </rtept>
+    <rtept lat="54.397932725513783" lon="-2.4038424783656422">
+      <name>Wp 99</name>
+    </rtept>
+    <rtept lat="54.398428078202144" lon="-2.4049256299326083">
+      <name>Wp 100</name>
+    </rtept>
+    <rtept lat="54.398640896852754" lon="-2.4061547453193053">
+      <name>Wp 101</name>
+    </rtept>
+    <rtept lat="54.3989847460193" lon="-2.40712489389969">
+      <name>Wp 102</name>
+    </rtept>
+    <rtept lat="54.399872699670794" lon="-2.4075798943233444">
+      <name>Wp 103</name>
+    </rtept>
+    <rtept lat="54.40024112318077" lon="-2.4076951005790765">
+      <name>Wp 104</name>
+    </rtept>
+    <rtept lat="54.401170323462381" lon="-2.4087826763110716">
+      <name>Wp 105</name>
+    </rtept>
+    <rtept lat="54.402141385873705" lon="-2.4103169454643441">
+      <name>Wp 106</name>
+    </rtept>
+    <rtept lat="54.401511118306985" lon="-2.4106453155521819">
+      <name>Wp 107</name>
+    </rtept>
+  </rte>
+  <extensions>
+    <q:style>No Icon$Medium Cyan</q:style>
+  </extensions>
+</gpx>

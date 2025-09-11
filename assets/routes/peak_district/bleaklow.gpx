@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:q="http://www.anquet.com" xsi:schemaLocation="http://www.topografix.com/GPX/1/1   http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="The Hug - http://maps.the-hug.net/" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata />
+  <rte>
+    <name>Bleaklow and Higher Shelf Stones from the Snake Pass</name>
+    <desc>Bleaklow and Higher Shelf Stones from the Snake Pass </desc>
+	<author>Copyright Walking Britain</author>
+	<url>www.walkingbritain.co.uk/walk-2982-description</url>
+	<urlname>Walk - Bleaklow and Higher Shelf Stones from the Snake Pass</urlname>
+      
+    <rtept lat="53.41964" lon="-1.8372">
+      <name>1:</name>
+    </rtept>
+    <rtept lat="53.41919" lon="-1.83901">
+      <name>2:</name>
+    </rtept>
+    <rtept lat="53.41996" lon="-1.83976">
+      <name>3:</name>
+    </rtept>
+    <rtept lat="53.42095" lon="-1.84148">
+      <name>4:</name>
+    </rtept>
+    <rtept lat="53.42275" lon="-1.84373">
+      <name>5:</name>
+    </rtept>
+    <rtept lat="53.42576" lon="-1.84545">
+      <name>6:</name>
+    </rtept>
+    <rtept lat="53.42761" lon="-1.84643">
+      <name>7:</name>
+    </rtept>
+    <rtept lat="53.42959" lon="-1.8468">
+      <name>8:</name>
+    </rtept>
+    <rtept lat="53.4308" lon="-1.84649">
+      <name>9:</name>
+    </rtept>
+    <rtept lat="53.43183" lon="-1.84761">
+      <name>10:</name>
+    </rtept>
+    <rtept lat="53.43274" lon="-1.84964">
+      <name>11:</name>
+    </rtept>
+    <rtept lat="53.43274" lon="-1.85265">
+      <name>12:</name>
+    </rtept>
+    <rtept lat="53.43216" lon="-1.85544">
+      <name>13:</name>
+    </rtept>
+    <rtept lat="53.43243" lon="-1.85687">
+      <name>14:</name>
+    </rtept>
+    <rtept lat="53.43342" lon="-1.85822">
+      <name>15:</name>
+    </rtept>
+    <rtept lat="53.43522" lon="-1.8613">
+      <name>16:</name>
+    </rtept>
+    <rtept lat="53.43653" lon="-1.86589">
+      <name>17:</name>
+    </rtept>
+    <rtept lat="53.43846" lon="-1.864">
+      <name>18:</name>
+    </rtept>
+    <rtept lat="53.43958" lon="-1.86219">
+      <name>19:</name>
+    </rtept>
+    <rtept lat="53.4416" lon="-1.85759">
+      <name>20:</name>
+    </rtept>
+    <rtept lat="53.44308" lon="-1.8557">
+      <name>21:</name>
+    </rtept>
+    <rtept lat="53.44384" lon="-1.85608">
+      <name>22:</name>
+    </rtept>
+    <rtept lat="53.44424" lon="-1.85788">
+      <name>23:</name>
+    </rtept>
+    <rtept lat="53.44416" lon="-1.86052">
+      <name>24:</name>
+    </rtept>
+    <rtept lat="53.44394" lon="-1.8627">
+      <name>25:</name>
+    </rtept>
+    <rtept lat="53.4443" lon="-1.86526">
+      <name>26:</name>
+    </rtept>
+    <rtept lat="53.44614" lon="-1.86653">
+      <name>27:</name>
+    </rtept>
+    <rtept lat="53.44745" lon="-1.86691">
+      <name>28:</name>
+    </rtept>
+    <rtept lat="53.4496" lon="-1.86773">
+      <name>29:</name>
+    </rtept>
+    <rtept lat="53.4505" lon="-1.86742">
+      <name>30:</name>
+    </rtept>
+    <rtept lat="53.45275" lon="-1.86584">
+      <name>31:</name>
+    </rtept>
+    <rtept lat="53.4545" lon="-1.86365">
+      <name>32:</name>
+    </rtept>
+    <rtept lat="53.45558" lon="-1.86297">
+      <name>33:</name>
+    </rtept>
+    <rtept lat="53.45733" lon="-1.86153">
+      <name>34:</name>
+    </rtept>
+    <rtept lat="53.45912" lon="-1.86198">
+      <name>35:</name>
+    </rtept>
+    <rtept lat="53.45993" lon="-1.86182">
+      <name>36:</name>
+    </rtept>
+    <rtept lat="53.46128" lon="-1.86031">
+      <name>37:</name>
+    </rtept>
+    <rtept lat="53.45984" lon="-1.86107">
+      <name>38:</name>
+    </rtept>
+    <rtept lat="53.45961" lon="-1.85843">
+      <name>39:</name>
+    </rtept>
+    <rtept lat="53.45956" lon="-1.85422">
+      <name>40:</name>
+    </rtept>
+    <rtept lat="53.46059" lon="-1.85075">
+      <name>41:</name>
+    </rtept>
+    <rtept lat="53.46194" lon="-1.84713">
+      <name>42:</name>
+    </rtept>
+    <rtept lat="53.46378" lon="-1.84404">
+      <name>43:</name>
+    </rtept>
+    <rtept lat="53.46391" lon="-1.8414">
+      <name>44:</name>
+    </rtept>
+    <rtept lat="53.46399" lon="-1.83688">
+      <name>45:</name>
+    </rtept>
+    <rtept lat="53.46367" lon="-1.83312">
+      <name>46:</name>
+    </rtept>
+    <rtept lat="53.4634" lon="-1.82965">
+      <name>47:</name>
+    </rtept>
+    <rtept lat="53.46268" lon="-1.82966">
+      <name>48:</name>
+    </rtept>
+    <rtept lat="53.46052" lon="-1.83004">
+      <name>49:</name>
+    </rtept>
+    <rtept lat="53.45733" lon="-1.83179">
+      <name>50:</name>
+    </rtept>
+    <rtept lat="53.45522" lon="-1.8342">
+      <name>51:</name>
+    </rtept>
+    <rtept lat="53.45509" lon="-1.83707">
+      <name>52:</name>
+    </rtept>
+    <rtept lat="53.45487" lon="-1.84076">
+      <name>53:</name>
+    </rtept>
+    <rtept lat="53.4542" lon="-1.84144">
+      <name>54:</name>
+    </rtept>
+    <rtept lat="53.45362" lon="-1.84272">
+      <name>55:</name>
+    </rtept>
+    <rtept lat="53.45232" lon="-1.84348">
+      <name>56:</name>
+    </rtept>
+    <rtept lat="53.45137" lon="-1.84348">
+      <name>57:</name>
+    </rtept>
+    <rtept lat="53.45002" lon="-1.84446">
+      <name>58:</name>
+    </rtept>
+    <rtept lat="53.44786" lon="-1.84236">
+      <name>59:</name>
+    </rtept>
+    <rtept lat="53.44723" lon="-1.84154">
+      <name>60:</name>
+    </rtept>
+    <rtept lat="53.44687" lon="-1.83966">
+      <name>61:</name>
+    </rtept>
+    <rtept lat="53.44588" lon="-1.83454">
+      <name>62:</name>
+    </rtept>
+    <rtept lat="53.44489" lon="-1.83266">
+      <name>63:</name>
+    </rtept>
+    <rtept lat="53.44268" lon="-1.82928">
+      <name>64:</name>
+    </rtept>
+    <rtept lat="53.44151" lon="-1.82665">
+      <name>65:</name>
+    </rtept>
+    <rtept lat="53.44061" lon="-1.82643">
+      <name>66:</name>
+    </rtept>
+    <rtept lat="53.43908" lon="-1.82659">
+      <name>67:</name>
+    </rtept>
+    <rtept lat="53.43782" lon="-1.82667">
+      <name>68:</name>
+    </rtept>
+    <rtept lat="53.43634" lon="-1.82637">
+      <name>69:</name>
+    </rtept>
+    <rtept lat="53.43481" lon="-1.82631">
+      <name>70:</name>
+    </rtept>
+    <rtept lat="53.43342" lon="-1.82729">
+      <name>71:</name>
+    </rtept>
+    <rtept lat="53.4323" lon="-1.82857">
+      <name>72:</name>
+    </rtept>
+    <rtept lat="53.43131" lon="-1.82888">
+      <name>73:</name>
+    </rtept>
+    <rtept lat="53.42969" lon="-1.82926">
+      <name>74:</name>
+    </rtept>
+    <rtept lat="53.42816" lon="-1.82994">
+      <name>75:</name>
+    </rtept>
+    <rtept lat="53.42704" lon="-1.8304">
+      <name>76:</name>
+    </rtept>
+    <rtept lat="53.42565" lon="-1.83123">
+      <name>77:</name>
+    </rtept>
+    <rtept lat="53.4243" lon="-1.83154">
+      <name>78:</name>
+    </rtept>
+    <rtept lat="53.42376" lon="-1.83139">
+      <name>79:</name>
+    </rtept>
+    <rtept lat="53.42291" lon="-1.8317">
+      <name>80:</name>
+    </rtept>
+    <rtept lat="53.42161" lon="-1.83283">
+      <name>81:</name>
+    </rtept>
+    <rtept lat="53.42089" lon="-1.83479">
+      <name>82:</name>
+    </rtept>
+    <rtept lat="53.41977" lon="-1.8366">
+      <name>83:</name>
+    </rtept>
+  </rte>
+  <extensions>
+    <q:style>No Icon$Medium Cyan</q:style>
+  </extensions>
+</gpx>
