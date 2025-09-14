@@ -26,6 +26,9 @@ def equipment(request):
 def gallery(request):
     return render(request, 'pages/gallery.html')
 
+def about(request):
+    return render(request, 'pages/about.html')
+
 def lake_district(request):
     ctx = {'route_ids': _route_ids_for('lake_district')}
     return render(request, 'pages/regions/lake_district.html', ctx)

@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+<link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+{% endblock %}
+
+{% block content %}
+
+{# --- HERO (same layout as index) --- #}
+<section class="hero-section d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">About Us</h1>
+        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">
+          Purposeful days in the hills—safe, supportive, and shaped around you.
+        </p>
+        <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Plan Your Winter Day</a>
+      </div>
+      <div class="col-lg-6 p-0">
+        <picture>
+          <source media="(min-width: 1600px)" srcset="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}">
+          <img src="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}"
+               alt="Snowy mountain landscape"
+               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# --- INTRO --- #}
+<section class="section-margin">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-10 text-center">
+        <h2>Who We Are</h2>
+        <p class="lead">
+          We create memorable winter mountain days across Scotland, Wales, the Lake District,
+          and the Peak District &amp; Yorkshire Dales. From crisp ridge lines to quiet valleys,
+          our focus is simple: <strong>safe, well-planned adventures that match your goals and the conditions on the day</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div class="row gy-4 align-items-center">
+      <div class="col-md-6">
+        <img src="{% static 'images/gallery/gallery058.JPG' %}" alt="Winter group on a snowy ridge"
+             class="img-fluid rounded-3 shadow-sm">
+      </div>
+      <div class="col-md-6">
+        <h3>Our Approach</h3>
+        <ul class="checkmark-list">
+          <li><strong>Safety first:</strong> conservative, conditions-led planning with clear decision points.</li>
+          <li><strong>Tailored routes:</strong> we adapt pace, objectives, and terrain to suit your group.</li>
+          <li><strong>Winter-ready:</strong> advice on kit and skills so you feel prepared and confident.</li>
+          <li><strong>Leave no trace:</strong> we respect fragile winter environments and local communities.</li>
+        </ul>
+        <a href="{% url 'booking_create' %}" class="btn cta-btn mt-2">Check Dates</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+{# --- MEET TOM --- #}
+<section class="section-margin">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-md-5">
+        <img src="{% static 'images/gallery/gallery015.JPG' %}" alt="Tom Goss on a snowy summit"
+             class="img-fluid rounded-3 shadow-sm">
+      </div>
+      <div class="col-md-7">
+        <h2>Meet Tom Goss</h2>
+        <p>
+          I’m Tom—founder of UK Winter Mountain Tours. I’ve spent years hiking and scrambling in
+          <em>all</em> the regions we cover, in all kinds of weather. I love the quiet focus that winter brings:
+          reading the snow, choosing the line, and finding those moments of stillness between gusts.
+        </p>
+        <p>
+          My passion for the outdoors was inspired by my late dad, <strong>Tom Goss Snr</strong>, whose love of wild places
+          and steady encouragement shaped how I move in the mountains. This project is a tribute to that spirit—helping
+          more people experience the same sense of freedom and connection.
+        </p>
+
+        <div class="row mt-3 g-3">
+          <div class="col-sm-6">
+            <div class="p-3 h-100 border rounded-3">
+              <i class="fas fa-mountain me-2"></i><strong>Experienced in all regions</strong>
+              <p class="mb-0 small text-muted">Scotland, Wales, Lake District, Peak District &amp; Yorkshire Dales.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 h-100 border rounded-3">
+              <i class="fas fa-compass me-2"></i><strong>Winter-aware planning</strong>
+              <p class="mb-0 small text-muted">Route choice driven by weather, ground conditions, and your goals.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="btn btn-outline-dark mt-3">Say Hello</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+{# --- WHY WINTER WITH US --- #}
+<section class="section-margin">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-10 text-center">
+        <h2>Why Go Winter With Us?</h2>
+        <p class="lead"><em>Short days, big rewards—done the right way.</em></p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-helmet-safety me-2"></i>Safety, Always</h5>
+            <p class="card-text">Clear briefings, conservative decision-making, and a plan that flexes with the weather and underfoot conditions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-route me-2"></i>Routes That Fit</h5>
+            <p class="card-text">From classic ridges to quieter winter wanders, we pick days that suit your experience, fitness, and ambitions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-people-group me-2"></i>Supportive Coaching</h5>
+            <p class="card-text">Learn movement skills, pacing, and simple winter decision-making as we go—no pressure, just progress.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# --- REGIONS LINKS --- #}
+<section class="section-margin">
+  <div class="container text-center">
+    <h2>Where We Operate</h2>
+    <p class="mb-4">Choose your region and we’ll shape the day to fit the forecast.</p>
+    <div class="row g-3 justify-content-center">
+      <div class="col-6 col-md-3"><a class="btn cta-btn w-100" href="{% url 'scotland' %}">Scotland</a></div>
+      <div class="col-6 col-md-3"><a class="btn cta-btn w-100" href="{% url 'wales' %}">Wales</a></div>
+      <div class="col-6 col-md-3"><a class="btn cta-btn w-100" href="{% url 'lake_district' %}">Lake District</a></div>
+      <div class="col-6 col-md-3"><a class="btn cta-btn w-100" href="{% url 'peak_district' %}">Peak District</a></div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+{# --- HOW IT WORKS --- #}
+<section class="section-margin">
+  <div class="container">
+    <h2 class="text-center mb-4">How It Works</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="h-100 p-3 border rounded-3">
+          <h5><span class="badge bg-light text-dark me-2">1</span> Enquire/Book</h5>
+          <p class="mb-0">Pick a region/date and tell us your goals. We’ll confirm availability and outline options.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="h-100 p-3 border rounded-3">
+          <h5><span class="badge bg-light text-dark me-2">2</span> Plan Together</h5>
+          <p class="mb-0">We share a simple kit list and agree an itinerary with sensible “go/no-go” checks.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="h-100 p-3 border rounded-3">
+          <h5><span class="badge bg-light text-dark me-2">3</span> Meet &amp; Brief</h5>
+          <p class="mb-0">On the day we cover the route, conditions, pacing, and safety before setting off.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="h-100 p-3 border rounded-3">
+          <h5><span class="badge bg-light text-dark me-2">4</span> Enjoy the Day</h5>
+          <p class="mb-0">We move steadily, adapt to conditions, and make sure everyone finishes smiling.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="{% url 'booking_create' %}" class="btn cta-btn">Start Your Plan</a>
+    </div>
+  </div>
+</section>
+
+{# --- SAFETY & KIT --- #}
+<section class="section-margin">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-md-6">
+        <h2>Winter Safety &amp; Kit</h2>
+        <p>Winter days can be serious. We keep plans conservative and conditions-led, and we’ll help you get your kit dialled in.</p>
+
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="p-3 border rounded-3 h-100">
+              <h6 class="mb-2"><i class="fas fa-boot me-2"></i>Footwear</h6>
+              <p class="small mb-0 text-muted">Sturdy boots with good grip; winter-compatible soles recommended.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 border rounded-3 h-100">
+              <h6 class="mb-2"><i class="fas fa-temperature-low me-2"></i>Layers</h6>
+              <p class="small mb-0 text-muted">Base/mid layers, insulated jacket, waterproof jacket &amp; trousers, spare gloves/hat.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 border rounded-3 h-100">
+              <h6 class="mb-2"><i class="fas fa-compass me-2"></i>Nav &amp; Essentials</h6>
+              <p class="small mb-0 text-muted">Map/compass or GPS, headtorch, food &amp; water, small personal first aid kit.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="p-3 border rounded-3 h-100">
+              <h6 class="mb-2"><i class="fas fa-mountain me-2"></i>Winter Tools</h6>
+              <p class="small mb-0 text-muted">Depending on route/conditions: extra traction tools and safety items as advised.</p>
+            </div>
+          </div>
+        </div>
+
+        <ul class="checkmark-list mt-3">
+          <li>We’ll confirm specifics based on forecast and terrain.</li>
+          <li>If the weather says “save it for another time,” we’ll adjust the plan.</li>
+        </ul>
+
+        <a href="{% url 'equipment' %}" class="btn cta-btn mt-2">See Full Equipment Guide</a>
+      </div>
+
+      <div class="col-md-6">
+        <img src="{% static 'images/equipment/equipment_1600x1200.webp' %}" alt="Essential winter hillwalking kit"
+             class="img-fluid rounded-3 shadow-sm">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<hr>
+
+{# --- ETHOS / DEDICATION --- #}
+<section class="section-margin">
+  <div class="container text-center">
+    <h2>Why We Do This</h2>
+    <p class="lead">Connection, care, and shared adventure.</p>
+    <p>
+      We believe good mountain days are simple: prepare well, move thoughtfully, and look after each other.
+      Every trip is an opportunity to learn something new about the hills—and about ourselves.
+    </p>
+    <p class="mb-0"><em>In loving memory of <strong>Tom Goss Snr</strong>, whose love for the outdoors continues to guide our steps.</em></p>
+  </div>
+</section>
+
+{# --- CTA --- #}
+<section class="section-margin">
+  <div class="container text-center">
+    <div class="p-4 p-md-5 rounded-3 cta-background">
+      <h2 class="text-white mb-3">Ready for your winter day out?</h2>
+      <p class="text-white-50 mb-3">Tell us what you’d love to do and we’ll shape a safe, rewarding plan around it.</p>
+      <a href="{% url 'booking_create' %}" class="btn cta-btn me-2">Book Now</a>
+      <a href="#" class="btn btn-outline-light">Ask a Question</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_scripts %}{% endblock %}
+

@@ -8,4 +8,5 @@ urlpatterns = [
     path('regions/scotland/', views.scotland, name='scotland'),
     path('regions/wales/', views.wales, name='wales'),
     path('regions/peak-district/', views.peak_district, name='peak_district'),
+    path('about/', views.about, name='about'),
 ]
