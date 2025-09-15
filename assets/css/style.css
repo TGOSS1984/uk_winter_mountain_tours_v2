@@ -406,6 +406,18 @@ hr {
   max-width: none;
 }
 
+/*Equipment*/
+
+.accordion {
+  --bs-accordion-btn-bg:  var(--primary-bg-color); 
+  --bs-accordion-active-bg: var(--primary-accent-color);
+  --bs-accordion-active-color: white;
+  --bs-accordion-bg: var(--primary-bg-color);
+  --bs-accordion-color: black;
+  --bs-accordion-btn-focus-box-shadow: none;
+    padding:10px;
+}
+
 /*Routes Styles*/
 
   .route-map { 
