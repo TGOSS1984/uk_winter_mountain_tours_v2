@@ -18,8 +18,14 @@
     --section-margin: 80px;
 }
 
-.cta-background {
-    background-color: var(--primary-accent-color);
+.cta-background{
+  min-height: 200px;
+  background-color: var(--primary-accent-color);                  /* base colour */
+  background-image: url("/static/images/hero/snowy_mtn_art_transparent.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
 }
 
 /*Global Styles*/
@@ -390,6 +396,14 @@ hr {
 
 .masonry-item img:hover {
   transform: scale(1.05);
+}
+
+/*About*/
+
+.tg-snr {
+  max-height: 500px;
+  width: auto;
+  max-width: none;
 }
 
 /*Routes Styles*/
