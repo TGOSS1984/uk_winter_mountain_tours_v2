@@ -99,6 +99,11 @@ hr {
 /* Scrolled: solid background */
 .navbar-solid {
   background-color: var(--primary-accent-color);
+  background-image: url("/static/images/hero/snowy_mtn_art_transparent.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* optional shadow */
 }
 
