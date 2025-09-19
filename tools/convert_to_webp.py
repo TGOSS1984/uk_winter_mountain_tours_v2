@@ -4,9 +4,9 @@ from shutil import copy2
 from PIL import Image, ImageOps
 
 # ----- Paths -----
-# Source of truth (originals, including any existing .webp you already had):
+# Source of truth (originals, including any existing .webp already had):
 SRC = Path("assets/images_original")
-# Destination (the live, optimized set you actually serve):
+# Destination (the live, optimized set to actually serve):
 DST = Path("assets/images")
 
 # ----- Behaviour toggles -----
