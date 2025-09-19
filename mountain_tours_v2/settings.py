@@ -52,11 +52,25 @@ TEMPLATES = [{
 WSGI_APPLICATION = 'mountain_tours_v2.wsgi.application'
 ASGI_APPLICATION = 'mountain_tours_v2.asgi.application'
 
-DATABASE_URL = os.getenv("DATABASE_URL","")
+# ----- Database (Postgres on Heroku via DATABASE_URL; SQLite locally) -----
+DATABASE_URL = os.getenv("DATABASE_URL", "")
 if DATABASE_URL:
-    DATABASES={'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)}
+    # use SSL in production (when DEBUG is false)
+    DATABASES = {
+        'default': dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=not DEBUG
+        )
+    }
 else:
-    DATABASES={'default': {'ENGINE':'django.db.backends.sqlite3','NAME': BASE_DIR/'db.sqlite3'}}
+    DATABASES = {
+        'default': {
+            'ENGINE':'django.db.backends.sqlite3',
+            'NAME': BASE_DIR/'db.sqlite3'
+        }
+    }
+# --------------------------------------------------------------------------
 
 AUTH_PASSWORD_VALIDATORS=[
     {'NAME':'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
