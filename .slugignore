@@ -1,0 +1,9 @@
+assets/images_original/
+*.psd
+*.tif
+*.tiff
+*.zip
+*.mp4
+*.mov
+*.wav
+node_modules/
