@@ -1,0 +1,112 @@
+[
+{
+  "model": "bookings.route",
+  "pk": 1,
+  "fields": {
+    "name": "Helvellyn via Striding Swirral Edge",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/helvellyn-striding-swirral.gpx",
+    "distance_km": "12.00",
+    "duration_hours": "5.0"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 2,
+  "fields": {
+    "name": "Blencathra via Hall's Fell Ridge",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/blencathra-halls-fell.gpx",
+    "distance_km": "9.00",
+    "duration_hours": "4.0"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 3,
+  "fields": {
+    "name": "Blencathra via Sharp Edge",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/blencathra-sharp-edge.gpx",
+    "distance_km": "7.00",
+    "duration_hours": "4.0"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 4,
+  "fields": {
+    "name": "Pavey Ark via Jack's Rake",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/pavey-ark-jacks-rake.gpx",
+    "distance_km": "8.00",
+    "duration_hours": "4.0"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 5,
+  "fields": {
+    "name": "Scafell Pike via Lord's Rake",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/scafell-pike-lords-rake.gpx",
+    "distance_km": "13.00",
+    "duration_hours": "5.5"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 6,
+  "fields": {
+    "name": "Bowfell via Climbers� Traverse",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/bowfell-climbers-traverse.gpx",
+    "distance_km": "14.00",
+    "duration_hours": "5.0"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 7,
+  "fields": {
+    "name": "Great Gable",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/great-gable.gpx",
+    "distance_km": "10.00",
+    "duration_hours": "4.0"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 8,
+  "fields": {
+    "name": "Pillar",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/pillar.gpx",
+    "distance_km": "14.00",
+    "duration_hours": "6.0"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 9,
+  "fields": {
+    "name": "Fairfield Horseshoe",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/fairfield-horseshoe.gpx",
+    "distance_km": "17.00",
+    "duration_hours": "7.0"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 10,
+  "fields": {
+    "name": "Crinkle Crags",
+    "region": "lake_district",
+    "gpx_path": "routes/lake_district/crinkle-crags.gpx",
+    "distance_km": "14.00",
+    "duration_hours": "4.0"
+  }
+}
+]
