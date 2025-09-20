@@ -284,8 +284,10 @@
     <div class="p-4 p-md-5 rounded-3 cta-background">
       <h2 class="text-white mb-3">Ready for your winter day out?</h2>
       <p class="text-white-50 mb-3">Tell us what you’d love to do and we’ll shape a safe, rewarding plan around it.</p>
-      <a href="{% url 'booking_create' %}" class="btn cta-btn me-2">Book Now</a>
-      <a href="#" class="btn btn-outline-light">Ask a Question</a>
+      <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+          <a href="{% url 'booking_create' %}" class="btn cta-btn">Book Now</a>
+          <a href="#" class="btn btn-outline-light">Ask a Question</a>
+      </div>
     </div>
   </div>
 </section>
