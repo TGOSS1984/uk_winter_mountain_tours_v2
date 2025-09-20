@@ -33,13 +33,30 @@ function initRouteMaps() {
 
     // 2) Add GPX overlay if plugin is available
     if (typeof L.GPX === 'function') {
+      // Build explicit start/end icons so colors can’t be overridden
+      const START_ICON = L.icon({
+        iconUrl: window.GPX_MARKER_OPTS.startIconUrl,
+        iconSize: [56, 56],
+        iconAnchor: [28, 56],
+        popupAnchor: [0, -52],
+        className: 'accessible-marker'
+      });
+      const END_ICON = L.icon({
+        iconUrl: window.GPX_MARKER_OPTS.endIconUrl,
+        iconSize: [56, 56],
+        iconAnchor: [28, 56],
+        popupAnchor: [0, -52],
+        className: 'accessible-marker'
+      });
+
       const gpxLayer = new L.GPX(gpxUrl, {
         async: true,
-        parseElements: ['track', 'route', 'waypoint'],
+        parseElements: ['track', 'route'], // (no 'waypoint')
         marker_options: {
-          startIconUrl: 'https://unpkg.com/leaflet-gpx@1.7.0/pin-icon-start.png',
-          endIconUrl:   'https://unpkg.com/leaflet-gpx@1.7.0/pin-icon-end.png',
-          shadowUrl:    'https://unpkg.com/leaflet-gpx@1.7.0/pin-shadow.png'
+          ...window.GPX_MARKER_OPTS,
+          startIcon: START_ICON,
+          endIcon: END_ICON
+          // (waypoints omitted since we don't parse them)
         },
         polyline_options: { color: '#007bff', weight: 4, opacity: 0.8, lineCap: 'round' }
       })
@@ -79,6 +96,17 @@ function initRouteMaps() {
           console.error('[maps] Error after GPX loaded:', gpxUrl, err);
         }
       })
+      // Belt-and-braces: if anything overrides icons, swap them back after load
+      .on('loaded', () => window.applyAccessibleGpxIcons?.(gpxLayer))
+      .on('loaded', () => {
+        const end = gpxLayer.get_end_marker?.();
+        if (end && end._icon) {
+          end._icon.style.pointerEvents = 'none';
+          end._icon.setAttribute('aria-hidden', 'true');
+          end._icon.setAttribute('tabindex', '-1');
+        }
+      })
+
       .on('addline', (e) => {
         // Helpful debug: polyline actually added
         console.log('[maps] polyline added for', gpxUrl, e.line.getLatLngs().length, 'points');
@@ -98,6 +126,67 @@ function initRouteMaps() {
   });
 }
 
+// ---- Accessible Leaflet marker: global defaults + GPX support (red/green + 56px) ----
+(function () {
+  const makeMarkerSvg = (fill) => `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Map marker">
+  <path d="M32 2c-12.15 0-22 9.85-22 22 0 16.5 22 38 22 38s22-21.5 22-38C54 11.85 44.15 2 32 2z"
+        fill="${fill}" stroke="#083a8c" stroke-width="2"/>
+  <circle cx="32" cy="24" r="10" fill="#ffffff"/>
+</svg>`.trim();
+
+  // Data-URI SVGs (no files needed). If CSP blocks data:, switch to a static URL instead.
+  const startSvgUrl = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(makeMarkerSvg("#198754")); // green
+  const endSvgUrl   = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(makeMarkerSvg("#dc3545")); // red
+  const wptSvgUrl   = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(makeMarkerSvg("#0a58ca")); // blue (waypoints/plain)
+
+  // 1) Plain Leaflet markers (fallbacks) use blue SVG and get a class for CSS sizing
+  L.Icon.Default.mergeOptions({
+    iconUrl: wptSvgUrl,
+    iconRetinaUrl: wptSvgUrl,
+    iconSize: [56, 56],
+    iconAnchor: [28, 56],
+    popupAnchor: [0, -52],
+    className: "accessible-marker",
+    shadowUrl: ""
+  });
+
+  // 2) GPX marker options (green start, red end, blue waypoints), also tagged with class
+  window.GPX_MARKER_OPTS = {
+    startIconUrl: startSvgUrl,
+    endIconUrl: endSvgUrl,
+    wptIconUrls: { "": wptSvgUrl },
+    iconSize: [56, 56],
+    iconAnchor: [28, 56],
+    popupAnchor: [0, -52],
+    className: "accessible-marker",
+    shadowUrl: ""
+  };
+
+  // 3) If leaflet-gpx is present, set its defaults too
+  if (L.GPX && L.GPX.prototype && L.GPX.prototype.options) {
+    L.GPX.prototype.options.marker_options = Object.assign(
+      {},
+      L.GPX.prototype.options.marker_options,
+      window.GPX_MARKER_OPTS
+    );
+  }
+
+  // Helper: if a GPX layer was created before this ran, swap its icons post-load
+  window.applyAccessibleGpxIcons = function (gpxLayer) {
+    const mk = (url) => L.icon({
+      iconUrl: url,
+      iconSize: [56, 56],
+      iconAnchor: [28, 56],
+      popupAnchor: [0, -52],
+      className: "accessible-marker"
+    });
+    gpxLayer.get_start_marker?.()?.setIcon(mk(startSvgUrl));
+    gpxLayer.get_end_marker?.()?.setIcon(mk(endSvgUrl));
+    (gpxLayer.get_waypoint_markers?.() || []).forEach(m => m.setIcon(mk(wptSvgUrl)));
+  };
+})();
+
 // Run when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initRouteMaps, { once: true });
@@ -113,6 +202,3 @@ document.querySelectorAll('.scroll-link').forEach(link => {
     if (target) window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
   });
 });
-
-
-

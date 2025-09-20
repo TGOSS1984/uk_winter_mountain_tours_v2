@@ -439,6 +439,73 @@ hr {
     background: #f8f9fa; padding: 1rem; margin-top: 0.5rem; border-radius: 5px; font-size: 0.875rem; border: 1px solid #ccc; 
   }
 
+  /* Leaflet CSS for improved contrast*/
+
+  /* Make Leaflet controls readable on busy map tiles */
+.leaflet-bar a,
+.leaflet-control-zoom a,
+.leaflet-control-layers,
+.leaflet-control-attribution,
+.leaflet-control-scale {
+  background: rgba(255,255,255,.95);
+  color: #111;                     /* strong text color */
+  border: 1px solid rgba(0,0,0,.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  border-radius: .375rem;
+}
+
+/* Popup text contrast */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #fff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,.1);
+}
+
+/* Attribution readability on any tile */
+.leaflet-control-attribution {
+  padding: 2px 6px;
+  font-size: .85rem;
+}
+
+/* Zoom buttons and other bar controls */
+.leaflet-bar a,
+.leaflet-control-zoom a {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;   /* centers + / – glyph */
+  font-size: 1.25rem;
+}
+
+/* Visible keyboard focus */
+.leaflet-bar a:focus-visible,
+.leaflet-control a:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 2px;
+  border-radius: .5rem;
+}
+
+/* Ensure Lighthouse reads markers as ≥48px tap targets */
+.leaflet-marker-icon.accessible-marker {
+  width: 56px !important;
+  height: 56px !important;
+}
+
+/* Strong color for attribution links (and underline for clarity) */
+.leaflet-control-attribution a {
+  color: #111 !important;
+  text-decoration: underline;
+}
+
+/* stats box under the map, keep it high-contrast */
+.route-info-box {
+  background: #fff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,.1);
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+}
+
   /*Footer*/
 
   .footer-left {

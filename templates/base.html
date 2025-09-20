@@ -4,6 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- base.html meta desc-->
+  {% block meta_description %}
+  <meta name="description"
+      content="{{ meta_description|default:'Guided winter mountain tours across the UK. Qualified leaders, safe routes, and unforgettable experiences.' }}">
+  {% endblock %}
+
   <title>Mountain Tours v2</title>
 
   <!-- Global CSS (CDN) -->
