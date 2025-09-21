@@ -89,6 +89,41 @@ class CancelBookingViewTests(TestCase):
         self.assertContains(response, "Invalid request method.")
 
 
+class CancelPastBookingTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.user = User.objects.create_user(username="tester_past", password="secret")
+        cls.guide = Guide.objects.create(name="Guide P", email="p@example.com")
+        cls.route = Route.objects.create(
+            name="Great Gable",
+            region="lake_district",
+            gpx_path="routes/great_gable.gpx",
+            distance_km=11,
+            duration_hours=6,
+        )
+        cls.past_date = timezone.now().date() - timedelta(days=2)
+
+    def setUp(self):
+        self.client.login(username="tester_past", password="secret")
+        self.booking = Booking.objects.create(
+            user=self.user,
+            guide=self.guide,
+            route=self.route,
+            date=self.past_date,  # in the past
+            time_slot="AM",
+        )
+
+    def test_post_cannot_cancel_past_booking(self):
+        url = reverse("booking_cancel", args=[self.booking.pk])
+        resp = self.client.post(url, follow=True)
+        self.booking.refresh_from_db()
+
+        # Status should remain confirmed
+        self.assertEqual(self.booking.status, "confirmed")
+        # Error flash shown
+        self.assertContains(resp, "Past bookings can’t be cancelled.")
+
+
 class BookingListViewTests(TestCase):
     @classmethod
     def setUpTestData(cls):
