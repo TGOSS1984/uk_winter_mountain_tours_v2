@@ -3,6 +3,7 @@ from datetime import date, timedelta
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 from bookings.models import Guide, Route, Booking
 
@@ -48,3 +49,42 @@ class BookingCreateViewTests(TestCase):
         self.assertEqual(booking.user, self.user)
         self.assertEqual(booking.route, self.route)
         self.assertEqual(booking.guide, self.guide)
+
+class CancelBookingViewTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.user = User.objects.create_user(username="testuser2", password="secret")
+        cls.guide = Guide.objects.create(name="Guide Two", email="guide2@example.com")
+        cls.route = Route.objects.create(
+            name="Scafell Pike",
+            region="lake_district",
+            gpx_path="routes/scafell.gpx",
+            distance_km=12,
+            duration_hours=6,
+        )
+        cls.future_date = timezone.now().date() + timedelta(days=5)
+
+    def setUp(self):
+        self.client.login(username="testuser2", password="secret")
+        self.booking = Booking.objects.create(
+            user=self.user,
+            guide=self.guide,
+            route=self.route,
+            date=self.future_date,
+            time_slot="AM",
+        )
+
+    def test_post_cancels_future_booking(self):
+        url = reverse("booking_cancel", args=[self.booking.pk])
+        response = self.client.post(url, follow=True)
+        self.booking.refresh_from_db()
+        self.assertEqual(self.booking.status, "cancelled")
+        self.assertContains(response, "Booking cancelled.")
+
+    def test_get_does_not_cancel_booking(self):
+        url = reverse("booking_cancel", args=[self.booking.pk])
+        response = self.client.get(url, follow=True)
+        self.booking.refresh_from_db()
+        self.assertEqual(self.booking.status, "confirmed")  # unchanged
+        self.assertContains(response, "Invalid request method.")
+
