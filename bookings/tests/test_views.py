@@ -88,3 +88,34 @@ class CancelBookingViewTests(TestCase):
         self.assertEqual(self.booking.status, "confirmed")  # unchanged
         self.assertContains(response, "Invalid request method.")
 
+
+class BookingListViewTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.user_a = User.objects.create_user(username="alice", password="x")
+        cls.user_b = User.objects.create_user(username="bob", password="x")
+        guide = Guide.objects.create(name="Guide L", email="l@example.com")
+        route = Route.objects.create(
+            name="Blencathra",
+            region="lake_district",
+            gpx_path="routes/blencathra.gpx",
+            distance_km=9,
+            duration_hours=4,
+        )
+        d = timezone.now().date() + timedelta(days=3)
+        # One booking for each user
+        Booking.objects.create(user=cls.user_a, guide=guide, route=route, date=d, time_slot="AM")
+        Booking.objects.create(user=cls.user_b, guide=guide, route=route, date=d, time_slot="PM")
+
+    def test_list_shows_only_logged_in_users_bookings(self):
+        self.client.login(username="alice", password="x")
+        resp = self.client.get(reverse("booking_list"))
+        self.assertEqual(resp.status_code, 200)
+        bookings = list(resp.context["bookings"])
+        self.assertEqual(len(bookings), 1)
+        self.assertEqual(bookings[0].user.username, "alice")
+
+    def test_list_redirects_anonymous_to_login(self):
+        resp = self.client.get(reverse("booking_list"))
+        self.assertEqual(resp.status_code, 302)
+        self.assertIn("/accounts/login", resp.url)  # default auth login path
