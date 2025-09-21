@@ -154,3 +154,39 @@ class BookingListViewTests(TestCase):
         resp = self.client.get(reverse("booking_list"))
         self.assertEqual(resp.status_code, 302)
         self.assertIn("/accounts/login", resp.url)  # default auth login path
+
+
+class BookingCreateInvalidPostTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.user = User.objects.create_user(username="invalid_poster", password="secret")
+        cls.guide = Guide.objects.create(name="Guide Z", email="z@example.com")
+        cls.route = Route.objects.create(
+            name="Pillar",
+            region="lake_district",
+            gpx_path="routes/pillar.gpx",
+            distance_km=10,
+            duration_hours=5,
+        )
+        cls.future_date = date.today() + timedelta(days=10)
+
+    def test_invalid_post_rerenders_form_with_errors_and_creates_nothing(self):
+        self.client.login(username="invalid_poster", password="secret")
+        url = reverse("booking_create")
+
+        # Missing required fields (e.g., no route) + invalid guide id ensures validation fails
+        data = {
+            # "route": self.route.id,          # omit route to trigger error
+            "guide": 999999,                    # not in queryset -> invalid choice
+            "date": self.future_date.isoformat(),
+            "time_slot": "AM",
+        }
+
+        resp = self.client.post(url, data)
+        # Form should be re-rendered (no redirect)
+        self.assertEqual(resp.status_code, 200)
+        # Should show some error content
+        self.assertContains(resp, "error", status_code=200)  # generic check
+        # And no booking created
+        self.assertEqual(Booking.objects.count(), 0)
+
