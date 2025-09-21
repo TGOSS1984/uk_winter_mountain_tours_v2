@@ -1,0 +1,48 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  backend-frontend-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # --- Python / Django ---
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python deps
+        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+
+      - name: Run Django tests
+        env:
+          DEBUG: "1"
+          ALLOWED_HOSTS: "127.0.0.1,localhost"
+          SECRET_KEY: "django-insecure-test-key"
+          # If ever need other env vars, add them here or use GitHub Secrets:
+          # SOME_VAR: ${{ secrets.SOME_VAR }}
+        run: python manage.py test bookings
+
+      # --- Node / Jest ---
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node deps
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Run Jest tests
+        run: npm test
