@@ -58,7 +58,7 @@
   "model": "bookings.route",
   "pk": 6,
   "fields": {
-    "name": "Bowfell via ClimbersÆ Traverse",
+    "name": "Bowfell via Climbers� Traverse",
     "region": "lake_district",
     "gpx_path": "routes/lake_district/bowfell-climbers-traverse.gpx",
     "distance_km": "14.00",
@@ -256,7 +256,7 @@
   "model": "bookings.route",
   "pk": 24,
   "fields": {
-    "name": "Ben Nevis via CMD ArÛte",
+    "name": "Ben Nevis via CMD Ar�te",
     "region": "scotland",
     "gpx_path": "routes/scotland/ben-nevis-cmd-arete.gpx",
     "distance_km": "20.00",
@@ -267,7 +267,7 @@
   "model": "bookings.route",
   "pk": 25,
   "fields": {
-    "name": "Buachaille Etive M‗r",
+    "name": "Buachaille Etive M�r",
     "region": "scotland",
     "gpx_path": "routes/scotland/buachailleetivemor.gpx",
     "distance_km": "13.70",
@@ -416,6 +416,27 @@
     "distance_km": "15.00",
     "duration_hours": "4.6"
   }
+},
+{
+  "model": "bookings.route",
+  "pk": 39,
+  "fields": {
+    "name": "Wild Boar Fell",
+    "region": "peak_district",
+    "gpx_path": "routes/peak_district/wild-boar-fell.gpx",
+    "distance_km": "11.14",
+    "duration_hours": "3.0"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 40,
+  "fields": {
+    "name": "Pen y fan",
+    "region": "wales",
+    "gpx_path": "routes/wales/pen-y-fan.gpx",
+    "distance_km": "11.18",
+    "duration_hours": "4.0"
+  }
 }
 ]
-
