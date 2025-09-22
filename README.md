@@ -1,7 +1,7 @@
 # UK Winter Mountain Tours V2
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions)
-[![Coverage](https://img.shields.io/badge/coverage-xx%25-blue)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions)
+![Coverage](docs/badges/coverage.svg)
 [![Deployment](https://img.shields.io/badge/heroku-live-purple)](https://uk-winter-mountain-tours-v2-c6f21d80d2c8.herokuapp.com/)
 ![CI – Tests](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions/workflows/test.yml/badge.svg)
 
@@ -233,7 +233,13 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 - [ ] Images include descriptive `alt` text or are decorative.
 - [ ] Sufficient color contrast on text and controls.
 
-*(STILL TO COMPLETE: Document results of manual keyboard testing and screen reader spot-checks.)*
+### Accessibility & UX Manual Checks
+
+- **Keyboard navigation:**  
+  Verified that all nav links, buttons, and form fields are reachable via `Tab`. Leaflet map controls can be reached, but focus styling could be improved (marked as Partial in manual tests).  
+- **Screen reader spot-checks:**  
+  Used NVDA/VoiceOver to confirm that headings, nav landmarks, and form labels are announced correctly. ARIA labels were added where necessary. Maps announce as “interactive” but route traces are not fully described — future enhancement.  
+
 
 ---
 
@@ -351,20 +357,20 @@ python manage.py test
 ### Running tests
 - Local: `python -m pytest -v -ra`
 
-### (Optional) Coverage
+### Coverage
+This project uses **pytest-cov** to measure test coverage.
 - Install: `pip install pytest-cov`
 - Run: `python -m pytest --cov=bookings --cov-report=term-missing --cov-report=html`
   - HTML report: `htmlcov/index.html`
-*(STILL TO COMPLETE)*
+- In CI: Coverage is generated on every push to `main`, and the badge below is auto-updated.
+
+![Coverage](docs/badges/coverage.svg)
 
 ### Jest Tests
 Run frontend tests:
 ```bash
 npm test
 ```
-
-![Coverage](docs/badges/coverage.svg)
-*(STILL TO COMPLETE: add coverage config and badge.)*
 
 ### Suggested Coverage Targets
 - Booking model/form validation (double-booking).
@@ -378,6 +384,25 @@ npm test
 - Jest tests passing  
   ![Terminal Test Screenshot Placeholder](assets/images/screenshots/tests/terminal_jest_test.PNG)
   ![Github actions Jest Test Screenshot Placeholder](assets/images/screenshots/tests/jest_tests.PNG)
+
+### Manual Testing
+In addition to automated tests, targeted **manual testing** validated real user flows and edge cases (mobile nav, 404/CSRF handling, GPX fallbacks, admin CRUD, fixture round-trips, accessibility of map controls).
+
+### Manual Test Matrix (samples)
+
+| Area | Steps | Expected | Result |
+|---|---|---|---|
+| Past-date booking blocked | Go to booking form → choose yesterday → submit | Form refuses; clear validation message shown; no record created | ✅ Pass |
+| Cancel past booking | Create a booking in the past (or mock) → try cancel | Cancellation disallowed; friendly message; no state change | ✅ Pass |
+| Missing GPX fallback | Point a route to `static/gpx/missing.gpx` → load page | Map loads without crash; shows fallback/help text; no console errors | ⚠️ Partial – currently throws console error; future enhancement to add fallback |
+| 404 on bad region | Visit `/regions/not-a-real-region/` | Custom 404 page; no stacktrace | ✅ Pass (custom/standard 404 shown in production) |
+| Keyboard nav | Tab through region page & map controls | Visible focus, logical order; controls usable via keyboard | ⚠️ Partial – Bootstrap handles links/buttons, but focus styles still need review |
+| OS Maps attribution | Load any route with map | Attribution visible and focusable; meets compliance | ✅ Pass |
+| Off-canvas nav mobile | Open menu → tap “About” | Navigates, menu closes, scroll enabled, focus returns to toggler | ✅ Pass |
+| CSRF protection | Remove token via DevTools → submit booking | 403 CSRF; no server error | ✅ Pass |
+| Admin CRUD | Add/edit/delete a Route in Admin | Public pages reflect changes; no broken links | ✅ Pass |
+| Fixtures round-trip | `dumpdata` → reset DB → `loaddata` | Routes/guides restored; pages render; no FK errors | ✅ Pass |
+
 
 ---
 

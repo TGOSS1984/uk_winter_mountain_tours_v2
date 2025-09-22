@@ -1,11 +1,12 @@
 # bookings/tests/test_views.py
 from datetime import date, timedelta
+
+from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
-from django.contrib.auth.models import User
 from django.utils import timezone
 
-from bookings.models import Guide, Route, Booking
+from bookings.models import Booking, Guide, Route
 
 
 class BookingCreateViewTests(TestCase):

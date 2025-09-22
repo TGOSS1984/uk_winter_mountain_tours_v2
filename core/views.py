@@ -1,10 +1,10 @@
 # core/views.py
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
-from django.contrib.auth.forms import UserCreationForm
-
 from django.utils.text import slugify
+from django.views.generic import CreateView
+
 from bookings.models import Route
 
 

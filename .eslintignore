@@ -1,0 +1,6 @@
+node_modules/
+static/vendor/
+static/gpx/
+static/**/*.min.js
+**/migrations/
+htmlcov/

@@ -1,10 +1,11 @@
 # bookings/tests/test_forms.py
 from datetime import date, timedelta
-from django.test import TestCase
+
 from django.contrib.auth.models import User
+from django.test import TestCase
 
 from bookings.forms import BookingForm
-from bookings.models import Guide, Route, Booking
+from bookings.models import Booking, Guide, Route
 
 
 class BookingFormTests(TestCase):

@@ -1,6 +1,8 @@
 # bookings/admin.py
 from django.contrib import admin
-from .models import Guide, Route, Booking
+
+from .models import Booking, Guide, Route
+
 
 @admin.register(Guide)
 class GuideAdmin(admin.ModelAdmin):

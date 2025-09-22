@@ -1,0 +1,16 @@
+node_modules/
+htmlcov/
+.pytest_cache/
+static/**/*.min.js
+assets/vendor/
+bookings/fixtures/*.json
+docs/screenshots/
+coverage.xml
+
+# temporarily added
+
+templates/includes/footer.html
+templates/pages/equipment.html
+templates/pages/gallery.html
+
+

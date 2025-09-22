@@ -1,0 +1,33 @@
+# ruff.toml (put at the repo root)
+
+line-length = 88
+target-version = "py311"
+
+# Exclusions live at TOP LEVEL (not under [lint])
+exclude = [
+  ".venv",
+  "venv",
+  "node_modules",
+  "static",
+  "htmlcov",
+  ".git",
+  "**/migrations/*",
+]
+
+[lint]
+# Keep it minimal to start; tighten later
+select = ["E", "F", "W", "I"]   # pycodestyle/pyflakes/warnings/isort
+ignore = []
+
+# Per-file ignores are a TABLE mapping globs -> codes
+[lint.per-file-ignores]
+"**/migrations/*.py" = ["E", "F", "W", "I"]
+
+# isort settings are under the lint.isort subtable
+[lint.isort]
+known-first-party = ["bookings", "core"]
+combine-as-imports = true
+
+[format]
+quote-style = "double"
+

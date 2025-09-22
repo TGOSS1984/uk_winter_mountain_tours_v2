@@ -1,6 +1,7 @@
 # tools/convert_to_webp.py
 from pathlib import Path
 from shutil import copy2
+
 from PIL import Image, ImageOps
 
 # ----- Paths -----

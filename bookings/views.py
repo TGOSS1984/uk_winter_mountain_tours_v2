@@ -1,14 +1,14 @@
 # bookings/views.py
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, CreateView
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.utils.timezone import now
+from django.views.generic import CreateView, ListView
 
-from .models import Booking, Route  # <-- add Route here
 from .forms import BookingForm
+from .models import Booking, Route  # <-- add Route here
 
 
 @method_decorator(login_required, name='dispatch')

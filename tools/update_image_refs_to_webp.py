@@ -1,6 +1,6 @@
 # tools/update_image_refs_to_webp.py
-from pathlib import Path
 import re
+from pathlib import Path
 
 # ---- Config ----
 ROOTS = [Path("templates"), Path("assets")]   # folders to scan

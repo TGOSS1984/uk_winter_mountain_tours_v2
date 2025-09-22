@@ -1,11 +1,12 @@
-from django.test import TestCase
-from django.utils import timezone
-from django.core.exceptions import ValidationError
-from django.db import IntegrityError
-from datetime import timedelta, date
+from datetime import date, timedelta
 
 from django.contrib.auth.models import User
-from bookings.models import Guide, Route, Booking
+from django.core.exceptions import ValidationError
+from django.db import IntegrityError
+from django.test import TestCase
+from django.utils import timezone
+
+from bookings.models import Booking, Guide, Route
 
 
 class BookingModelTests(TestCase):
