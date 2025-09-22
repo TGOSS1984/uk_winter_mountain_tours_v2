@@ -3,6 +3,7 @@
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions)
 [![Coverage](https://img.shields.io/badge/coverage-xx%25-blue)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions)
 [![Deployment](https://img.shields.io/badge/heroku-live-purple)](https://uk-winter-mountain-tours-v2-c6f21d80d2c8.herokuapp.com/)
+![CI – Tests](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions/workflows/test.yml/badge.svg)
 
 ## Introduction
 
@@ -214,11 +215,9 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 ## Wireframes & Mockups
 
 - Home page wireframe  
-  ![Wireframe Placeholder](docs/screenshots/wireframe-home.png)
-- Booking form wireframe  
-  ![Wireframe Placeholder](docs/screenshots/wireframe-booking.png)
-
-*(STILL TO COMPLETE: Add your Figma/Balsamiq/hand sketches here.)*
+  ![Homepage Mockup](assets/images/screenshots/wireframes/wireframe_homepage_mockup.PNG)
+- Region/Route wireframe  
+  ![Region/Route Mockup](assets/images/screenshots/wireframes/wireframe_regions_mockup.PNG)
 
 ---
 
@@ -349,7 +348,14 @@ Run backend tests:
 python manage.py test
 ```
 
-*(STILL TO COMPLETE: add `pytest`/`pytest-django` and `pytest-cov` if desired; include coverage commands.)*
+### Running tests
+- Local: `python -m pytest -v -ra`
+
+### (Optional) Coverage
+- Install: `pip install pytest-cov`
+- Run: `python -m pytest --cov=bookings --cov-report=term-missing --cov-report=html`
+  - HTML report: `htmlcov/index.html`
+*(STILL TO COMPLETE)*
 
 ### Jest Tests
 Run frontend tests:
@@ -357,6 +363,7 @@ Run frontend tests:
 npm test
 ```
 
+![Coverage](docs/badges/coverage.svg)
 *(STILL TO COMPLETE: add coverage config and badge.)*
 
 ### Suggested Coverage Targets
@@ -364,11 +371,13 @@ npm test
 - Views: booking create/cancel flows (happy & edge paths).
 - JS: Leaflet map initialisation; graceful handling when GPX not found.
 
-### Test Evidence (placeholders)
+### Test Evidence
 - Django tests passing  
-  ![Test Screenshot Placeholder](docs/screenshots/django-tests.png)
+  ![Terminal Test Screenshot Placeholder](assets/images/screenshots/tests/terminal_pytest_test.PNG)
+  ![Github actions Django Test Screenshot Placeholder](assets/images/screenshots/tests/django_tests.PNG)
 - Jest tests passing  
-  ![Test Screenshot Placeholder](docs/screenshots/jest-tests.png)
+  ![Terminal Test Screenshot Placeholder](assets/images/screenshots/tests/terminal_jest_test.PNG)
+  ![Github actions Jest Test Screenshot Placeholder](assets/images/screenshots/tests/jest_tests.PNG)
 
 ---
 

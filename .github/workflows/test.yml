@@ -7,6 +7,9 @@ on:
 jobs:
   backend-frontend-tests:
     runs-on: ubuntu-latest
+    # Needed so the workflow can commit the badge file back to the repo
+    permissions:
+      contents: write
 
     steps:
       - name: Check out repository
@@ -19,16 +22,53 @@ jobs:
           python-version: '3.11'
 
       - name: Install Python deps
-        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          # Ensure test tools are present even if not in requirements.txt
+          pip install pytest pytest-django pytest-cov
 
-      - name: Run Django tests
+      - name: Run Django tests with coverage
         env:
           DEBUG: "1"
           ALLOWED_HOSTS: "127.0.0.1,localhost"
           SECRET_KEY: "django-insecure-test-key"
-          # If ever need other env vars, add them here or use GitHub Secrets:
-          # SOME_VAR: ${{ secrets.SOME_VAR }}
-        run: python manage.py test bookings
+        run: |
+          python -m pytest \
+            --cov=bookings \
+            --cov-report=term-missing \
+            --cov-report=xml \
+            --cov-report=html
+
+      - name: Upload coverage HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html
+          path: htmlcov
+
+      - name: Upload coverage XML
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-xml
+          path: coverage.xml
+
+      # --- Auto-generate coverage badge (from coverage.xml) ---
+      - name: Ensure badge folder exists
+        run: mkdir -p docs/badges
+
+      - name: Generate coverage badge
+        uses: tj-actions/coverage-badge@v2
+        with:
+          input-file: coverage.xml
+          output-file: docs/badges/coverage.svg
+
+      # Commit the badge back to the repo (only on pushes to main to avoid PR forks & loops)
+      - name: Commit coverage badge
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ci): update coverage badge [skip ci]"
+          file_pattern: docs/badges/coverage.svg
 
       # --- Node / Jest ---
       - name: Set up Node
