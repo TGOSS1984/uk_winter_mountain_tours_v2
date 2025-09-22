@@ -1,11 +1,14 @@
 # UK Winter Mountain Tours V2
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/yourusername/UK_WINTER_MOUNTAIN_TOURS_V2/actions)
-[![Coverage](https://img.shields.io/badge/coverage-xx%25-blue)](https://github.com/yourusername/UK_WINTER_MOUNTAIN_TOURS_V2/actions)
-[![Deployment](https://img.shields.io/badge/heroku-live-purple)](https://your-heroku-app.herokuapp.com/)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions)
+[![Coverage](https://img.shields.io/badge/coverage-xx%25-blue)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions)
+[![Deployment](https://img.shields.io/badge/heroku-live-purple)](https://uk-winter-mountain-tours-v2-c6f21d80d2c8.herokuapp.com/)
 
 A full-stack Django web application providing guided winter mountain tours across the UK.  
 Features include interactive GPX route maps, online bookings (with double-booking prevention), cancellations, and region-specific route pages.
+
+![Image from mockup](assets/images/screenshots/ux/homepage_mockup.PNG)
+
 
 ---
 
@@ -97,7 +100,7 @@ Client (Browser) → Django URLs → Views → Templates
 Static/Media (via Whitenoise)  ↘ Leaflet JS (GPX overlays)
 ```
 
-*(STILL TO COMPLETE: architecture diagram PNG in /docs/screenshots/architecture.png)*
+![System Architecture](docs/screenshots/architecture.png)
 
 ---
 
@@ -122,9 +125,10 @@ Static/Media (via Whitenoise)  ↘ Leaflet JS (GPX overlays)
 UK_WINTER_MOUNTAIN_TOURS_V2/
 │
 ├── .github/                # GitHub Actions workflows (CI) (STILL TO COMPLETE)
-├── assets/                 # Static assets (images, icons, favicons)
+├── assets/                 # Static assets (images, icons, favicons, js, css)
 ├── bookings/               # Bookings app (models, views, fixtures)
 ├── core/                   # Core settings / config
+├── docs/                   # System architecture
 ├── mountain_tours_v2/      # Project entry app
 ├── node_modules/           # Node.js dependencies
 ├── templates/              # Django templates (HTML pages)

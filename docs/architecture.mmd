@@ -1,0 +1,77 @@
+%% docs/architecture.mmd
+%% Architecture: Django on Heroku, Postgres, WhiteNoise static, Leaflet + OS Maps, GitHub Actions
+
+flowchart LR
+
+  %% -------- CLIENT --------
+  subgraph CLIENT[End Users]
+    BROWSER[User Browser or Mobile]
+  end
+
+  %% -------- EDGE DELIVERY --------
+  subgraph EDGE[Edge and Delivery]
+    HEROKU_ROUTER[Heroku Router - HTTPS]
+  end
+
+  %% -------- APP --------
+  subgraph APP[Django Application Tier]
+    direction LR
+    GUNICORN[Gunicorn WSGI]
+    DJANGO[Django App
+Templates Views APIs]
+    WHITENOISE[WhiteNoise
+Static file serving]
+  end
+
+  %% -------- DATA --------
+  subgraph DATA[Data Layer]
+    POSTGRES[(Heroku Postgres
+Primary Database)]
+    STATIC[Static and Media in Repo
+Images GPX files]
+  end
+
+  %% -------- EXTERNAL SERVICES --------
+  subgraph EXT[External Services and APIs]
+    LEAFLET[Leaflet JS frontend map]
+    OSMAPS[OS Maps Tile Provider
+Attribution required]
+    GACTIONS[GitHub Actions CI CD]
+  end
+
+  %% -------- FLOWS --------
+  %% Browser requests
+  BROWSER -- HTTPS --> HEROKU_ROUTER --> GUNICORN --> DJANGO
+
+  %% Static files (CSS JS images GPX)
+  BROWSER -- Static assets --> WHITENOISE
+  DJANGO -- collectstatic --> WHITENOISE
+  WHITENOISE --> STATIC
+
+  %% Database
+  DJANGO -- ORM --> POSTGRES
+
+  %% Maps on the client
+  BROWSER --> LEAFLET
+  LEAFLET -- Tile requests --> OSMAPS
+
+  %% CI CD pipeline
+  GACTIONS -- run tests and build --> DJANGO
+  GACTIONS -- deploy --> HEROKU_ROUTER
+
+  %% -------- STYLES --------
+  classDef client fill:#eef,stroke:#88a,color:#111;
+  classDef app fill:#efe,stroke:#4a4,color:#111;
+  classDef data fill:#ffe,stroke:#aa4,color:#111;
+  classDef ops fill:#eef,stroke:#66a,color:#111;
+
+  class BROWSER client;
+  class GUNICORN,DJANGO,WHITENOISE app;
+  class POSTGRES,STATIC data;
+  class LEAFLET,OSMAPS,GACTIONS ops;
+
+  %% Optional additions (uncomment if you add them later):
+  %% REDIS[(Redis - cache or queue)]
+  %% DJANGO -- cache or session --> REDIS
+  %% CELERY[Celery Worker]
+  %% DJANGO -- enqueue jobs --> REDIS --> CELERY
