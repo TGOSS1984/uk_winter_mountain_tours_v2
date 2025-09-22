@@ -4,8 +4,13 @@
 [![Coverage](https://img.shields.io/badge/coverage-xx%25-blue)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions)
 [![Deployment](https://img.shields.io/badge/heroku-live-purple)](https://uk-winter-mountain-tours-v2-c6f21d80d2c8.herokuapp.com/)
 
+## Introduction
+
 A full-stack Django web application providing guided winter mountain tours across the UK.  
 Features include interactive GPX route maps, online bookings (with double-booking prevention), cancellations, and region-specific route pages.
+
+This project is also a personal passion of mine, reflecting my long-standing interest in the outdoors and mountain environments. My very first coding project was a simple guided tours website built with only HTML and CSS. This application can be seen as its “spiritual successor” — rebuilt from the ground up with Django, Python, Bootstrap, Leaflet, and Heroku — and hopefully demonstrates the progress I have made in both technical skills and project depth since then.
+
 
 ![Image from mockup](assets/images/screenshots/ux/homepage_mockup.PNG)
 
@@ -60,6 +65,7 @@ It integrates mapping (Leaflet + GPX overlays), booking management with cancella
 - Cancel bookings via booking detail page.
 - Admin interface for guides, routes, and bookings.
 - Responsive UI with Bootstrap 5.
+- Javascript on-scroll navbar
 - Accessibility enhancements (contrast, alt text, keyboard-friendly).
 - Static/media assets served via **Whitenoise** in production.
 
@@ -70,18 +76,59 @@ It integrates mapping (Leaflet + GPX overlays), booking management with cancella
 ## User Stories
 
 Examples:
-1. As a user, I want to browse tours in different regions, so I can decide where to hike.
-2. As a user, I want to view routes on a map with elevation paths, so I can plan my day.
-3. As a user, I want to book a tour and receive confirmation, so I can secure my spot.
-4. As a user, I want to cancel a booking if my plans change.
-5. As an admin, I want to add/edit guides and routes, so I can keep offerings up to date.
+
+1. **As a user, I want to browse tours in different regions, so I can decide where to hike.**  
+   - **Implementation:** Region pages at `templates/pages/regions/` (`lake_district.html`, `peak_district.html`, `scotland.html`, `wales.html`); data seeded from `bookings/fixtures/routes.json`  
+   - **URLs:** `/regions/lake-district/`, `/regions/peak-district/`, `/regions/scotland/`, `/regions/wales/`  
+   - **Tests:** `bookings/tests/test_views.py` (region pages render routes)
+
+2. **As a user, I want to view routes on a map with elevation paths, so I can plan my day.**  
+   - **Implementation:** Leaflet init inside the region templates in `templates/pages/regions/*.html`; GPX files under `static/gpx/`  
+   - **Tests:** `bookings/tests/test_views.py` (map container present); **Manual:** verify GPX overlay renders
+
+3. **As a user, I want to book a tour and receive confirmation, so I can secure my spot.**  
+   - **Implementation:** `bookings/views.py` (create view), `bookings/models.py` (`Booking`), form template `templates/bookings/booking_form.html`  
+   - **Tests:** `bookings/tests/test_forms.py` (valid form), `bookings/tests/test_views.py` (create view happy path); **Manual:** success flash/message
+
+4. **As a user, I want to cancel a booking if my plans change.**  
+   - **Implementation:** `bookings/views.py` (cancel view/endpoint), cancel UI in `templates/bookings/booking_list.html`  
+   - **Tests:** `bookings/tests/test_views.py` (cancel flow)
+
+5. **As an admin, I want to add/edit guides and routes, so I can keep offerings up to date.**  
+   - **Implementation:** Django Admin `bookings/admin.py`  
+   - **Tests:** **Manual:** CRUD in Admin (create/edit/delete)
+
+6. **As an admin, I want to seed routes/guides from fixtures, so the database can be reset easily.**  
+   - **Implementation:** Fixtures `bookings/fixtures/dev_seed.json`, `bookings/fixtures/routes.json`  
+   - **Tests:** **Manual:** `python manage.py loaddata dev_seed.json routes.json`; `dumpdata` documented
+
+7. **As a visitor, I want the site to be accessible on mobile, so I can use it while travelling.**  
+   - **Implementation:** Responsive Bootstrap templates in `templates/pages/*.html` and `templates/includes/*`; Leaflet mobile support  
+   - **Tests:** **Manual:** device/browser checks; Lighthouse Mobile screenshots in `docs/screenshots/`
+
+8. **As a user, I want the site to be performant and accessible, so I can navigate without issues.**  
+   - **Implementation:** Contrast/focus styles (Leaflet control CSS), semantic headings, ARIA labels in templates  
+   - **Tests:** **Manual:** Lighthouse ≥ 90 Accessibility; Axe audit results
+
 
 **Acceptance Criteria Template**
 - Given I am on the **Region** page, when I click a route card, then I should see the route detail with a Leaflet map and a visible GPX overlay.
 - Given I select a **guide/date/time**, when I submit a valid booking, then the booking is created and I see a success message.
 - Given a **conflicting timeslot**, when I attempt to book the same guide, then I receive a validation error preventing double booking.
+- Given I have a booking, when I click "Cancel booking", then the booking is deleted and I see a success message.
+- Given I try to cancel a booking that doesn’t exist, when I click the button, then I see a friendly error and no crash.
 
-*(STILL TO COMPLETE: Expand full user story list with acceptance criteria and link them to implemented features/tests.)*
+
+| Story                | Feature(s)                                                                 | Tests / Evidence                                |
+|-----------------------|-----------------------------------------------------------------------------|------------------------------------------------|
+| Browse tours          | `templates/pages/regions/*.html`, `bookings/fixtures/routes.json`          | `bookings/tests/test_views.py`                 |
+| View map              | Leaflet init in `templates/pages/regions/*.html`, `static/gpx/*.gpx`       | `bookings/tests/test_views.py`; Manual GPX render |
+| Book a tour           | `bookings/views.py`, `bookings/models.py`, `templates/bookings/booking_form.html` | `bookings/tests/test_forms.py`, `bookings/tests/test_views.py` |
+| Cancel booking        | `bookings/views.py` (cancel), `templates/bookings/booking_list.html`       | `bookings/tests/test_views.py`                 |
+| Prevent double booking| `bookings/models.py` (UniqueConstraint / validation)                       | `bookings/tests/test_models.py` (or `test_views.py`) |
+| Admin manage          | `bookings/admin.py`                                                        | Manual CRUD in Admin                           |
+| Accessibility         | Template semantics + CSS focus/contrast                                    | Lighthouse & Axe screenshots                   |
+
 
 ---
 
@@ -108,7 +155,7 @@ Static/Media (via Whitenoise)  ↘ Leaflet JS (GPX overlays)
 
 **Core Entities**
 - `Guide(id, name, email, phone, bio)`
-- `Route(id, name, region, gpx_path, description, difficulty, distance_km, elevation_gain_m, ... )`
+- `Route(id, name, region, gpx_path, description, distance_km, elevation_gain_m, ... )`
 - `Booking(id, guide, route, date, time_start, time_end, customer_name, customer_email, status)`
 
 **Business Rules**
@@ -133,7 +180,7 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 ├── node_modules/           # Node.js dependencies
 ├── templates/              # Django templates (HTML pages)
 ├── tests/                  # Python tests
-├── tools/                  # Utility scripts (if used)
+├── tools/                  # Utility scripts (used to resize / rename images)
 │
 ├── .env.example            # Example environment file
 ├── .gitignore
@@ -389,13 +436,13 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 ## Screenshots
 
 - Home page  
-  ![Screenshot Placeholder](docs/screenshots/home.png)
+  ![Home Page](assets/images/screenshots/ux/homepage.PNG)
 - Region page with GPX map  
-  ![Screenshot Placeholder](docs/screenshots/region-map.png)
+  ![Region Page](assets/images/screenshots/ux/region_gpx.PNG)
 - Booking form  
-  ![Screenshot Placeholder](docs/screenshots/booking-form.png)
+  ![Booking Form](assets/images/screenshots/ux/booking.PNG)
 - Booking confirmation  
-  ![Screenshot Placeholder](docs/screenshots/booking-confirm.png)
+  ![Booking Cancellation](assets/images/screenshots/ux/booking_create.PNG)
 
 ---
 
@@ -459,11 +506,14 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 
 ## Credits
 
-- **Leaflet.js** for interactive mapping.
-- **Leaflet GPX** plugin for route overlays.
-- **Bootstrap 5** for frontend layout.
-- **Heroku** for deployment.
-- Ordnance Survey/GPX providers for route data.
-- Django + Python open-source community.
+- **Leaflet.js** – for interactive mapping.  
+- **Leaflet GPX plugin** – for route overlays.  
+- **Bootstrap 5** – for responsive frontend layout.  
+- **Heroku** – for deployment.  
+- **Ordnance Survey / GPX providers** – for route data.  
+- **Django & Python open-source community** – for frameworks and libraries.  
+- **AI assistance (ChatGPT)** – used as a support tool for documentation tasks such as README formatting, template examples, to-do checklists, and structuring notes.  
+  All coding, testing, and implementation decisions were completed by me.  
+  - **Images** – Logo created by Tom Goss, gallery images actual photos from winter hikes, other images google images 
 
 ---
