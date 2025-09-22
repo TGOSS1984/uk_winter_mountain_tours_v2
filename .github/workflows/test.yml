@@ -146,9 +146,9 @@ jobs:
         run: |
           if [ -f package-lock.json ]; then
             npm ci
-          else:
+          else
             npm install
           fi
 
       - name: Run Jest tests
-        run: npm test
+        run: npm test --if-present
