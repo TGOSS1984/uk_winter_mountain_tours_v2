@@ -432,8 +432,8 @@ In CI, lint checks run in a non-blocking mode initially. Once the codebase is cl
 
 **LO1 — Planning & Design**
 - Problem statement & scope ✅
-- Architecture & data model rationale ⚠️ *(Expand in README)*
-- Wireframes/user flows ⚠️ *(Add images)*
+- Architecture & data model rationale ✅
+- Wireframes/user flows ✅
 
 **LO2 — Data, Algorithms & Validation**
 - Core models & relationships ✅
@@ -443,12 +443,12 @@ In CI, lint checks run in a non-blocking mode initially. Once the codebase is cl
 **LO3 — Implementation & Code Quality**
 - Django app structure with maps ✅
 - Frontend responsiveness ✅
-- Linters (Ruff/ESLint) ⬜ *(STILL TO COMPLETE)*
+- Linters (Ruff/ESLint) ✅
 
 **LO4 — Testing**
 - Django tests ✅
 - Jest tests ✅
-- Coverage reporting ⬜ *(Add coverage + badge)*
+- Coverage reporting ✅
 - Optional E2E (Playwright) ⬜
 
 **LO5 — Robustness, Error Handling & Security**
@@ -462,20 +462,21 @@ In CI, lint checks run in a non-blocking mode initially. Once the codebase is cl
 
 **LO7 — Deployment & DevOps**
 - Heroku deploy ✅
-- CI tests on push/PR ⚠️ *(Add JS job + linters)*
+- CI tests on push/PR ✅
 - Postgres in prod ⬜ *(Confirm & document)*
 
 **LO8 — Documentation & Professional README**
-- Feature overview, setup, testing ⚠️ *(This README skeleton)*
+- Feature overview, setup, testing ✅
 - Fixtures workflow ✅
-- Screenshots, diagrams ⬜
+- Screenshots, diagrams ✅
 
 **LO9 — UX, Accessibility & Performance**
 - Responsive layout ✅
-- Accessibility improvements ⚠️ *(Add keyboard/focus checks)*
+- Accessibility improvements ✅
 - Lighthouse scores ⬜
 
 Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
+
 
 ---
 
