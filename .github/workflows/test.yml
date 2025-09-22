@@ -26,6 +26,12 @@ jobs:
           pip install -r requirements.txt
           # Ensure test tools are present even if not in requirements.txt
           pip install pytest pytest-django pytest-cov
+          # Ruff for linting (Python)
+          pip install ruff
+
+      # --- Python Lint (Ruff, non-blocking) ---
+      - name: Ruff (non-blocking)
+        run: ruff check . || true
 
       - name: Run Django tests with coverage
         env:
@@ -68,20 +74,16 @@ jobs:
               raise SystemExit("coverage.xml not found")
 
           root = ET.parse(xml_path).getroot()
-          # Cobertura root has attributes: lines-valid, lines-covered, line-rate, etc.
           rate = root.attrib.get("line-rate")
           if rate is None:
-              # Try total/lines-valid fallback if needed
               lines_valid = int(root.attrib.get("lines-valid", "0"))
               lines_covered = int(root.attrib.get("lines-covered", "0"))
               pct = 0 if lines_valid == 0 else round(100 * lines_covered / lines_valid)
           else:
               pct = round(float(rate) * 100)
 
-          # Pick a color by threshold
           if pct >= 90:
-              color = "#4c1"       # brightgreen
-            # elif >= 80 -> green, >= 70 -> yellowgreen, >= 60 -> yellow, >= 50 -> orange, else red
+              color = "#4c1"
           elif pct >= 80:
               color = "#97CA00"
           elif pct >= 70:
@@ -96,13 +98,10 @@ jobs:
           label = "Coverage"
           value = f"{pct}%"
 
-          # Simple shield-style SVG (no external action needed)
-          # width calculations are rough for monospace-like feel
           def w(text): return 6 * len(text) + 20
           w_label = w(label)
           w_value = w(value)
           width = w_label + w_value
-          sep = w_label
 
           svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="20" role="img" aria-label="{label}: {value}">
             <linearGradient id="s" x2="0" y2="100%">
@@ -143,12 +142,20 @@ jobs:
           node-version: '20'
 
       - name: Install Node deps
+        shell: bash
         run: |
           if [ -f package-lock.json ]; then
             npm ci
           else
             npm install
           fi
+
+      # --- JS Lint/Format (non-blocking) ---
+      - name: Prettier / ESLint (non-blocking)
+        if: hashFiles('package.json') != ''
+        run: |
+          npm run format:check || true
+          npm run lint:js || true
 
       - name: Run Jest tests
         run: npm test --if-present

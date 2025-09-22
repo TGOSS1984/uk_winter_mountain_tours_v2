@@ -35,6 +35,7 @@ This project is also a personal passion of mine, reflecting my long-standing int
 - [Environment Variables](#environment-variables)
 - [Database & Fixtures](#database--fixtures)
 - [Testing](#testing)
+- [Linting](#linting)
 - [CI/CD & Deployment](#cicd--deployment)
 - [Assessment Criteria Mapping (LO1–LO9)](#assessment-criteria-mapping-lo1lo9)
 - [Screenshots](#screenshots)
@@ -260,7 +261,7 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 - **Database:** SQLite (dev), Postgres (Heroku recommended)
 - **Testing:** Django test framework, Jest (frontend)
 - **DevOps:** Heroku, GitHub Actions (planned/partial)
-- **Linting (planned):** Ruff, ESLint/Prettier *(STILL TO COMPLETE)*
+- **Linting:** Ruff, ESLint/Prettier
 
 ---
 
@@ -403,6 +404,17 @@ In addition to automated tests, targeted **manual testing** validated real user 
 | Admin CRUD | Add/edit/delete a Route in Admin | Public pages reflect changes; no broken links | ✅ Pass |
 | Fixtures round-trip | `dumpdata` → reset DB → `loaddata` | Routes/guides restored; pages render; no FK errors | ✅ Pass |
 
+
+---
+
+## Linting
+
+- **Python:** [Ruff](https://github.com/astral-sh/ruff) for linting and import order.  
+  - Local: `ruff check .` (autofix imports: `ruff check . --select I --fix`)
+- **JavaScript:** ESLint + Prettier for code style.  
+  - Local: `npm run format:check` and `npm run lint:js`
+
+In CI, lint checks run in a non-blocking mode initially. Once the codebase is clean, they can be enforced by removing the non-blocking guards.
 
 ---
 
