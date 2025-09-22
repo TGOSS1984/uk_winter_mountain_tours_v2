@@ -9,6 +9,7 @@ from django.views.generic import CreateView, ListView
 
 from .forms import BookingForm
 from .models import Booking, Route  # <-- add Route here
+from .services import send_booking_email
 
 
 @method_decorator(login_required, name='dispatch')
@@ -80,6 +81,12 @@ class BookingCreateView(CreateView):
         try:
             booking.full_clean()
             booking.save()
+            send_booking_email(
+                self.request.user,
+                booking,
+                template_base="booking_confirmation",
+                subject="Your booking is confirmed",
+            )
             messages.success(self.request, 'Booking created successfully.')
             return redirect(self.success_url)
         except Exception as e:
@@ -106,6 +113,12 @@ def cancel_booking(request, pk):
     cancel_value = getattr(getattr(Booking, 'Status', None), 'CANCELLED', None) or 'cancelled'
     booking.status = cancel_value
     booking.save(update_fields=['status'])
+    send_booking_email(
+        request.user,
+        booking,
+        template_base="booking_cancellation",
+        subject="Your booking has been cancelled",
+    )
     messages.success(request, 'Booking cancelled.')
     return redirect('booking_list')
 
