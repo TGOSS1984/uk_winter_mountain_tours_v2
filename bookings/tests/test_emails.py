@@ -1,5 +1,5 @@
 from datetime import date
-from django.test import TestCase, override_settings
+from django.test import TransactionTestCase, override_settings
 from django.core import mail
 from django.contrib.auth.models import User
 
@@ -12,7 +12,7 @@ from bookings.services import send_booking_email
     EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend",
     DEFAULT_FROM_EMAIL="noreply@example.com",
 )
-class EmailTests(TestCase):
+class EmailTests(TransactionTestCase):
     def setUp(self):
         self.user = User.objects.create_user(
             username="alice", email="alice@example.com", password="x"
