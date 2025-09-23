@@ -12,6 +12,17 @@ Features include interactive GPX route maps, online bookings (with double-bookin
 
 This project is also a personal passion of mine, reflecting my long-standing interest in the outdoors and mountain environments. My very first coding project was a simple guided tours website built with only HTML and CSS. This application can be seen as its “spiritual successor” — rebuilt from the ground up with Django, Python, Bootstrap, Leaflet, and Heroku — and hopefully demonstrates the progress I have made in both technical skills and project depth since then.
 
+Building this application has been a journey of learning and discovery. Django in particular came with a steep but rewarding learning curve. Implementing authentication, user profiles, and email notifications required not only understanding the framework’s built-in tools but also extending them thoughtfully, and I feel this marks a big step forward in my ability to work with a complex backend framework. Along the way, I encountered and resolved a number of issues — from template syntax errors to failing GitHub Actions builds — and each challenge became an opportunity to strengthen my debugging and problem-solving skills.
+
+The project’s scope grew steadily as I worked through both required features and “nice to haves.” I learned to prioritise features that mapped directly to assessment learning outcomes, such as notifications for LO2.3 and authentication for LO3, while keeping an eye on broader polish and usability. One of the most important lessons I took away was the value of a clean, consistent folder and file structure. As the application grew in size, maintaining a clear separation of apps, templates, static files, fixtures, and services became critical, both for readability and for smooth deployment to Heroku.
+
+Testing and continuous integration also played a much greater role in this project than in my earlier work. Writing targeted unit tests for bookings and email notifications, and integrating GitHub Actions to automatically run them, gave me hands-on experience of defensive design and the reassurance of automated checks whenever I pushed new code. This felt like a major step towards “real-world” development practices.
+
+Although the project already delivers a complete and working product, there remains room for future improvements. I can see scope for features such as asynchronous email delivery, richer profile information, or enhanced admin dashboards. The current build represents a solid foundation, but it also leaves space for iteration, refinement, and further learning.
+
+In short, this project has been both a technical and personal milestone, combining my passion for the outdoors with practical full-stack development skills, and showing me how much can be achieved when good design, careful structure, and persistence come together.
+
+
 
 ![Image from mockup](assets/images/screenshots/ux/homepage_mockup.PNG)
 
@@ -49,7 +60,7 @@ This project is also a personal passion of mine, reflecting my long-standing int
 ## Project Overview
 
 This project simulates a real-world guided tours booking system, built with Django.  
-It integrates mapping (Leaflet + GPX overlays), booking management with cancellation and validation, and dynamic region pages.
+It integrates mapping (Leaflet + GPX overlays), booking management with cancellation, validation, email notifications, and dynamic region pages.
 
 **Key goals**
 - Deliver an end-to-end booking platform.
@@ -61,17 +72,26 @@ It integrates mapping (Leaflet + GPX overlays), booking management with cancella
 
 ## Features
 
-- Region pages: Lake District, Wales, Scotland, Peak District/Yorkshire Dales.
-- GPX route overlays with Leaflet maps.
-- Booking system with **double-booking prevention**.
-- Cancel bookings via booking detail page.
-- Admin interface for guides, routes, and bookings.
-- Responsive UI with Bootstrap 5.
-- Javascript on-scroll navbar
-- Accessibility enhancements (contrast, alt text, keyboard-friendly).
-- Static/media assets served via **Whitenoise** in production.
 
-*(STILL TO COMPLETE: add email notifications, user auth/profile management, and pagination if required by scope.)*
+- Region pages: Lake District, Wales, Scotland, Peak District/Yorkshire Dales.  
+- GPX route overlays with Leaflet maps.  
+- Booking system with **double-booking prevention**.  
+- Cancel bookings via booking detail page.  
+- Admin interface for guides, routes, and bookings.  
+- Responsive UI with Bootstrap 5.  
+- Javascript on-scroll navbar.  
+- Accessibility enhancements (contrast, alt text, keyboard-friendly).  
+- Static/media assets served via **Whitenoise** in production.  
+- **Email Notifications**:  
+  When a user books or cancels a tour, the system generates a confirmation or cancellation email.  
+  - In **development**, these are sent to the console backend so developers and assessors can see the message output.  
+  - In **CI tests**, a locmem backend captures emails to verify delivery.  
+  - In **production**, the feature is configurable — an SMTP backend (e.g. SendGrid) can be enabled by toggling environment variables, though by default email sending is disabled for stability.  
+- **Authentication & Profiles**:  
+  - Email is required when creating an account, ensuring every user can receive notifications.  
+  - Login accepts either **username or email** for convenience.  
+  - Profiles are auto-created for each user, extendable with extra fields (e.g. phone). 
+
 
 ---
 
@@ -112,6 +132,16 @@ Examples:
    - **Implementation:** Contrast/focus styles (Leaflet control CSS), semantic headings, ARIA labels in templates  
    - **Tests:** **Manual:** Lighthouse ≥ 90 Accessibility; Axe audit results
 
+9. **As a user, I want to receive an email when I book or cancel a tour, so I have a clear record.**
+  - **Implementation:** Email service in bookings/services.py (transaction-safe via on_commit); templates in templates/email/booking_confirmation.{txt,html} and booking_cancellation.{txt,html}; wired in bookings/views.py (BookingCreateView.form_valid() and cancel_booking). Feature-flagged by ENABLE_EMAIL_NOTIFICATIONS with DEFAULT_FROM_EMAIL + EMAIL_BACKEND in settings/env.
+  - **Tests:** bookings/tests/test_emails.py (uses TransactionTestCase + locmem backend).
+  - **Manual:** In dev, console backend prints the email to the terminal; in prod, enable SMTP via env (documented in README).
+10. **As a user, I want to log in with my email or username, so I don’t have to remember a separate credential.**
+  - **Implementation:** core/forms.py LoginForm accepts email or username, updates field label to “Username or Email”; routed via custom LoginView in urls.py (custom login path before django.contrib.auth.urls).
+  - **Tests:Manual:**verify both email+password and username+password paths work on /accounts/login/.
+11. **As a user, I want email to be required at signup, so I can receive notifications and recover my account.**
+  -**Implementation:**core/forms.py SignupForm (extends UserCreationForm), adds required, unique email; SignupView uses SignupForm; templates/registration/signup.html uses {{ form.as_p }} so the email field renders automatically.
+  - **Tests:Manual:**signup rejects duplicate/blank emails; visible field + validation errors on the form.
 
 **Acceptance Criteria Template**
 - Given I am on the **Region** page, when I click a route card, then I should see the route detail with a Leaflet map and a visible GPX overlay.
@@ -175,7 +205,7 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 │
 ├── .github/                # GitHub Actions workflows (CI) (STILL TO COMPLETE)
 ├── assets/                 # Static assets (images, icons, favicons, js, css)
-├── bookings/               # Bookings app (models, views, fixtures)
+├── bookings/               # Bookings app (models, views, fixtures, services,tests)
 ├── core/                   # Core settings / config
 ├── docs/                   # System architecture
 ├── mountain_tours_v2/      # Project entry app
@@ -204,10 +234,17 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 
 ## Rationale & Design Decisions
 
-- **Why Django?** Rapid development, batteries-included admin, robust ORM, clear separation of concerns.
-- **Leaflet + GPX:** Lightweight, flexible mapping with client-side overlays for GPX files.
-- **Whitenoise for static files:** Simple, zero-extra-infra static serving on Heroku.
-- **Fixtures-first approach:** Keep dev/prod data consistent via `dumpdata/loaddata` workflows.
+## Rationale & Design Decisions
+
+- **Why Django?** Rapid development, batteries-included admin, robust ORM, clear separation of concerns.  
+- **Leaflet + GPX:** Lightweight, flexible mapping with client-side overlays for GPX files.  
+- **Whitenoise for static files:** Simple, zero-extra-infra static serving on Heroku.  
+- **Fixtures-first approach:** Keep dev/prod data consistent via `dumpdata/loaddata` workflows.  
+
+- **Require email at signup:** Email is mandatory on account creation so every user can be contacted. This is practical (no “orphan” accounts without contact info) and directly addresses **LO2.3 (notify relevant user)**.  
+- **Service-based email sending:** Implemented notifications in `bookings/services.py` instead of views. This keeps responsibilities clear, makes testing easier, and avoids logic duplication.  
+- **Login by username *or* email:** Improves usability by letting users sign in with whichever credential they remember. This leverages Django’s auth system without introducing a custom user model, striking a balance between UX and complexity.  
+
 
 *(STILL TO COMPLETE: note trade-offs—client-side GPX parsing vs server-side preprocessing; SQLite vs Postgres locally.)*
 
@@ -240,6 +277,8 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
   Verified that all nav links, buttons, and form fields are reachable via `Tab`. Leaflet map controls can be reached, but focus styling could be improved (marked as Partial in manual tests).  
 - **Screen reader spot-checks:**  
   Used NVDA/VoiceOver to confirm that headings, nav landmarks, and form labels are announced correctly. ARIA labels were added where necessary. Maps announce as “interactive” but route traces are not fully described — future enhancement.  
+- **Login:**
+  User can login using email OR username at sign in. Plus confirmation emails can improve clarity & trust
 
 
 ---
@@ -256,7 +295,7 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 
 ## Technologies Used
 
-- **Backend:** Django (Python 3.11)
+- **Backend:** Django (Python 3.11), Django email backends (console + locmem for tests), Django built in auth system
 - **Frontend:** Bootstrap 5, Leaflet.js (+ Leaflet GPX plugin)
 - **Database:** SQLite (dev), Postgres (Heroku recommended)
 - **Testing:** Django test framework, Jest (frontend)
@@ -304,6 +343,9 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
    ```bash
    python manage.py runserver
    ```
+
+7. **Emails**
+
 
 ---
 
@@ -423,6 +465,8 @@ In CI, lint checks run in a non-blocking mode initially. Once the codebase is cl
 - **GitHub Actions**: run Django & Jest tests on push/PR *(STILL TO COMPLETE: add Node/Python linters and coverage upload)*.
 - **Heroku**: deploy with `Procfile`; run `collectstatic` during release.
 - **Static files**: served by Whitenoise (ensure `MIDDLEWARE` includes it).
+- **Emails** : verified in CI using locmen backend. Console backend used in dev, SMTP in production
+
 
 *(STILL TO COMPLETE: add pipeline diagram /docs/screenshots/cicd-pipeline.png and auto-deploy notes.)*
 
@@ -548,6 +592,9 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 - Add Playwright end-to-end “browse → select route → book → cancel” flow.
 - Add Content Security Policy (CSP) with Leaflet tile/CDN allowances.
 - Add screenshots, architecture diagram, ERD, and coverage badges.
+- Asynchronous email (Celery).
+- Richer profiles (phone, preferences).
+- Admin email on booking.
 
 ---
 

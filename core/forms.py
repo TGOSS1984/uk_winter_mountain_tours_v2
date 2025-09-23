@@ -13,7 +13,7 @@ class SignupForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
-        # password fields come from the base class; we include username + email
+        # password fields come from the base class; include username + email
         fields = ("username", "email")
 
     def clean_email(self):

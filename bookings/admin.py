@@ -21,21 +21,18 @@ class RouteAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "region_safe",
-        "difficulty_safe",
+        "difficulty",
         "distance_km_safe",
         "duration_hours_safe",
         "is_active_safe",
     )
     search_fields = ("name",)
+    list_filter = ("region", "difficulty")
 
     # Use helper accessors so missing fields don't crash admin
     def region_safe(self, obj):
         return getattr(obj, "region", "-")
     region_safe.short_description = "region"
-
-    def difficulty_safe(self, obj):
-        return getattr(obj, "difficulty", "-")
-    difficulty_safe.short_description = "difficulty"
 
     def distance_km_safe(self, obj):
         # support either distance_km or distance

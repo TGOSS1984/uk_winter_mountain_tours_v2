@@ -16,13 +16,29 @@ class Guide(models.Model):
 
 REGION_CHOICES=[('lake_district','Lake District'),('scotland','Scotland'),('wales','Wales'),('peak_district','Peak District')]
 
+DIFFICULTY_CHOICES = [
+    ("easy", "Easy"),
+    ("moderate", "Moderate"),
+    ("hard", "Hard"),
+    ("severe", "Severe"),
+]
+
 class Route(models.Model):
     name=models.CharField(max_length=150)
     region=models.CharField(max_length=30, choices=REGION_CHOICES)
     gpx_path=models.CharField(max_length=255, help_text="Relative path to GPX under /routes")
     distance_km=models.DecimalField(max_digits=5, decimal_places=2, default=0)
     duration_hours=models.DecimalField(max_digits=4, decimal_places=1, default=0)
-    def __str__(self): return f"{self.name} ({self.get_region_display()})"
+    difficulty = models.CharField(
+        max_length=10,
+        choices=DIFFICULTY_CHOICES,
+        blank=True,
+        null=True,
+        help_text="Overall route difficulty"
+    )
+
+    def __str__(self): 
+        return f"{self.name} ({self.get_region_display()})"
 
 TIME_SLOTS=[('AM','Morning (8:00–12:00)'),('PM','Afternoon (13:00–17:00)')]
 STATUS_CHOICES=[('confirmed','Confirmed'),('cancelled','Cancelled')]
