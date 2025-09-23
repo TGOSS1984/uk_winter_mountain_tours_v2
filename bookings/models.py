@@ -3,6 +3,11 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
 
+from django.contrib.auth import get_user_model
+from django.db.models import OneToOneField
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 
 class Guide(models.Model):
     name=models.CharField(max_length=100); email=models.EmailField()
@@ -54,3 +59,18 @@ class Booking(models.Model):
 
     def get_absolute_url(self): return reverse('booking_list')
     def __str__(self): return f"{self.route} with {self.guide} on {self.date} ({self.time_slot})"
+
+# --- addition for Profiles ---
+
+class Profile(models.Model):
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
+    phone = models.CharField(max_length=30, blank=True)
+
+    def __str__(self):
+        return f"Profile({self.user.username})"
+
+
+@receiver(post_save, sender=get_user_model())
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
