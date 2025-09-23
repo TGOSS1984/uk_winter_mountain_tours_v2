@@ -6,6 +6,7 @@ from django.utils.text import slugify
 from django.views.generic import CreateView
 
 from bookings.models import Route
+from .forms import SignupForm
 
 
 def _route_ids_for(region_code: str) -> dict:
@@ -46,6 +47,6 @@ def peak_district(request):
     return render(request, 'pages/regions/peak_district.html', ctx)
 
 class SignupView(CreateView):
-    form_class = UserCreationForm
+    form_class = SignupForm
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('login')
