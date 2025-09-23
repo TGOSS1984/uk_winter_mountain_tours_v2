@@ -27,6 +27,12 @@ class LoginForm(AuthenticationForm):
     Accept either username OR email in the username field.
     Authenticate manually (no super().clean() first) so can try both paths.
     """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Change the label + placeholder to show Username Or Email
+        self.fields["username"].label = "Username or Email"
+        self.fields["username"].widget.attrs.update({"placeholder": "username or email"})
+
     def clean(self):
         username_or_email = (self.data.get("username") or "").strip()
         password = self.data.get("password")
