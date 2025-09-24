@@ -51,7 +51,7 @@ In short, this project has been both a technical and personal milestone, combini
 - [Assessment Criteria Mapping (LO1–LO9)](#assessment-criteria-mapping-lo1lo9)
 - [Screenshots](#screenshots)
 - [Lighthouse Results](#lighthouse-results)
-- [🔧 Major Bugs & Fixes](#-major-bugs--fixes)
+- [🔧 Major Bugs & Fixes](#major-bugs--fixes)
 - [Future Improvements](#future-improvements)
 - [Credits](#credits)
 
@@ -234,8 +234,6 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 
 ## Rationale & Design Decisions
 
-## Rationale & Design Decisions
-
 - **Why Django?** Rapid development, batteries-included admin, robust ORM, clear separation of concerns.  
 - **Leaflet + GPX:** Lightweight, flexible mapping with client-side overlays for GPX files.  
 - **Whitenoise for static files:** Simple, zero-extra-infra static serving on Heroku.  
@@ -279,6 +277,14 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
   Used NVDA/VoiceOver to confirm that headings, nav landmarks, and form labels are announced correctly. ARIA labels were added where necessary. Maps announce as “interactive” but route traces are not fully described — future enhancement.  
 - **Login:**
   User can login using email OR username at sign in. Plus confirmation emails can improve clarity & trust
+
+### Admin UX
+
+**Admin Routes**
+![admin routes image](assets/images/screenshots/admin/django_admin_routes.PNG)
+
+**Admin Guides**
+![Admin guides image](assets/images/screenshots/admin/django_admin_guides.PNG)
 
 
 ---
@@ -582,6 +588,61 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 - **Bug:** Links (like “About” or “Booking”) sometimes didn’t resolve properly on mobile nav/offcanvas.  
 - **Fix:** Updated `href="{% url '...' %}"` to use Django URL names consistently and fixed offcanvas toggler attributes.
 
+**Cancellation email template rendering error**  
+- **Bug:** Cancelling a booking raised TemplateSyntaxError due to typos in templates/email/booking_cancellation.html — a missing closing brace in {{ booking.route.name }} and a double filter pipe in {{ booking.date||date:"l, j M Y" }}. 
+- **Fix:** Corrected the template line to {{ booking.route.name }} and {{ booking.date|date:"l, j M Y" }}. Verified by re-cancelling a booking locally (console backend) and adding passing email tests in CI.
+
+**Fixture/seed pitfalls (JSON formatting & deployments)**
+- **Bug:** A routes.json edit was accidentally saved in UTF-16, which corrupted the fixture and caused Django to reject it. At another point the JSON displayed as a single unbroken line instead of a properly tab/return formatted array, making it very hard to edit or debug. Additionally, adding new routes locally did not automatically update production.
+- **Fix:** Re-saved the file in UTF-8 (the correct encoding for Django fixtures) and reformatted the JSON to use pretty-printed tabbed formatting for readability. Confirmed fixtures load cleanly again. Deployment process documented so that after adding routes/guides locally, loaddata must be run on production (e.g., Heroku) to reflect the changes.
+
+
+### Known Issues/Bugs
+
+**Leaflet GPX waypoints/markers affect Lighthouse Accessibility**
+
+Status: Outstanding
+What’s happening: When GPX routes are rendered, the auto-generated waypoint/marker elements (and some Leaflet controls) are flagged by Lighthouse for insufficient accessible names/roles and contrast semantics—even after improving control styles and popup contrast.
+User impact: Visually the maps look clear and usable (confirmed in manual checks), but automated audits still reduce the overall accessibility score.
+What’s been tried:
+
+Increased control/popup contrast via CSS.
+
+Reduced visual clutter and simplified popups.
+
+Attempted to hide/remove certain waypoint markers; limited success due to how the GPX plugin injects them.
+Why unresolved: The GPX plugin/Leaflet markup is generated at runtime and doesn’t expose simple hooks for adding accessible names/roles to each marker/waypoint. Fully solving this likely requires deeper customization (e.g., a custom waypoint factory, post-render DOM patching, or a different GPX renderer).
+Next steps (post-MVP):
+
+Explore a custom marker_options/waypoint factory to inject ARIA labels per waypoint.
+
+Post-render enhancement script to set aria-label/role="img" on markers and add aria-hidden where appropriate.
+
+Consider pre-processing GPX to reduce the number of waypoints Lighthouse evaluates.
+
+**Map UI contrast (controls, popups)**
+
+Status: Fixed (improved), may revisit
+What was wrong: On busy tiles, Leaflet controls and popups had poor contrast.
+Fix: Added higher-contrast backgrounds, borders, and text colors for controls and popups.
+Impact now: Readability is much better. May still fine-tune individual popup content if future audits request higher contrast ratios in edge cases.
+
+**Lighthouse score differences: local vs Heroku**
+
+Status: Known limitation
+What’s happening: Accessibility/performance scores vary between local and Heroku.
+Likely reasons: Cold starts, network variability, render timing, and environment differences (headers, caching).
+Workaround: Run multiple audits and average the results; document the environment for each run. This is expected and not user-visible in normal browsing.
+
+**Non-critical CTAs (newsletter / “say hello”)**
+
+Status: These calls-to-action are currently implemented as intentional placeholders in the MVP.
+
+Current behaviour: When clicked, each button routes the user to a dedicated “thank you” page (e.g., Subscribed, Hello sent, Message sent). These pages display a success icon, acknowledgement message, a “Back to Home” button, and a gentle auto-redirect to the homepage after a few seconds. No form data is stored or emailed in this version.
+
+Planned upgrade: In a future iteration, these CTAs will be wired to either a lightweight service (Formspree/Mailchimp) or a Django model + form handling flow, allowing messages and email subscriptions to be saved and reviewed by staff through the admin.
+
+
 ---
 
 ## Future Improvements
@@ -595,6 +656,7 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 - Asynchronous email (Celery).
 - Richer profiles (phone, preferences).
 - Admin email on booking.
+- CTA buttons like subscrieb to newsletter, conatact us, say hello, properly wired using django form handling 
 
 ---
 
@@ -608,6 +670,6 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 - **Django & Python open-source community** – for frameworks and libraries.  
 - **AI assistance (ChatGPT)** – used as a support tool for documentation tasks such as README formatting, template examples, to-do checklists, and structuring notes.  
   All coding, testing, and implementation decisions were completed by me.  
-  - **Images** – Logo created by Tom Goss, gallery images actual photos from winter hikes, other images google images 
+- **Images** – Logo created by Tom Goss, gallery images actual photos from winter hikes, other images google images 
 
 ---

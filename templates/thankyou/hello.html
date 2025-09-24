@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+  <meta http-equiv="refresh" content="4;url={% url 'index' %}">
+{% endblock %}
+
+{% block content %}
+{# --- HERO (inline, same as hero) --- #}
+
+<section class="hero-section d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Book your Winter Tour</h1>
+        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">
+          Experience unforgettable tours across the UK's stunning snowy peaks
+        </p>
+        {# On this page, point the CTA to the form #}
+        <a href="#booking-form" class="btn cta-btn mt-3">Book Now</a>
+      </div>
+
+      <div class="col-lg-6 p-0">
+        <picture>
+          <!-- ultrawide source -->
+          <source media="(min-width: 1600px)" srcset="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}">
+          <!-- fallback -->
+          <img src="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}"
+               alt="Hero"
+               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container py-5 text-center">
+    <!-- Success icon (decorative) -->
+  <div class="display-4 mb-3" aria-hidden="true">
+    <i class="fas fa-check-circle"></i>
+  </div>
+  <h1 class="mb-3">Hello sent 👋</h1>
+  <p class="lead">Thanks for saying hello! We appreciate the message. You’ll return to the home page shortly…</p>
+  <!-- MVP placeholder note (accessible) -->
+  <p class="text-muted mb-4">
+    <small>
+      <span class="visually-hidden">Note:</span>
+      This is a placeholder flow for the MVP. In the final version, this button will submit a form and send a confirmation email.
+    </small>
+  </p>
+  <a href="{% url 'index' %}" class="btn btn-secondary mt-4">Back to Home</a>
+</div>
+
+{% endblock %}
