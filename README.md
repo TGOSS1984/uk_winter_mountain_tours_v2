@@ -39,6 +39,7 @@ In short, this project has been both a technical and personal milestone, combini
 - [Wireframes & Mockups](#wireframes--mockups)
 - [Accessibility & UX](#accessibility--ux)
 - [Performance](#performance)
+- [Robustness & Error Handling](#robustness--error-handling)
 - [Technologies Used](#technologies-used)
 - [Installation & Local Setup](#installation--local-setup)
 - [Environment Variables](#environment-variables)
@@ -291,8 +292,6 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 ├── pytest.ini # Pytest config
 ```
 
-_(STILL TO COMPLETE: add Ruff/ESLint configs, requirements-dev.txt, pyproject.toml once added.)_
-
 ---
 
 ## Rationale & Design Decisions
@@ -366,6 +365,25 @@ _(STILL TO COMPLETE: add screesnshot here.)_
 - Minimal external scripts; async/defer where possible.
 
 _(STILL TO COMPLETE: Add Lighthouse scores + actions taken to improve.)_
+
+---
+
+## Robustness & Error Handling
+
+Production-friendly error pages are provided:
+
+- `templates/404.html` — Not Found
+- `templates/500.html` — Server Error
+
+**How it works**
+
+- These render automatically when `DEBUG=False` (e.g., on Heroku).
+- Pages extend `base.html` and include a hero banner; content is padded to avoid browser “friendly error” replacements.
+- Handlers (optional) registered in the root URLconf (`mountain_tours_v2/urls.py`):
+  ```python
+  handler404 = "core.views_errors.custom_404"
+  handler500 = "core.views_errors.custom_500"
+  ```
 
 ---
 

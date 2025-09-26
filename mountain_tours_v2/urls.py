@@ -19,3 +19,6 @@ urlpatterns = [
     ),  # logout, password reset, etc.
     path("signup/", SignupView.as_view(), name="signup"),
 ]
+
+handler404 = "core.views_errors.custom_404"
+handler500 = "core.views_errors.custom_500"
