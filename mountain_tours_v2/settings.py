@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "core",
     "bookings",
     "django_filters",
+    "django_extensions",
 ]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

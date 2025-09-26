@@ -1,327 +1,360 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
 
-{# Page-specific <head> items only (favicons). Bootstrap/FA/CSS live in base.html #}
-{% block extra_head %}
-<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
-<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
-<link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
-{% endblock %}
+{# Page-specific
 
-{% block content %}
+<head> items only (favicons). Bootstrap/FA/CSS live in base.html #}
+  {% block extra_head %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+  {% endblock %}
 
-{# --- HERO --- #}
-<section class="hero-section d-flex align-items-center">
-  <div class="container-fluid">
-    <div class="row flex-column-reverse flex-lg-row">
-      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
-        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Explore the Mountains</h1>
-        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">
-          Experience unforgettable tours across the UK's stunning snowy peaks
-        </p>
-        <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Book Now</a>
-      </div>
+  {% block content %}
 
-      <div class="col-lg-6 p-0">
-        <picture>
-          <!-- ultrawide source -->
-          <source media="(min-width: 1600px)" srcset="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}">
-          <!-- fallback -->
-          <img src="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}"
-               alt="Hero"
-               class="img-fluid w-100 h-100 object-fit-cover hero-img">
-        </picture>
-      </div>
-    </div>
-  </div>
-</section>
-
-{# --- WHY TAKE A TOUR --- #}
-<section id="reasons" class="section-margin">
-  <div class="text-center my-3">
-    <img src="{% static 'images/hero/mountains-line-png.webp' %}" alt="Mountain Line Art" class="img-fluid">
-  </div>
-  <h2 class="fw-bold">Why take a guided tour with us?</h2>
-  <p><strong><em>Explore what makes our mountain tours unique, safe, and unforgettable.</em></strong></p>
-
-  <div id="why-take-tour">
-    <div id="why-experience">
-      <div>
-        <h3>Safety First <i class="fas fa-shield-alt"></i></h3>
-        <hr>
-        <ul class="checkmark-list">
-          <li>Certified guides trained in mountain safety</li>
-          <li>Equipped for rescue and emergencies</li>
-          <li>Route planning with weather awareness</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Local Expertise <i class="fas fa-map-signs"></i></h3>
-        <hr>
-        <ul class="checkmark-list">
-          <li>Guides with deep local knowledge</li>
-          <li>Tailored routes based on conditions</li>
-          <li>Stories and insight along the journey</li>
-        </ul>
-      </div>
-    </div>
-
-    <div id="why-active">
-      <div>
-        <h3>Be Outdoors <i class="fas fa-hiking"></i></h3>
-        <hr>
-        <ul class="checkmark-list">
-          <li>Experience untouched winter landscapes</li>
-          <li>Let us handle gear and logistics</li>
-          <li>Relax and reconnect with nature</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Excercise <i class="fas fa-dumbbell"></i></h3>
-        <hr>
-        <ul class="checkmark-list">
-          <li>Suitable for all fitness levels</li>
-          <li>Paced tours with plenty of rest</li>
-          <li>Guidance to support every step</li>
-        </ul>
-      </div>
-    </div>
-
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{% static 'images/carousel/buachille-etive-mor.webp' %}"
-               class="d-block w-100" alt="Buachille Etive Mor">
+  {# --- HERO --- #}
+  <section class="hero-section d-flex align-items-center">
+    <div class="container-fluid">
+      <div class="row flex-column-reverse flex-lg-row">
+        <div
+          class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+          <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Explore the Mountains</h1>
+          <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">
+            Experience unforgettable tours across the UK's stunning snowy peaks
+          </p>
+          <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Book Now</a>
         </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/carousel/caern_mor_dearg_arete_winter.webp' %}"
-               class="d-block w-100" alt="CMD Arete">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/carousel/tryfan_aerial_winter.webp' %}"
-               class="d-block w-100" alt="Aerial shot of Tryfan">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/carousel/cairngorms_winter.webp' %}"
-               class="d-block w-100" alt="Cairngorms in winter">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/carousel/mountains-scottish-winter.webp' %}"
-               class="d-block w-100" alt="Scottish Mountains in Winter">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/carousel/glencoe.webp' %}"
-               class="d-block w-100" alt="Scotland snowy Mountain">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-</section>
 
-<hr>
-
-{# --- REGIONS --- #}
-<div class="container text-center section-margin">
-  <div class="row">
-    <div class="col-12">
-      <h2 class="fw-bold">Regions to Explore</h2>
-    </div>
-
-    <div class="col-12 col-md-6 col-xl-3 d-flex">
-      <div class="card region-card mx-auto" style="width: 18rem;">
-        <img src="{% static 'images/region_cards/tryfan600pwx.webp' %}" class="card-img-top" alt="A picture of Tryfan">
-        <div class="card-body">
-          <h3 class="card-title h5 fixed-title-height">Mountains of Wales</h3>
-          <p class="card-text">The Brecon Beacons & Snowdonia National park contain some of the UK's classic routes, including tryfan & for those with a head for heights, Crib Goch, the most exciting route up to Snowdon!</p>
-          <a href="{% url 'wales' %}" class="btn cta-btn">Explore</a>
+        <div class="col-lg-6 p-0">
+          <picture>
+            <!-- ultrawide source -->
+            <source media="(min-width: 1600px)" srcset="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}">
+            <!-- fallback -->
+            <img src="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}" alt="Hero"
+              class="img-fluid w-100 h-100 object-fit-cover hero-img">
+          </picture>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="col-12 col-md-6 col-xl-3 d-flex">
-      <div class="card region-card mx-auto" style="width: 18rem;">
-        <img src="{% static 'images/region_cards/bennevis600pxw.webp' %}" class="card-img-top" alt="A picture of Ben Nevis">
-        <div class="card-body">
-          <h3 class="card-title h5 fixed-title-height">Mountains of Scotland</h3>
-          <p class="card-text">The Scottish Mountains can be some of the most wild in the UK. From the Caingorms to Glencoe & the Isle of Skye, there is something for everybody</p>
-          <a href="{% url 'scotland' %}" class="btn cta-btn">Explore</a>
+  {# --- WHY TAKE A TOUR --- #}
+  <section id="reasons" class="section-margin">
+    <div class="text-center my-3">
+      <img src="{% static 'images/hero/mountains-line-png.webp' %}" alt="Mountain Line Art" class="img-fluid">
+    </div>
+    <h2 class="fw-bold">Why take a guided tour with us?</h2>
+    <p><strong><em>Explore what makes our mountain tours unique, safe, and unforgettable.</em></strong></p>
+
+    <div id="why-take-tour">
+      <div id="why-experience">
+        <div>
+          <h3>Safety First <i class="fas fa-shield-alt"></i></h3>
+          <hr>
+          <ul class="checkmark-list">
+            <li>Certified guides trained in mountain safety</li>
+            <li>Equipped for rescue and emergencies</li>
+            <li>Route planning with weather awareness</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Local Expertise <i class="fas fa-map-signs"></i></h3>
+          <hr>
+          <ul class="checkmark-list">
+            <li>Guides with deep local knowledge</li>
+            <li>Tailored routes based on conditions</li>
+            <li>Stories and insight along the journey</li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="col-12 col-md-6 col-xl-3 d-flex">
-      <div class="card region-card mx-auto" style="width: 18rem;">
-        <img src="{% static 'images/region_cards/helvellyn600pxw.webp' %}" class="card-img-top" alt="A picture of Hellvellyn">
-        <div class="card-body">
-          <h3 class="card-title h5 fixed-title-height">Mountains of the Lake District</h3>
-          <p class="card-text">Explore the Wainwirght's, with classic routes & various grades of scrambling. From the classic ridges of Helvellyn to the Scafell range including Englands highest peak</p>
-          <a href="{% url 'lake_district' %}" class="btn cta-btn">Explore</a>
+      <div id="why-active">
+        <div>
+          <h3>Be Outdoors <i class="fas fa-hiking"></i></h3>
+          <hr>
+          <ul class="checkmark-list">
+            <li>Experience untouched winter landscapes</li>
+            <li>Let us handle gear and logistics</li>
+            <li>Relax and reconnect with nature</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Excercise <i class="fas fa-dumbbell"></i></h3>
+          <hr>
+          <ul class="checkmark-list">
+            <li>Suitable for all fitness levels</li>
+            <li>Paced tours with plenty of rest</li>
+            <li>Guidance to support every step</li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="col-12 col-md-6 col-xl-3 d-flex">
-      <div class="card region-card mx-auto" style="width: 18rem;">
-        <img src="{% static 'images/region_cards/kinderscout600pxw.webp' %}" class="card-img-top" alt="A picture of Kinder Scout">
-        <div class="card-body">
-          <h3 class="card-title h5 fixed-title-height">Peak District & Yorkshire Dales</h3>
-          <p class="card-text">Explore the Peak District or Yorkshire Dales. Tackle Kinder Scout & the Mam Tor ridge, or go big on the Dales’ Three Peaks: Ingleborough, Whernside & Pen-y-ghent</p>
-          <a href="{% url 'peak_district' %}" class="btn cta-btn">Explore</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr>
-
-{# --- TESTIMONIALS --- #}
-<section class="py-5" id="testimonials">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="fw-bold">What our guests say</h2>
-      <p class="text-muted">Real words from recent winter adventures*</p>
-    </div>
-
-    <div class="row g-4">
-      <!-- Card 1 -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <div class="ratio ratio-16x9">
-            <img src="{% static 'images/gallery/gallery018.webp' %}" class="object-fit-cover" alt="Happy group on snowy ridge">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'images/carousel/buachille-etive-mor.webp' %}" class="d-block w-100"
+              alt="Buachille Etive Mor">
           </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/carousel/caern_mor_dearg_arete_winter.webp' %}" class="d-block w-100"
+              alt="CMD Arete">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/carousel/tryfan_aerial_winter.webp' %}" class="d-block w-100"
+              alt="Aerial shot of Tryfan">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/carousel/cairngorms_winter.webp' %}" class="d-block w-100"
+              alt="Cairngorms in winter">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/carousel/mountains-scottish-winter.webp' %}" class="d-block w-100"
+              alt="Scottish Mountains in Winter">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/carousel/glencoe.webp' %}" class="d-block w-100" alt="Scotland snowy Mountain">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  {# --- REGIONS --- #}
+  <div class="container text-center section-margin">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="fw-bold">Regions to Explore</h2>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3 d-flex">
+        <div class="card region-card mx-auto" style="width: 18rem;">
+          <img src="{% static 'images/region_cards/tryfan600pwx.webp' %}" class="card-img-top"
+            alt="A picture of Tryfan">
           <div class="card-body">
-            <div class="mb-2" aria-label="5 out of 5 stars">★★★★★</div>
-            <p class="mb-1">“Brilliant day on Helvellyn. Clear comms, steady pacing, and I finally learned to trust my crampons!”</p>
-            <small class="text-muted">— Alex P., Feb 2025</small>
+            <h3 class="card-title h5 fixed-title-height">Mountains of Wales</h3>
+            <p class="card-text">The Brecon Beacons & Snowdonia National park contain some of the UK's classic routes,
+              including tryfan & for those with a head for heights, Crib Goch, the most exciting route up to Snowdon!
+            </p>
+            <a href="{% url 'wales' %}" class="btn cta-btn">Explore</a>
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <div class="ratio ratio-16x9">
-            <img src="{% static 'images/gallery/gallery175.webp' %}" class="object-fit-cover" alt="Small group with guide">
-          </div>
+      <div class="col-12 col-md-6 col-xl-3 d-flex">
+        <div class="card region-card mx-auto" style="width: 18rem;">
+          <img src="{% static 'images/region_cards/bennevis600pxw.webp' %}" class="card-img-top"
+            alt="A picture of Ben Nevis">
           <div class="card-body">
-            <div class="mb-2" aria-label="5 out of 5 stars">★★★★★</div>
-            <p class="mb-1">“Felt safe the whole time—even in whiteout. The avalanche briefing and kit check were spot on.”</p>
-            <small class="text-muted">— Priya R., Jan 2025</small>
+            <h3 class="card-title h5 fixed-title-height">Mountains of Scotland</h3>
+            <p class="card-text">The Scottish Mountains can be some of the most wild in the UK. From the Caingorms to
+              Glencoe & the Isle of Skye, there is something for everybody</p>
+            <a href="{% url 'scotland' %}" class="btn cta-btn">Explore</a>
           </div>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <div class="ratio ratio-16x9">
-            <img src="{% static 'images/gallery/gallery095.webp' %}" class="object-fit-cover" alt="ice axe arrest photo in winter">
-          </div>
+      <div class="col-12 col-md-6 col-xl-3 d-flex">
+        <div class="card region-card mx-auto" style="width: 18rem;">
+          <img src="{% static 'images/region_cards/helvellyn600pxw.webp' %}" class="card-img-top"
+            alt="A picture of Hellvellyn">
           <div class="card-body">
-            <div class="mb-2" aria-label="4.5 out of 5 stars">★★★★☆</div>
-            <p class="mb-1">“Great coaching on ice-axe arrest and movement—confidence level x10. Will be back for Scotland!”</p>
-            <small class="text-muted">— Sam K., Dec 2024</small>
+            <h3 class="card-title h5 fixed-title-height">Mountains of the Lake District</h3>
+            <p class="card-text">Explore the Wainwirght's, with classic routes & various grades of scrambling. From the
+              classic ridges of Helvellyn to the Scafell range including Englands highest peak</p>
+            <a href="{% url 'lake_district' %}" class="btn cta-btn">Explore</a>
           </div>
         </div>
       </div>
-    </div>
 
-    <p class="mt-3 text-center text-muted" style="font-size:.9rem;">
-      *Sample testimonials for demo purposes on a student project. Replace with genuine reviews when available.
-    </p>
-
-    <!-- Optional: CTA -->
-    <div class="text-center mt-3">
-      <a href="#" class="btn btn-secondary">Read more reviews</a>
+      <div class="col-12 col-md-6 col-xl-3 d-flex">
+        <div class="card region-card mx-auto" style="width: 18rem;">
+          <img src="{% static 'images/region_cards/kinderscout600pxw.webp' %}" class="card-img-top"
+            alt="A picture of Kinder Scout">
+          <div class="card-body">
+            <h3 class="card-title h5 fixed-title-height">Peak District & Yorkshire Dales</h3>
+            <p class="card-text">Explore the Peak District or Yorkshire Dales. Tackle Kinder Scout & the Mam Tor ridge,
+              or go big on the Dales’ Three Peaks: Ingleborough, Whernside & Pen-y-ghent</p>
+            <a href="{% url 'peak_district' %}" class="btn cta-btn">Explore</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-<hr>
+  <hr>
 
-{# --- BADGES --- #}
-<section class="py-5" id="accreditations">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="fw-bold">Safety & Credentials</h2>
-      <p class="text-muted">We prioritise qualified leadership and robust risk management.</p>
+  {# --- TESTIMONIALS --- #}
+  <section class="py-5" id="testimonials">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">What our guests say</h2>
+        <p class="text-muted">Real words from recent winter adventures*</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="ratio ratio-16x9">
+              <img src="{% static 'images/gallery/gallery018.webp' %}" class="object-fit-cover"
+                alt="Happy group on snowy ridge">
+            </div>
+            <div class="card-body">
+              <div class="mb-2" role="img" aria-label="Rated 5 out of 5 stars">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <p class="mb-1">“Brilliant day on Helvellyn. Clear comms, steady pacing, and I finally learned to trust my
+                crampons!”</p>
+              <small class="text-muted">— Alex P., Feb 2025</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="ratio ratio-16x9">
+              <img src="{% static 'images/gallery/gallery175.webp' %}" class="object-fit-cover"
+                alt="Small group with guide">
+            </div>
+            <div class="card-body">
+              <div class="mb-2" role="img" aria-label="Rated 5 out of 5 stars">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+
+              <p class="mb-1">“Felt safe the whole time—even in whiteout. The avalanche briefing and kit check were spot
+                on.”</p>
+              <small class="text-muted">— Priya R., Jan 2025</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="ratio ratio-16x9">
+              <img src="{% static 'images/gallery/gallery095.webp' %}" class="object-fit-cover"
+                alt="ice axe arrest photo in winter">
+            </div>
+            <div class="card-body">
+              <div class="mb-2" role="img" aria-label="Rated 4.5 out of 5 stars">
+                <span aria-hidden="true">★★★★☆</span>
+              </div>
+              <p class="mb-1">“Great coaching on ice-axe arrest and movement—confidence level x10. Will be back for
+                Scotland!”</p>
+              <small class="text-muted">— Sam K., Dec 2024</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-3 text-center text-muted" style="font-size:.9rem;">
+        *Sample testimonials for demo purposes on a student project. Replace with genuine reviews when available.
+      </p>
+
+      <!-- Optional: CTA -->
+      <div class="text-center mt-3">
+        <a href="#" class="btn btn-secondary">Read more reviews</a>
+      </div>
     </div>
+  </section>
 
-    <div class="row g-3 justify-content-center text-center">
-      <div class="col-6 col-md-3">
-        <div class="p-3 border rounded-4 h-100 shadow-sm">
-          <div class="display-6">🛡️</div>
-          <div class="fw-bold mt-2">Mountain Training</div>
-          <small class="text-muted">Example: ML (Summer)</small>
-          <div class="mt-2">
-            <a class="link-dark" href="https://www.mountain-training.org/qualifications/walking/mountain-leader/" target="_blank" rel="noopener" aria-label="Learn more about Mountain Training — Mountain Leader (ML) qualification">Learn about ML qualification</a>
+  <hr>
+
+  {# --- BADGES --- #}
+  <section class="py-5" id="accreditations">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Safety & Credentials</h2>
+        <p class="text-muted">We prioritise qualified leadership and robust risk management.</p>
+      </div>
+
+      <div class="row g-3 justify-content-center text-center">
+        <div class="col-6 col-md-3">
+          <div class="p-3 border rounded-4 h-100 shadow-sm">
+            <div class="display-6">🛡️</div>
+            <div class="fw-bold mt-2">Mountain Training</div>
+            <small class="text-muted">Example: ML (Summer)</small>
+            <div class="mt-2">
+              <a class="link-dark" href="https://www.mountain-training.org/qualifications/walking/mountain-leader/"
+                target="_blank" rel="noopener"
+                aria-label="Learn more about Mountain Training — Mountain Leader (ML) qualification">Learn about ML
+                qualification</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="p-3 border rounded-4 h-100 shadow-sm">
+            <div class="display-6">❄️</div>
+            <div class="fw-bold mt-2">Winter ML</div>
+            <small class="text-muted">Example: WML (Winter)</small>
+            <div class="mt-2">
+              <a class="link-dark"
+                href="https://www.mountain-training.org/qualifications/walking/winter-mountain-leader/" target="_blank"
+                rel="noopener"
+                aria-label="What is the Winter Mountain Leader (WML) qualification — Mountain Training">What is WML?</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="p-3 border rounded-4 h-100 shadow-sm">
+            <div class="display-6">⛰️</div>
+            <div class="fw-bold mt-2">BMG / IFMGA</div>
+            <small class="text-muted">Example badge only</small>
+            <div class="mt-2">
+              <a class="link-dark" href="https://www.bmg.org.uk/" target="_blank" rel="noopener"
+                aria-label="About the British Mountain Guides — BMG (IFMGA/UIAGM accredited)">About BMG</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="p-3 border rounded-4 h-100 shadow-sm">
+            <div class="display-6">✔️</div>
+            <div class="fw-bold mt-2">AALA</div>
+            <small class="text-muted">Licence (if applicable)</small>
+            <div class="mt-2">
+              <a class="link-dark" href="https://www.hse.gov.uk/aala/" target="_blank" rel="noopener"
+                aria-label="Adventure Activities Licensing Authority (AALA) guidance — HSE">AALA guidance</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-6 col-md-3">
-        <div class="p-3 border rounded-4 h-100 shadow-sm">
-          <div class="display-6">❄️</div>
-          <div class="fw-bold mt-2">Winter ML</div>
-          <small class="text-muted">Example: WML (Winter)</small>
-          <div class="mt-2">
-            <a class="link-dark" href="https://www.mountain-training.org/qualifications/walking/winter-mountain-leader/" target="_blank" rel="noopener" aria-label="What is the Winter Mountain Leader (WML) qualification — Mountain Training">What is WML?</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3">
-        <div class="p-3 border rounded-4 h-100 shadow-sm">
-          <div class="display-6">⛰️</div>
-          <div class="fw-bold mt-2">BMG / IFMGA</div>
-          <small class="text-muted">Example badge only</small>
-          <div class="mt-2">
-            <a class="link-dark" href="https://www.bmg.org.uk/" target="_blank" rel="noopener" aria-label="About the British Mountain Guides — BMG (IFMGA/UIAGM accredited)">About BMG</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3">
-        <div class="p-3 border rounded-4 h-100 shadow-sm">
-          <div class="display-6">✔️</div>
-          <div class="fw-bold mt-2">AALA</div>
-          <small class="text-muted">Licence (if applicable)</small>
-          <div class="mt-2">
-            <a class="link-dark" href="https://www.hse.gov.uk/aala/" target="_blank" rel="noopener" aria-label="Adventure Activities Licensing Authority (AALA) guidance — HSE">AALA guidance</a>
-          </div>
-        </div>
-      </div>
+      <p class="mt-3 text-center text-muted" style="font-size:.9rem;">
+        *Badges shown for demonstration on a student project. Replace with actual qualifications/licence details before
+        launch.
+      </p>
     </div>
+  </section>
 
-    <p class="mt-3 text-center text-muted" style="font-size:.9rem;">
-      *Badges shown for demonstration on a student project. Replace with actual qualifications/licence details before launch.
-    </p>
+  <div class="d-flex flex-wrap justify-content-center gap-3 my-3" id="review-badges">
+    <span class="badge rounded-pill bg-success-subtle text-success-emphasis px-3 py-2">
+      ★ 4.9/5 Average (demo)
+    </span>
+    <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis px-3 py-2">
+      120+ winter hikers (demo)
+    </span>
+    <span class="badge rounded-pill bg-info-subtle text-info-emphasis px-3 py-2">
+      Small groups • Safety briefings
+    </span>
   </div>
-</section>
 
-<div class="d-flex flex-wrap justify-content-center gap-3 my-3" id="review-badges">
-  <span class="badge rounded-pill bg-success-subtle text-success-emphasis px-3 py-2">
-    ★ 4.9/5 Average (demo)
-  </span>
-  <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis px-3 py-2">
-    120+ winter hikers (demo)
-  </span>
-  <span class="badge rounded-pill bg-info-subtle text-info-emphasis px-3 py-2">
-    Small groups • Safety briefings
-  </span>
-</div>
+  {% endblock %}
 
-{% endblock %}
-
-{# No extra scripts needed here; Bootstrap & global scripts are in base.html #}
-{% block extra_scripts %}{% endblock %}
-
+  {# No extra scripts needed here; Bootstrap & global scripts are in base.html #}
+  {% block extra_scripts %}{% endblock %}
