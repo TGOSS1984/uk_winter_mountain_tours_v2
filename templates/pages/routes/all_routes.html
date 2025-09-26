@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+{% load form_extras %}
+
+{% block content %}
+
+{# --- HERO --- #}
+<section class="hero-section d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row">
+      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+        <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">All Routes we Offer</h1>
+        <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">
+          Filter on our available routes to find the perfect fit for you!
+        </p>
+        <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Book Now</a>
+      </div>
+
+      <div class="col-lg-6 p-0">
+        <picture>
+          <!-- ultrawide source -->
+          <source media="(min-width: 1600px)" srcset="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}">
+          <!-- fallback -->
+          <img src="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}"
+               alt="Hero"
+               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <h1 class="mb-4">All Routes</h1>
+
+  <!-- Filter form -->
+  <form method="get" class="row g-3 mb-4">
+    <div class="col-md-3">
+      <label class="form-label">Region</label>
+      {{ filter.form.region|add_class:"form-select" }}
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Difficulty</label>
+      {{ filter.form.difficulty|add_class:"form-select" }}
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Min distance (km)</label>
+      {{ filter.form.distance_min|add_class:"form-control" }}
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Max distance (km)</label>
+      {{ filter.form.distance_max|add_class:"form-control" }}
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Min duration (h)</label>
+      {{ filter.form.duration_min|add_class:"form-control" }}
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Max duration (h)</label>
+      {{ filter.form.duration_max|add_class:"form-control" }}
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary me-2">Apply filters</button>
+      <a class="btn btn-outline-secondary" href="{% url 'routes_all' %}">Reset</a>
+    </div>
+  </form>
+
+  <!-- Results grid -->
+  <div class="row g-4">
+    {% for r in routes %}
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="ratio ratio-16x9">
+            <!-- optional: a generic region image or placeholder -->
+            <img src="{% static 'images/gallery/gallery018.jpg' %}" class="card-img-top object-fit-cover" alt="{{ r.name }}">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title mb-1">{{ r.name }}</h5>
+            <small class="text-muted d-block mb-2">
+              {{ r.get_region_display }} • {{ r.difficulty|title }}
+            </small>
+            <p class="mb-1">
+              Distance: {{ r.distance_km }} km
+              <br>
+              Duration: {{ r.duration_hours }} h
+            </p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-12">
+        <p class="text-muted">No routes match these filters.</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination (preserve current filters) -->
+  {% if is_paginated %}
+    <nav class="mt-4" aria-label="Routes pagination">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?{% for k,v in request.GET.items %}{% if k != 'page' %}{{k}}={{v|urlencode}}&{% endif %}{% endfor %}page={{ page_obj.previous_page_number }}">Previous</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled"><span class="page-link">Previous</span></li>
+        {% endif %}
+
+        <li class="page-item disabled">
+          <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        </li>
+
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?{% for k,v in request.GET.items %}{% if k != 'page' %}{{k}}={{v|urlencode}}&{% endif %}{% endfor %}page={{ page_obj.next_page_number }}">Next</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled"><span class="page-link">Next</span></li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
+</section>
+{% endblock %}

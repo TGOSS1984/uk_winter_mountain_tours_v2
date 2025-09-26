@@ -91,6 +91,12 @@ It integrates mapping (Leaflet + GPX overlays), booking management with cancella
   - Email is required when creating an account, ensuring every user can receive notifications.  
   - Login accepts either **username or email** for convenience.  
   - Profiles are auto-created for each user, extendable with extra fields (e.g. phone). 
+- **Filters & Pagination**:
+  - Filterable All Routes page – users can browse all available mountain routes across the UK.
+  - Search by criteria – filter by region, difficulty, distance, and duration.
+  - Paginated results – routes are displayed in pages of 9 cards, with pagination controls.
+  - Non-destructive – feature is isolated from existing booking pages; the All Routes page is for discovery only.
+
 
 
 ---
@@ -133,15 +139,32 @@ Examples:
    - **Tests:** **Manual:** Lighthouse ≥ 90 Accessibility; Axe audit results
 
 9. **As a user, I want to receive an email when I book or cancel a tour, so I have a clear record.**
-  - **Implementation:** Email service in bookings/services.py (transaction-safe via on_commit); templates in templates/email/booking_confirmation.{txt,html} and booking_cancellation.{txt,html}; wired in bookings/views.py (BookingCreateView.form_valid() and cancel_booking). Feature-flagged by ENABLE_EMAIL_NOTIFICATIONS with DEFAULT_FROM_EMAIL + EMAIL_BACKEND in settings/env.
-  - **Tests:** bookings/tests/test_emails.py (uses TransactionTestCase + locmem backend).
-  - **Manual:** In dev, console backend prints the email to the terminal; in prod, enable SMTP via env (documented in README).
+    - **Implementation:** Email service in bookings/services.py (transaction-safe via on_commit); templates in templates/email/booking_confirmation.{txt,html} and booking_cancellation.{txt,html}; wired in bookings/views.py (BookingCreateView.form_valid() and cancel_booking). Feature-flagged by ENABLE_EMAIL_NOTIFICATIONS with DEFAULT_FROM_EMAIL + EMAIL_BACKEND in settings/env.
+    - **Tests:** bookings/tests/test_emails.py (uses TransactionTestCase + locmem backend).
+    - **Manual:** In dev, console backend prints the email to the terminal; in prod, enable SMTP via env (documented in README).
 10. **As a user, I want to log in with my email or username, so I don’t have to remember a separate credential.**
-  - **Implementation:** core/forms.py LoginForm accepts email or username, updates field label to “Username or Email”; routed via custom LoginView in urls.py (custom login path before django.contrib.auth.urls).
-  - **Tests:Manual:**verify both email+password and username+password paths work on /accounts/login/.
+    - **Implementation:** core/forms.py LoginForm accepts email or username, updates field label to “Username or Email”; routed via custom LoginView in urls.py (custom login path before django.contrib.auth.urls).
+    - **Tests:Manual:** verify both email+password and username+password paths work on /accounts/login/.
 11. **As a user, I want email to be required at signup, so I can receive notifications and recover my account.**
-  -**Implementation:**core/forms.py SignupForm (extends UserCreationForm), adds required, unique email; SignupView uses SignupForm; templates/registration/signup.html uses {{ form.as_p }} so the email field renders automatically.
-  - **Tests:Manual:**signup rejects duplicate/blank emails; visible field + validation errors on the form.
+    - **Implementation:** core/forms.py SignupForm (extends UserCreationForm), adds required, unique email; SignupView uses SignupForm; templates/registration/signup.html uses {{ form.as_p }} so the email field renders automatically.
+    - **Tests:Manual:** signup rejects duplicate/blank emails; visible field + validation errors on the form.
+12. **As a site visitor, I want to see all available routes in one place, so that I don’t need to click through each region individually.**  
+    - **Implementation:** Added `AllRoutesView` in `bookings/views_routes.py` using `django-filter` + `ListView`. Mapped to `/routes/` in `core/urls.py`; template at `templates/pages/routes/all_routes.html`.  
+    - **Tests: Manual:** Navigating to `/routes/` shows a grid of cards with all routes, regardless of region; pagination visible when >9.  
+
+13. **As a site visitor, I want to filter routes by difficulty, so that I can quickly find tours that match my ability.**  
+    - **Implementation:** `RouteFilter` in `bookings/filters.py` includes `difficulty` as a filterable field. Template renders a `<select>` bound to this filter.  
+    - **Tests: Manual:** Applying “Difficulty = Severe” hides all other routes; only matching routes appear in the card grid.  
+
+14. **As a site visitor, I want to narrow down results by distance and duration, so that I can plan around my available time.**  
+    - **Implementation:** `RouteFilter` defines `distance_min`, `distance_max`, `duration_min`, `duration_max` as numeric filters. Fields render in the filter form.  
+    - **Tests: Manual:** Entering “Min distance 8 km / Max distance 12 km” narrows results correctly; only routes in that range are shown.  
+
+15. **As a site visitor, I want to page through results, so that I can easily browse even when there are many routes.**  
+    - **Implementation:** `AllRoutesView` uses `paginate_by = 9`. Template includes pagination controls that preserve querystring filters.  
+    - **Tests: Manual:** When more than 9 routes are returned, clicking “Next”/“Previous” moves between pages and keeps filters applied.  
+
+
 
 **Acceptance Criteria Template**
 - Given I am on the **Region** page, when I click a route card, then I should see the route detail with a Leaflet map and a visible GPX overlay.
@@ -301,7 +324,7 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 
 ## Technologies Used
 
-- **Backend:** Django (Python 3.11), Django email backends (console + locmem for tests), Django built in auth system
+- **Backend:** Django (Python 3.11), Django email backends (console + locmem for tests), Django built in auth system, Django Filters
 - **Frontend:** Bootstrap 5, Leaflet.js (+ Leaflet GPX plugin)
 - **Database:** SQLite (dev), Postgres (Heroku recommended)
 - **Testing:** Django test framework, Jest (frontend)
@@ -439,6 +462,8 @@ In addition to automated tests, targeted **manual testing** validated real user 
 
 ### Manual Test Matrix (samples)
 
+## Manual Testing
+
 | Area | Steps | Expected | Result |
 |---|---|---|---|
 | Past-date booking blocked | Go to booking form → choose yesterday → submit | Form refuses; clear validation message shown; no record created | ✅ Pass |
@@ -451,6 +476,10 @@ In addition to automated tests, targeted **manual testing** validated real user 
 | CSRF protection | Remove token via DevTools → submit booking | 403 CSRF; no server error | ✅ Pass |
 | Admin CRUD | Add/edit/delete a Route in Admin | Public pages reflect changes; no broken links | ✅ Pass |
 | Fixtures round-trip | `dumpdata` → reset DB → `loaddata` | Routes/guides restored; pages render; no FK errors | ✅ Pass |
+| Pagination – Previous/Next | Apply a filter returning >9 results → click “Next” → “Previous” | Pages switch correctly, filters remain applied | ✅ Pass |
+| Pagination – Preserves filters | Filter by Region = Wales → go to page 2 | Still only shows Welsh routes | ✅ Pass |
+| Filter reset | Apply multiple filters → click “Reset” | All filters cleared; full route list shown | ✅ Pass |
+| No results | Apply filters that match nothing | Message shown: “No routes match these filters.” | ✅ Pass |
 
 
 ---
@@ -595,6 +624,11 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 **Fixture/seed pitfalls (JSON formatting & deployments)**
 - **Bug:** A routes.json edit was accidentally saved in UTF-16, which corrupted the fixture and caused Django to reject it. At another point the JSON displayed as a single unbroken line instead of a properly tab/return formatted array, making it very hard to edit or debug. Additionally, adding new routes locally did not automatically update production.
 - **Fix:** Re-saved the file in UTF-8 (the correct encoding for Django fixtures) and reformatted the JSON to use pretty-printed tabbed formatting for readability. Confirmed fixtures load cleanly again. Deployment process documented so that after adding routes/guides locally, loaddata must be run on production (e.g., Heroku) to reflect the changes.
+
+**Pagination**
+- **Bug:** Django’s template language requires spaces around operators in {% if %} conditions. The template used k!='page' instead of k != 'page'.
+- **Fix:** Updated both the Previous and Next link builders to use: {% if k != 'page' %}
+
 
 
 ### Known Issues/Bugs
