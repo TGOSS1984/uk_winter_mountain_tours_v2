@@ -5,9 +5,9 @@ from .views import BookingCreateView, BookingListView, cancel_booking
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', BookingListView.as_view(), name='booking_list'),
-    path('new/', BookingCreateView.as_view(), name='booking_create'),
-    path('<int:pk>/cancel/', cancel_booking, name='booking_cancel'),
+    path("", BookingListView.as_view(), name="booking_list"),
+    path("new/", BookingCreateView.as_view(), name="booking_create"),
+    path("<int:pk>/cancel/", cancel_booking, name="booking_cancel"),
     path(
         "thank-you/contact/",
         TemplateView.as_view(template_name="thankyou/contact.html"),

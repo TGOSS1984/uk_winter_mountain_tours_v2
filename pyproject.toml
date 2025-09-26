@@ -1,0 +1,13 @@
+[tool.black]
+line-length = 88
+# let Black auto-detect target Python; omit target-version for simplicity
+exclude = '''
+/(
+  \.venv
+ |\.git
+ |__pycache__
+ |staticfiles
+ |assets
+ |migrations
+)/
+'''

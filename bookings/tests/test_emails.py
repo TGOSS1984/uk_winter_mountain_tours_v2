@@ -20,14 +20,12 @@ class EmailTests(TransactionTestCase):
         # NOTE: use actual Route fields
         self.route = Route.objects.create(
             name="Test Route",
-            region="wales",                 # must be one of REGION_CHOICES keys
-            gpx_path="routes/test.gpx",     # model uses gpx_path
-            distance_km=1,                  # DecimalField with int here
-            duration_hours=1.0,             # or Decimal
+            region="wales",  # must be one of REGION_CHOICES keys
+            gpx_path="routes/test.gpx",  # model uses gpx_path
+            distance_km=1,  # DecimalField with int here
+            duration_hours=1.0,  # or Decimal
         )
-        self.guide = Guide.objects.create(
-            name="Guide", email="g@example.com"
-        )
+        self.guide = Guide.objects.create(name="Guide", email="g@example.com")
 
     def test_confirmation_email_sends(self):
         b = Booking.objects.create(
@@ -35,11 +33,12 @@ class EmailTests(TransactionTestCase):
             route=self.route,
             guide=self.guide,
             date=date(2025, 12, 31),
-            time_slot="AM",                 # matches TIME_SLOTS
+            time_slot="AM",  # matches TIME_SLOTS
             status="confirmed",
         )
         send_booking_email(
-            self.user, b,
+            self.user,
+            b,
             template_base="booking_confirmation",
             subject="Your booking is confirmed",
         )
@@ -56,7 +55,8 @@ class EmailTests(TransactionTestCase):
             status="cancelled",
         )
         send_booking_email(
-            self.user, b,
+            self.user,
+            b,
             template_base="booking_cancellation",
             subject="Your booking has been cancelled",
         )

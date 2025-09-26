@@ -28,8 +28,8 @@ class BookingCreateViewTests(TestCase):
         url = reverse("booking_create")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "name=\"route\"")  # basic form field check
-        self.assertContains(response, "name=\"guide\"")
+        self.assertContains(response, 'name="route"')  # basic form field check
+        self.assertContains(response, 'name="guide"')
 
     def test_post_valid_booking_creates_record(self):
         self.client.login(username="testuser", password="secret")
@@ -50,6 +50,7 @@ class BookingCreateViewTests(TestCase):
         self.assertEqual(booking.user, self.user)
         self.assertEqual(booking.route, self.route)
         self.assertEqual(booking.guide, self.guide)
+
 
 class CancelBookingViewTests(TestCase):
     @classmethod
@@ -140,8 +141,12 @@ class BookingListViewTests(TestCase):
         )
         d = timezone.now().date() + timedelta(days=3)
         # One booking for each user
-        Booking.objects.create(user=cls.user_a, guide=guide, route=route, date=d, time_slot="AM")
-        Booking.objects.create(user=cls.user_b, guide=guide, route=route, date=d, time_slot="PM")
+        Booking.objects.create(
+            user=cls.user_a, guide=guide, route=route, date=d, time_slot="AM"
+        )
+        Booking.objects.create(
+            user=cls.user_b, guide=guide, route=route, date=d, time_slot="PM"
+        )
 
     def test_list_shows_only_logged_in_users_bookings(self):
         self.client.login(username="alice", password="x")
@@ -160,7 +165,9 @@ class BookingListViewTests(TestCase):
 class BookingCreateInvalidPostTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        cls.user = User.objects.create_user(username="invalid_poster", password="secret")
+        cls.user = User.objects.create_user(
+            username="invalid_poster", password="secret"
+        )
         cls.guide = Guide.objects.create(name="Guide Z", email="z@example.com")
         cls.route = Route.objects.create(
             name="Pillar",
@@ -178,7 +185,7 @@ class BookingCreateInvalidPostTests(TestCase):
         # Missing required fields (e.g., no route) + invalid guide id ensures validation fails
         data = {
             # "route": self.route.id,          # omit route to trigger error
-            "guide": 999999,                    # not in queryset -> invalid choice
+            "guide": 999999,  # not in queryset -> invalid choice
             "date": self.future_date.isoformat(),
             "time_slot": "AM",
         }
@@ -190,4 +197,3 @@ class BookingCreateInvalidPostTests(TestCase):
         self.assertContains(resp, "error", status_code=200)  # generic check
         # And no booking created
         self.assertEqual(Booking.objects.count(), 0)
-

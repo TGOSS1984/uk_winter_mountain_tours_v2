@@ -11,22 +11,24 @@ SRC = Path("assets/images_original")
 DST = Path("assets/images")
 
 # ----- Behaviour toggles -----
-OVERWRITE_EXISTING = True          # always write fresh files into DST
-RECOMPRESS_EXISTING_WEBP = True    # re-save .webp using the rule (resize + quality/lossless)
+OVERWRITE_EXISTING = True  # always write fresh files into DST
+RECOMPRESS_EXISTING_WEBP = (
+    True  # re-save .webp using the rule (resize + quality/lossless)
+)
 
 # First matching rule wins (case-insensitive substring match on relative path)
 RULES = [
-    {"match": "hero/",         "max_w": 1920, "quality": 80, "lossless": False},
-    {"match": "carousel/",     "max_w": 1600, "quality": 80, "lossless": False},
-    {"match": "gallery/",      "max_w": 1200, "quality": 82, "lossless": False},
-    {"match": "region_cards/", "max_w":  900, "quality": 82, "lossless": False},
-    {"match": "equipment/",    "max_w": 1000, "quality": 82, "lossless": False},
+    {"match": "hero/", "max_w": 1920, "quality": 80, "lossless": False},
+    {"match": "carousel/", "max_w": 1600, "quality": 80, "lossless": False},
+    {"match": "gallery/", "max_w": 1200, "quality": 82, "lossless": False},
+    {"match": "region_cards/", "max_w": 900, "quality": 82, "lossless": False},
+    {"match": "equipment/", "max_w": 1000, "quality": 82, "lossless": False},
     # filename-based helpers (optional):
-    {"match": "_600pxw",       "max_w":  600, "quality": 75, "lossless": False},
-    {"match": "thumb",         "max_w":  600, "quality": 75, "lossless": False},
+    {"match": "_600pxw", "max_w": 600, "quality": 75, "lossless": False},
+    {"match": "thumb", "max_w": 600, "quality": 75, "lossless": False},
     # crisp UI/branding
-    {"match": "logo",          "max_w":  800, "quality": 100, "lossless": True},
-    {"match": "icon",          "max_w":  800, "quality": 100, "lossless": True},
+    {"match": "logo", "max_w": 800, "quality": 100, "lossless": True},
+    {"match": "icon", "max_w": 800, "quality": 100, "lossless": True},
 ]
 
 # Fallback for anything not matching above (incl. files in SRC root)
@@ -69,7 +71,11 @@ def process_one(src_path: Path):
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / (src_path.stem + ".webp")
 
-    if not OVERWRITE_EXISTING and out_path.exists() and out_path.stat().st_mtime >= src_path.stat().st_mtime:
+    if (
+        not OVERWRITE_EXISTING
+        and out_path.exists()
+        and out_path.stat().st_mtime >= src_path.stat().st_mtime
+    ):
         return "skipped", out_path
 
     suffix = src_path.suffix.lower()

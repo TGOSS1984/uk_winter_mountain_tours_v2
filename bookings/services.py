@@ -4,6 +4,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.db import transaction
 
+
 def send_booking_email(user, booking, template_base: str, subject: str):
     """
     Render and send booking emails (txt+html) post-transaction.

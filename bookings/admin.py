@@ -12,6 +12,7 @@ class GuideAdmin(admin.ModelAdmin):
     def is_active_safe(self, obj):
         # Some versions of the model may not have is_active; default to True
         return getattr(obj, "is_active", True)
+
     is_active_safe.short_description = "active"
     is_active_safe.boolean = True
 
@@ -32,6 +33,7 @@ class RouteAdmin(admin.ModelAdmin):
     # Use helper accessors so missing fields don't crash admin
     def region_safe(self, obj):
         return getattr(obj, "region", "-")
+
     region_safe.short_description = "region"
 
     def distance_km_safe(self, obj):
@@ -40,6 +42,7 @@ class RouteAdmin(admin.ModelAdmin):
         if val is None:
             val = getattr(obj, "distance", None)
         return val if val is not None else "-"
+
     distance_km_safe.short_description = "distance (km)"
 
     def duration_hours_safe(self, obj):
@@ -47,10 +50,12 @@ class RouteAdmin(admin.ModelAdmin):
         if val is None:
             val = getattr(obj, "duration", None)
         return val if val is not None else "-"
+
     duration_hours_safe.short_description = "duration (hrs)"
 
     def is_active_safe(self, obj):
         return getattr(obj, "is_active", True)
+
     is_active_safe.short_description = "active"
     is_active_safe.boolean = True
 
@@ -71,6 +76,7 @@ class BookingAdmin(admin.ModelAdmin):
 
     def date_safe(self, obj):
         return getattr(obj, "date", getattr(obj, "start_date", "-"))
+
     date_safe.short_description = "date"
 
     def time_safe(self, obj):
@@ -81,12 +87,15 @@ class BookingAdmin(admin.ModelAdmin):
             return f"{st}–{et}"
         ts = getattr(obj, "time_slot", None)
         return ts if ts else "-"
+
     time_safe.short_description = "time"
 
     def num_people_safe(self, obj):
         return getattr(obj, "num_people", getattr(obj, "party_size", "-"))
+
     num_people_safe.short_description = "people"
 
     def status_safe(self, obj):
         return getattr(obj, "status", "-")
+
     status_safe.short_description = "status"
