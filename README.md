@@ -5,6 +5,9 @@
 [![Deployment](https://img.shields.io/badge/heroku-live-purple)](https://uk-winter-mountain-tours-v2-c6f21d80d2c8.herokuapp.com/)
 ![CI – Tests](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions/workflows/test.yml/badge.svg)
 [![Project Board](https://img.shields.io/badge/Agile%20Board-GitHub%20Projects-blue)](https://github.com/users/TGOSS1984/projects/3/views/1)
+![Python](https://img.shields.io/badge/python-3.11%2B-blue?logo=python)
+![Django](https://img.shields.io/badge/django-5.1-brightgreen?logo=django)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Introduction
 
@@ -47,11 +50,13 @@ In short, this project has been both a technical and personal milestone, combini
 - [Testing](#testing)
 - [Linting](#linting)
 - [CI/CD & Deployment](#cicd--deployment)
+- [Branching & Workflow](#branching--workflow)
 - [Assessment Criteria Mapping (LO1–LO9)](#assessment-criteria-mapping-lo1lo9)
 - [Screenshots](#screenshots)
 - [Lighthouse Results](#lighthouse-results)
 - [🔧 Major Bugs & Fixes](#major-bugs--fixes)
 - [Future Improvements](#future-improvements)
+- [Privacy](#privacy)
 - [Credits](#credits)
 
 ---
@@ -653,6 +658,15 @@ _(STILL TO COMPLETE: add pipeline diagram /docs/screenshots/cicd-pipeline.png an
 
 ---
 
+## Branching & Workflow
+
+- All work starts from `main` → create a feature branch: `feat/<short-name>` or `fix/<short-name>`.
+- Open a Pull Request to `main` early; CI (Django + Jest) must pass before merge.
+- Keep PRs small and scoped; squash-merge with a conventional commit title.
+- Protected branch: direct pushes to `main` are disabled; reviews required for substantial changes.
+
+---
+
 ## Assessment Criteria Mapping (LO1–LO9)
 
 **LO1 — Planning & Design**
@@ -852,6 +866,16 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 - Richer profiles (phone, preferences).
 - Admin email on booking.
 - CTA buttons like subscrieb to newsletter, conatact us, say hello, properly wired using django form handling
+
+---
+
+## Privacy
+
+- **What we store:** email address and booking details required to manage your tour (e.g., confirmations/cancellations).
+- **What we don’t do:** no third-party analytics, tracking pixels, or marketing cookies in this MVP.
+- **Retention:** booking emails are retained only as long as necessary for service records.
+- **Your rights:** contact us to request deletion or correction of your data; we’ll remove personal data on request.
+- **Dev & test:** in development, emails use Django’s console/locmem backends (no external sending).
 
 ---
 
