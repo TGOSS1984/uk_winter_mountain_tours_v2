@@ -94,7 +94,7 @@ User Stories in this README map to the same IDs/titles used on the board.
 - Cancel bookings via booking detail page.
 - Admin interface for guides, routes, and bookings.
 - Responsive UI with Bootstrap 5.
-- Javascript on-scroll navbar.
+- JavaScript on-scroll navbar.
 - Accessibility enhancements (contrast, alt text, keyboard-friendly).
 - Static/media assets served via **Whitenoise** in production.
 - **Email Notifications**:  
@@ -102,7 +102,7 @@ User Stories in this README map to the same IDs/titles used on the board.
   - In **development**, these are sent to the console backend so developers and assessors can see the message output.
   - In **CI tests**, a locmem backend captures emails to verify delivery.
   - In **production**, the feature is configurable — an SMTP backend (e.g. SendGrid) can be enabled by toggling environment variables, though by default email sending is disabled for stability.
-- **Authentication/Permisions & Profiles**:
+- **Authentication/Permissions & Profiles**:
   - Email is required when creating an account, ensuring every user can receive notifications.
   - Login accepts either **username or email** for convenience.
   - Profiles are auto-created for each user, extendable with extra fields (e.g. phone).
@@ -163,10 +163,10 @@ Examples:
    - **Manual:** In dev, console backend prints the email to the terminal; in prod, enable SMTP via env (documented in README).
 10. **As a user, I want to log in with my email or username, so I don’t have to remember a separate credential.**
     - **Implementation:** core/forms.py LoginForm accepts email or username, updates field label to “Username or Email”; routed via custom LoginView in urls.py (custom login path before django.contrib.auth.urls).
-    - **Tests:Manual:** verify both email+password and username+password paths work on /accounts/login/.
+    - **Tests: Manual:** verify both email+password and username+password paths work on /accounts/login/.
 11. **As a user, I want email to be required at signup, so I can receive notifications and recover my account.**
     - **Implementation:** core/forms.py SignupForm (extends UserCreationForm), adds required, unique email; SignupView uses SignupForm; templates/registration/signup.html uses {{ form.as_p }} so the email field renders automatically.
-    - **Tests:Manual:** signup rejects duplicate/blank emails; visible field + validation errors on the form.
+    - **Tests: Manual:** signup rejects duplicate/blank emails; visible field + validation errors on the form.
 12. **As a site visitor, I want to see all available routes in one place, so that I don’t need to click through each region individually.**
     - **Implementation:** Added `AllRoutesView` in `bookings/views_routes.py` using `django-filter` + `ListView`. Mapped to `/routes/` in `core/urls.py`; template at `templates/pages/routes/all_routes.html`.
     - **Tests: Manual:** Navigating to `/routes/` shows a grid of cards with all routes, regardless of region; pagination visible when >9.
@@ -342,7 +342,7 @@ _(STILL TO COMPLETE: note trade-offs—client-side GPX parsing vs server-side pr
 - CSS validated with W3C Jigsaw (minor non-critical warnings documented where applicable).
 - JS validated
 
-_(STILL TO COMPLETE: add screesnshot here.)_
+_(STILL TO COMPLETE: add screenshot here.)_
 
 ### Accessibility & UX Manual Checks
 
@@ -394,7 +394,7 @@ Production-friendly error pages are provided:
 
 ## Technologies Used
 
-- **Backend:** Django (Python 3.11), Django email backends (console + locmem for tests), Django built in auth system, Django Filters
+- **Backend:** Django (Python 3.11), Django email backends (console + locmem for tests), Django built-in auth system, Django-Filter
 - **Frontend:** Bootstrap 5, Leaflet.js (+ Leaflet GPX plugin), HTML, CSS, JS
 - **Database:** SQLite (dev), Postgres (Heroku recommended)
 - **Testing:** Django test framework, Jest (frontend)
@@ -472,6 +472,27 @@ DEBUG=0
 ALLOWED_HOSTS=your-domain.com, your-heroku-app.herokuapp.com
 CSRF_TRUSTED_ORIGINS=https://your-heroku-app.herokuapp.com,https://your-domain.com
 DATABASE_URL=postgres://...
+```
+
+```
+### Email (dev)
+EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+DEFAULT_FROM_EMAIL="UK Winter Tours <no-reply@example.com>"
+ENABLE_EMAIL_NOTIFICATIONS=1
+
+### Email (CI)
+EMAIL_BACKEND=django.core.mail.backends.locmem.EmailBackend
+ENABLE_EMAIL_NOTIFICATIONS=1
+
+### Email (prod)
+EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+EMAIL_HOST=smtp.sendgrid.net
+EMAIL_HOST_USER=apikey
+EMAIL_HOST_PASSWORD=...
+EMAIL_PORT=587
+EMAIL_USE_TLS=1
+DEFAULT_FROM_EMAIL="UK Winter Tours <no-reply@your-domain.com>"
+ENABLE_EMAIL_NOTIFICATIONS=1
 ```
 
 ---
@@ -635,7 +656,7 @@ In CI, lint checks run in a non-blocking mode initially. Once the codebase is cl
 - **GitHub Actions**: run Django & Jest tests on push/PR
 - **Heroku**: deploy with `Procfile`; run `collectstatic` during release.
 - **Static files**: served by Whitenoise (ensure `MIDDLEWARE` includes it).
-- **Emails** : verified in CI using locmen backend. Console backend used in dev, SMTP in production
+- **Emails**: verified in CI using **locmem** backend. Console backend used in dev, SMTP in production
 
 ### Deployment (Heroku)
 
@@ -736,7 +757,9 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 - Booking form  
   ![Booking Form](assets/images/screenshots/ux/booking.PNG)
 - Booking confirmation  
-  ![Booking Cancellation](assets/images/screenshots/ux/booking_create.PNG)
+  ![Booking Confirmation](assets/images/screenshots/ux/booking_create.PNG)
+- Booking cancellation  
+  ![Booking Cancellation](assets/images/screenshots/ux/booking_cancel.PNG)
 
 ---
 
@@ -807,6 +830,24 @@ _(STILL TO COMPLETE: include Lighthouse run command and key fixes implemented.)_
 - **Bug:** Django’s template language requires spaces around operators in {% if %} conditions. The template used k!='page' instead of k != 'page'.
 - **Fix:** Updated both the Previous and Next link builders to use: {% if k != 'page' %}
 
+### Debugging with Browser DevTools
+
+Throughout development I relied heavily on Chrome DevTools to troubleshoot front-end issues alongside Django’s server logs. Some real examples from this project:
+
+- **GPX maps not displaying:**  
+  Used the **Network** panel to spot 404 errors for `/static/GPX/Scafell.GPX` — revealed a case-sensitivity issue. Renamed the file and updated the template to `/static/gpx/scafell.gpx`; verified the request returned 200 and the map loaded.
+
+- **Booking form CSRF failure:**  
+  When cancelling bookings, DevTools **Network → Headers** showed the POST request returning 403 with “CSRF verification failed.” Checked that the `csrftoken` cookie and `X-CSRFToken` header were missing — fixed by adding `{% csrf_token %}` in the template.
+
+- **Custom 404/500 pages not showing:**  
+  Used **Network** and **Response Preview** to confirm a 404 request was returning the default Django debug page instead of our template. Adjusted `DEBUG` settings and verified the correct HTML template returned with status 404.
+
+- **Filter/pagination not triggering:**  
+  Opened the **Console** to find a `TypeError: form is null` when submitting filters. This pointed to an incorrect form selector; updating the JavaScript query fixed the issue.
+
+Using DevTools to check request status codes, headers, and JavaScript errors sped up front-end debugging and helped verify fixes before committing.
+
 ### Known Issues/Bugs
 
 **Leaflet GPX waypoints/markers affect Lighthouse Accessibility**
@@ -865,7 +906,7 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 - Asynchronous email (Celery).
 - Richer profiles (phone, preferences).
 - Admin email on booking.
-- CTA buttons like subscrieb to newsletter, conatact us, say hello, properly wired using django form handling
+- CTA buttons like subscribe to newsletter, conatact us, say hello, properly wired using django form handling
 
 ---
 
