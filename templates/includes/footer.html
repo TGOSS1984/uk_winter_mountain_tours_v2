@@ -65,19 +65,26 @@
               <form>
                 <div class="input-group">
                   <input type="email" class="form-control" placeholder="Your email">
-                  <button class="btn btn-secondary" type="submit">Subscribe</button>
+                  <a class="btn btn-secondary" href="{% url 'thank_you_subscribe' %}">Subscribe</a>
                 </div>
               </form>
             </div>
 
-            <!-- Contact Us -->
+            <!-- Contact Us (placeholder flow) -->
             <div class="col-md-4 mb-4">
               <h5>Contact Us</h5>
-              <form>
-                <textarea class="form-control mb-2" rows="3" placeholder="Your message"></textarea>
+              <form method="get" action="{% url 'thank_you_contact' %}" novalidate>
+                <label for="contact-message" class="form-label visually-hidden">Your message</label>
+                <textarea id="contact-message" name="message" class="form-control mb-2" rows="3" placeholder="Your message"></textarea>
+
                 <button class="btn btn-outline-dark btn-sm" type="submit">Send</button>
+
+                <p class="text-muted mt-2 mb-0"><small>
+                  This is a placeholder flow for the MVP. In the full version, your message will be saved and emailed.
+                </small></p>
               </form>
             </div>
+
 
             <!-- Placeholder -->
             <div class="col-md-4 mb-4">

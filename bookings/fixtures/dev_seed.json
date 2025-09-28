@@ -5,7 +5,7 @@
   "fields": {
     "name": "Tom Goss",
     "email": "tomgoss84@gmail.com",
-    "phone": "07825751667",
+    "phone": "+1 (234) 567-890",
     "bio": "Experienced Winter Mountaineer"
   }
 },
@@ -15,7 +15,7 @@
   "fields": {
     "name": "Dave Hamilton",
     "email": "tomgoss84@gmail.com",
-    "phone": "07825751667",
+    "phone": "+1 (234) 567-890",
     "bio": "Experienced Winter Mountaineer"
   }
 },
@@ -25,7 +25,7 @@
   "fields": {
     "name": "Beth Kirk",
     "email": "tomgoss84@gmail.com",
-    "phone": "07825751667",
+    "phone": "+1 (234) 567-890",
     "bio": "Experienced Winter Mountaineer"
   }
 },
@@ -35,7 +35,7 @@
   "fields": {
     "name": "Clare Goss",
     "email": "tomgoss84@gmail.com",
-    "phone": "07825751667",
+    "phone": "+1 (234) 567-890",
     "bio": "Experienced Winter Mountaineer"
   }
 },
@@ -47,7 +47,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/helvellyn-striding-swirral.gpx",
     "distance_km": "12.00",
-    "duration_hours": "5.0"
+    "duration_hours": "5.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -58,7 +59,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/blencathra-halls-fell.gpx",
     "distance_km": "9.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -69,7 +71,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/blencathra-sharp-edge.gpx",
     "distance_km": "7.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -80,7 +83,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/pavey-ark-jacks-rake.gpx",
     "distance_km": "8.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -91,18 +95,20 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/scafell-pike-lords-rake.gpx",
     "distance_km": "13.00",
-    "duration_hours": "5.5"
+    "duration_hours": "5.5",
+    "difficulty": "hard"
   }
 },
 {
   "model": "bookings.route",
   "pk": 6,
   "fields": {
-    "name": "Bowfell via ClimbersÆ Traverse",
+    "name": "Bowfell via Climbers� Traverse",
     "region": "lake_district",
     "gpx_path": "routes/lake_district/bowfell-climbers-traverse.gpx",
     "distance_km": "14.00",
-    "duration_hours": "5.0"
+    "duration_hours": "5.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -113,7 +119,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/great-gable.gpx",
     "distance_km": "10.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -124,7 +131,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/pillar.gpx",
     "distance_km": "14.00",
-    "duration_hours": "6.0"
+    "duration_hours": "6.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -135,7 +143,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/fairfield-horseshoe.gpx",
     "distance_km": "17.00",
-    "duration_hours": "7.0"
+    "duration_hours": "7.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -146,7 +155,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/crinkle-crags.gpx",
     "distance_km": "14.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -157,7 +167,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/snowdon-via-crib-goch.gpx",
     "distance_km": "12.00",
-    "duration_hours": "5.0"
+    "duration_hours": "5.0",
+    "difficulty": "severe"
   }
 },
 {
@@ -168,7 +179,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/tryfan-north-face-bristly-ridge.gpx",
     "distance_km": "9.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -179,7 +191,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/ygribin.gpx",
     "distance_km": "11.50",
-    "duration_hours": "4.5"
+    "duration_hours": "4.5",
+    "difficulty": "hard"
   }
 },
 {
@@ -190,7 +203,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/pen-yr-ole-wen.gpx",
     "distance_km": "7.00",
-    "duration_hours": "3.5"
+    "duration_hours": "3.5",
+    "difficulty": "moderate"
   }
 },
 {
@@ -201,7 +215,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/carnedd-dafydd-crib-lem.gpx",
     "distance_km": "14.50",
-    "duration_hours": "6.0"
+    "duration_hours": "6.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -212,7 +227,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/cnicht.gpx",
     "distance_km": "8.60",
-    "duration_hours": "3.3"
+    "duration_hours": "3.3",
+    "difficulty": "moderate"
   }
 },
 {
@@ -223,7 +239,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/moel-siabod.gpx",
     "distance_km": "9.50",
-    "duration_hours": "2.5"
+    "duration_hours": "2.5",
+    "difficulty": "moderate"
   }
 },
 {
@@ -234,7 +251,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/nantlle-ridge.gpx",
     "distance_km": "10.20",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -245,7 +263,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/cadair-idris.gpx",
     "distance_km": "15.00",
-    "duration_hours": "6.0"
+    "duration_hours": "6.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -256,7 +275,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/anteallach.gpx",
     "distance_km": "20.50",
-    "duration_hours": "7.5"
+    "duration_hours": "7.5",
+    "difficulty": "hard"
   }
 },
 {
@@ -267,7 +287,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/aonacheagach.gpx",
     "distance_km": "9.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "severe"
   }
 },
 {
@@ -278,7 +299,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/beinnalligin.gpx",
     "distance_km": "11.00",
-    "duration_hours": "4.8"
+    "duration_hours": "4.8",
+    "difficulty": "hard"
   }
 },
 {
@@ -289,29 +311,32 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/ben-macdui.gpx",
     "distance_km": "17.50",
-    "duration_hours": "6.1"
+    "duration_hours": "6.1",
+    "difficulty": "hard"
   }
 },
 {
   "model": "bookings.route",
   "pk": 24,
   "fields": {
-    "name": "Ben Nevis via CMD ArÛte",
+    "name": "Ben Nevis via CMD Ar�te",
     "region": "scotland",
     "gpx_path": "routes/scotland/ben-nevis-cmd-arete.gpx",
     "distance_km": "20.00",
-    "duration_hours": "7.2"
+    "duration_hours": "7.2",
+    "difficulty": "severe"
   }
 },
 {
   "model": "bookings.route",
   "pk": 25,
   "fields": {
-    "name": "Buachaille Etive M‗r",
+    "name": "Buachaille Etive M�r",
     "region": "scotland",
     "gpx_path": "routes/scotland/buachailleetivemor.gpx",
     "distance_km": "13.70",
-    "duration_hours": "5.3"
+    "duration_hours": "5.3",
+    "difficulty": "hard"
   }
 },
 {
@@ -322,7 +347,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/greycorries.gpx",
     "distance_km": "21.40",
-    "duration_hours": "7.9"
+    "duration_hours": "7.9",
+    "difficulty": "hard"
   }
 },
 {
@@ -333,7 +359,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/liathach.gpx",
     "distance_km": "12.00",
-    "duration_hours": "5.7"
+    "duration_hours": "5.7",
+    "difficulty": "severe"
   }
 },
 {
@@ -344,7 +371,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/ring-of-steall.gpx",
     "distance_km": "16.40",
-    "duration_hours": "6.0"
+    "duration_hours": "6.0",
+    "difficulty": "severe"
   }
 },
 {
@@ -355,7 +383,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/suilven.gpx",
     "distance_km": "20.00",
-    "duration_hours": "6.5"
+    "duration_hours": "6.5",
+    "difficulty": "severe"
   }
 },
 {
@@ -366,7 +395,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/kinder-scout-red-brook.gpx",
     "distance_km": "15.20",
-    "duration_hours": "5.0"
+    "duration_hours": "5.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -377,7 +407,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/bleaklow.gpx",
     "distance_km": "15.50",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "easy"
   }
 },
 {
@@ -388,7 +419,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/chrome-hill-parkhouse.gpx",
     "distance_km": "10.70",
-    "duration_hours": "3.6"
+    "duration_hours": "3.6",
+    "difficulty": "moderate"
   }
 },
 {
@@ -399,7 +431,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/mam-tor.gpx",
     "distance_km": "12.74",
-    "duration_hours": "3.2"
+    "duration_hours": "3.2",
+    "difficulty": "moderate"
   }
 },
 {
@@ -410,7 +443,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/high-seat.gpx",
     "distance_km": "9.30",
-    "duration_hours": "2.5"
+    "duration_hours": "2.5",
+    "difficulty": "easy"
   }
 },
 {
@@ -421,7 +455,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/ingleborough.gpx",
     "distance_km": "15.00",
-    "duration_hours": "3.8"
+    "duration_hours": "3.8",
+    "difficulty": "moderate"
   }
 },
 {
@@ -432,7 +467,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/pen-y-ghent.gpx",
     "distance_km": "10.16",
-    "duration_hours": "3.5"
+    "duration_hours": "3.5",
+    "difficulty": "easy"
   }
 },
 {
@@ -443,7 +479,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/whernside.gpx",
     "distance_km": "18.00",
-    "duration_hours": "5.6"
+    "duration_hours": "5.6",
+    "difficulty": "moderate"
   }
 },
 {
@@ -454,8 +491,138 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/great-shunner-fell.gpx",
     "distance_km": "15.00",
-    "duration_hours": "4.6"
+    "duration_hours": "4.6",
+    "difficulty": "easy"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 39,
+  "fields": {
+    "name": "Wild Boar Fell",
+    "region": "peak_district",
+    "gpx_path": "routes/peak_district/wild-boar-fell.gpx",
+    "distance_km": "11.14",
+    "duration_hours": "3.0",
+    "difficulty": "easy"
+  }
+},
+{
+  "model": "bookings.route",
+  "pk": 40,
+  "fields": {
+    "name": "Pen y fan",
+    "region": "wales",
+    "gpx_path": "routes/wales/pen-y-fan.gpx",
+    "distance_km": "11.18",
+    "duration_hours": "4.0",
+    "difficulty": "moderate"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "customer_name": "",
+    "customer_email": "",
+    "route": 1,
+    "guide": 1,
+    "date": "2025-09-20",
+    "time_slot": "AM",
+    "status": "cancelled",
+    "created_at": "2025-09-07T12:36:25.195Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "customer_name": "",
+    "customer_email": "",
+    "route": 1,
+    "guide": 1,
+    "date": "2025-09-25",
+    "time_slot": "AM",
+    "status": "cancelled",
+    "created_at": "2025-09-08T17:34:29.944Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 3,
+  "fields": {
+    "user": 1,
+    "customer_name": "",
+    "customer_email": "",
+    "route": 4,
+    "guide": 2,
+    "date": "2025-09-24",
+    "time_slot": "AM",
+    "status": "confirmed",
+    "created_at": "2025-09-10T16:03:50.519Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "customer_name": "",
+    "customer_email": "",
+    "route": 16,
+    "guide": 1,
+    "date": "2025-10-08",
+    "time_slot": "AM",
+    "status": "confirmed",
+    "created_at": "2025-09-22T11:12:15.435Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "customer_name": "",
+    "customer_email": "",
+    "route": 1,
+    "guide": 1,
+    "date": "2025-10-27",
+    "time_slot": "AM",
+    "status": "confirmed",
+    "created_at": "2025-09-23T09:45:35.366Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 6,
+  "fields": {
+    "user": 3,
+    "customer_name": "",
+    "customer_email": "",
+    "route": 16,
+    "guide": 4,
+    "date": "2025-11-17",
+    "time_slot": "AM",
+    "status": "cancelled",
+    "created_at": "2025-09-23T10:55:17.922Z"
+  }
+},
+{
+  "model": "bookings.profile",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "phone": ""
+  }
+},
+{
+  "model": "bookings.profile",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "phone": ""
   }
 }
 ]
-

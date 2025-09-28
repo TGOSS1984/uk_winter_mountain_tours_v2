@@ -2,8 +2,25 @@ from django.urls import path
 
 from .views import BookingCreateView, BookingListView, cancel_booking
 
+from django.views.generic import TemplateView
+
 urlpatterns = [
-    path('', BookingListView.as_view(), name='booking_list'),
-    path('new/', BookingCreateView.as_view(), name='booking_create'),
-    path('<int:pk>/cancel/', cancel_booking, name='booking_cancel'),
+    path("", BookingListView.as_view(), name="booking_list"),
+    path("new/", BookingCreateView.as_view(), name="booking_create"),
+    path("<int:pk>/cancel/", cancel_booking, name="booking_cancel"),
+    path(
+        "thank-you/contact/",
+        TemplateView.as_view(template_name="thankyou/contact.html"),
+        name="thank_you_contact",
+    ),
+    path(
+        "thank-you/hello/",
+        TemplateView.as_view(template_name="thankyou/hello.html"),
+        name="thank_you_hello",
+    ),
+    path(
+        "thank-you/subscribe/",
+        TemplateView.as_view(template_name="thankyou/subscribe.html"),
+        name="thank_you_subscribe",
+    ),
 ]

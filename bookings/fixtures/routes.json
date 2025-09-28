@@ -7,7 +7,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/helvellyn-striding-swirral.gpx",
     "distance_km": "12.00",
-    "duration_hours": "5.0"
+    "duration_hours": "5.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -18,7 +19,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/blencathra-halls-fell.gpx",
     "distance_km": "9.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -29,7 +31,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/blencathra-sharp-edge.gpx",
     "distance_km": "7.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -40,7 +43,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/pavey-ark-jacks-rake.gpx",
     "distance_km": "8.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -51,7 +55,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/scafell-pike-lords-rake.gpx",
     "distance_km": "13.00",
-    "duration_hours": "5.5"
+    "duration_hours": "5.5",
+    "difficulty": "hard"
   }
 },
 {
@@ -62,7 +67,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/bowfell-climbers-traverse.gpx",
     "distance_km": "14.00",
-    "duration_hours": "5.0"
+    "duration_hours": "5.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -73,7 +79,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/great-gable.gpx",
     "distance_km": "10.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -84,7 +91,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/pillar.gpx",
     "distance_km": "14.00",
-    "duration_hours": "6.0"
+    "duration_hours": "6.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -95,7 +103,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/fairfield-horseshoe.gpx",
     "distance_km": "17.00",
-    "duration_hours": "7.0"
+    "duration_hours": "7.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -106,7 +115,8 @@
     "region": "lake_district",
     "gpx_path": "routes/lake_district/crinkle-crags.gpx",
     "distance_km": "14.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -117,7 +127,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/snowdon-via-crib-goch.gpx",
     "distance_km": "12.00",
-    "duration_hours": "5.0"
+    "duration_hours": "5.0",
+    "difficulty": "severe"
   }
 },
 {
@@ -128,7 +139,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/tryfan-north-face-bristly-ridge.gpx",
     "distance_km": "9.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "hard"
   }
 },
 {
@@ -139,7 +151,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/ygribin.gpx",
     "distance_km": "11.50",
-    "duration_hours": "4.5"
+    "duration_hours": "4.5",
+    "difficulty": "hard"
   }
 },
 {
@@ -150,7 +163,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/pen-yr-ole-wen.gpx",
     "distance_km": "7.00",
-    "duration_hours": "3.5"
+    "duration_hours": "3.5",
+    "difficulty": "moderate"
   }
 },
 {
@@ -161,7 +175,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/carnedd-dafydd-crib-lem.gpx",
     "distance_km": "14.50",
-    "duration_hours": "6.0"
+    "duration_hours": "6.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -172,7 +187,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/cnicht.gpx",
     "distance_km": "8.60",
-    "duration_hours": "3.3"
+    "duration_hours": "3.3",
+    "difficulty": "moderate"
   }
 },
 {
@@ -183,7 +199,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/moel-siabod.gpx",
     "distance_km": "9.50",
-    "duration_hours": "2.5"
+    "duration_hours": "2.5",
+    "difficulty": "moderate"
   }
 },
 {
@@ -194,7 +211,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/nantlle-ridge.gpx",
     "distance_km": "10.20",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -205,7 +223,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/cadair-idris.gpx",
     "distance_km": "15.00",
-    "duration_hours": "6.0"
+    "duration_hours": "6.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -216,7 +235,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/anteallach.gpx",
     "distance_km": "20.50",
-    "duration_hours": "7.5"
+    "duration_hours": "7.5",
+    "difficulty": "hard"
   }
 },
 {
@@ -227,7 +247,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/aonacheagach.gpx",
     "distance_km": "9.00",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "severe"
   }
 },
 {
@@ -238,7 +259,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/beinnalligin.gpx",
     "distance_km": "11.00",
-    "duration_hours": "4.8"
+    "duration_hours": "4.8",
+    "difficulty": "hard"
   }
 },
 {
@@ -249,7 +271,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/ben-macdui.gpx",
     "distance_km": "17.50",
-    "duration_hours": "6.1"
+    "duration_hours": "6.1",
+    "difficulty": "hard"
   }
 },
 {
@@ -260,7 +283,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/ben-nevis-cmd-arete.gpx",
     "distance_km": "20.00",
-    "duration_hours": "7.2"
+    "duration_hours": "7.2",
+    "difficulty": "severe"
   }
 },
 {
@@ -271,7 +295,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/buachailleetivemor.gpx",
     "distance_km": "13.70",
-    "duration_hours": "5.3"
+    "duration_hours": "5.3",
+    "difficulty": "hard"
   }
 },
 {
@@ -282,7 +307,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/greycorries.gpx",
     "distance_km": "21.40",
-    "duration_hours": "7.9"
+    "duration_hours": "7.9",
+    "difficulty": "hard"
   }
 },
 {
@@ -293,7 +319,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/liathach.gpx",
     "distance_km": "12.00",
-    "duration_hours": "5.7"
+    "duration_hours": "5.7",
+    "difficulty": "severe"
   }
 },
 {
@@ -304,7 +331,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/ring-of-steall.gpx",
     "distance_km": "16.40",
-    "duration_hours": "6.0"
+    "duration_hours": "6.0",
+    "difficulty": "severe"
   }
 },
 {
@@ -315,7 +343,8 @@
     "region": "scotland",
     "gpx_path": "routes/scotland/suilven.gpx",
     "distance_km": "20.00",
-    "duration_hours": "6.5"
+    "duration_hours": "6.5",
+    "difficulty": "severe"
   }
 },
 {
@@ -326,7 +355,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/kinder-scout-red-brook.gpx",
     "distance_km": "15.20",
-    "duration_hours": "5.0"
+    "duration_hours": "5.0",
+    "difficulty": "moderate"
   }
 },
 {
@@ -337,7 +367,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/bleaklow.gpx",
     "distance_km": "15.50",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "easy"
   }
 },
 {
@@ -348,7 +379,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/chrome-hill-parkhouse.gpx",
     "distance_km": "10.70",
-    "duration_hours": "3.6"
+    "duration_hours": "3.6",
+    "difficulty": "moderate"
   }
 },
 {
@@ -359,7 +391,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/mam-tor.gpx",
     "distance_km": "12.74",
-    "duration_hours": "3.2"
+    "duration_hours": "3.2",
+    "difficulty": "moderate"
   }
 },
 {
@@ -370,7 +403,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/high-seat.gpx",
     "distance_km": "9.30",
-    "duration_hours": "2.5"
+    "duration_hours": "2.5",
+    "difficulty": "easy"
   }
 },
 {
@@ -381,7 +415,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/ingleborough.gpx",
     "distance_km": "15.00",
-    "duration_hours": "3.8"
+    "duration_hours": "3.8",
+    "difficulty": "moderate"
   }
 },
 {
@@ -392,7 +427,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/pen-y-ghent.gpx",
     "distance_km": "10.16",
-    "duration_hours": "3.5"
+    "duration_hours": "3.5",
+    "difficulty": "easy"
   }
 },
 {
@@ -403,7 +439,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/whernside.gpx",
     "distance_km": "18.00",
-    "duration_hours": "5.6"
+    "duration_hours": "5.6",
+    "difficulty": "moderate"
   }
 },
 {
@@ -414,7 +451,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/great-shunner-fell.gpx",
     "distance_km": "15.00",
-    "duration_hours": "4.6"
+    "duration_hours": "4.6",
+    "difficulty": "easy"
   }
 },
 {
@@ -425,7 +463,8 @@
     "region": "peak_district",
     "gpx_path": "routes/peak_district/wild-boar-fell.gpx",
     "distance_km": "11.14",
-    "duration_hours": "3.0"
+    "duration_hours": "3.0",
+    "difficulty": "easy"
   }
 },
 {
@@ -436,7 +475,8 @@
     "region": "wales",
     "gpx_path": "routes/wales/pen-y-fan.gpx",
     "distance_km": "11.18",
-    "duration_hours": "4.0"
+    "duration_hours": "4.0",
+    "difficulty": "moderate"
   }
 }
 ]

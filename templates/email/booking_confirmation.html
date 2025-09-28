@@ -1,0 +1,4 @@
+<p>Hi {{ user.first_name|default:user.username }},</p>
+<p>Your booking for <strong>{{ booking.route.name }}</strong> on {{ booking.date|date:"l, j M Y" }} is confirmed.</p>
+<p>Thanks,<br>UK Winter Mountain Tours</p>
+

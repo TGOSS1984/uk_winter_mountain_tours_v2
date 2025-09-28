@@ -1,0 +1,8 @@
+Hi {{ user.first_name|default:user.username }},
+
+Your booking for {{ booking.route.name }} on {{ booking.date|date:"l, j M Y" }} has been cancelled.
+
+If this wasn’t you, reply to this email.
+
+Thanks,
+UK Winter Mountain Tours
