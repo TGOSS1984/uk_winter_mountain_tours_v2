@@ -19,4 +19,4 @@ class RouteFilter(filters.FilterSet):
 
     class Meta:
         model = Route
-        fields = ["region", "difficulty"]  # choices come from your model
+        fields = ["region", "difficulty"]  # choices come from model

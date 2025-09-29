@@ -474,17 +474,24 @@ CSRF_TRUSTED_ORIGINS=https://your-heroku-app.herokuapp.com,https://your-domain.c
 DATABASE_URL=postgres://...
 ```
 
-```
 ### Email (dev)
+
+```
 EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 DEFAULT_FROM_EMAIL="UK Winter Tours <no-reply@example.com>"
 ENABLE_EMAIL_NOTIFICATIONS=1
+```
 
 ### Email (CI)
+
+```
 EMAIL_BACKEND=django.core.mail.backends.locmem.EmailBackend
 ENABLE_EMAIL_NOTIFICATIONS=1
+```
 
 ### Email (prod)
+
+```
 EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
 EMAIL_HOST=smtp.sendgrid.net
 EMAIL_HOST_USER=apikey
@@ -756,9 +763,9 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
   ![Region Page](assets/images/screenshots/ux/region_gpx.PNG)
 - Booking form  
   ![Booking Form](assets/images/screenshots/ux/booking.PNG)
-- Booking confirmation  
+- Booking Confirmation  
   ![Booking Confirmation](assets/images/screenshots/ux/booking_create.PNG)
-- Booking cancellation  
+- Booking Cancellation  
   ![Booking Cancellation](assets/images/screenshots/ux/booking_cancel.PNG)
 
 ---
@@ -906,7 +913,7 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 - Asynchronous email (Celery).
 - Richer profiles (phone, preferences).
 - Admin email on booking.
-- CTA buttons like subscribe to newsletter, conatact us, say hello, properly wired using django form handling
+- CTA buttons like subscribe to newsletter, contact us, say hello, properly wired using django form handling
 
 ---
 
