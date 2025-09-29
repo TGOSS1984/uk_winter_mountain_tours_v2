@@ -70,10 +70,8 @@
     {% for r in routes %}
     <div class="col-md-4">
       <div class="card h-100 shadow-sm">
-        <div class="ratio ratio-16x9">
-          <!-- optional: a generic region image or placeholder -->
-          <img src="{% static 'images/region_cards/kinderscout600pxw.webp' %}" class="card-img-top object-fit-cover"
-            alt="{{ r.name }}">
+        <div class="ratio ratio-4x3">
+          <img src="{{ r.image_url }}" class="object-fit-cover w-100 h-100" alt="{{ r.name }}">
         </div>
         <div class="card-body">
           <h5 class="card-title mb-1">{{ r.name }}</h5>

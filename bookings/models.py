@@ -8,6 +8,11 @@ from django.db.models import OneToOneField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from django.utils.text import slugify
+from django.templatetags.static import static
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.contrib.staticfiles import finders
+
 
 class Guide(models.Model):
     name = models.CharField(max_length=100)
@@ -52,6 +57,36 @@ class Route(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.get_region_display()})"
+
+    @property
+    def image_url(self) -> str:
+        """
+        1) slug-based image (webp/jpg/png)
+        2) region fallback (webp)
+        3) global placeholder
+        Works in dev (finders) and prod (storage).
+        """
+
+        def exists(rel_path: str) -> bool:
+            return bool(finders.find(rel_path) or staticfiles_storage.exists(rel_path))
+
+        slug = slugify(self.name or "")
+        candidates = [
+            f"images/routes/{slug}.webp",
+            f"images/routes/{slug}.jpg",
+            f"images/routes/{slug}.png",
+        ]
+        for rel in candidates:
+            if exists(rel):
+                return static(rel)
+
+        region_key = slugify(self.get_region_display() or "")
+        if region_key:
+            region_rel = f"images/routes/fallbacks/{region_key}.webp"
+            if exists(region_rel):
+                return static(region_rel)
+
+        return static("images/hero/ben-nevis-scenic-hero.webp")
 
 
 TIME_SLOTS = [("AM", "Morning (8:00–12:00)"), ("PM", "Afternoon (13:00–17:00)")]
