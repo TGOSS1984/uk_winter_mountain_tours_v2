@@ -13,6 +13,8 @@ from django.templatetags.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.contrib.staticfiles import finders
 
+from pathlib import Path
+
 
 class Guide(models.Model):
     name = models.CharField(max_length=100)
@@ -87,6 +89,92 @@ class Route(models.Model):
                 return static(region_rel)
 
         return static("images/hero/ben-nevis-scenic-hero.webp")
+
+    def region_slug(self) -> str:
+        # 'lake_district' -> 'lake-district'
+        return slugify(self.get_region_display() or self.region or "")
+
+    def region_anchor(self) -> str | None:
+        """
+        Map this route to the section id used on the region template.
+        Uses GPX filename stem (safest) → anchor id.
+        """
+        stem = Path(self.gpx_path or "").stem.lower()
+
+        # Lake District anchors (add other regions as you wire them)
+        anchor_map = {
+            # --- Lake District ---
+            "helvellyn-striding-swirral": "route-helvellyn",
+            "blencathra-halls-fell": "route-blencathra-halls",
+            "blencathra-sharp-edge": "route-blencathra-sharp",
+            "pavey-ark-jacks-rake": "route-pavey",
+            "scafell-pike-lords-rake": "route-scafell",
+            "bowfell-climbers-traverse": "route-bowfell",
+            "great-gable": "route-gable",
+            "pillar": "route-pillar",
+            "fairfield-horseshoe": "route-fairfield",
+            "crinkle-crags": "route-crinkle",
+            # --- Wales ---
+            "snowdon-via-crib-goch": "route-snowdon-crib-goch",
+            "tryfan-north-face-bristly-ridge": "route-tryfan-bristly",
+            "ygribin": "route-ygribin",
+            "pen-yr-ole-wen": "route-pen-yr-ole-wen",
+            "carnedd-dafydd-crib-lem": "route-carnedd-dafydd-crib-lem",
+            "cnicht": "route-cnicht",
+            "moel-siabod": "route-moel-siabod",
+            "nantlle-ridge": "route-nantlle-ridge",
+            "cadair-idris": "route-cadair-idris",
+            "pen-y-fan": "route-pen-y-fan",
+            # --- Peak District & Yorkshire Dales ---
+            "kinder-scout-red-brook": "route-kinder-scout-red-brook",
+            "bleaklow": "route-bleaklow",
+            "chrome-hill-parkhouse": "route-chrome-hill-parkhouse",
+            "mam-tor": "route-mam-tor",
+            "high-seat": "route-high-seat",
+            "ingleborough": "route-ingleborough",
+            "pen-y-ghent": "route-pen-y-ghent",
+            "whernside": "route-whernside",
+            "great-shunner-fell": "route-great-shunner-fell",
+            "wild-boar-fell": "route-wild-boar-fell",
+            # --- Scotland ---
+            # An Teallach
+            "anteallach": "route-an-teallach",
+            "an-teallach": "route-an-teallach",
+            # Aonach Eagach
+            "aonacheagach": "route-aonach-eagach",
+            "aonach-eagach": "route-aonach-eagach",
+            # Beinn Alligin
+            "beinnalligin": "route-beinn-alligin",
+            "beinn-alligin": "route-beinn-alligin",
+            # Ben Macdui
+            "ben-macdui": "route-ben-macdui",
+            # Ben Nevis via CMD Arête
+            "ben-nevis-cmd-arete": "route-ben-nevis-cmd-arete",
+            # Buachaille Etive Mòr
+            "buachailleetivemor": "route-buachaille-etive-mor",
+            "buachaille-etive-mor": "route-buachaille-etive-mor",
+            # Grey Corries
+            "greycorries": "route-grey-corries",
+            "grey-corries": "route-grey-corries",
+            # Liathach
+            "liathach": "route-liathach",
+            # Ring of Steall
+            "ring-of-steall": "route-ring-of-steall",
+            # Suilven
+            "suilven": "route-suilven",
+        }
+
+        return anchor_map.get(stem)
+
+    @property
+    def region_route_url(self) -> str:
+        """
+        Absolute path to the region page, with #anchor if known.
+        Example: /regions/lake-district/#route-helvellyn
+        """
+        base = f"/regions/{self.region_slug()}/"
+        anchor = self.region_anchor()
+        return f"{base}#{anchor}" if anchor else base
 
 
 TIME_SLOTS = [("AM", "Morning (8:00–12:00)"), ("PM", "Afternoon (13:00–17:00)")]

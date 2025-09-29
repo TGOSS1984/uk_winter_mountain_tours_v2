@@ -297,6 +297,10 @@ UK_WINTER_MOUNTAIN_TOURS_V2/
 ├── pytest.ini # Pytest config
 ```
 
+**Note on `assets/` vs `static/`**
+
+For this project I kept all custom images and front-end assets inside an `assets/` folder, referenced in `STATICFILES_DIRS`. This works fine — Django collects everything into `staticfiles/` at deploy time — but a more conventional pattern is to keep app-specific static files inside each app’s own `static/` directory (e.g. `bookings/static/bookings/...`). That approach can simplify path lookups, avoid confusion between development and production, and make `staticfiles_storage` checks (e.g. for dynamic image fallbacks) more seamless. If starting fresh, using Django’s default `static/` layout per app would be cleaner.
+
 ---
 
 ## Rationale & Design Decisions
