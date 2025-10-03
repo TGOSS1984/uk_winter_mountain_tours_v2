@@ -9,6 +9,10 @@
 ![Django](https://img.shields.io/badge/django-5.1-brightgreen?logo=django)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+---
+
+![Image from mockup](assets/images/screenshots/ux/homepage_mockup.PNG)
+
 ## Introduction
 
 A full-stack Django web application providing guided winter mountain tours across the UK.  
@@ -25,8 +29,6 @@ Testing and continuous integration also played a much greater role in this proje
 Although the project already delivers a complete and working product, there remains room for future improvements. I can see scope for features such as asynchronous email delivery, richer profile information, or enhanced admin dashboards. The current build represents a solid foundation, but it also leaves space for iteration, refinement, and further learning.
 
 In short, this project has been both a technical and personal milestone, combining my passion for the outdoors with practical full-stack development skills, and showing me how much can be achieved when good design, careful structure, and persistence come together.
-
-![Image from mockup](assets/images/screenshots/ux/homepage_mockup.PNG)
 
 ---
 
@@ -125,63 +127,81 @@ User Stories in this README map to the same IDs/titles used on the board.
 Examples:
 
 1. **As a user, I want to browse tours in different regions, so I can decide where to hike.**
+   - **Issue:** [US-01]
    - **Implementation:** Region pages at `templates/pages/regions/` (`lake_district.html`, `peak_district.html`, `scotland.html`, `wales.html`); data seeded from `bookings/fixtures/routes.json`
    - **URLs:** `/regions/lake-district/`, `/regions/peak-district/`, `/regions/scotland/`, `/regions/wales/`
    - **Tests:** `bookings/tests/test_views.py` (region pages render routes)
 
 2. **As a user, I want to view routes on a map with elevation paths, so I can plan my day.**
+   - **Issue:** [US-02]
    - **Implementation:** Leaflet init inside the region templates in `templates/pages/regions/*.html`; GPX files under `static/gpx/`
    - **Tests:** `bookings/tests/test_views.py` (map container present); **Manual:** verify GPX overlay renders
 
 3. **As a user, I want to book a tour and receive confirmation, so I can secure my spot.**
+   - **Issue:** [US-03]
    - **Implementation:** `bookings/views.py` (create view), `bookings/models.py` (`Booking`), form template `templates/bookings/booking_form.html`
    - **Tests:** `bookings/tests/test_forms.py` (valid form), `bookings/tests/test_views.py` (create view happy path); **Manual:** success flash/message
 
 4. **As a user, I want to cancel a booking if my plans change.**
+   - **Issue:** [US-04]
    - **Implementation:** `bookings/views.py` (cancel view/endpoint), cancel UI in `templates/bookings/booking_list.html`
    - **Tests:** `bookings/tests/test_views.py` (cancel flow)
 
 5. **As an admin, I want to add/edit guides and routes, so I can keep offerings up to date.**
+   - **Issue:** [US-05]
    - **Implementation:** Django Admin `bookings/admin.py`
    - **Tests:** **Manual:** CRUD in Admin (create/edit/delete)
 
 6. **As an admin, I want to seed routes/guides from fixtures, so the database can be reset easily.**
+   - **Issue:** [US-06]
    - **Implementation:** Fixtures `bookings/fixtures/dev_seed.json`, `bookings/fixtures/routes.json`
    - **Tests:** **Manual:** `python manage.py loaddata dev_seed.json routes.json`; `dumpdata` documented
 
 7. **As a visitor, I want the site to be accessible on mobile, so I can use it while travelling.**
+   - **Issue:** [US-07]
    - **Implementation:** Responsive Bootstrap templates in `templates/pages/*.html` and `templates/includes/*`; Leaflet mobile support
    - **Tests:** **Manual:** device/browser checks; Lighthouse Mobile screenshots in `docs/screenshots/`
 
 8. **As a user, I want the site to be performant and accessible, so I can navigate without issues.**
+   - **Issue:** [US-08]
    - **Implementation:** Contrast/focus styles (Leaflet control CSS), semantic headings, ARIA labels in templates
    - **Tests:** **Manual:** Lighthouse ≥ 90 Accessibility; Axe audit results
 
 9. **As a user, I want to receive an email when I book or cancel a tour, so I have a clear record.**
-   - **Implementation:** Email service in bookings/services.py (transaction-safe via on_commit); templates in templates/email/booking_confirmation.{txt,html} and booking_cancellation.{txt,html}; wired in bookings/views.py (BookingCreateView.form_valid() and cancel_booking). Feature-flagged by ENABLE_EMAIL_NOTIFICATIONS with DEFAULT_FROM_EMAIL + EMAIL_BACKEND in settings/env.
-   - **Tests:** bookings/tests/test_emails.py (uses TransactionTestCase + locmem backend).
+   - **Issue:** [US-09]
+   - **Implementation:** Email service in `bookings/services.py` (transaction-safe via on_commit); templates in `templates/email/booking_confirmation.{txt,html}` and `booking_cancellation.{txt,html}`; wired in `bookings/views.py` (BookingCreateView.form_valid() and cancel_booking). Feature-flagged by ENABLE_EMAIL_NOTIFICATIONS with DEFAULT_FROM_EMAIL + EMAIL_BACKEND in settings/env.
+   - **Tests:** `bookings/tests/test_emails.py` (uses TransactionTestCase + locmem backend).
    - **Manual:** In dev, console backend prints the email to the terminal; in prod, enable SMTP via env (documented in README).
+
 10. **As a user, I want to log in with my email or username, so I don’t have to remember a separate credential.**
-    - **Implementation:** core/forms.py LoginForm accepts email or username, updates field label to “Username or Email”; routed via custom LoginView in urls.py (custom login path before django.contrib.auth.urls).
-    - **Tests: Manual:** verify both email+password and username+password paths work on /accounts/login/.
+    - **Issue:** [US-10]
+    - **Implementation:** `core/forms.py` LoginForm accepts email or username, updates field label to “Username or Email”; routed via custom LoginView in `urls.py` (custom login path before django.contrib.auth.urls).
+    - **Tests:** **Manual:** verify both email+password and username+password paths work on /accounts/login/.
+
 11. **As a user, I want email to be required at signup, so I can receive notifications and recover my account.**
-    - **Implementation:** core/forms.py SignupForm (extends UserCreationForm), adds required, unique email; SignupView uses SignupForm; templates/registration/signup.html uses {{ form.as_p }} so the email field renders automatically.
-    - **Tests: Manual:** signup rejects duplicate/blank emails; visible field + validation errors on the form.
+    - **Issue:** [US-11]
+    - **Implementation:** `core/forms.py` SignupForm (extends UserCreationForm), adds required, unique email; SignupView uses SignupForm; templates/registration/signup.html uses {{ form.as_p }} so the email field renders automatically.
+    - **Tests:** **Manual:** signup rejects duplicate/blank emails; visible field + validation errors on the form.
+
 12. **As a site visitor, I want to see all available routes in one place, so that I don’t need to click through each region individually.**
+    - **Issue:** [US-12]
     - **Implementation:** Added `AllRoutesView` in `bookings/views_routes.py` using `django-filter` + `ListView`. Mapped to `/routes/` in `core/urls.py`; template at `templates/pages/routes/all_routes.html`.
-    - **Tests: Manual:** Navigating to `/routes/` shows a grid of cards with all routes, regardless of region; pagination visible when >9.
+    - **Tests:** **Manual:** Navigating to `/routes/` shows a grid of cards with all routes, regardless of region; pagination visible when >9.
 
 13. **As a site visitor, I want to filter routes by difficulty, so that I can quickly find tours that match my ability.**
+    - **Issue:** [US-13]
     - **Implementation:** `RouteFilter` in `bookings/filters.py` includes `difficulty` as a filterable field. Template renders a `<select>` bound to this filter.
-    - **Tests: Manual:** Applying “Difficulty = Severe” hides all other routes; only matching routes appear in the card grid.
+    - **Tests:** **Manual:** Applying “Difficulty = Severe” hides all other routes; only matching routes appear in the card grid.
 
 14. **As a site visitor, I want to narrow down results by distance and duration, so that I can plan around my available time.**
+    - **Issue:** [US-14]
     - **Implementation:** `RouteFilter` defines `distance_min`, `distance_max`, `duration_min`, `duration_max` as numeric filters. Fields render in the filter form.
-    - **Tests: Manual:** Entering “Min distance 8 km / Max distance 12 km” narrows results correctly; only routes in that range are shown.
+    - **Tests:** **Manual:** Entering “Min distance 8 km / Max distance 12 km” narrows results correctly; only routes in that range are shown.
 
 15. **As a site visitor, I want to page through results, so that I can easily browse even when there are many routes.**
+    - **Issue:** [US-15]
     - **Implementation:** `AllRoutesView` uses `paginate_by = 9`. Template includes pagination controls that preserve querystring filters.
-    - **Tests: Manual:** When more than 9 routes are returned, clicking “Next”/“Previous” moves between pages and keeps filters applied.
+    - **Tests:** **Manual:** When more than 9 routes are returned, clicking “Next”/“Previous” moves between pages and keeps filters applied.
 
 **Acceptance Criteria Template**
 
@@ -398,12 +418,23 @@ Production-friendly error pages are provided:
 
 ## Technologies Used
 
-- **Backend:** Django (Python 3.11), Django email backends (console + locmem for tests), Django built-in auth system, Django-Filter
-- **Frontend:** Bootstrap 5, Leaflet.js (+ Leaflet GPX plugin), HTML, CSS, JS
-- **Database:** SQLite (dev), Postgres (Heroku recommended)
-- **Testing:** Django test framework, Jest (frontend)
-- **DevOps:** Heroku, GitHub Actions (planned/partial)
-- **Linting:** Ruff, ESLint/Prettier
+- [![Python][Python.org]][Python-url]
+- [![Django][Django.com]][Django-url]
+- [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+- [![JavaScript][JavaScript.com]][JavaScript-url]
+- [![HTML5][HTML5.com]][HTML5-url]
+- [![CSS3][CSS3.com]][CSS3-url]
+- [![Leaflet][Leaflet.com]][Leaflet-url]
+- [![Font Awesome][FontAwesome.com]][FontAwesome-url]
+- [![Heroku][Heroku.com]][Heroku-url]
+- [![GitHub Actions][GitHubActions.com]][GitHubActions-url]
+
+* **Backend:** Django (Python 3.11), Django email backends (console + locmem for tests), Django built-in auth system, Django-Filter
+* **Frontend:** Bootstrap 5, Leaflet.js (+ Leaflet GPX plugin), HTML, CSS, JS
+* **Database:** SQLite (dev), Postgres (Heroku recommended)
+* **Testing:** Django test framework, Jest (frontend)
+* **DevOps:** Heroku, GitHub Actions (planned/partial)
+* **Linting:** Ruff, ESLint/Prettier
 
 ---
 
@@ -777,15 +808,27 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 ## Lighthouse Results
 
 - Performance  
-  ![Placeholder](docs/screenshots/lighthouse-performance.png)
+  ![Performance](assets/images/screenshots/tests/lighthouse_home_performance.PNG)
 - Accessibility  
-  ![Placeholder](docs/screenshots/lighthouse-accessibility.png)
+  ![Accessibility ](assets/images/screenshots/tests/lighthouse_home_accessibility.PNG)
 - Best Practices  
-  ![Placeholder](docs/screenshots/lighthouse-bestpractices.png)
+  ![Best Practices ](assets/images/screenshots/tests/lighthouse_home_best_practices.PNG)
 - SEO  
-  ![Placeholder](docs/screenshots/lighthouse-seo.png)
+  ![SEO](assets/images/screenshots/tests/lighthouse_home_SEO.PNG)
 
-_(STILL TO COMPLETE: include Lighthouse run command and key fixes implemented.)_
+### 🔧 Lighthouse Performance Improvements
+
+It is noted that performance score could be improved, hoiwever here are some of the steps taken to try and improve it so far:
+
+- **Google Fonts optimisation** — replaced `@import` in CSS with `<link>` tags and `preconnect` hints in `base.html` so fonts load earlier and don’t block rendering.
+- **Hero image preloading** — added `<link rel="preload" as="image">` for key hero images to improve **Largest Contentful Paint (LCP)**. Unique hero images on certain pages are preloaded via the `{% block extra_head %}` block.
+- **Image delivery improvements**
+  - Converted and served images in modern formats (WebP) where supported.
+  - Added explicit `width` and `height` attributes to reduce layout shifts.
+  - Applied `loading="lazy"` and `decoding="async"` to non-critical, below-the-fold images to defer loading until needed.
+- **JavaScript execution** — deferred non-essential scripts (`defer` attribute) so they don’t block initial paint.
+- **Preconnect hints** — added preconnects to external font/CDN domains to speed up DNS and TLS handshakes.
+- **Responsive images** — used `srcset` and `sizes` for large hero and route images to avoid downloading unnecessarily large files on mobile.
 
 ---
 
@@ -918,6 +961,7 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 - Richer profiles (phone, preferences).
 - Admin email on booking.
 - CTA buttons like subscribe to newsletter, contact us, say hello, properly wired using django form handling
+- Further improvements to Performance / Lighthouse score
 
 ---
 
@@ -942,5 +986,47 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 - **AI assistance (ChatGPT)** – used as a support tool for documentation tasks such as README formatting, template examples, to-do checklists, and structuring notes.  
   All coding, testing, and implementation decisions were completed by me.
 - **Images** – Logo created by Tom Goss, gallery images actual photos from winter hikes, other images google images
+- **Why Section** – Inspired by Code Institute Love Running Project
+
+---
+
+[US-01]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/10
+[US-02]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/6
+[US-03]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/2
+[US-04]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/9
+[US-05]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/8
+[US-06]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/5
+[US-07]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/11
+[US-08]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/6
+[US-09]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/2
+[US-10]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/1
+[US-11]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/1
+[US-12]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
+[US-13]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
+[US-14]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
+[US-15]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
+
+---
+
+[Python.org]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[Python-url]: https://www.python.org/
+[Django.com]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
+[Django-url]: https://www.djangoproject.com/
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com/
+[JavaScript.com]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[HTML5.com]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[HTML5-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
+[CSS3.com]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[CSS3-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[Leaflet.com]: https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=leaflet&logoColor=white
+[Leaflet-url]: https://leafletjs.com/
+[FontAwesome.com]: https://img.shields.io/badge/Font%20Awesome-528DD7?style=for-the-badge&logo=fontawesome&logoColor=white
+[FontAwesome-url]: https://fontawesome.com/
+[Heroku.com]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
+[Heroku-url]: https://www.heroku.com/
+[GitHubActions.com]: https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white
+[GitHubActions-url]: https://github.com/features/actions
 
 ---

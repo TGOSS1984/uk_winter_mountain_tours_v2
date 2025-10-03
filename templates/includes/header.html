@@ -106,7 +106,8 @@
 </nav>
 
 <!-- MOBILE OFFCANVAS MENU -->
-<div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileNav" aria-label="Mobile menu">
+<div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileNav" role="dialog" aria-modal="true"
+  aria-label="Mobile menu">
   <div class="offcanvas-header px-4">
     <a class="navbar-brand" href="{% url 'index' %}">
       <img src="{% static 'images/logo-white-text.png' %}" alt="Logo" width="120">
