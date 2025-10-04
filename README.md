@@ -874,10 +874,12 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
 | ------------------------- | ---------- | ----------: | ------------: | -------------: | --: |
 | `/` (Home)                | 2025-10-03 |          67 |           100 |            100 | 100 |
 | `/about/` (About)         | 2025-10-03 |          65 |           100 |            100 | 100 |
-| `/regions/lake-district/` | 2025-10-03 |          xx |            xx |             xx |  xx |
+| `/regions/lake-district/` | 2025-10-03 |          63 |            xx |            100 | 100 |
 | `/routes/` (All Routes)   | 2025-10-03 |          64 |           100 |            100 | 100 |
 
 > \_Scores taken from Chrome DevTools Lighthouse audit on deployed Heroku app (desktop).
+
+**On Region pages**: Accessibility issues with GPX maps - referenced in known issues / bugs
 
 ### 🔧 Lighthouse Performance Improvements
 
