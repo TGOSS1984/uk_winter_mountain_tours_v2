@@ -503,6 +503,11 @@ hr {
   border-radius: .5rem;
 }
 
+/* Smooth native scrolling + offset for anchored sections */
+html { scroll-behavior: smooth; }
+.route-section { scroll-margin-top: 60px; } /* match headerOffset */
+
+
   /*Footer*/
 
   .footer-left {

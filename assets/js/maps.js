@@ -194,11 +194,36 @@ if (document.readyState === 'loading') {
   initRouteMaps();
 }
 
-// Smooth scroll for “View Route”
-document.querySelectorAll('.scroll-link').forEach(link => {
+// Smooth scroll for “View Route” links that point to on-page anchors
+document.querySelectorAll('a.scroll-link[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.dataset.target);
-    if (target) window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+    const hash = link.getAttribute('href');      // e.g. "#route-snowdon-crib-goch"
+    const target = document.querySelector(hash); // find the section by id
+
+    if (!target) return; // no matching element; let the browser do its thing
+
+    e.preventDefault();  // we’ll handle the scroll ourselves
+    const headerOffset = 60; // adjust for your sticky header height
+    const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    history.replaceState(null, '', hash); // keep URL hash in sync
+
+    // optional a11y: move focus to the section without jumping
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
   });
 });
+
+// Optional: when landing on a URL with a hash, offset the initial jump
+window.addEventListener('load', () => {
+  if (location.hash) {
+    const target = document.querySelector(location.hash);
+    if (target) {
+      const headerOffset = 60;
+      const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: y, behavior: 'auto' });
+    }
+  }
+});
+

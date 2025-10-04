@@ -12,7 +12,8 @@
 <section class="hero-section d-flex align-items-center">
   <div class="container-fluid">
     <div class="row flex-column-reverse flex-lg-row">
-      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+      <div
+        class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
         <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Lake District Routes</h1>
         <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">Experience the Wainwrights of the Lake District</p>
         <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Book Now</a>
@@ -20,9 +21,8 @@
       <div class="col-lg-6 p-0">
         <picture>
           <source media="(min-width: 1600px)" srcset="{% static 'images/hero/hero-striding.webp' %}">
-          <img src="{% static 'images/hero/hero-striding.webp' %}"
-               alt="Striding Edge in winter"
-               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+          <img src="{% static 'images/hero/hero-striding.webp' %}" alt="Striding Edge in winter"
+            class="img-fluid w-100 h-100 object-fit-cover hero-img">
         </picture>
       </div>
     </div>
@@ -30,23 +30,26 @@
 </section>
 
 <div class="container py-5">
-  <h1 class="mb-4 text-center">Lake District Walking Routes</h1>
-  <p>The Lake District, a UNESCO World Heritage Site, is home to England’s highest peaks, including Scafell Pike. Its dramatic fells, glacial valleys, and mirror-like lakes have inspired poets and artists for centuries, from William Wordsworth to Beatrix Potter. Shaped by both ancient volcanic activity and glacial erosion, the region holds a unique place in British cultural and natural history.</p>
+  <h2 class="mb-4 text-center">Lake District Walking Routes</h2>
+  <p>The Lake District, a UNESCO World Heritage Site, is home to England’s highest peaks, including Scafell Pike. Its
+    dramatic fells, glacial valleys, and mirror-like lakes have inspired poets and artists for centuries, from William
+    Wordsworth to Beatrix Potter. Shaped by both ancient volcanic activity and glacial erosion, the region holds a
+    unique place in British cultural and natural history.</p>
   <figure class="text-center">
-      <blockquote class="blockquote sub-heading-color">
-        <p><em>"There is no such thing as bad weather, only inappropriate clothing."</em></p>
-      </blockquote>
-      <figcaption class="blockquote-footer">
-        <cite title="Source Title">Alfred Wainwright</cite>
-      </figcaption>
-    </figure>
+    <blockquote class="blockquote sub-heading-color">
+      <p><em>"There is no such thing as bad weather, only inappropriate clothing."</em></p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      <cite title="Source Title">Alfred Wainwright</cite>
+    </figcaption>
+  </figure>
   <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col">
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">Helvellyn via Striding/Swirral Edge</h5>
           <p class="card-text">A dramatic horseshoe route with exhilarating ridge walking.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-helvellyn">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-helvellyn">View Route</a>
         </div>
       </div>
     </div>
@@ -56,7 +59,7 @@
         <div class="card-body">
           <h5 class="card-title">Blencathra via Hall's Fell Ridge</h5>
           <p class="card-text">A direct and steep ascent from the south side.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-blencathra-halls">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-blencathra-halls">View Route</a>
         </div>
       </div>
     </div>
@@ -66,7 +69,7 @@
         <div class="card-body">
           <h5 class="card-title">Blencathra via Sharp Edge</h5>
           <p class="card-text">A thrilling scramble along one of the Lake District's most famous ridges.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-blencathra-sharp">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-blencathra-sharp">View Route</a>
         </div>
       </div>
     </div>
@@ -76,7 +79,7 @@
         <div class="card-body">
           <h5 class="card-title">Pavey Ark via Jack's Rake</h5>
           <p class="card-text">A classic scramble up the face of Pavey Ark.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-pavey">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-pavey">View Route</a>
         </div>
       </div>
     </div>
@@ -86,7 +89,7 @@
         <div class="card-body">
           <h5 class="card-title">Scafell Pike via Lord's Rake</h5>
           <p class="card-text">A rugged alternative ascent of England’s highest peak.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-scafell">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-scafell">View Route</a>
         </div>
       </div>
     </div>
@@ -96,7 +99,7 @@
         <div class="card-body">
           <h5 class="card-title">Bowfell via Climbers’ Traverse</h5>
           <p class="card-text">A scenic hidden path along the base of Bowfell Buttress.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-bowfell">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-bowfell">View Route</a>
         </div>
       </div>
     </div>
@@ -106,7 +109,7 @@
         <div class="card-body">
           <h5 class="card-title">Great Gable</h5>
           <p class="card-text">A historic peak with breathtaking views over Wasdale and Borrowdale.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-gable">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-gable">View Route</a>
         </div>
       </div>
     </div>
@@ -116,7 +119,7 @@
         <div class="card-body">
           <h5 class="card-title">Pillar</h5>
           <p class="card-text">Remote and dramatic, best accessed via the High Level Route.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-pillar">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-pillar">View Route</a>
         </div>
       </div>
     </div>
@@ -126,7 +129,7 @@
         <div class="card-body">
           <h5 class="card-title">Fairfield Horseshoe</h5>
           <p class="card-text">A high-level circuit walk from Ambleside with continuous views.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-fairfield">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-fairfield">View Route</a>
         </div>
       </div>
     </div>
@@ -136,7 +139,7 @@
         <div class="card-body">
           <h5 class="card-title">Crinkle Crags</h5>
           <p class="card-text">A thrilling undulating ridge walk near Great Langdale.</p>
-          <a class="btn map-btn scroll-link" data-target="#route-crinkle">View Route</a>
+          <a class="btn map-btn scroll-link" href="#route-crinkle">View Route</a>
         </div>
       </div>
     </div>
@@ -148,11 +151,13 @@
   <div class="container">
     <h2>Helvellyn via Striding/Swirral Edge</h2>
     <div id="map-helvellyn" class="route-map"
-         data-gpx="{% static 'routes/lake_district/helvellyn-striding-swirral.gpx' %}"></div>
+      data-gpx="{% static 'routes/lake_district/helvellyn-striding-swirral.gpx' %}"></div>
     <br>
-    <p>Embark on one of the Lake District’s most iconic and exhilarating hikes—Helvellyn via Striding and Swirral Edge...</p>
+    <p>Embark on one of the Lake District’s most iconic and exhilarating hikes—Helvellyn via Striding and Swirral
+      Edge...</p>
     <p class="mt-2 fw-bold">From £95 per person</p>
-    <a href="{% url 'booking_create' %}?route_id={{ route_ids.helvellyn_via_striding_swirral_edge }}" class="btn cta-btn mt-2">
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.helvellyn_via_striding_swirral_edge }}"
+      class="btn cta-btn mt-2">
       Book This Tour
     </a>
   </div>
@@ -162,11 +167,13 @@
   <div class="container">
     <h2>Blencathra via Hall's Fell Ridge</h2>
     <div id="map-blencathra-halls" class="route-map"
-         data-gpx="{% static 'routes/lake_district/blencathra-halls-fell.gpx' %}"></div>
+      data-gpx="{% static 'routes/lake_district/blencathra-halls-fell.gpx' %}"></div>
     <br>
-    <p>Climb Blencathra by its sharp, direct ridge from Threlkeld. Hall’s Fell gives hands-on, steady scrambling near the summit with grand views across the Northern Fells.</p>
+    <p>Climb Blencathra by its sharp, direct ridge from Threlkeld. Hall’s Fell gives hands-on, steady scrambling near
+      the summit with grand views across the Northern Fells.</p>
     <p class="mt-2 fw-bold">From £85 per person</p>
-    <a href="{% url 'booking_create' %}?route_id={{ route_ids.blencathra_via_halls_fell_ridge }}" class="btn cta-btn mt-2">
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.blencathra_via_halls_fell_ridge }}"
+      class="btn cta-btn mt-2">
       Book This Tour
     </a>
   </div>
@@ -176,9 +183,10 @@
   <div class="container">
     <h2>Blencathra via Sharp Edge</h2>
     <div id="map-blencathra-sharp" class="route-map"
-         data-gpx="{% static 'routes/lake_district/blencathra-sharp-edge.gpx' %}"></div>
+      data-gpx="{% static 'routes/lake_district/blencathra-sharp-edge.gpx' %}"></div>
     <br>
-    <p>Tackle the Lake District’s most famous arête above Scales Tarn. Sharp Edge offers exposed, exhilarating scrambling with a spectacular mountain setting.</p>
+    <p>Tackle the Lake District’s most famous arête above Scales Tarn. Sharp Edge offers exposed, exhilarating
+      scrambling with a spectacular mountain setting.</p>
     <p class="mt-2 fw-bold">From £90 per person</p>
     <a href="{% url 'booking_create' %}?route_id={{ route_ids.blencathra_via_sharp_edge }}" class="btn cta-btn mt-2">
       Book This Tour
@@ -189,10 +197,10 @@
 <section class="route-section" id="route-pavey">
   <div class="container">
     <h2>Pavey Ark via Jack's Rake</h2>
-    <div id="map-pavey" class="route-map"
-         data-gpx="{% static 'routes/lake_district/pavey-ark-jacks-rake.gpx' %}"></div>
+    <div id="map-pavey" class="route-map" data-gpx="{% static 'routes/lake_district/pavey-ark-jacks-rake.gpx' %}"></div>
     <br>
-    <p>Ascend the diagonal groove of Jack’s Rake above Stickle Tarn—an unforgettable Grade 1 scramble on sound rock with sweeping views over Langdale.</p>
+    <p>Ascend the diagonal groove of Jack’s Rake above Stickle Tarn—an unforgettable Grade 1 scramble on sound rock with
+      sweeping views over Langdale.</p>
     <p class="mt-2 fw-bold">From £90 per person</p>
     <a href="{% url 'booking_create' %}?route_id={{ route_ids.pavey_ark_via_jacks_rake }}" class="btn cta-btn mt-2">
       Book This Tour
@@ -203,10 +211,11 @@
 <section class="route-section bg-light" id="route-scafell">
   <div class="container">
     <h2>Scafell Pike via Lord's Rake</h2>
-    <div id="map-scafell" class="route-map"
-         data-gpx="{% static 'routes/lake_district/scafell-pike-lords-rake.gpx' %}"></div>
+    <div id="map-scafell" class="route-map" data-gpx="{% static 'routes/lake_district/scafell-pike-lords-rake.gpx' %}">
+    </div>
     <br>
-    <p>Reach England’s highest summit by a rugged, atmospheric line. Lord’s Rake threads through towering crags for a quieter, more adventurous ascent.</p>
+    <p>Reach England’s highest summit by a rugged, atmospheric line. Lord’s Rake threads through towering crags for a
+      quieter, more adventurous ascent.</p>
     <p class="mt-2 fw-bold">From £100 per person</p>
     <a href="{% url 'booking_create' %}?route_id={{ route_ids.scafell_pike_via_lords_rake }}" class="btn cta-btn mt-2">
       Book This Tour
@@ -218,11 +227,13 @@
   <div class="container">
     <h2>Bowfell via Climbers’ Traverse</h2>
     <div id="map-bowfell" class="route-map"
-         data-gpx="{% static 'routes/lake_district/bowfell-climbers-traverse.gpx' %}"></div>
+      data-gpx="{% static 'routes/lake_district/bowfell-climbers-traverse.gpx' %}"></div>
     <br>
-    <p>Follow the discreet shelf beneath Bowfell Buttress with dramatic views of the Great Slab and Langdale. A superb, scenic line to a classic summit.</p>
+    <p>Follow the discreet shelf beneath Bowfell Buttress with dramatic views of the Great Slab and Langdale. A superb,
+      scenic line to a classic summit.</p>
     <p class="mt-2 fw-bold">From £90 per person</p>
-    <a href="{% url 'booking_create' %}?route_id={{ route_ids.bowfell_via_climbers_traverse }}" class="btn cta-btn mt-2">
+    <a href="{% url 'booking_create' %}?route_id={{ route_ids.bowfell_via_climbers_traverse }}"
+      class="btn cta-btn mt-2">
       Book This Tour
     </a>
   </div>
@@ -231,10 +242,10 @@
 <section class="route-section bg-light" id="route-gable">
   <div class="container">
     <h2>Great Gable</h2>
-    <div id="map-gable" class="route-map"
-         data-gpx="{% static 'routes/lake_district/great-gable.gpx' %}"></div>
+    <div id="map-gable" class="route-map" data-gpx="{% static 'routes/lake_district/great-gable.gpx' %}"></div>
     <br>
-    <p>Stand on one of Lakeland’s most storied summits. Rocky paths, short scrambles and immense vistas over Wasdale and Borrowdale make this a favourite.</p>
+    <p>Stand on one of Lakeland’s most storied summits. Rocky paths, short scrambles and immense vistas over Wasdale and
+      Borrowdale make this a favourite.</p>
     <p class="mt-2 fw-bold">From £85 per person</p>
     <a href="{% url 'booking_create' %}?route_id={{ route_ids.great_gable }}" class="btn cta-btn mt-2">
       Book This Tour
@@ -245,10 +256,10 @@
 <section class="route-section" id="route-pillar">
   <div class="container">
     <h2>Pillar</h2>
-    <div id="map-pillar" class="route-map"
-         data-gpx="{% static 'routes/lake_district/pillar.gpx' %}"></div>
+    <div id="map-pillar" class="route-map" data-gpx="{% static 'routes/lake_district/pillar.gpx' %}"></div>
     <br>
-    <p>Head deep into the Western Fells on a big mountain day. The High Level Route gives airy views towards Pillar Rock and a true sense of remoteness.</p>
+    <p>Head deep into the Western Fells on a big mountain day. The High Level Route gives airy views towards Pillar Rock
+      and a true sense of remoteness.</p>
     <p class="mt-2 fw-bold">From £95 per person</p>
     <a href="{% url 'booking_create' %}?route_id={{ route_ids.pillar }}" class="btn cta-btn mt-2">
       Book This Tour
@@ -259,12 +270,12 @@
 <section class="route-section bg-light" id="route-fairfield">
   <div class="container">
     <h2>Fairfield Horseshoe</h2>
-    <div id="map-fairfield" class="route-map"
-         data-gpx="{% static 'routes/lake_district/fairfield-horseshoe.gpx' %}"></div>
+    <div id="map-fairfield" class="route-map" data-gpx="{% static 'routes/lake_district/fairfield-horseshoe.gpx' %}">
+    </div>
     <br>
     <p>A Lake District classic from Ambleside: climb over Low Pike and High Pike to Dove Crag and Hart Crag,
-       reach Fairfield’s broad summit, then return via Great Rigg, Heron Pike and Nab Scar with near-continuous
-       views over Windermere and Rydal.</p>
+      reach Fairfield’s broad summit, then return via Great Rigg, Heron Pike and Nab Scar with near-continuous
+      views over Windermere and Rydal.</p>
     <p class="mt-2 fw-bold">From £85 per person</p>
     <a href="{% url 'booking_create' %}?route_id={{ route_ids.fairfield_horseshoe }}" class="btn cta-btn mt-2">
       Book This Tour
@@ -275,12 +286,11 @@
 <section class="route-section" id="route-crinkle">
   <div class="container">
     <h2>Crinkle Crags</h2>
-    <div id="map-crinkle" class="route-map"
-         data-gpx="{% static 'routes/lake_district/crinkle-crags.gpx' %}"></div>
+    <div id="map-crinkle" class="route-map" data-gpx="{% static 'routes/lake_district/crinkle-crags.gpx' %}"></div>
     <br>
     <p>A superb serrated ridge above Great Langdale, taking in the five Crinkles. Expect rugged, undulating
-       terrain with hands-on sections and the optional “Bad Step” (easy bypass available), plus big views
-       toward Bowfell and the Scafells.</p>
+      terrain with hands-on sections and the optional “Bad Step” (easy bypass available), plus big views
+      toward Bowfell and the Scafells.</p>
     <p class="mt-2 fw-bold">From £90 per person</p>
     <a href="{% url 'booking_create' %}?route_id={{ route_ids.crinkle_crags }}" class="btn cta-btn mt-2">
       Book This Tour
@@ -295,5 +305,3 @@
 <script src="{% static 'vendor/leaflet-gpx/gpx.min.js' %}"></script>
 <script src="{% static 'js/maps.js' %}"></script>
 {% endblock %}
-
-

@@ -362,9 +362,12 @@ _(STILL TO COMPLETE: note trade-offs—client-side GPX parsing vs server-side pr
 
 ### HTML/CSS Validation
 
-- HTML validated with the W3C HTML validator (date of last run: YYYY-MM-DD).
+- HTML validated with the W3C HTML validator (date of last run: 2025-10-03).
+  ![HTML Validator](assets/images/screenshots/tests/html_validator_home.PNG)
 - CSS validated with W3C Jigsaw (minor non-critical warnings documented where applicable).
+  ![CSS Validator](assets/images/screenshots/tests/html_validator_home.PNG)
 - JS validated
+  ![JS Validator](assets/images/screenshots/tests/html_validator_home.PNG)
 
 _(STILL TO COMPLETE: add screenshot here.)_
 
@@ -631,6 +634,55 @@ In addition to automated tests, targeted **manual testing** validated real user 
 | Filter reset                   | Apply multiple filters → click “Reset”                          | All filters cleared; full route list shown                           | ✅ Pass                                                                          |
 | No results                     | Apply filters that match nothing                                | Message shown: “No routes match these filters.”                      | ✅ Pass                                                                          |
 
+### Browser & Device Compatibility
+
+| Device / Browser            | Firefox | Chrome | Safari | Opera | Samsung Internet |
+| --------------------------- | ------- | ------ | ------ | ----- | ---------------- |
+| **Windows**                 | ✅      | ✅     | –      | –     | –                |
+| **Samsung (Android)**       | –       | –      | –      | –     | ✅               |
+| **iPad (iOS)**              | –       | –      | ✅     | –     | –                |
+| **Pixel (Android)**         | –       | ✅     | –      | –     | –                |
+| **Motorola Edge (Android)** | –       | ✅     | –      | –     | –                |
+| **Mac**                     | –       | –      | –      | ✅    | –                |
+
+### Screenshots
+
+**Windows — Firefox**
+
+<p align="center">
+  <img src="assets/images/screenshots/tests/firefox_windows.PNG" alt="Windows — Firefox" width="75%">
+</p>
+
+**Samsung (Android) — Samsung Internet**
+
+<p align="center">
+  <img src="assets/images/screenshots/tests/android_samsung.PNG" alt="Samsung (Android) — Samsung Internet" width="75%">
+</p>
+
+**iPad (iOS) — Safari**
+
+<p align="center">
+  <img src="assets/images/screenshots/tests/ipad_safari.PNG" alt="iPad (iOS) — Safari" width="75%">
+</p>
+
+**Pixel (Android) — Chrome**
+
+<p align="center">
+  <img src="assets/images/screenshots/tests/pixel_chrome.PNG" alt="Pixel (Android) — Chrome" width="75%">
+</p>
+
+**Motorola Edge — Chrome**
+
+<p align="center">
+  <img src="assets/images/screenshots/tests/edge_chrome.PNG" alt="Motorola Edge — Chrome" width="75%">
+</p>
+
+**Mac — Opera**
+
+<p align="center">
+  <img src="assets/images/screenshots/tests/mac_opera.PNG" alt="Mac — Opera" width="75%">
+</p>
+
 ---
 
 ## Linting
@@ -815,6 +867,17 @@ Legend: ✅ covered | ⚠️ partial | ⬜ outstanding
   ![Best Practices ](assets/images/screenshots/tests/lighthouse_home_best_practices.PNG)
 - SEO  
   ![SEO](assets/images/screenshots/tests/lighthouse_home_SEO.PNG)
+
+### Lighthouse Results (scored on Heroku deployment — desktop Chrome)
+
+| Page Audited              | Date       | Performance | Accessibility | Best Practices | SEO |
+| ------------------------- | ---------- | ----------: | ------------: | -------------: | --: |
+| `/` (Home)                | 2025-10-03 |          67 |           100 |            100 | 100 |
+| `/about/` (About)         | 2025-10-03 |          65 |           100 |            100 | 100 |
+| `/regions/lake-district/` | 2025-10-03 |          xx |            xx |             xx |  xx |
+| `/routes/` (All Routes)   | 2025-10-03 |          64 |           100 |            100 | 100 |
+
+> \_Scores taken from Chrome DevTools Lighthouse audit on deployed Heroku app (desktop).
 
 ### 🔧 Lighthouse Performance Improvements
 
