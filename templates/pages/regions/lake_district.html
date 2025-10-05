@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block hero_preload %}
+<link rel="preload" as="image" href="{% static 'images/hero/hero-striding.webp' %}" type="image/webp">
+{% endblock %}
+
 {% block extra_head %}
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
 <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
@@ -29,6 +33,8 @@
   </div>
 </section>
 
+<!-- View route buttons -->
+
 <div class="container py-5">
   <h2 class="mb-4 text-center">Lake District Walking Routes</h2>
   <p>The Lake District, a UNESCO World Heritage Site, is home to England’s highest peaks, including Scafell Pike. Its
@@ -37,12 +43,13 @@
     unique place in British cultural and natural history.</p>
   <figure class="text-center">
     <blockquote class="blockquote sub-heading-color">
-      <p><em>"There is no such thing as bad weather, only inappropriate clothing."</em></p>
+      <p><em>"The loveliest spot that man hath ever found."</em></p>
     </blockquote>
     <figcaption class="blockquote-footer">
-      <cite title="Source Title">Alfred Wainwright</cite>
+      <cite title="William Wordsworth — Home at Grasmere">William Wordsworth — <em>Home at Grasmere</em></cite>
     </figcaption>
   </figure>
+
   <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col">
       <div class="card h-100">

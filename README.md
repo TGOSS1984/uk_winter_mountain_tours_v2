@@ -58,7 +58,7 @@ In short, this project has been both a technical and personal milestone, combini
 - [Assessment Criteria Mapping (LO1–LO9)](#assessment-criteria-mapping-lo1lo9)
 - [Screenshots](#screenshots)
 - [Lighthouse Results](#lighthouse-results)
-- [🔧 Major Bugs & Fixes](#major-bugs--fixes)
+- [Major Bugs & Fixes](#major-bugs--fixes)
 - [Future Improvements](#future-improvements)
 - [Privacy](#privacy)
 - [Credits](#credits)
@@ -593,8 +593,6 @@ ENABLE_EMAIL_NOTIFICATIONS=1
     ```
 - Ensure JSON encoding is **UTF-8**.
 
-_(STILL TO COMPLETE: add sample commands for splitting guides/routes fixtures if needed.)_
-
 ---
 
 ## Testing
@@ -712,25 +710,25 @@ In addition to automated tests, targeted **manual testing** validated real user 
 **Samsung (Android) — Samsung Internet**
 
 <p align="center">
-  <img src="assets/images/screenshots/tests/android_samsung.PNG" alt="Samsung (Android) — Samsung Internet" width="75%">
+  <img src="assets/images/screenshots/tests/android_samsung.PNG" alt="Samsung (Android) — Samsung Internet" width="30%">
 </p>
 
 **iPad (iOS) — Safari**
 
 <p align="center">
-  <img src="assets/images/screenshots/tests/ipad_safari.PNG" alt="iPad (iOS) — Safari" width="75%">
+  <img src="assets/images/screenshots/tests/ipad_safari.PNG" alt="iPad (iOS) — Safari" width="30%">
 </p>
 
 **Pixel (Android) — Chrome**
 
 <p align="center">
-  <img src="assets/images/screenshots/tests/pixel_chrome.PNG" alt="Pixel (Android) — Chrome" width="75%">
+  <img src="assets/images/screenshots/tests/pixel_chrome.PNG" alt="Pixel (Android) — Chrome" width="30%">
 </p>
 
 **Motorola Edge — Chrome**
 
 <p align="center">
-  <img src="assets/images/screenshots/tests/edge_chrome.PNG" alt="Motorola Edge — Chrome" width="75%">
+  <img src="assets/images/screenshots/tests/edge_chrome.PNG" alt="Motorola Edge — Chrome" width="30%">
 </p>
 
 **Mac — Opera**
@@ -844,7 +842,6 @@ Heroku automatically provides `DATABASE_URL` for **Heroku Postgres**, which this
 ## Assessment Criteria Mapping (LO1–LO9)
 
 > This section is a self-assessment cross-check against the module’s Learning Outcomes (LO1–LO9).
-> It helps reviewers see where each required outcome is addressed in the project and README.
 
 **LO1 — Planning & Design**
 
@@ -969,7 +966,7 @@ It is noted that performance score could be improved, however here are some of t
 
 ---
 
-## 🔧 Major Bugs & Fixes
+## Major Bugs & Fixes
 
 **GPX files not displaying on Leaflet maps**
 

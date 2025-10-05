@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{# Page-specific <head> items only (favicons). Bootstrap/FA/CSS live in base.html #}
+{% block hero_preload %}
+<link rel="preload" as="image" href="{% static 'images/hero/tryfan-hero.webp' %}" type="image/webp">
+{% endblock %}
+
+{# Page-specific head items only (favicons). Bootstrap/FA/CSS live in base.html #}
 {% block extra_head %}
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
 <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
@@ -13,7 +17,8 @@
 <section class="hero-section d-flex align-items-center">
   <div class="container-fluid">
     <div class="row flex-column-reverse flex-lg-row">
-      <div class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+      <div
+        class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
         <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Tour Gallery</h1>
         <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">A collection of photographs from previous winter hikes</p>
         <a href="{% url 'booking_create' %}" class="btn cta-btn mt-3">Book Now</a>
@@ -23,9 +28,8 @@
           <!-- ultrawide -->
           <source media="(min-width: 1600px)" srcset="{% static 'images/hero/tryfan-hero.webp' %}">
           <!-- fallback -->
-          <img src="{% static 'images/hero/tryfan-hero.webp' %}"
-               alt="Crib Goch ridge in winter"
-               class="img-fluid w-100 h-100 object-fit-cover hero-img">
+          <img src="{% static 'images/hero/tryfan-hero.webp' %}" alt="Crib Goch ridge in winter"
+            class="img-fluid w-100 h-100 object-fit-cover hero-img">
         </picture>
       </div>
     </div>
@@ -41,7 +45,8 @@
     <h2 class="fw-bold">Tour Gallery</h2>
     <figure class="text-center">
       <blockquote class="blockquote sub-heading-color">
-        <p><em>"Everest, Helvellyn, Snowdon, Ben Nevis. To those who know, that joy inhabits the same lofty step – where the mountains of Britain stand as tall as any in the world."</em></p>
+        <p><em>"Everest, Helvellyn, Snowdon, Ben Nevis. To those who know, that joy inhabits the same lofty step – where
+            the mountains of Britain stand as tall as any in the world."</em></p>
       </blockquote>
       <figcaption class="blockquote-footer">
         <cite title="Source Title">George Mallory</cite>
@@ -55,247 +60,328 @@
   <div class="gallery-container">
     <div class="masonry-gallery">
       {# Example items — replace with your real files under assets/images/gallery/... #}
-      <a href="{% static 'images/gallery/gallery001.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Snowdonia 01">
+      <a href="{% static 'images/gallery/gallery001.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Snowdonia 01">
         <img src="{% static 'images/gallery/gallery001.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery002.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Snowdonia 02">
+      <a href="{% static 'images/gallery/gallery002.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Snowdonia 02">
         <img src="{% static 'images/gallery/gallery002.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery003.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Helvellyn">
+      <a href="{% static 'images/gallery/gallery003.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Helvellyn">
         <img src="{% static 'images/gallery/gallery003.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery004.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Ben Nevis">
+      <a href="{% static 'images/gallery/gallery004.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Ben Nevis">
         <img src="{% static 'images/gallery/gallery004.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery005.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Cairngorms">
+      <a href="{% static 'images/gallery/gallery005.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Cairngorms">
         <img src="{% static 'images/gallery/gallery005.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery006.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery006.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery006.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery007.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery007.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery007.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery008.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery008.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery008.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery009.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery009.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery009.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery010.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery010.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery010.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery011.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery011.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery011.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery012.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery012.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery012.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery013.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery013.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery013.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery014.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery014.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery014.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery015.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery015.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery015.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery016.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery016.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery016.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery017.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery017.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery017.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery018.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery018.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery018.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery019.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery019.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery019.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery020.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery020.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery020.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery021.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery021.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery021.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery022.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery022.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery022.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery023.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery023.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery023.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery024.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery024.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery024.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery025.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery025.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery025.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery026.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery026.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery026.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery027.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery027.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery027.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery028.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery028.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery028.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery029.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery029.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery029.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery030.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery030.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery030.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery031.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery031.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery031.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery032.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery032.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery032.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery033.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery033.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery033.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery034.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery034.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery034.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery035.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery035.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery035.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery036.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery036.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery036.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery037.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery037.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery037.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery038.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery038.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery038.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery039.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery039.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery039.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery040.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery040.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery040.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery041.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery041.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery041.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery042.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery042.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery042.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery043.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery043.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery043.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery044.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery044.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery044.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery045.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery045.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery045.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery046.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery046.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery046.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery047.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery047.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery047.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery048.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery048.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery048.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery049.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery049.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery049.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery050.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery050.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery050.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery051.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery051.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery051.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery052.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery052.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery052.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery053.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery053.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery053.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery054.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery054.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery054.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery055.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery055.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery055.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery056.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery056.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery056.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery057.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery057.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery057.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery058.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery058.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery058.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery059.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery059.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery059.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery060.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery060.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery060.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery061.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery061.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery061.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery062.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery062.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery062.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery063.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery063.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery063.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery064.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery064.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery064.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery065.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery065.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery065.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery066.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery066.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery066.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery067.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery067.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery067.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery068.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery068.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery068.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery069.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery069.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery069.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery070.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery070.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery070.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery071.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery071.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery071.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery072.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery072.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery072.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery073.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery073.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery073.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery074.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery074.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery074.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery075.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery075.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery075.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery076.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery076.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery076.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery077.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery077.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery077.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery078.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery078.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery078.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery079.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery079.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery079.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery080.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery080.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery080.webp' %}" alt="Assorted images of previous tours">
       </a>
-      <a href="{% static 'images/gallery/gallery081.webp' %}" class="masonry-item" data-lightbox="gallery" data-title="Tryfan">
+      <a href="{% static 'images/gallery/gallery081.webp' %}" class="masonry-item" data-lightbox="gallery"
+        data-title="Tryfan">
         <img src="{% static 'images/gallery/gallery081.webp' %}" alt="Assorted images of previous tours">
       </a>
 
@@ -307,4 +393,3 @@
 
 {# No extra scripts here; Bootstrap & global scripts are in base.html #}
 {% block extra_scripts %}{% endblock %}
-

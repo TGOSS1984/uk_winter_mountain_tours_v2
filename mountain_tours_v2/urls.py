@@ -8,7 +8,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("core.urls")),
     path("bookings/", include("bookings.urls")),
-    # Put the custom login BEFORE the auth include so it takes precedence
     path(
         "accounts/login/",
         LoginView.as_view(authentication_form=LoginForm),

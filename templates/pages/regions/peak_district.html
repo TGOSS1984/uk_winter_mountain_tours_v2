@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block hero_preload %}
+<link rel="preload" as="image" href="{% static 'images/hero/dales-hero.webp' %}" type="image/webp">
+{% endblock %}
+
 {% block extra_head %}
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
 <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
@@ -29,6 +33,8 @@
   </div>
 </section>
 
+<!-- View route buttons -->
+
 <div class="container py-5">
   <h2 class="mb-4 text-center">Peak District & Yorkshire Dales Walking Routes</h2>
   <p>The Peak District and Yorkshire Dales offer a contrasting landscape of rolling moorlands, dramatic limestone dales,
@@ -37,12 +43,15 @@
     of farming tradition. Both regions capture the timeless beauty of northern England’s uplands.</p>
   <figure class="text-center">
     <blockquote class="blockquote sub-heading-color">
-      <p><em>"Placeholder - Quote?"</em></p>
+      <p><em>"Unlike the Lake District, where beauty is lavishly displayed, the delights of this limestone countryside
+          have to be sought on foot."</em></p>
     </blockquote>
     <figcaption class="blockquote-footer">
-      <cite title="Source Title"></cite>
+      <cite title="Alfred Wainwright — Walks in Limestone Country">Alfred Wainwright — <em>Walks in Limestone
+          Country</em></cite>
     </figcaption>
   </figure>
+
   <div class="row row-cols-1 row-cols-md-2 g-4">
 
     <div class="col">

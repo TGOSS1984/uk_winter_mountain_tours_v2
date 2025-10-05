@@ -66,7 +66,7 @@ class LoginForm(AuthenticationForm):
                 self.error_messages["invalid_login"], code="invalid_login"
             )
 
-        # Let Django run its standard account checks (is_active, etc.)
+        # Let Django run its standard account checks
         self.confirm_login_allowed(user)
         self.user_cache = user
         return {"username": username_or_email, "password": password}

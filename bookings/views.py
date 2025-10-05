@@ -113,7 +113,7 @@ def cancel_booking(request, pk):
         messages.error(request, "Past bookings can’t be cancelled.")
         return redirect("booking_list")
 
-    # Try to use enum value if your model defines Booking.Status.CANCELLED; otherwise fallback.
+    # Try to use enum , otherwise fallback.
     cancel_value = (
         getattr(getattr(Booking, "Status", None), "CANCELLED", None) or "cancelled"
     )

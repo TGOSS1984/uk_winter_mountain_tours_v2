@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block hero_preload %}
+<link rel="preload" as="image" href="{% static 'images/hero/glyder-fach-hero.webp' %}" type="image/webp">
+{% endblock %}
+
 {% block extra_head %}
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
 <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">

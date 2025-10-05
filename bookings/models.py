@@ -101,7 +101,7 @@ class Route(models.Model):
         """
         stem = Path(self.gpx_path or "").stem.lower()
 
-        # Lake District anchors (add other regions as you wire them)
+        # Region anchors
         anchor_map = {
             # --- Lake District ---
             "helvellyn-striding-swirral": "route-helvellyn",

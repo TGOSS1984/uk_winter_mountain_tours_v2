@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block hero_preload %}
+<link rel="preload" as="image" href="{% static 'images/hero/maincribgoch2048x1737px.webp' %}" type="image/webp">
+{% endblock %}
+
 {% block extra_head %}
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
 <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
@@ -29,6 +33,8 @@
   </div>
 </section>
 
+<!-- View route buttons -->
+
 <div class="container py-5">
   <h2 class="mb-4 text-center">Wales Walking Routes</h2>
   <p>Wales boasts some of the most rugged mountain landscapes in Britain, with Snowdonia (Eryri) at its heart. Peaks
@@ -37,12 +43,13 @@
     ancient heroes and battles.</p>
   <figure class="text-center">
     <blockquote class="blockquote sub-heading-color">
-      <p><em>"Placeholder - Quote?"</em></p>
+      <p><em>"Perhaps in the whole world there is no region more picturesquely beautiful than Snowdon."</em></p>
     </blockquote>
     <figcaption class="blockquote-footer">
-      <cite title="Source Title"></cite>
+      <cite title="George Borrow — Wild Wales">George Borrow — <em>Wild Wales</em></cite>
     </figcaption>
   </figure>
+
   <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col">
       <div class="card h-100">

@@ -47,7 +47,7 @@ class BookingModelTests(TestCase):
             customer_email="bob@example.com",
         )
 
-        # App-level validation or DB constraint should catch it
+        # App-level validation
         with self.assertRaises((ValidationError, IntegrityError)):
             duplicate.full_clean()
             duplicate.save()
