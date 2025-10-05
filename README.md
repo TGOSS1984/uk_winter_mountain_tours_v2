@@ -32,6 +32,8 @@ Although the project already delivers a complete and working product, there rema
 
 In short, this project has been both a technical and personal milestone, combining my passion for the outdoors with practical full-stack development skills, and showing me how much can be achieved when good design, careful structure, and persistence come together.
 
+[Heroku Link to project](https://uk-winter-mountain-tours-v2-c6f21d80d2c8.herokuapp.com/)
+
 ---
 
 ## 📑 Contents
@@ -79,7 +81,7 @@ It integrates mapping (Leaflet + GPX overlays), booking management with cancella
 
 ### Project Management (Agile)
 
-Planning and delivery were tracked in an Agile board (GitHub Projects/Trello), with Epics refined into User Stories and Tasks. Each story included acceptance criteria.
+Planning and delivery were tracked in an Agile board (GitHub Projects), with Epics refined into User Stories and Tasks. Each story included acceptance criteria.
 
 - Board: <https://github.com/users/TGOSS1984/projects/3>
   - Backlog and prioritisation
@@ -92,7 +94,7 @@ User Stories in this README map to the same IDs/titles used on the board.
 - **Process:** Epics → User Stories → Tasks with acceptance criteria.
 - **Board:** Project board linked above; issues reference user stories in this README.
 - **MoSCoW final split:** Must 38 % · Should 44 % · Could 19 % · Won’t 0 % (Should ≤ 60 % ✅)
-- **Evidence:** Screens in `assets/images/screenshots/tests/agile_board_screen.PNG` & screenshot below (Backlog, In Progress, Done).
+- **Evidence:** Screens in `docs/screenshots/agile_board_screen.PNG` & screenshot below (Backlog, In Progress, Done).
 
 ![Agile board](docs/screenshots/agile_board_screen.PNG)
 
@@ -103,12 +105,17 @@ User Stories in this README map to the same IDs/titles used on the board.
 - Region pages: Lake District, Wales, Scotland, Peak District/Yorkshire Dales.
 - GPX route overlays with Leaflet maps.
 - Booking system with **double-booking prevention**.
+- Booking system - **cannot book dates in the past**.
 - Cancel bookings via booking detail page.
 - Admin interface for guides, routes, and bookings.
 - Responsive UI with Bootstrap 5.
 - JavaScript on-scroll navbar.
 - Accessibility enhancements (contrast, alt text, keyboard-friendly).
 - Static/media assets served via **Whitenoise** in production.
+- **Custom error pages (404 & 500)**:  
+  Branded, user-friendly templates that extend `base.html`, provide clear messaging and a “Back to Home” action, and automatically render when `DEBUG=False`.
+  - Templates: `templates/404.html`, `templates/500.html`
+  - Handlers: `handler404` / `handler500` in `mountain_tours_v2/urls.py`
 - **Email Notifications**:  
   When a user books or cancels a tour, the system generates a confirmation or cancellation email.
   - In **development**, these are sent to the console backend so developers and assessors can see the message output.
@@ -247,7 +254,7 @@ _Notes:_ Some closely related user stories share a single GitHub Issue when impl
 | Cancel booking         | `bookings/views.py` (cancel), `templates/bookings/booking_list.html`              | `bookings/tests/test_views.py`                                 |
 | Prevent double booking | `bookings/models.py` (UniqueConstraint / validation)                              | `bookings/tests/test_models.py` (or `test_views.py`)           |
 | Admin manage           | `bookings/admin.py`                                                               | Manual CRUD in Admin                                           |
-| Accessibility          | Template semantics + CSS focus/contrast                                           | Lighthouse & Axe screenshots                                   |
+| Accessibility          | Template semantics + CSS focus/contrast                                           | Lighthouse screenshots                                         |
 
 ---
 
@@ -362,8 +369,6 @@ For this project I kept all custom images and front-end assets inside an `assets
 - **Service-based email sending:** Implemented notifications in `bookings/services.py` instead of views. This keeps responsibilities clear, makes testing easier, and avoids logic duplication.
 - **Login by username _or_ email:** Improves usability by letting users sign in with whichever credential they remember. This leverages Django’s auth system without introducing a custom user model, striking a balance between UX and complexity.
 
-_(STILL TO COMPLETE: note trade-offs—client-side GPX parsing vs server-side preprocessing; SQLite vs Postgres locally.)_
-
 ---
 
 ## Wireframes & Mockups
@@ -393,7 +398,7 @@ _(STILL TO COMPLETE: note trade-offs—client-side GPX parsing vs server-side pr
 - HTML validated with the W3C HTML validator (date of last run: 2025-10-03).
   ![HTML Validator](assets/images/screenshots/tests/html_validator_home.PNG)
 - CSS validated with W3C Jigsaw (minor non-critical warnings documented where applicable).
-  ![CSS Validator](assets/images/screenshots/tests/html_validator_home.PNG)
+  ![CSS Validator](assets/images/screenshots/tests/css_validator.PNG)
 - JS validated with JSHint (date of last run: 2025-10-03).
   ![JS Validator](assets/images/screenshots/tests/jshint_maps_js.PNG)
   ![JS Validator](assets/images/screenshots/tests/jshint_script_js.PNG)
@@ -515,8 +520,8 @@ Production-friendly error pages are provided:
 
 7. **Emails**
 
-   ```In development, emails use the console backend (printed in the terminal). In CI tests, the locmem backend is used. In production, configure SMTP via the variables in **Environment Variables → Email (prod)**.
-
+   ```bash
+   In development, emails use the console backend (printed in the terminal). In CI tests, the locmem backend is used. In production, configure SMTP via the variables in **Environment Variables → Email (prod)**.
    ```
 
 ---
@@ -922,6 +927,8 @@ Legend: ✅ covered | ⚠️ partial | ⬜ planned/future enhancement
   ![Booking Confirmation](assets/images/screenshots/ux/booking_create.PNG)
 - Booking Cancellation  
   ![Booking Cancellation](assets/images/screenshots/ux/booking_cancel.PNG)
+- Custom 404 Page
+  ![Custom 404 Page](assets/images/screenshots/tests/404_screen.PNG)
 
 ---
 
@@ -1132,7 +1139,7 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 - **Heroku** – for deployment.
 - **Ordnance Survey / GPX providers** – for route data.
 - **Django & Python open-source community** – for frameworks and libraries.
-- **AI assistance (ChatGPT)** – used as a support tool for documentation tasks such as README formatting, template examples, to-do checklists, and structuring notes.  
+- **AI assistance (ChatGPT)** – used as a support tool for documentation tasks such as README formatting, template examples, to-do checklists, and structuring notes. Used to cross check and map assesment criteria for easy tracking (added to readme).
   All coding, testing, and implementation decisions were completed by me.
 - **Images** – Logo created by Tom Goss, gallery images actual photos from winter hikes, other images google images
 - **Why Section** – Inspired by Code Institute Love Running Project

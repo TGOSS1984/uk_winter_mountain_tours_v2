@@ -1,7 +1,7 @@
 // assets/js/maps.js
 const apiKey = 'jOl45Inj6h9aQPbkE2LMEn0UlYs1aeTE';
 
-// Build a static URL for relative paths
+// Build static URL for relative paths
 const STATIC_PREFIX = (window.STATIC_PREFIX || '/static/').replace(/\/+$/, '/');
 const toStatic = (p) => {
   if (/^https?:\/\//i.test(p)) return p;          // absolute
@@ -51,12 +51,11 @@ function initRouteMaps() {
 
       const gpxLayer = new L.GPX(gpxUrl, {
         async: true,
-        parseElements: ['track', 'route'], // (no 'waypoint')
+        parseElements: ['track', 'route'], 
         marker_options: {
           ...window.GPX_MARKER_OPTS,
           startIcon: START_ICON,
           endIcon: END_ICON
-          // (waypoints omitted since we don't parse them)
         },
         polyline_options: { color: '#007bff', weight: 4, opacity: 0.8, lineCap: 'round' }
       })
@@ -96,7 +95,7 @@ function initRouteMaps() {
           console.error('[maps] Error after GPX loaded:', gpxUrl, err);
         }
       })
-      // Belt-and-braces: if anything overrides icons, swap them back after load
+      // if anything overrides icons, swap them back after load
       .on('loaded', () => window.applyAccessibleGpxIcons?.(gpxLayer))
       .on('loaded', () => {
         const end = gpxLayer.get_end_marker?.();
@@ -117,7 +116,7 @@ function initRouteMaps() {
       .addTo(map);
     } else {
       console.warn('[maps] leaflet-gpx plugin not loaded; showing basemap without route:', gpxUrl);
-      // Optional: show a tiny help note below the map
+      // show a tiny help note below the map
       const note = document.createElement('div');
       note.className = 'route-info-box';
       note.innerHTML = `<small>Route overlay unavailable (GPX plugin not loaded).</small>`;
@@ -135,7 +134,7 @@ function initRouteMaps() {
   <circle cx="32" cy="24" r="10" fill="#ffffff"/>
 </svg>`.trim();
 
-  // Data-URI SVGs (no files needed). If CSP blocks data:, switch to a static URL instead.
+  // If CSP blocks data:, switch to a static URL instead.
   const startSvgUrl = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(makeMarkerSvg("#198754")); // green
   const endSvgUrl   = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(makeMarkerSvg("#dc3545")); // red
   const wptSvgUrl   = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(makeMarkerSvg("#0a58ca")); // blue (waypoints/plain)
@@ -172,7 +171,7 @@ function initRouteMaps() {
     );
   }
 
-  // Helper: if a GPX layer was created before this ran, swap its icons post-load
+  // if a GPX layer was created before this ran, swap its icons post-load
   window.applyAccessibleGpxIcons = function (gpxLayer) {
     const mk = (url) => L.icon({
       iconUrl: url,
@@ -194,7 +193,7 @@ if (document.readyState === 'loading') {
   initRouteMaps();
 }
 
-// Smooth scroll for “View Route” links that point to on-page anchors
+// Smooth scroll for View Route links that point to on-page anchors
 document.querySelectorAll('a.scroll-link[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     const hash = link.getAttribute('href');      // e.g. "#route-snowdon-crib-goch"
@@ -202,20 +201,20 @@ document.querySelectorAll('a.scroll-link[href^="#"]').forEach(link => {
 
     if (!target) return; // no matching element; let the browser do its thing
 
-    e.preventDefault();  // we’ll handle the scroll ourselves
-    const headerOffset = 60; // adjust for your sticky header height
+    e.preventDefault();  // handle the scroll 
+    const headerOffset = 60; // adjust for sticky header height
     const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
     window.scrollTo({ top: y, behavior: 'smooth' });
     history.replaceState(null, '', hash); // keep URL hash in sync
 
-    // optional a11y: move focus to the section without jumping
+    // added for a11y: move focus to the section without jumping
     target.setAttribute('tabindex', '-1');
     target.focus({ preventScroll: true });
   });
 });
 
-// Optional: when landing on a URL with a hash, offset the initial jump
+// when landing on a URL with a hash, offset the initial jump
 window.addEventListener('load', () => {
   if (location.hash) {
     const target = document.querySelector(location.hash);

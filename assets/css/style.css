@@ -153,7 +153,7 @@ hr {
   --bs-dropdown-link-color: #e9eef5;      /* item text */
   --bs-dropdown-link-hover-bg: rgba(255,255,255,.08);
   --bs-dropdown-link-hover-color: #ffffff;
-  --bs-dropdown-border-color: transparent; /* optional */
+  --bs-dropdown-border-color: transparent; 
 }
 
 /* Active page underline stays visible */
@@ -162,7 +162,7 @@ hr {
   background-color: var(--button-color-bg);
 }
 
-/* Mobile only (adjust breakpoint to match your navbar-expand-*) */
+/* Mobile only (adjust breakpoint to match navbar-expand-*) */
 @media (max-width: 991.98px){
   /* the whole slide-down panel */
   .navbar .navbar-collapse{
@@ -176,7 +176,7 @@ hr {
     --bs-dropdown-link-color: #e9eef5;
     --bs-dropdown-link-hover-bg: rgba(255,255,255,.12);
     --bs-dropdown-border-color: transparent;
-    box-shadow: none;                       /* optional: flatter look on mobile */
+    box-shadow: none;
   }
 
   .navbar .nav-link{ color:#e9eef5; }
@@ -217,9 +217,9 @@ hr {
   margin: .25rem 0 0;
   border: 0;
   box-shadow: none;
-  padding-left: .5rem;             /* keep your indent */
+  padding-left: .5rem;
   background-color: var(--primary-accent-color, #344353); /* fallback */
-  background-color: color-mix(in srgb, var(--primary-accent-color) 85%, black 15%); /* darker dropdown */
+  background: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)), var(--primary-accent-color); /* darker dropdown */
 }
 
 #mobileNav .dropdown-menu.show{
@@ -234,7 +234,6 @@ hr {
 #mobileNav .nav-link{ color:#fff; font-weight:700; }
 #mobileNav .offcanvas-header{ border-bottom: 1px solid rgba(255,255,255,.08); }
 
-/* If you use dropdown-menu-end inside offcanvas, neutralise end alignment */
 #mobileNav .dropdown-menu-end{
   inset: auto !important; /* ignore right/left offsets from absolute positioning */
 }
@@ -542,7 +541,7 @@ html { scroll-behavior: smooth; }
 
   .social-link:hover {
     color: var(--button-color-bg);
-    transform: scale(1.2); /* optional "zoom" effect on hover */
+    transform: scale(1.2); /* zoom effect on hover */
   }
 
   /* Media query: tablets and larger (768px and up) */
