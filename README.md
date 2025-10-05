@@ -1,4 +1,6 @@
-# UK Winter Mountain Tours V2
+<div align="center">
+
+# UK Winter Mountain Tours V2 README
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/actions)
 ![Coverage](docs/badges/coverage.svg)
@@ -10,6 +12,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Open Issues](https://img.shields.io/github/issues/TGOSS1984/uk_winter_mountain_tours_v2)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues)
 [![Closed Issues](https://img.shields.io/github/issues-closed/TGOSS1984/uk_winter_mountain_tours_v2)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues?q=is%3Aissue+is%3Aclosed)
+
+</div>
+
+<div align="center">
+<img src="assets/images/readme_logo.png" alt="Logo" width="80" height="80">
+</div>
 
 ---
 
@@ -32,7 +40,7 @@ Although the project already delivers a complete and working product, there rema
 
 In short, this project has been both a technical and personal milestone, combining my passion for the outdoors with practical full-stack development skills, and showing me how much can be achieved when good design, careful structure, and persistence come together.
 
-[Heroku Link to project](https://uk-winter-mountain-tours-v2-c6f21d80d2c8.herokuapp.com/)
+[Live Site](https://uk-winter-mountain-tours-v2-c6f21d80d2c8.herokuapp.com/)
 
 ---
 
@@ -93,7 +101,7 @@ User Stories in this README map to the same IDs/titles used on the board.
 
 - **Process:** Epics → User Stories → Tasks with acceptance criteria.
 - **Board:** Project board linked above; issues reference user stories in this README.
-- **MoSCoW final split:** Must 38 % · Should 44 % · Could 19 % · Won’t 0 % (Should ≤ 60 % ✅)
+- **MoSCoW final split:** Must 38 % · Should 43 % · Could 19 % · Won’t 0 % (Should ≤ 60 % ✅)
 - **Evidence:** Screens in `docs/screenshots/agile_board_screen.PNG` & screenshot below (Backlog, In Progress, Done).
 
 ![Agile board](docs/screenshots/agile_board_screen.PNG)
@@ -231,10 +239,9 @@ Examples:
     - **Tests:** **Manual:** When more than 9 routes are returned, clicking “Next”/“Previous” moves between pages and keeps filters applied.
 
 16. **As a user, I want to be prevented from booking tours in the past, so that I don’t accidentally select an invalid date.**
-
-- **Issue:** [US-16]
-- **Implementation:** Added `clean_date()` to `BookingForm` in `bookings/forms.py` to validate that selected dates are today or later. Updated `__init__` to set the `min` attribute on the HTML5 date picker so users can’t pick past days in the browser. No model changes required.
-- **Tests:** `bookings/tests/test_booking_date_validation.py` (rejects past dates, allows today); **Manual:** browser date picker starts at today, past dates disabled.
+    - **Issue:** [US-16]
+    - **Implementation:** Added `clean_date()` to `BookingForm` in `bookings/forms.py` to validate that selected dates are today or later. Updated `__init__` to set the `min` attribute on the HTML5 date picker so users can’t pick past days in the browser. No model changes required.
+    - **Tests:** `bookings/tests/test_booking_date_validation.py` (rejects past dates, allows today); **Manual:** browser date picker starts at today, past dates disabled.
 
 _Notes:_ Some closely related user stories share a single GitHub Issue when implemented in the same change set.
 
@@ -263,7 +270,7 @@ _Notes:_ Some closely related user stories share a single GitHub Issue when impl
 - **Backend:** Django project with modular apps (`bookings`, `core`, `mountain_tours_v2`).
 - **Frontend:** Django templates with Bootstrap; Leaflet + GPX plugin for maps.
 - **Static files:** Served locally via `django.contrib.staticfiles`; in production via **Whitenoise**.
-- **Database:** SQLite in development; Heroku Postgres in production (recommended).
+- **Database:** SQLite in development; Heroku Postgres in production.
 - **Deployment:** Heroku using `Procfile` and environment variables.
 
 **High-Level Flow**
@@ -289,7 +296,7 @@ Static/Media (via Whitenoise)  ↘ Leaflet JS (GPX overlays)
 **Business Rules**
 
 - Prevent double-booking of the same guide/time slot.
-- Optional: enforce route capacity per day.
+- Prevent booking of dates in the past
 
 ### Database Schema
 
@@ -373,10 +380,14 @@ For this project I kept all custom images and front-end assets inside an `assets
 
 ## Wireframes & Mockups
 
+When designing the look for the website, I wanted a hero image & a CTA button for immediate access to booking. The idea was to have an image on the right & a patterned design on the left which starts as a row and on mobile screens becomes a column (using bootstrap's responsive grid).
+
 - Home page wireframe  
   ![Homepage Mockup](assets/images/screenshots/wireframes/wireframe_homepage_mockup.PNG)
 - Region/Route wireframe  
   ![Region/Route Mockup](assets/images/screenshots/wireframes/wireframe_regions_mockup.PNG)
+- Colour Palette Used (Aim was for cold blues / greys with a pop of orange for CTA buttons)
+  ![Colour Palettes](assets/images/screenshots/ux/colour_palette.PNG)
 
 ---
 
@@ -479,7 +490,7 @@ Production-friendly error pages are provided:
 
    ```bash
    git clone <repo-url>
-   cd UK_WINTER_MOUNTAIN_TOURS_V2
+   cd uk_winter_mountain_tours_v2
    ```
 
 2. **Create virtualenv & install Python requirements**
@@ -520,9 +531,7 @@ Production-friendly error pages are provided:
 
 7. **Emails**
 
-   ```bash
    In development, emails use the console backend (printed in the terminal). In CI tests, the locmem backend is used. In production, configure SMTP via the variables in **Environment Variables → Email (prod)**.
-   ```
 
 ---
 
@@ -642,24 +651,27 @@ npm test
 #### Negative-path tests
 
 - **Double booking is rejected**
-  - **What we test:** Attempt to create a second booking for the same guide overlapping the same time window.
-  - **Expected:** Form/model validation raises an error; no record persisted; user sees a clear message.
-  - **Where:** `bookings/tests/test_models.py::test_cannot_double_book_same_guide_timeslot` (or in `test_views.py` if you validate in the view).
+  - **What we test:** Attempt to create a second booking for the same guide on the same date/time slot.
+  - **Expected:** App/model validation or DB constraint prevents save; no duplicate record.
+  - **Where:** `bookings/tests/test_models.py::BookingModelTests::test_prevent_double_booking_same_guide_same_date_slot`
 
 - **Past-date booking is invalid**
   - **What we test:** Submitting a booking with a date before today.
-  - **Expected:** `BookingForm.clean_date()` invalidates the form; error shown on the date field; no record created.
-  - **Where:** `bookings/tests/test_booking_date_validation.py::test_past_date_rejected`
+  - **Expected:** `BookingForm.clean_date()` rejects past dates; error on the date field; no record created.
+  - **Where:** `bookings/tests/test_booking_date_validation.py::test_booking_form_rejects_past_date`
+  - _Companion positive-path:_ `bookings/tests/test_booking_date_validation.py::test_booking_form_allows_today`
+
+##### Planned negative-path tests (post-submission)
 
 - **Missing CSRF token blocks state-changing requests**
-  - **What we test:** POST to a protected endpoint (e.g., cancel booking) without a CSRF token.
-  - **Expected:** Response status **403** with CSRF verification message; no state change.
-  - **Where:** `bookings/tests/test_security.py::test_cancel_without_csrf_returns_403`
+  - **What we’ll test:** POST to a protected endpoint (e.g., cancel booking) without a CSRF token.
+  - **Expected:** `403` with CSRF verification message; no state change.
+  - **Where (planned):** `bookings/tests/test_security.py::test_cancel_without_csrf_returns_403`
 
 - **Invalid/empty filter params don’t error**
-  - **What we test:** Hitting `/routes/` with malformed or contradictory querystring params.
-  - **Expected:** Graceful handling (HTTP 200), either an empty result message or a reduced set; no exceptions logged.
-  - **Where:** `bookings/tests/test_views_routes.py::test_invalid_filters_gracefully_return_empty_queryset`
+  - **What we’ll test:** Hitting `/routes/` with malformed/contradictory querystring params.
+  - **Expected:** Graceful handling (`200`), empty or reduced results; no exceptions.
+  - **Where (planned):** `bookings/tests/test_views_routes.py::test_invalid_filters_gracefully_return_empty_queryset`
 
 ### Test Evidence
 
@@ -859,7 +871,7 @@ Heroku automatically provides `DATABASE_URL` for **Heroku Postgres**, which this
 
 - Core models & relationships ✅
 - Business rules (no double booking) ✅
-- Defensive validation documented (past-date, double-booking, CSRF negative-path tests) ✅
+- Defensive validation documented (past-date, double-booking; CSRF test planned) ✅
 - CRUD explained (Create/Read/Delete user-facing, Update via admin with rationale) ✅
 
 **LO3 — Implementation & Code Quality**
@@ -949,7 +961,7 @@ Legend: ✅ covered | ⚠️ partial | ⬜ planned/future enhancement
 | ------------------------- | ---------- | ----------: | ------------: | -------------: | --: |
 | `/` (Home)                | 2025-10-03 |          67 |           100 |            100 | 100 |
 | `/about/` (About)         | 2025-10-03 |          65 |           100 |            100 | 100 |
-| `/regions/lake-district/` | 2025-10-03 |          63 |            xx |            100 | 100 |
+| `/regions/lake-district/` | 2025-10-03 |          63 |             - |            100 | 100 |
 | `/routes/` (All Routes)   | 2025-10-03 |          64 |           100 |            100 | 100 |
 
 > \_Scores taken from Chrome DevTools Lighthouse audit on deployed Heroku app (desktop).
@@ -957,7 +969,7 @@ Legend: ✅ covered | ⚠️ partial | ⬜ planned/future enhancement
 
 **On Region pages**: Accessibility issues with GPX maps - referenced in known issues / bugs
 
-### 🔧 Lighthouse Performance Improvements
+### Lighthouse Performance Improvements
 
 It is noted that performance score could be improved, however here are some of the steps taken to try and improve it so far:
 
@@ -974,6 +986,8 @@ It is noted that performance score could be improved, however here are some of t
 ---
 
 ## Major Bugs & Fixes
+
+Here are some real life examples of bugs that I came across during the building of my project, I documented the bug and the fix that I applied.
 
 **GPX files not displaying on Leaflet maps**
 
@@ -1044,6 +1058,8 @@ Throughout development I relied heavily on Chrome DevTools to troubleshoot front
 Using DevTools to check request status codes, headers, and JavaScript errors sped up front-end debugging and helped verify fixes before committing.
 
 ### Known Issues/Bugs
+
+Issues I am currently aware of : These do not affect core booking flows.
 
 **Leaflet GPX waypoints/markers affect Lighthouse Accessibility**
 
@@ -1117,7 +1133,10 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
   - Allow users to **save favourite routes** or “plan a trip” list.
   - **Search by start point / nearest town** — location-based discovery.
   - Weather integration (basic forecast per route region on the booking page).
-  - Link CTA buttons (“Subscribe”, “Say hello”) to real forms or email marketing services (Mailchimp, Django contact forms).
+  - **Wire CTA buttons (“Subscribe”, “Say hello”) to real services**
+    - **Status:** Currently implemented as intentional placeholders in the MVP.
+    - **Current behaviour:** Clicking routes to a “thank you” page (acknowledgement + back-to-home auto-redirect); no data stored or emailed.
+    - **Planned upgrade:** Connect to a lightweight service (Formspree/Mailchimp) or a Django model + form handling flow so submissions are saved and manageable in Admin.
 
 ---
 
@@ -1139,7 +1158,7 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 - **Heroku** – for deployment.
 - **Ordnance Survey / GPX providers** – for route data.
 - **Django & Python open-source community** – for frameworks and libraries.
-- **AI assistance (ChatGPT)** – used as a support tool for documentation tasks such as README formatting, template examples, to-do checklists, and structuring notes. Used to cross check and map assesment criteria for easy tracking (added to readme).
+- **AI assistance (ChatGPT)** – used as a support tool for documentation tasks such as README formatting, template examples, to-do checklists, and structuring notes. Used to cross check and map assesment criteria for easy tracking (added to readme). Used to support with tools for image resizing & formatting in bulk.
   All coding, testing, and implementation decisions were completed by me.
 - **Images** – Logo created by Tom Goss, gallery images actual photos from winter hikes, other images google images
 - **Why Section** – Inspired by Code Institute Love Running Project

@@ -15,7 +15,7 @@ exclude = [
 ]
 
 [lint]
-# Keep it minimal to start; tighten later
+# minimal
 select = ["E", "F", "W", "I"]   # pycodestyle/pyflakes/warnings/isort
 ignore = []
 

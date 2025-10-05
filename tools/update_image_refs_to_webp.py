@@ -11,7 +11,7 @@ SKIP_KEYWORDS = ["logo", "icon"]
 SKIP_FOLDER = "favicon/"
 
 # Match any 'images/...*.jpg|jpeg' inside quotes, url(), or Django {% static %} usage.
-# Only capture the path up to the extension so we can swap it cleanly.
+# Only capture the path up to the extension so can swap it cleanly.
 PATTERN = re.compile(r'(?i)(images/[^"\'\)]+?)\.(?:jpe?g)')
 
 
