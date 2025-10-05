@@ -1137,6 +1137,9 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
     - **Status:** Currently implemented as intentional placeholders in the MVP.
     - **Current behaviour:** Clicking routes to a “thank you” page (acknowledgement + back-to-home auto-redirect); no data stored or emailed.
     - **Planned upgrade:** Connect to a lightweight service (Formspree/Mailchimp) or a Django model + form handling flow so submissions are saved and manageable in Admin.
+- **Template reuse for hero section**
+  - A reusable include exists at `templates/includes/hero.html`, but at present each page has its own inline hero markup.
+  - Future improvement: refactor to use this single include so updates to the hero section (images, preloading, headings) only need to be made once, improving maintainability and consistency.
 
 ---
 
