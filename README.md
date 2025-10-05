@@ -8,6 +8,8 @@
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue?logo=python)
 ![Django](https://img.shields.io/badge/django-5.1-brightgreen?logo=django)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Open Issues](https://img.shields.io/github/issues/TGOSS1984/uk_winter_mountain_tours_v2)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues)
+[![Closed Issues](https://img.shields.io/github/issues-closed/TGOSS1984/uk_winter_mountain_tours_v2)](https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues?q=is%3Aissue+is%3Aclosed)
 
 ---
 
@@ -366,10 +368,9 @@ _(STILL TO COMPLETE: note trade-offs—client-side GPX parsing vs server-side pr
   ![HTML Validator](assets/images/screenshots/tests/html_validator_home.PNG)
 - CSS validated with W3C Jigsaw (minor non-critical warnings documented where applicable).
   ![CSS Validator](assets/images/screenshots/tests/html_validator_home.PNG)
-- JS validated
-  ![JS Validator](assets/images/screenshots/tests/html_validator_home.PNG)
-
-_(STILL TO COMPLETE: add screenshot here.)_
+- JS validated with JSHint (date of last run: 2025-10-03).
+  ![JS Validator](assets/images/screenshots/tests/jshint_maps_js.PNG)
+  ![JS Validator](assets/images/screenshots/tests/jshint_script_js.PNG)
 
 ### Accessibility & UX Manual Checks
 
@@ -1027,6 +1028,7 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 - Admin email on booking.
 - CTA buttons like subscribe to newsletter, contact us, say hello, properly wired using django form handling
 - Further improvements to Performance / Lighthouse score
+- Group size on booking
 
 ---
 

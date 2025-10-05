@@ -64,6 +64,22 @@ hr {
 
 /*Navbar*/
 
+/* Desktop */
+.navbar-brand img {
+  height: auto;
+  width: 120px;   /* keep aspect ratio */
+}
+
+/* Tablets and down */
+@media (max-width: 991.98px) {
+  .navbar-brand img { height: auto; width: 100px; }
+}
+
+/* Phones */
+@media (max-width: 575.98px) {
+  .navbar-brand img { height: auto; width: 90px; }
+}
+
 .nav-link {
     font-weight: bold;
     color: white;
