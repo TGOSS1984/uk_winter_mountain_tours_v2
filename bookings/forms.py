@@ -1,6 +1,7 @@
 # bookings/forms.py
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 from .models import Booking, Guide
 
@@ -22,12 +23,20 @@ class BookingForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        # Keep your user-aware behaviour, but also bind it to the instance
+        # Keep user-aware behaviour, but also bind it to the instance
         user = kwargs.pop("user", None)
         super().__init__(*args, **kwargs)
 
-        if user and user.is_authenticated:
-            # ✅ Critical: attach user BEFORE validation so model.clean() sees it
+        # Ensure HTML5 date input has a min=today (UX guard)
+        self.fields["date"].widget.attrs.update(
+            {
+                "type": "date",
+                "min": timezone.localdate().isoformat(),  # YYYY-MM-DD
+            }
+        )
+
+        if user and getattr(user, "is_authenticated", False):
+            # Attach user so model/view logic can see it
             self.instance.user = user
 
             # Logged-in users don't need to fill these
@@ -59,6 +68,25 @@ class BookingForm(forms.ModelForm):
             self.fields["guide"].queryset = Guide.objects.exclude(
                 id__in=list(taken_ids)
             )
+
+    def clean_date(self):
+        """
+        Prevent booking a date in the past.
+        Allows 'today', blocks strictly earlier than today.
+        If used for edits, it won’t block if the date is unchanged.
+        """
+        date = self.cleaned_data.get("date")
+        if date is None:
+            return date
+
+        # If editing an existing instance and date is unchanged, allow it
+        if self.instance and self.instance.pk:
+            if date == getattr(self.instance, "date", None):
+                return date
+
+        if date < timezone.localdate():
+            raise forms.ValidationError("Date cannot be in the past.")
+        return date
 
     def clean(self):
         """
