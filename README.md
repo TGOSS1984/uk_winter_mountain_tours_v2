@@ -205,6 +205,12 @@ Examples:
     - **Implementation:** `AllRoutesView` uses `paginate_by = 9`. Template includes pagination controls that preserve querystring filters.
     - **Tests:** **Manual:** When more than 9 routes are returned, clicking “Next”/“Previous” moves between pages and keeps filters applied.
 
+16. **As a user, I want to be prevented from booking tours in the past, so that I don’t accidentally select an invalid date.**
+
+- **Issue:** [US-16]
+- **Implementation:** Added `clean_date()` to `BookingForm` in `bookings/forms.py` to validate that selected dates are today or later. Updated `__init__` to set the `min` attribute on the HTML5 date picker so users can’t pick past days in the browser. No model changes required.
+- **Tests:** `bookings/tests/test_booking_date_validation.py` (rejects past dates, allows today); **Manual:** browser date picker starts at today, past dates disabled.
+
 **Acceptance Criteria Template**
 
 - Given I am on the **Region** page, when I click a route card, then I should see the route detail with a Leaflet map and a visible GPX overlay.
@@ -1072,6 +1078,7 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 [US-13]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
 [US-14]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
 [US-15]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
+[US-16]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/18
 
 ---
 
