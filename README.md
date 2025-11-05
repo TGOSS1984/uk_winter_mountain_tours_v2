@@ -142,9 +142,10 @@ User Stories in this README map to the same IDs/titles used on the board.
   - Paginated results – routes are displayed in pages of 9 cards, with pagination controls.
   - Non-destructive – feature is isolated from existing booking pages; the All Routes page is for discovery only.
 - **CRUD Coverage Note**
-  - **Create/Delete:** User-facing booking create and cancel flows.
+  - **Create/Cancel:** User-facing booking create and cancel flows.
   - **Read:** Booking list/detail and route/region browsing.
   - **Update:** Restricted to staff via Django Admin (safety & conflict prevention).
+  - **Delete:** Authenticated users can permanently remove their own bookings via a confirmation page. Deletions call Django ORM `.delete()`, fully removing the row (not a soft delete). Covered by automated tests that verify the object no longer exists post-delete.
 
 ### Authorisation & Permissions Matrix
 
@@ -153,6 +154,7 @@ User Stories in this README map to the same IDs/titles used on the board.
 | View regions/routes           | ✅        | ✅                 | ✅              |
 | Create booking                | ❌        | ✅                 | ✅              |
 | Cancel own booking            | ❌        | ✅ (own only)      | ✅              |
+| Delete own booking            | ❌        | ✅ (own only)      | ✅              |
 | Manage guides/routes/bookings | ❌        | ❌                 | ✅ (Admin)      |
 
 ---
@@ -242,6 +244,11 @@ Examples:
     - **Issue:** [US-16]
     - **Implementation:** Added `clean_date()` to `BookingForm` in `bookings/forms.py` to validate that selected dates are today or later. Updated `__init__` to set the `min` attribute on the HTML5 date picker so users can’t pick past days in the browser. No model changes required.
     - **Tests:** `bookings/tests/test_booking_date_validation.py` (rejects past dates, allows today); **Manual:** browser date picker starts at today, past dates disabled.
+
+17. **As a user, I want to be able to permanently delete my bookings, so that I can fully manage and remove my data if needed.**
+    - **Issue:** [US-17]
+    - **Implementation:** Added `booking_delete` view in `bookings/views.py` to perform a true hard delete using the Django ORM `.delete()` method. Registered new route in `bookings/urls.py` and created a confirmation page `booking_confirm_delete.html` to prevent accidental deletions. Updated `booking_list.html` to include a visible “Delete” button for each booking, restricted to authenticated owners. Ownership and authentication checks added to ensure users can only delete their own bookings.
+    - **Tests:** `bookings/tests/test_delete.py` (verifies hard delete removes record from DB, login required, and 404 for non-owners); **Manual:** user clicks “Delete” → confirm page shown → booking permanently removed → success message displayed on bookings list.
 
 _Notes:_ Some closely related user stories share a single GitHub Issue when implemented in the same change set.
 
@@ -486,101 +493,215 @@ Production-friendly error pages are provided:
 
 ## Installation & Local Setup
 
-1. **Clone repo**
+Follow these steps to install and run the project locally. This guide assumes no prior Django experience — every step is explained clearly.
+
+---
+
+1. **Clone the Repository**
+   Download or clone the project to your local machine.
 
    ```bash
    git clone <repo-url>
    cd uk_winter_mountain_tours_v2
    ```
 
-2. **Create virtualenv & install Python requirements**
+---
+
+2. **Set Up Python & Virtual Environment**
+   Create a virtual environment to isolate dependencies.
 
    ```bash
-   python -m venv venv
+   python -m venv .venv
+   # Activate environment
    # Windows
-   venv\Scripts\activate
+   .venv\Scripts\activate
    # macOS/Linux
-   # source venv/bin/activate
+   source .venv/bin/activate
+
+   # Install Python dependencies
    pip install -r requirements.txt
    ```
 
-3. **Install Node dependencies**
+---
+
+3. **Install Node.js Dependencies (if applicable)**
+
+   This project includes some front-end assets (JS/CSS) managed through Node.  
+   Install dependencies before running the app:
 
    ```bash
    npm install
    ```
 
-4. **Set up environment**
-   - Copy `.env.example` → `.env`
-   - Adjust values for local dev
+---
 
-5. **Migrate & seed database**
+4. **Set Up Environment Variables**
+   Copy `.env.example` → `.env`, then open the new file and fill in the values below.
+
+   ### Minimal local development setup:
+
+   ```bash
+   DEBUG=True
+   SECRET_KEY=dev-secret-key
+   ALLOWED_HOSTS=localhost,127.0.0.1
+   CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000,http://localhost:8000
+   # DATABASE_URL=postgres://... (optional; defaults to SQLite)
+   ```
+
+   These settings ensure Django runs locally with debugging enabled.
+
+---
+
+5. **Apply Migrations & Seed Data**
+   Migrations create the database structure, and seed files populate it with test data.
 
    ```bash
    python manage.py migrate
    python manage.py loaddata bookings/fixtures/dev_seed.json
-   # Optional: also load routes.json if split
+   # Optional: if routes are stored separately
    # python manage.py loaddata bookings/fixtures/routes.json
    ```
 
-6. **Run server**
+---
+
+6. **Create a Superuser (Admin Account)**
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+   You’ll be prompted to enter a username, email, and password.
+
+---
+
+7. **Run the Development Server**
+   Start the local web server.
 
    ```bash
    python manage.py runserver
    ```
 
-7. **Emails**
+   Visit the app in your browser:  
+   👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-   In development, emails use the console backend (printed in the terminal). In CI tests, the locmem backend is used. In production, configure SMTP via the variables in **Environment Variables → Email (prod)**.
+---
+
+8. **Emails (Local / CI / Production)**
+
+   In development, emails are printed to the console. In CI, Django uses a memory backend.  
+   For production, configure SMTP credentials (e.g. SendGrid or Gmail).
+
+   ### Email (development)
+
+   ```
+   EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+   DEFAULT_FROM_EMAIL="UK Winter Tours <no-reply@example.com>"
+   ENABLE_EMAIL_NOTIFICATIONS=1
+   ```
+
+   ### Email (CI)
+
+   ```
+   EMAIL_BACKEND=django.core.mail.backends.locmem.EmailBackend
+   ENABLE_EMAIL_NOTIFICATIONS=1
+   ```
+
+   ### Email (production)
+
+   ```
+   EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+   EMAIL_HOST=smtp.sendgrid.net
+   EMAIL_HOST_USER=apikey
+   EMAIL_HOST_PASSWORD=your-sendgrid-api-key
+   EMAIL_PORT=587
+   EMAIL_USE_TLS=1
+   DEFAULT_FROM_EMAIL="UK Winter Tours <no-reply@your-domain.com>"
+   ENABLE_EMAIL_NOTIFICATIONS=1
+   ```
 
 ---
 
 ## Environment Variables
 
-From `.env.example`:
+Below is the full `.env` reference for all environments.
 
-```
+```bash
+# Core Django settings
 DEBUG=1
 ALLOWED_HOSTS=127.0.0.1,localhost
-CSRF_TRUSTED_ORIGINS=
+CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000,http://localhost:8000
 SECRET_KEY=change-me
-```
 
-Recommended production additions:
+# Database (optional - will default to SQLite)
+# DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DBNAME
 
-```
-DEBUG=0
-ALLOWED_HOSTS=your-domain.com, your-heroku-app.herokuapp.com
-CSRF_TRUSTED_ORIGINS=https://your-heroku-app.herokuapp.com,https://your-domain.com
-DATABASE_URL=postgres://...
-```
-
-### Email (dev)
-
-```
+# Email setup (choose backend depending on environment)
 EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 DEFAULT_FROM_EMAIL="UK Winter Tours <no-reply@example.com>"
 ENABLE_EMAIL_NOTIFICATIONS=1
+
+# Static & media (if using cloud storage, configure here)
+# AWS_STORAGE_BUCKET_NAME=...
+# AWS_ACCESS_KEY_ID=...
+# AWS_SECRET_ACCESS_KEY=...
 ```
 
-### Email (CI)
+Recommended production overrides:
 
-```
-EMAIL_BACKEND=django.core.mail.backends.locmem.EmailBackend
-ENABLE_EMAIL_NOTIFICATIONS=1
+```bash
+DEBUG=0
+ALLOWED_HOSTS=your-domain.com,your-heroku-app.herokuapp.com
+CSRF_TRUSTED_ORIGINS=https://your-domain.com,https://your-heroku-app.herokuapp.com
+DATABASE_URL=postgres://...
 ```
 
-### Email (prod)
+---
 
+### Deployment (Example: Heroku)
+
+Follow these steps to deploy your app to Heroku or a similar cloud platform.
+
+1. **Create App**
+
+```bash
+heroku create
+heroku buildpacks:add heroku/python
 ```
-EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
-EMAIL_HOST=smtp.sendgrid.net
-EMAIL_HOST_USER=apikey
-EMAIL_HOST_PASSWORD=...
-EMAIL_PORT=587
-EMAIL_USE_TLS=1
-DEFAULT_FROM_EMAIL="UK Winter Tours <no-reply@your-domain.com>"
-ENABLE_EMAIL_NOTIFICATIONS=1
+
+2. **Set Config Variables**
+
+```bash
+heroku config:set SECRET_KEY="<random>"
+heroku config:set DISABLE_COLLECTSTATIC=1
+heroku config:set ALLOWED_HOSTS="<your-app>.herokuapp.com"
+```
+
+3. **Deploy Code**
+
+```bash
+git push heroku main
+```
+
+4. **Run Migrations & Create Superuser**
+
+```bash
+heroku run python manage.py migrate
+heroku run python manage.py createsuperuser
+```
+
+5. **Visit the Live App**
+
+```text
+https://<your-app>.herokuapp.com
+```
+
+---
+
+**Final Tip:**  
+Before deploying, always verify your app runs locally without errors and passes all tests.
+
+```bash
+python manage.py test
 ```
 
 **Secrets & Security**
@@ -872,7 +993,7 @@ Heroku automatically provides `DATABASE_URL` for **Heroku Postgres**, which this
 - Core models & relationships ✅
 - Business rules (no double booking) ✅
 - Defensive validation documented (past-date, double-booking; CSRF test planned) ✅
-- CRUD explained (Create/Read/Delete user-facing, Update via admin with rationale) ✅
+- CRUD explained (Create/Read/Delete user-facing, Update via admin with rationale. Update - now added true Delete for CRUD ) ✅
 
 **LO3 — Implementation & Code Quality**
 
@@ -939,6 +1060,8 @@ Legend: ✅ covered | ⚠️ partial | ⬜ planned/future enhancement
   ![Booking Confirmation](assets/images/screenshots/ux/booking_create.PNG)
 - Booking Cancellation  
   ![Booking Cancellation](assets/images/screenshots/ux/booking_cancel.PNG)
+- Booking Delete
+  ![Booking Delete](assets/images/screenshots/ux/booking_delete.PNG)
 - Custom 404 Page
   ![Custom 404 Page](assets/images/screenshots/tests/404_screen.PNG)
 
@@ -1184,6 +1307,7 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 [US-14]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
 [US-15]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
 [US-16]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/18
+[US-17]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/19
 
 ---
 
