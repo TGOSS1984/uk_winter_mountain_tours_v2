@@ -58,22 +58,23 @@
           <td>{{ b.get_status_display }}</td>
 
           <td class="text-end">
-            {# Soft cancel: only for upcoming, non-cancelled bookings #}
-            {% if b.date >= today and b.status != 'cancelled' %}
-            <form method="post" action="{% url 'booking_cancel' b.pk %}" class="d-inline">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-outline-warning btn-sm"
-                onclick="return confirm('Cancel this booking?');">
-                Cancel
-              </button>
-            </form>
-            {% endif %}
+            <div class="d-flex flex-wrap justify-content-end gap-2">
+              {# Soft cancel: only for upcoming, non-cancelled bookings #}
+              {% if b.date >= today and b.status != 'cancelled' %}
+              <form method="post" action="{% url 'booking_cancel' b.pk %}" class="m-0">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-warning btn-sm"
+                  onclick="return confirm('Cancel this booking?');">
+                  Cancel
+                </button>
+              </form>
+              {% endif %}
 
-            {# Hard delete: always visible to owner (this page is owner-scoped) #}
-            <a href="{% url 'booking_delete' b.pk %}" class="btn btn-outline-danger btn-sm ms-1">
-              Delete
-            </a>
+              <a href="{% url 'booking_update' b.pk %}" class="btn btn-outline-primary btn-sm">Edit</a>
+              <a href="{% url 'booking_delete' b.pk %}" class="btn btn-outline-danger btn-sm">Delete</a>
+            </div>
           </td>
+
 
         </tr>
         {% endfor %}

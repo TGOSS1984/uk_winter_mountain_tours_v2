@@ -144,7 +144,7 @@ User Stories in this README map to the same IDs/titles used on the board.
 - **CRUD Coverage Note**
   - **Create/Cancel:** User-facing booking create and cancel flows.
   - **Read:** Booking list/detail and route/region browsing.
-  - **Update:** Restricted to staff via Django Admin (safety & conflict prevention).
+  - **Update:** Originally restricted to staff via Django Admin (safety & conflict prevention). Now added user Edit button to amend a booking
   - **Delete:** Authenticated users can permanently remove their own bookings via a confirmation page. Deletions call Django ORM `.delete()`, fully removing the row (not a soft delete). Covered by automated tests that verify the object no longer exists post-delete.
 
 ### Authorisation & Permissions Matrix
@@ -155,6 +155,7 @@ User Stories in this README map to the same IDs/titles used on the board.
 | Create booking                | ❌        | ✅                 | ✅              |
 | Cancel own booking            | ❌        | ✅ (own only)      | ✅              |
 | Delete own booking            | ❌        | ✅ (own only)      | ✅              |
+| Edit/Update own booking       | ❌        | ✅ (own only)      | ✅              |
 | Manage guides/routes/bookings | ❌        | ❌                 | ✅ (Admin)      |
 
 ---
@@ -249,6 +250,11 @@ Examples:
     - **Issue:** [US-17]
     - **Implementation:** Added `booking_delete` view in `bookings/views.py` to perform a true hard delete using the Django ORM `.delete()` method. Registered new route in `bookings/urls.py` and created a confirmation page `booking_confirm_delete.html` to prevent accidental deletions. Updated `booking_list.html` to include a visible “Delete” button for each booking, restricted to authenticated owners. Ownership and authentication checks added to ensure users can only delete their own bookings.
     - **Tests:** `bookings/tests/test_delete.py` (verifies hard delete removes record from DB, login required, and 404 for non-owners); **Manual:** user clicks “Delete” → confirm page shown → booking permanently removed → success message displayed on bookings list.
+
+18. **As a user, I want to edit my booking (date/time), so I can adjust plans without rebooking.**
+    - **Issue:** [US-18]
+    - **Implementation:** Added `booking_update` view, `BookingUpdateForm` (excludes self from conflict checks), URL route `<pk>/edit/`, template `templates/bookings/booking_form_update.html`, and “Edit” button on `booking_list.html`.
+    - **Tests:** `bookings/tests/test_update.py` (owner can edit; non-owner 404; past date rejected).
 
 _Notes:_ Some closely related user stories share a single GitHub Issue when implemented in the same change set.
 
@@ -1308,6 +1314,7 @@ Planned upgrade: In a future iteration, these CTAs will be wired to either a lig
 [US-15]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/3
 [US-16]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/18
 [US-17]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/19
+[US-18]: https://github.com/TGOSS1984/uk_winter_mountain_tours_v2/issues/20
 
 ---
 

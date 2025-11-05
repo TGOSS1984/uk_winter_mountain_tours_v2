@@ -7,7 +7,7 @@ from django.utils.decorators import method_decorator
 from django.utils.timezone import now
 from django.views.generic import CreateView, ListView
 
-from .forms import BookingForm
+from .forms import BookingForm, BookingUpdateForm
 from .models import Booking, Route  # <-- add Route here
 from .services import send_booking_email
 
@@ -145,3 +145,25 @@ def booking_delete(request, pk):
         return redirect("booking_list")
 
     return render(request, "bookings/booking_confirm_delete.html", {"booking": booking})
+
+
+# NEW: Update booking
+@login_required
+def booking_update(request, pk):
+    """Allow a user to edit their own booking."""
+    booking = get_object_or_404(Booking, pk=pk, user=request.user)
+
+    if request.method == "POST":
+        form = BookingUpdateForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Booking updated successfully.")
+            return redirect("booking_list")
+    else:
+        form = BookingUpdateForm(instance=booking)
+
+    return render(
+        request,
+        "bookings/booking_form_update.html",
+        {"form": form, "booking": booking},
+    )

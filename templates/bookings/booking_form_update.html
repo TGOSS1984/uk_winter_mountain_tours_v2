@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="hero-section d-flex align-items-center">
+    <div class="container-fluid">
+        <div class="row flex-column-reverse flex-lg-row">
+            <div
+                class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+                <h1 class="display-4 fw-bold text-white">Edit Booking</h1>
+                <p class="lead text-white">Change your date or time slot below and save.</p>
+            </div>
+            <div class="col-lg-6 p-0">
+                <img src="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}" alt="Hero"
+                    class="img-fluid w-100 h-100 object-fit-cover hero-img">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container my-5">
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="row g-3">
+            {% for field in form %}
+            <div class="col-md-6">
+                <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}
+                {% for err in field.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn cta-btn">Save changes</button>
+            <a href="{% url 'booking_list' %}" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

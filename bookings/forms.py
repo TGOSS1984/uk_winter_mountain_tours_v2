@@ -117,3 +117,33 @@ class BookingForm(forms.ModelForm):
                 )
 
         return cleaned
+
+
+class BookingUpdateForm(BookingForm):
+    """Update form that avoids self-conflict when checking availability."""
+
+    def clean(self):
+        cleaned = super().clean()
+        if self.errors:
+            return cleaned
+
+        route = cleaned.get("route")
+        guide = cleaned.get("guide")
+        date = cleaned.get("date")
+        time_slot = cleaned.get("time_slot")
+
+        if not all([route, guide, date, time_slot]):
+            return cleaned
+
+        qs = Booking.objects.filter(
+            route=route, guide=guide, date=date, time_slot=time_slot
+        )
+        # Exclude the current instance if it exists (so updating without changes is allowed)
+        if getattr(self, "instance", None) and getattr(self.instance, "pk", None):
+            qs = qs.exclude(pk=self.instance.pk)
+
+        if qs.exists():
+            raise forms.ValidationError(
+                "This guide is already booked for that date & time. Please choose another slot."
+            )
+        return cleaned

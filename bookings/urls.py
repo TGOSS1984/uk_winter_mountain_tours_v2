@@ -1,6 +1,12 @@
 from django.urls import path
 
-from .views import BookingCreateView, BookingListView, cancel_booking
+from .views import (
+    BookingCreateView,
+    BookingListView,
+    cancel_booking,
+    booking_delete,
+    booking_update,
+)
 from .views import booking_delete  # Added for full CRUD functionality - true delete
 
 from django.views.generic import TemplateView
@@ -11,6 +17,8 @@ urlpatterns = [
     path("<int:pk>/cancel/", cancel_booking, name="booking_cancel"),
     # new hard delete end point added
     path("<int:pk>/delete/", booking_delete, name="booking_delete"),
+    # new booking update
+    path("<int:pk>/edit/", booking_update, name="booking_update"),
     path(
         "thank-you/contact/",
         TemplateView.as_view(template_name="thankyou/contact.html"),
