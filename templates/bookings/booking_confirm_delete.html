@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{# --- HERO (inline, same as hero) --- #}
+<section class="hero-section d-flex align-items-center">
+    <div class="container-fluid">
+        <div class="row flex-column-reverse flex-lg-row">
+            <div
+                class="col-lg-6 d-flex flex-column justify-content-end align-items-start text-start px-5 py-5 cta-background">
+                <h1 class="display-4 display-md-3 display-sm-5 fw-bold text-white">Book your Winter Tour</h1>
+                <p class="lead fs-5 fs-md-6 fs-sm-6 text-white">
+                    Experience unforgettable tours across the UK's stunning snowy peaks
+                </p>
+                {# On this page, point the CTA to the form #}
+                <a href="#booking-form" class="btn cta-btn mt-3">Book Now</a>
+            </div>
+
+            <div class="col-lg-6 p-0">
+                <picture>
+                    <!-- ultrawide source -->
+                    <source media="(min-width: 1600px)" srcset="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}">
+                    <!-- fallback -->
+                    <img src="{% static 'images/hero/ben-nevis-scenic-hero.webp' %}" alt="Hero"
+                        class="img-fluid w-100 h-100 object-fit-cover hero-img">
+                </picture>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container my-5">
+    <h1 class="mb-3">Delete Booking</h1>
+    <p class="lead">
+        You are about to permanently delete your booking for:
+    </p>
+    <ul>
+        <li><strong>Route:</strong> {{ booking.route.name }}</li>
+        <li><strong>Guide:</strong> {{ booking.guide.name }}</li>
+        <li><strong>Date:</strong> {{ booking.date }}</li>
+        <li><strong>Time:</strong> {{ booking.get_time_slot_display }}</li>
+    </ul>
+
+    <p class="text-danger fw-semibold">This action cannot be undone.</p>
+
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete permanently</button>
+        <a href="{% url 'booking_list' %}" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
+{% endblock %}

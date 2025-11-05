@@ -127,3 +127,21 @@ def cancel_booking(request, pk):
     )
     messages.success(request, "Booking cancelled.")
     return redirect("booking_list")
+
+
+# NEW: true delete
+@login_required
+def booking_delete(request, pk):
+    """
+    GET: show a confirmation page.
+    POST: permanently delete the user's own booking (hard delete).
+    """
+    booking = get_object_or_404(Booking, pk=pk, user=request.user)
+
+    if request.method == "POST":
+        # HARD DELETE: remove the row from the database
+        booking.delete()
+        messages.success(request, "Booking deleted permanently.")
+        return redirect("booking_list")
+
+    return render(request, "bookings/booking_confirm_delete.html", {"booking": booking})
