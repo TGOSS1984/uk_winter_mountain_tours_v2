@@ -1066,6 +1066,8 @@ Legend: ✅ covered | ⚠️ partial | ⬜ planned/future enhancement
   ![Booking Confirmation](assets/images/screenshots/ux/booking_create.PNG)
 - Booking Cancellation  
   ![Booking Cancellation](assets/images/screenshots/ux/booking_cancel.PNG)
+- Booking Edit
+  ![Booking Edit](assets/images/screenshots/ux/booking_edit.PNG)
 - Booking Delete
   ![Booking Delete](assets/images/screenshots/ux/booking_delete.PNG)
 - Custom 404 Page

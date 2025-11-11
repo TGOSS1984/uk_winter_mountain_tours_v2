@@ -55,12 +55,14 @@
             <!-- Newsletter -->
             <div class="col-md-4 mb-4">
               <h3 class="h5 fw-bold mb-3">Subscribe to Newsletter</h3>
-              <form>
+              <form method="post" action="{% url 'newsletter_subscribe' %}">
+                {% csrf_token %}
                 <div class="input-group">
-                  <input type="email" class="form-control" placeholder="Your email">
-                  <a class="btn btn-secondary" href="{% url 'thank_you_subscribe' %}">Subscribe</a>
+                  <input type="email" class="form-control" placeholder="Your email" name="email" required>
+                  <button type="submit" class="btn btn-secondary">Subscribe</button>
                 </div>
               </form>
+
             </div>
 
             <!-- Contact Us (placeholder flow) -->

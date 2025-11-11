@@ -1,4 +1,7 @@
 # bookings/views.py
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
@@ -167,3 +170,20 @@ def booking_update(request, pk):
         "bookings/booking_form_update.html",
         {"form": form, "booking": booking},
     )
+
+
+def newsletter_subscribe(request):
+    if request.method != "POST":
+        # If someone visits directly, just send them to the thank-you page
+        return redirect("thank_you_subscribe")
+
+    email = (request.POST.get("email") or "").strip()
+    try:
+        validate_email(email)
+        # TODO: optionally save email or send confirmation email here
+        return redirect("thank_you_subscribe")
+    except ValidationError:
+        # Re-render the page or show an error template
+        return render(
+            request, "subscribe_error.html", {"error": "Invalid email address"}
+        )
